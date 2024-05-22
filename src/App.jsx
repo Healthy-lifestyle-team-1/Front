@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <div>qwerty</div>
+      <div>Здесь будет наш прекрасный проект!</div>
     </>
   )
 }
