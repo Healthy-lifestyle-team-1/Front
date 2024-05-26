@@ -2,6 +2,8 @@
 
 //colors
 $colorWhite: #ffffff;
+$colorTestBlue1: #007bff;
+$colorTestBlue2: #6610f2;
 
 @mixin width-height($width, $height: $width) {
 	width: $width;
