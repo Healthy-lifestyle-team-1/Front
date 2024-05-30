@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { FoodNew } from '../../components/FoodNew/FoodNew';
-import { TopOrders } from '../../components/TopOrders/TopOrders'
-import { BookSlider } from '../../components/ui/BookSlider/BookSlider';
+import { FoodNew } from '../FoodNew/FoodNew';
+import { TopOrders } from '../TopOrders/TopOrders'
+import { BookSlider } from '../ui/BookSlider/BookSlider';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
 
-export const FoodPage = () => {
+export const FoodField = () => {
 
   return (
     <div className={s.container}>
