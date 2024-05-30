@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Main } from "../../components/Main/Main";
+// import { Main } from "../../components/Main/Main";
+import { Header } from "../../components/Header/Header";
 import cardFood from "../../components/ui/Cards/CardFood/CardFood";
 
 import cn from 'classnames';
@@ -10,7 +11,7 @@ export const HomePage = () => {
 
   return (
     <div className={s.container}>
-      {/* <Header /> */}
+      <Header />
       {/* <Main /> */}
       <div className={s.cards}>
         {cardFood.map((card, index) => (
