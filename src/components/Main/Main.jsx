@@ -11,7 +11,7 @@ export const Main = () => {
     <div className={s.container}>
       <SliderStories />
       <div className={s.blockInfo}>
-        {/* <FoodPage /> */}
+        <FoodPage />
         {/* <BookPage /> */}
       </div>
     </div>

@@ -6,7 +6,7 @@ export const Header = () => {
 
   return (
     <div className={style.container}>
-
+      <img src={}></img>
     </div>
   )
 }
