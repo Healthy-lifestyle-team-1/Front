@@ -1,6 +1,6 @@
 import React from "react";
 
-import imgStories from "../../../assets/images/img-stories.png";
+import imgStories from "../../../../assets/images/img-stories.png";
 
 import cn from "classnames";
 import s from "./styles.module.scss";

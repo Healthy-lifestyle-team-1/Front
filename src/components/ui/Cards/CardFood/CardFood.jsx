@@ -1,6 +1,6 @@
 import React from "react";
 
-import img1 from '../../../../assets/images/plates1.jpg';
+import img1 from '../../../../assets/images/plates/plates1.jpg';
 
 import cn from 'classnames';
 import s from './styles.module.scss';

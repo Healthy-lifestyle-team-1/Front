@@ -10,3 +10,10 @@
 	flex-wrap: nowrap;
 	gap: 16px;
 }
+
+.sliderSection {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}

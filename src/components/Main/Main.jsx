@@ -1,5 +1,5 @@
 import React from 'react';
-import { SliderStories } from '../ui/SliderStories';
+import { SliderStories } from '../ui/Sliders/SliderStories';
 import { FoodField } from '../FoodField';
 
 import cn from 'classnames';
