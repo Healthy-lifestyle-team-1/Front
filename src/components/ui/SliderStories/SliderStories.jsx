@@ -1,13 +1,32 @@
 import React from "react";
 
-import cn from 'classnames';
-import s from './styles.module.scss';
+import imgStories from "../../../assets/images/img-stories.png";
 
-export const SliderStories = () => {
+import cn from "classnames";
+import s from "./styles.module.scss";
 
+export const SliderStories = ({ img }) => {
   return (
     <div className={s.container}>
-      SliderStories
+      <div className={s.stories__img}>
+        <img className={s.stories__img__img} src={img} alt="фото сторис" />
+      </div>
     </div>
-  )
-}
+  );
+};
+
+const images = [
+	{ img: imgStories }, 
+	{ img: imgStories }, 
+	{ img: imgStories }, 
+	{ img: imgStories }, 
+	{ img: imgStories }, 
+	{ img: imgStories }
+];
+
+const sliderStories = images.map((item, index) => (
+	<SliderStories key={index} {...item} />
+ ));
+
+
+export default sliderStories;
