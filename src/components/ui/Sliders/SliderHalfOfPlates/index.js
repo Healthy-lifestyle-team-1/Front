@@ -1,1 +1,1 @@
-export * from './SliderHalfOfPlates'
+export {default} from './SliderHalfOfPlates';

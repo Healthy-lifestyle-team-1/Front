@@ -6,12 +6,14 @@ import { Header } from "../../components/Header/Header";
 
 import cn from 'classnames';
 import s from './styles.module.scss';
+import { SliderHalfOfPlates } from "../../components/ui/Sliders/SliderHalfOfPlates/SliderHalfOfPlates";
 
 export const HomePage = () => {
 
   return (
     <div className={s.container}>
       <Header />
+      {/* <SliderHalfOfPlates /> */}
       {/* <Main /> */}
       {/* <div className={s.stories}>
         {sliderStories.map((story, index) => (
