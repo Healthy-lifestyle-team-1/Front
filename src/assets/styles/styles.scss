@@ -1,16 +1,4 @@
 @use 'sass:map' ;
 @import './variables.scss';
 
-@import './themes/themes.scss';
 
-body {
-  @include themed;
-}
-
-body.theme-light {
-  background-color: t(light, 'testBackground');
-}
-
-body.theme-dark {
-  background-color: t(dark, 'testBackground');
-}
