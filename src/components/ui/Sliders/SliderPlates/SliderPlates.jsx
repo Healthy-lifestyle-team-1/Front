@@ -1,16 +1,15 @@
 import React from "react";
 import Slider from "react-slick";
+
 import plateImg from "../../../../assets/images/halfofplates/left/левая.png";
+
 import cn from "classnames";
 import s from "./styles.module.scss";
 
 
 const SliderPlates = () => {
   return (
-    <img className={s.sliderPlates__img}
-      src={plateImg}
-      alt=""
-    />
+    <img className={s.sliderPlates__img} src={plateImg} alt='plate' />
   );
 };
 
@@ -31,7 +30,7 @@ export function VerticalMode() {
     },
   };
   return (
-    <div className="slider-container">
+    <div className={cn("slider-container", s.sliderContainer)}>
       <Slider {...settings}>
         <div><SliderPlates /></div>
         <div><SliderPlates /></div>

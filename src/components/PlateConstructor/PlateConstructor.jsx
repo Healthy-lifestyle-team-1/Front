@@ -1,9 +1,12 @@
 import React from 'react';
 
+import { Button } from '../ui/Button/Button';
+// import { SliderPlates } from '../ui/Sliders/SliderPlates';
+import { VerticalMode } from '../ui/Sliders/SliderPlates';
+
 import cn from 'classnames';
 import s from './styles.module.scss';
-import { Button } from '../ui/Button/Button';
-import { SliderPlates } from '../ui/Sliders/SliderPlates/SliderPlates';
+
 
 export const PlateConstructor = () => {
   const tags = ['глютен', 'сахар', 'мучное', 'лук', 'морковь', 'ещё'];
@@ -31,7 +34,7 @@ export const PlateConstructor = () => {
             )}
           >
             {/* Первый блок с половинкой тарелки */}
-				<SliderPlates></SliderPlates>
+				<VerticalMode />
             <div className={s.plateConstructor__constructorBlock}></div>
           </div>
           <div
@@ -56,4 +59,4 @@ export const PlateConstructor = () => {
       </div>
     </div>
   );
-};
+}
