@@ -1,1 +1,1 @@
-export * from './SliderPlates'
+export * from './SliderPlates';

@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import cn from "classnames";
-import s from "./styles.module.scss";
-import { Button } from "../ui/Button/Button";
+import cn from 'classnames';
+import s from './styles.module.scss';
+import { Button } from '../ui/Button/Button';
+import { SliderPlates } from '../ui/Sliders/SliderPlates/SliderPlates';
 
 export const PlateConstructor = () => {
-  const tags = ["глютен", "сахар", "мучное", "лук", "морковь", "ещё"];
+  const tags = ['глютен', 'сахар', 'мучное', 'лук', 'морковь', 'ещё'];
 
   return (
     <div className={s.container}>
@@ -30,6 +31,7 @@ export const PlateConstructor = () => {
             )}
           >
             {/* Первый блок с половинкой тарелки */}
+				<SliderPlates></SliderPlates>
             <div className={s.plateConstructor__constructorBlock}></div>
           </div>
           <div
