@@ -1,19 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import App from './App.jsx';
-import ThemeProvider from './core/theme/ThemeProvider';
+import {store} from './core/store/store.js';
+// import ThemeProvider from './core/theme/ThemeProvider';
 
-import './index.css';
+import './index.scss';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeProvider>
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </ThemeProvider>
+    </Provider>
   </React.StrictMode>
 );
