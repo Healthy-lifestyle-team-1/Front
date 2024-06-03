@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Button } from '../ui/Button/Button';
-// import { SliderPlates } from '../ui/Sliders/SliderPlates';
 import { SliderPlates } from '../ui/Sliders/SliderPlates'
 
 

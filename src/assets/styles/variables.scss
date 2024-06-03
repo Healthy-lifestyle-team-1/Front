@@ -7,15 +7,19 @@
 // $colorTestBlue2: #6610f2;
 
 
-$baseMainBackgroungColor: #F7F4E8;
-$color1: #B19069;
-$color2: #FE907A;
-$color3: #E2DD01;
-$color4: #2E3A45;
-$color5: #E08AAC;
-$color6: #D5975A;
-$color7: #C7A165;
-$color8: #AEDADE;
+$mainLight: #F7F4E8;
+$green: #AEDEB6;
+$blueLight: #AEDADE;
+$mainPeach: #FE907A;
+$mainGreenapple: #E2DD01;
+$color1: #E7B959;
+$mainDark: #2E3A45;
+$brown: #B19069;
+$blueDark: #59A2A9;
+$violet: #E08AAC;
+$color2: #C7A165;
+$color3: #D5975A;
+
 
 @mixin width-height($width, $height: $width) {
 	width: $width;
