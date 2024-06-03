@@ -24,6 +24,10 @@ const PrevArrow = props => {
   );
 };
 
+const HiddenArrow = () => {
+  return null;
+};
+
 export const SliderPlates = () => {
   const leftSettings = {
     infinite: true,
@@ -31,6 +35,7 @@ export const SliderPlates = () => {
     verticalSwiping: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <HiddenArrow />,
     prevArrow: <PrevArrow />,
   };
 
@@ -41,6 +46,7 @@ export const SliderPlates = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
+    prevArrow: <HiddenArrow />,
   };
 
   const leftImages = [leftImage, leftImage, leftImage, leftImage];
