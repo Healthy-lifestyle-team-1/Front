@@ -1,6 +1,7 @@
 import React from 'react';
 // import { Main } from "../../components/Main/Main";
 import { Header } from '../../components/Header/Header';
+import { PlateConstructor } from '../../components/PlateConstructor'
 // import cardFood from "../../components/ui/Cards/CardFood/CardFood";
 // import sliderStories from "../../components/ui/Sliders/SliderStories";
 // import { PlateConstructor } from '../../components/PlateConstructor/PlateConstructor';
@@ -13,7 +14,10 @@ export const HomePage = () => {
   return (
     <div className={s.container}>
       <Header />
-      <SliderPlates />
+		<PlateConstructor>
+
+		</PlateConstructor>
+      
       {/* <PlateConstructor></PlateConstructor> */}
       {/* <Main /> */}
       {/* <div className={s.stories}>

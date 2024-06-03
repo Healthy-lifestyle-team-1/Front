@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Button } from '../ui/Button/Button';
 // import { SliderPlates } from '../ui/Sliders/SliderPlates';
-import { SliderLeftPart } from '../ui/Sliders/SliderPlateLeftPart';
-import { SliderRightPart } from '../ui/Sliders/SliderPlateRightPart';
+import { SliderPlates } from '../ui/Sliders/SliderPlates'
+
 
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -34,7 +34,7 @@ export const PlateConstructor = () => {
             )}
           >
             {/* Первый блок с половинкой тарелки */}
-            <SliderLeftPart />
+				<SliderPlates />
             <div className={s.plateConstructor__constructorBlock}></div>
           </div>
           <div
@@ -44,7 +44,7 @@ export const PlateConstructor = () => {
             )}
           >
             {/* Второй блок с половинкой тарелки */}
-            <SliderRightPart />
+      
           </div>
         </div>
       </div>

@@ -1,1 +1,2 @@
-export * from './PlateConstructor'
+export { PlateConstructor } from "./PlateConstructor"
+
