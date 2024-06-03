@@ -1,0 +1,41 @@
+.carouselContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.leftSlider,
+.rightSlider {
+  width: 45%;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.leftArrow,
+.rightArrow {
+  position: absolute;
+  z-index: 1;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.leftArrow {
+  left: -30px;
+}
+
+.rightArrow {
+  right: -30px;
+}
+
+img {
+  width: 50%;
+  height: auto;
+}

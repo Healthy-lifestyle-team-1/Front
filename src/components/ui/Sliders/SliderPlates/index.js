@@ -1,3 +1,3 @@
 // export { SliderPlates } from './SliderPlates';
 
-export { VerticalMode } from './SliderPlates';
+export { SliderPlates } from './SliderPlates';

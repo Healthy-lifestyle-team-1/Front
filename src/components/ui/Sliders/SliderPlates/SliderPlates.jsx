@@ -1,44 +1,67 @@
-import React from "react";
-import Slider from "react-slick";
+import React from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
+import styles from './styles.module.scss';
+import rightImage from '../../../../assets/images/halfofplates/right/Правая.png';
+import leftImage from '../../../../assets/images/halfofplates/left/левая.png';
 
-import plateImg from "../../../../assets/images/halfofplates/left/левая.png";
-
-import cn from "classnames";
-import s from "./styles.module.scss";
-
-
-const SliderPlates = () => {
+const NextArrow = props => {
+  const { onClick } = props;
   return (
-    <img className={s.sliderPlates__img} src={plateImg} alt='plate' />
+    <button className={styles.rightArrow} onClick={onClick}>
+      ⬆️
+    </button>
   );
 };
 
+const PrevArrow = props => {
+  const { onClick } = props;
+  return (
+    <button className={styles.leftArrow} onClick={onClick}>
+      ⬇️
+    </button>
+  );
+};
 
-export function VerticalMode() {
-  const settings = {
-    dots: true,
+export const SliderPlates = () => {
+  const leftSettings = {
     infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
-    beforeChange: function (currentSlide, nextSlide) {
-      console.log("before change", currentSlide, nextSlide);
-    },
-    afterChange: function (currentSlide) {
-      console.log("after change", currentSlide);
-    },
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    prevArrow: <PrevArrow />,
   };
+
+  const rightSettings = {
+    infinite: true,
+    vertical: true,
+    verticalSwiping: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+  };
+
+  const leftImages = [leftImage, leftImage, leftImage, leftImage];
+  const rightImages = [rightImage, rightImage, rightImage, rightImage];
+
   return (
-    <div className={cn("slider-container", s.sliderContainer)}>
-      <Slider {...settings}>
-        <div><SliderPlates /></div>
-        <div><SliderPlates /></div>
-        <div><SliderPlates /></div>
-        <div><SliderPlates /></div>
-        <div><h3>5</h3></div>
-        <div><h3>6</h3></div>
+    <div className={styles.carouselContainer}>
+      <Slider {...leftSettings} className={styles.leftSlider}>
+        {leftImages.map((img, idx) => (
+          <div key={idx} className={styles.imageContainer}>
+            <img src={img} alt={`left ${idx}`} />
+          </div>
+        ))}
+      </Slider>
+      <Slider {...rightSettings} className={styles.rightSlider}>
+        {rightImages.map((img, idx) => (
+          <div key={idx} className={styles.imageContainer}>
+            <img src={img} alt={`right ${idx}`} />
+          </div>
+        ))}
       </Slider>
     </div>
   );
-}
+};
