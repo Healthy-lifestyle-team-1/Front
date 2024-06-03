@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { HeaderCatalog } from '../../components/HeaderCatalog/HeaderCatalog';
+import { Input } from '../../components/ui/Input/Input';
 import { Breakfast } from '../../components/Breakfast/Breakfast';
 import { Lunch } from '../../components/Lunch/Lunch';
-import { CardNewsList } from '../../components/News/News';  // именованный экспорт
+import { CardNewsList } from '../../components/News/News';
 import { Dinner } from '../../components/Dinner/Dinner';
 import { Desserts } from '../../components/Desserts/Desserts';
 import { Advertisement } from '../../components/Advertisement';
@@ -16,6 +17,7 @@ export const CatalogPage = () => {
   return (
     <div className={s.container}>
       <HeaderCatalog />
+      <Input />
       <Breakfast />
       <Lunch />
       <CardNewsList />
