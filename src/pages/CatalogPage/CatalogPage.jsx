@@ -3,6 +3,7 @@ import React from 'react';
 import { HeaderCatalog } from '../../components/HeaderCatalog/HeaderCatalog';
 import { Breakfast } from '../../components/Breakfast/Breakfast';
 import { Lunch } from '../../components/Lunch/Lunch';
+import { CardNewsList } from '../../components/News/News';  // именованный экспорт
 import { Dinner } from '../../components/Dinner/Dinner';
 import { Desserts } from '../../components/Desserts/Desserts';
 import { Advertisement } from '../../components/Advertisement';
@@ -17,6 +18,7 @@ export const CatalogPage = () => {
       <HeaderCatalog />
       <Breakfast />
       <Lunch />
+      <CardNewsList />
       <Dinner />
       <Advertisement />
       <Desserts />
