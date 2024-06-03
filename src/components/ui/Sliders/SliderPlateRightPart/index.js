@@ -1,0 +1,1 @@
+export { SliderRightPart } from './SliderPlateRightPart';

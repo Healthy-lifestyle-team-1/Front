@@ -3,6 +3,7 @@ import React from "react";
 import { Header } from "../../components/Header/Header";
 // import cardFood from "../../components/ui/Cards/CardFood/CardFood";
 // import sliderStories from "../../components/ui/Sliders/SliderStories";
+import { PlateConstructor } from "../../components/PlateConstructor/PlateConstructor";
 
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -13,6 +14,7 @@ export const HomePage = () => {
   return (
     <div className={s.container}>
       <Header />
+		<PlateConstructor></PlateConstructor>
       {/* <SliderHalfOfPlates /> */}
       {/* <Main /> */}
       {/* <div className={s.stories}>
