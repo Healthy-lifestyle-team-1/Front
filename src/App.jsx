@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage';
 import Theme from './assets/styles/themes/index';
 
 import './App.css';
+import { CatalogPage } from './pages/CatalogPage/CatalogPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <div>Здесь будет наш прекрасный проект!</div>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/catalog" element={<CatalogPage />} />
         {/* <Route path="/userpage" element={<UserPage />} /> */}
       </Routes>
     </div>
