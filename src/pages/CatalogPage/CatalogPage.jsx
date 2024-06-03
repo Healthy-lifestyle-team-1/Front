@@ -17,7 +17,7 @@ export const CatalogPage = () => {
   return (
     <div className={s.container}>
       <HeaderCatalog />
-      <Input />
+      <Input width='500px' color='transparent' placeholder='Поиск'/>
       <Breakfast />
       <Lunch />
       <CardNewsList />
