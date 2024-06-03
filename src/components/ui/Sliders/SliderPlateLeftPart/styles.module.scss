@@ -1,8 +1,25 @@
 .sliderContainer {
-	width: 200px;
+  width: 170px;
 }
 
-.slider-vertical .slick-prev:before, .slider-vertical .slick-next:before {
-	display: none;
-}
+.slider-container {
+  .plateSliderPrevBtn,
+  .plateSliderNextBtn {
+    background-color: red;
+    color: rgb(189, 129, 129);
 
+    &:hover {
+      background-color: blue;
+    }
+  }
+
+  .plateSliderPrevBtn {
+    background-color: red;
+    color: rgb(189, 129, 129);
+  }
+
+  .plateSliderNextBtn {
+    background-color: red;
+    color: rgb(189, 129, 129);
+  }
+}

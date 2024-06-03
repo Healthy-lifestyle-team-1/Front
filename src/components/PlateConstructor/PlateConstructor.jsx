@@ -8,7 +8,6 @@ import { SliderRightPart } from '../ui/Sliders/SliderPlateRightPart';
 import cn from 'classnames';
 import s from './styles.module.scss';
 
-
 export const PlateConstructor = () => {
   const tags = ['глютен', 'сахар', 'мучное', 'лук', 'морковь', 'ещё'];
 
@@ -24,37 +23,36 @@ export const PlateConstructor = () => {
         <div className={s.plateConstructor__tagBtns}>
           {/* кнопки-теги */}
           {tags.map((tag, index) => (
-            <Button key={index} variant='gray' isTag title={tag} />
+            <Button key={index} variant="gray" isTag title={tag} />
           ))}
         </div>
         <div className={s.plateConstructor__constructorBlock}>
           <div
             className={cn(
               s.plateConstructor__plateHalf,
-              s['plateConstructor__plateHalf--first']
+              s['plateConstructor__plateHalf--first'],
             )}
           >
             {/* Первый блок с половинкой тарелки */}
-				<SliderLeftPart />
+            <SliderLeftPart />
             <div className={s.plateConstructor__constructorBlock}></div>
           </div>
           <div
             className={cn(
               s.plateConstructor__plateHalf,
-              s['plateConstructor__plateHalf--second']
+              s['plateConstructor__plateHalf--second'],
             )}
           >
             {/* Второй блок с половинкой тарелки */}
-				<SliderRightPart />
-				
+            <SliderRightPart />
           </div>
         </div>
       </div>
       <div className={s.plateConstructor__btn}>
         <Button
           className={s.button}
-          width='280px'
-          title='Собрать тарелку'
+          width="280px"
+          title="Собрать тарелку"
           onClick={() => console.log('Button clicked')}
         >
           Собрать тарелку
@@ -62,4 +60,4 @@ export const PlateConstructor = () => {
       </div>
     </div>
   );
-}
+};

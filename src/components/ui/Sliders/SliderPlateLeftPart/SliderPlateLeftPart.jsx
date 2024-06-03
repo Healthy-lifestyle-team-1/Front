@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import Slider from "react-slick";
 import $ from "jquery";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+//import "slick-carousel/slick/slick.css";
+//import "slick-carousel/slick/slick-theme.css";
 
 import plateImg from "../../../../assets/images/halfofplates/left/левая.png";
 
@@ -12,7 +12,7 @@ import s from "./styles.module.scss";
 const PrevArrow = ({ className, style, onClick }) => (
   <button
     type="button"
-    className={className}
+    className={cn(className, s.plateSliderPrevBtn)}
     style={{ ...style }}
     onClick={onClick}
     aria-label="Previous"
@@ -24,7 +24,7 @@ const PrevArrow = ({ className, style, onClick }) => (
 const NextArrow = ({ className, style, onClick }) => (
   <button
     type="button"
-    className={className}
+    className={cn(className, s.plateSliderNextBtn)}
     style={{ ...style }}
     onClick={onClick}
     aria-label="Next"
@@ -49,12 +49,6 @@ export function SliderLeftPart() {
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
     responsive: [],
-    beforeChange: (currentSlide, nextSlide) => {
-      console.log("before change", currentSlide, nextSlide);
-    },
-    afterChange: (currentSlide) => {
-      console.log("after change", currentSlide);
-    },
   };
 
   useEffect(() => {
