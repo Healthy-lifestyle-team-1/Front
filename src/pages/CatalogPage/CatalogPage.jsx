@@ -2,6 +2,7 @@ import React from 'react';
 
 import { HeaderCatalog } from '../../components/HeaderCatalog/HeaderCatalog';
 import { Input } from '../../components/ui/Input/Input';
+import { NavCatalog } from '../../components/NavCatalog/NavCatalog';
 import { Breakfast } from '../../components/Breakfast/Breakfast';
 import { Lunch } from '../../components/Lunch/Lunch';
 import { CardNewsList } from '../../components/News/News';
@@ -17,7 +18,8 @@ export const CatalogPage = () => {
   return (
     <div className={s.container}>
       <HeaderCatalog />
-      <Input width='500px' color='transparent' placeholder='Поиск'/>
+      <Input width="500px" color="transparent" placeholder="Поиск" />
+      <NavCatalog />
       <Breakfast />
       <Lunch />
       <CardNewsList />
