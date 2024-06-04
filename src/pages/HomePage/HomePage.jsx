@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Main } from "../../components/Main/Main";
 import { Header } from '../../components/Header/Header';
-import { PlateConstructor } from '../../components/PlateConstructor'
+import { PlateConstructor } from '../../components/PlateConstructor';
 import { ThemeSwitcher } from '../../components/ui/ThemeSwitcher';
 // import cardFood from "../../components/ui/Cards/CardFood/CardFood";
 // import sliderStories from "../../components/ui/Sliders/SliderStories";
@@ -10,16 +10,20 @@ import { ThemeSwitcher } from '../../components/ui/ThemeSwitcher';
 import cn from 'classnames';
 import s from './styles.module.scss';
 import { SliderPlates } from '../../components/ui/Sliders/SliderPlates';
+import { Input } from '../../components/ui/Input/Input';
 
 export const HomePage = () => {
+  const handleSearch = query => {
+    console.log('Searching for:', query);
+  };
+
   return (
     <div className={s.container}>
       <Header />
-		<ThemeSwitcher/>
-		<PlateConstructor>
+      <ThemeSwitcher />
+      <Input onSearch={handleSearch} width="300px" color="#E08AAC" />
+      <PlateConstructor></PlateConstructor>
 
-		</PlateConstructor>
-      
       {/* <PlateConstructor></PlateConstructor> */}
       {/* <Main /> */}
       {/* <div className={s.stories}>
