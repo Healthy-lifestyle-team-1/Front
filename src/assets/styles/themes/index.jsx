@@ -1,12 +1,13 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 import { ThemeSwitcher } from '../../../components/ui/ThemeSwitcher';
 import { set } from './slice';
 import s from './index.module.scss';
+import { TRUE } from 'sass';
 
 const Theme = ({ className }) => {
-  const theme = useSelector((state) => state.theme);
+  const theme = useSelector(state => state.theme);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -21,10 +22,13 @@ const Theme = ({ className }) => {
 
   return (
     <div className={cn(className, s.root, theme === 'dark' ? s.dark : s.light)}>
-      <ThemeSwitcher width="50px" onChange={handleChange} />
+      <ThemeSwitcher
+        width="50px"
+        onChange={handleChange}
+        checked={theme === 'dark' ? true : false}
+      />
     </div>
   );
 };
 
 export default Theme;
-
