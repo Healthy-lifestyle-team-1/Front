@@ -9,15 +9,18 @@ import { PlateConstructor } from '../../components/PlateConstructor'
 import cn from 'classnames';
 import s from './styles.module.scss';
 import { SliderPlates } from '../../components/ui/Sliders/SliderPlates';
+import { Input } from '../../components/ui/Input/Input';
 
 export const HomePage = () => {
+  const handleSearch = query => {
+    console.log('Searching for:', query);
+  };
+
   return (
     <div className={s.container}>
       <Header />
-		<PlateConstructor>
+		<PlateConstructor />
 
-		</PlateConstructor>
-      
       {/* <PlateConstructor></PlateConstructor> */}
       {/* <Main /> */}
       {/* <div className={s.stories}>
