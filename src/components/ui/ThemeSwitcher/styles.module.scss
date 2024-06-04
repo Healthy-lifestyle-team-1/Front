@@ -23,29 +23,38 @@
   bottom: 0;
   right: 0;
   border-radius: 34px;
-  background-color: rgb(163, 232, 228);
+  background-color: rgb(42, 120, 122);
   transition: 0.3s;
 
   &::before {
     content: '';
     position: absolute;
     cursor: pointer;
-    left: 0px;
-    bottom: -4px;
-    height: 36px;
-    width: 36px;
+    left: -3px;
+    bottom: -7px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
-    background-color: rgb(12, 228, 235);
+    background-color: $green;
     transition: 0.4s;
+	 background-image: url('../../../assets/images/icons/switcher-sun.png');
+	 background-size: 30px 30px; 
+	 background-repeat: no-repeat;
+	 background-position: center; 
   }
 }
 
 .switcher__input:checked + .switcher__slider {
-  background-color: rgb(4, 90, 107);
+  background-color: rgb(11, 67, 78);
 
   &::before {
-    transform: translateX(36px);
-    -webkit-transform: translateX(36px);
-    -ms-transform: translateX(36px);
+    transform: translateX(40px);
+    -webkit-transform: translateX(40px);
+    -ms-transform: translateX(40px);
+	 background-color: rgb(213, 101, 21);
+	 background-image: url('../../../assets/images/icons/switcher-moon.png');
+	 background-size: 30px 30px; 
+	 background-repeat: no-repeat;
+	 background-position: center; 
   }
 }
