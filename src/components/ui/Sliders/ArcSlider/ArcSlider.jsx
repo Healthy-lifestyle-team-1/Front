@@ -5,6 +5,7 @@ import s from './styles.module.scss';
 import plateOne from '../../../../assets/images/plates/Plate.png';
 import plateTwo from '../../../../assets/images/plates/Plate5.png';
 import plateThree from '../../../../assets/images/plates/Plate2.png';
+import board from '../../../../assets/images/Board.png'
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -12,9 +13,9 @@ export const ArcSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const circlePath = MotionPathPlugin.convertToPath("#holder", false)[0];
-    circlePath.id = "circlePath";
-    const svg = document.querySelector("svg");
+    const circlePath = MotionPathPlugin.convertToPath('#holder', false)[0];
+    circlePath.id = 'circlePath';
+    const svg = document.querySelector('svg');
     if (svg) {
       svg.prepend(circlePath);
     }
@@ -27,14 +28,14 @@ export const ArcSlider = () => {
     let wrapTracker = gsap.utils.wrap(0, numItems);
     let tracker = { item: 0 };
 
-    gsap.set(items, { 
+    gsap.set(items, {
       motionPath: {
         path: circlePath,
         align: circlePath,
         alignOrigin: [0.5, 0.5],
-        end: i => i / items.length
-      }, 
-      scale: 0.9 
+        end: i => i / items.length,
+      },
+      scale: 0.9,
     });
 
     gsap.set(`.${s.wrapper}`, {
@@ -51,31 +52,39 @@ export const ArcSlider = () => {
 
     tl.to(`.${s.wrapper}`, {
       rotation: 270,
-      transformOrigin: 'center', 
-      duration: 1, 
-      ease: 'none'
+      transformOrigin: 'center',
+      duration: 1,
+      ease: 'none',
     });
 
-    tl.to(items, {
-      rotation: "-=360", 
-      transformOrigin: 'center', 
-      duration: 1, 
-      ease: 'none',
-    }, 0);
+    tl.to(
+      items,
+      {
+        rotation: '-=360',
+        transformOrigin: 'center',
+        duration: 1,
+        ease: 'none',
+      },
+      0,
+    );
 
-    tl.to(tracker, {
-      item: numItems,
-      duration: 1, 
-      ease: 'none',
-      modifiers: {
-        item(value) {
-          return wrapTracker(numItems - Math.round(value));
-        }
-      }
-    }, 0);
+    tl.to(
+      tracker,
+      {
+        item: numItems,
+        duration: 1,
+        ease: 'none',
+        modifiers: {
+          item(value) {
+            return wrapTracker(numItems - Math.round(value));
+          },
+        },
+      },
+      0,
+    );
 
     items.forEach((el, i) => {
-      el.addEventListener("click", () => {
+      el.addEventListener('click', () => {
         const current = tracker.item;
         const diff = current - i;
 
@@ -93,10 +102,14 @@ export const ArcSlider = () => {
       });
     });
 
-    document.getElementById('next')?.addEventListener("click", () => moveWheel(-itemStep));
-    document.getElementById('prev')?.addEventListener("click", () => moveWheel(itemStep));
+    document
+      .getElementById('next')
+      ?.addEventListener('click', () => moveWheel(-itemStep));
+    document
+      .getElementById('prev')
+      ?.addEventListener('click', () => moveWheel(itemStep));
 
-    const moveWheel = (amount) => {
+    const moveWheel = amount => {
       const progress = tl.progress();
       tl.progress(wrapProgress(snap(tl.progress() + amount)));
       const next = tracker.item;
@@ -105,8 +118,8 @@ export const ArcSlider = () => {
       gsap.to(tl, {
         progress: snap(tl.progress() + amount),
         modifiers: {
-          progress: wrapProgress
-        }
+          progress: wrapProgress,
+        },
       });
 
       setActiveIndex(next);
@@ -140,9 +153,11 @@ export const ArcSlider = () => {
         <div className={`${s.item} ${activeIndex === 7 ? s.active : ''}`}>
           <img className={s.itemImg} src={plateTwo} alt="" />
         </div>
-        <svg viewBox="0 0 300 300">
+		  <svg viewBox="0 0 300 300">
           <circle id="holder" className={s.st0} cx="151" cy="151" r="150" />
+          <image className={s.board} href={board} x="-110" y="-120" width="520" height="520" />
         </svg>
+        <div color={s.background}></div>
       </div>
     </div>
   );
