@@ -3,6 +3,7 @@ import React from 'react';
 import { Header } from '../../components/Header/Header';
 import { PlateConstructor } from '../../components/PlateConstructor';
 import { HelpfulArticles } from '../../components/HelpfulArticles/HelpfulArticles';
+import { Advertisement } from '../../components/Advertisement';
 // import cardFood from "../../components/ui/Cards/CardFood/CardFood";
 // import sliderStories from "../../components/ui/Sliders/SliderStories";
 // import { PlateConstructor } from '../../components/PlateConstructor/PlateConstructor';
@@ -28,7 +29,8 @@ export const HomePage = () => {
       <Button colorScheme={2} title={'Заказать'} />
       <PlateConstructor />
       <Input width="500px" colorScheme={1} />
-      <HelpfulArticles/>
+      <Advertisement />
+      <HelpfulArticles />
       <ArcSlider />
       <DropDown colorScheme={2} options={options} />
       {/* <PlateConstructor></PlateConstructor> */}

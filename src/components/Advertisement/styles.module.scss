@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(174, 218, 222, 1);
+  padding: 0 10%;
+}
+
+.ad {
+  &__img {
+  }
+  &__content {
+    padding: 10% 0;
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 600;
+  }
+  &__titleUp {
+    color: rgba(46, 58, 69, 1);
+  }
+  &__titleDown {
+    color: rgba(254, 144, 122, 1);
+  }
+  &__text {
+    padding-top: 3%;
+    font-size: 20px;
+    font-weight: 600;
+    width: 40%;
+    text-align: right;
+    margin-left: auto;
+  }
+  &__download {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-top: 20%;
+  }
+  &__downloadText {
+    text-transform: uppercase;
+    align-self: right;
+    font-weight: 600;
+    padding-bottom: 2%;
+  }
+  &__downloadOptions {
+    display: flex;
+    gap: 5%;
+  }
+  &__downloadOptions img{
+    width: 100%;
+  }
+}
