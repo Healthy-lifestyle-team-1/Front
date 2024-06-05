@@ -25,6 +25,7 @@ export const HomePage = () => {
       <Header />
       <PlateConstructor />
       <Input width="500px" colorScheme={1} />
+		<ArcSlider />
       {/* <PlateConstructor></PlateConstructor> */}
       {/* <Main /> */}
       {/* <div className={s.stories}>

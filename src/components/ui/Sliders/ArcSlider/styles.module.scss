@@ -12,16 +12,16 @@
  
  .container {
 	position: relative;
-	max-width: 500px;
-	max-height: 900px;
+	width: 1800px;
+	max-height: 800px;
 	margin: auto;
+	overflow: hidden;
  }
  
  .wrapper {
 	position: relative;
 	top: -1200px;
  }
- 
  .item {
 	width: 500px;
 	height: 500px;
@@ -31,11 +31,12 @@
 	z-index: 1;
 	cursor: pointer;
 	transition: width 0.5s, height 0.5s;
- }
-
- .item.active {
-	width: 800px;
-	height: 800px;
+ 
+	&.active {
+	  width: 800px;
+	  height: 800px;
+	  background-color: aqua;
+	}
  }
  
  svg {

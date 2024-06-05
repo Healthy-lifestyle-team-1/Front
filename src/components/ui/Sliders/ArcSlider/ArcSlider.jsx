@@ -35,7 +35,6 @@ export const ArcSlider = () => {
       scale: 0.9 
     });
 
-    // Rotate the container by 90 degrees counter-clockwise to position the active item at 12 o'clock
     gsap.set(`.${s.wrapper}`, {
       rotation: -90,
       transformOrigin: 'center',
@@ -132,7 +131,7 @@ export const ArcSlider = () => {
   return (
     <div className={s.container}>
       <div className={s.wrapper}>
-        <div className={`${s.item}`}><img src={plateOne} alt="" /></div>
+        <div className={`${s.item} `}><img src={plateOne} alt="" /></div>
         <div className={s.item}><img src={plateTwo} alt="" /></div>
         <div className={s.item}><img src={plateThree} alt="" /></div>
         <div className={s.item}><img src={plateOne} alt="" /></div>
@@ -144,10 +143,6 @@ export const ArcSlider = () => {
           <circle id="holder" className={s.st0} cx="151" cy="151" r="150" />
         </svg>
       </div>
-      <div className={s.controls} style={{ textAlign: 'center' }}>
-        <button id="prev">Prev</button>
-        <button id="next">Next</button>
-      </div> 
     </div>
   );
 };
