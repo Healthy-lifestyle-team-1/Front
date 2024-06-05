@@ -1,0 +1,45 @@
+.button {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
+  &.colorScheme__1 {
+    background-color: rgba($mainGreenapple, 0.5);
+    color: rgba($mainDark, 0.5);
+
+    &:hover {
+      background-color: $mainGreenapple;
+      color: $mainDark;
+    }
+  }
+
+  &.colorScheme__2 {
+    background-color: rgba($mainPeach, 0.5);
+    color: rgba($mainLight, 0.5);
+
+    &:hover {
+      background-color: $mainPeach;
+      color: $mainLight;
+    }
+  }
+
+  &.colorScheme__3 {
+    background-color: $mainLight;
+    color: $mainDark;
+    border: 2px solid $mainDark;
+    &.active {
+      background-color: $mainDark;
+      color: $mainLight;
+    }
+
+    &:active {
+      background-color: $mainDark;
+      color: $mainLight;
+    }
+  }
+}

@@ -1,16 +1,25 @@
+import React from 'react';
 import cn from 'classnames';
 import s from './styles.module.scss';
 
-export function Button({ className, width, title, onClick, variant, isTag, ...props }) {
+export function Button({
+  width,
+  title,
+  onClick,
+  colorScheme,
+  isActive,
+  ...props
+}) {
   return (
     <button
-      className={cn(s.button, className, {
-        [s.buttonGray]: variant === 'gray',
-        [s.buttonTag]: isTag,
+      className={cn(s.button, {
+        [s[`colorScheme__${colorScheme}`]]: colorScheme,
+        [s.active]: isActive,
       })}
       onClick={onClick}
-      width={width}
-      {...props}>
+      style={{ width }}
+      {...props}
+    >
       {title}
     </button>
   );
