@@ -1,1 +1,0 @@
-export { InProgressLoader } from './InProgressLoader'

@@ -1,2 +1,0 @@
-export { PlateConstructor } from "./PlateConstructor"
-
