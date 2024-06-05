@@ -1,14 +1,21 @@
 import React from 'react';
-
+import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '../ui/Button/Button';
-import { SliderPlates } from '../ui/Sliders/SliderPlates'
-
+import { SliderPlates } from '../ui/Sliders/SliderPlates';
+import { toggleTag } from '../../core/store/tagsSlice';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
 
 export const PlateConstructor = () => {
   const tags = ['глютен', 'сахар', 'мучное', 'лук', 'морковь', 'ещё'];
+  const activeTags = useSelector(state => state.tags);
+  const dispatch = useDispatch();
+
+  const handleTagClick = index => {
+    console.log('Button clicked:', tags[index]);
+    dispatch(toggleTag(index));
+  };
 
   return (
     <div className={s.container}>
@@ -22,7 +29,13 @@ export const PlateConstructor = () => {
         <div className={s.plateConstructor__tagBtns}>
           {/* кнопки-теги */}
           {tags.map((tag, index) => (
-            <Button key={index} variant="gray" isTag title={tag} />
+            <Button
+              colorScheme={3}
+              key={index}
+              title={tag}
+              isActive={activeTags.includes(index)}
+              onClick={() => handleTagClick(index)}
+            />
           ))}
         </div>
         <div className={s.plateConstructor__constructorBlock}>
@@ -33,7 +46,7 @@ export const PlateConstructor = () => {
             )}
           >
             {/* Первый блок с половинкой тарелки */}
-				<SliderPlates />
+            <SliderPlates />
             <div className={s.plateConstructor__constructorBlock}></div>
           </div>
           <div
@@ -43,7 +56,6 @@ export const PlateConstructor = () => {
             )}
           >
             {/* Второй блок с половинкой тарелки */}
-      
           </div>
         </div>
       </div>

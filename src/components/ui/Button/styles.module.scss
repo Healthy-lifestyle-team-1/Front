@@ -27,4 +27,19 @@
       color: $mainLight;
     }
   }
+
+  &.colorScheme__3 {
+    background-color: $mainLight;
+    color: $mainDark;
+    border: 2px solid $mainDark;
+    &.active {
+      background-color: $mainDark;
+      color: $mainLight;
+    }
+
+    &:active {
+      background-color: $mainDark;
+      color: $mainLight;
+    }
+  }
 }
