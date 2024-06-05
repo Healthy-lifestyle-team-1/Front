@@ -11,7 +11,6 @@ import s from './styles.module.scss';
 import { SliderPlates } from '../../components/ui/Sliders/SliderPlates';
 import { Input } from '../../components/ui/Input/Input';
 
-
 export const HomePage = () => {
   const handleSearch = query => {
     console.log('Searching for:', query);
@@ -21,7 +20,7 @@ export const HomePage = () => {
     <div className={s.container}>
       <Header />
       <PlateConstructor />
-
+      <Input width="500px" colorScheme={1} />
       {/* <PlateConstructor></PlateConstructor> */}
       {/* <Main /> */}
       {/* <div className={s.stories}>

@@ -2,10 +2,9 @@
   &__container {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
+    border: 1px solid;
     border-radius: 9999px;
     padding: 4px 8px;
-    background: #f8f8f8;
   }
   &__button {
     background: none;
@@ -19,5 +18,36 @@
     outline: none;
     flex-grow: 1;
     padding: 8px;
+    background: transparent;
+    &::placeholder {
+      color: inherit;
+    }
+  }
+}
+
+.colorScheme {
+  &__1 {
+    background: $mainLight;
+    border-color: $mainDark;
+
+    .input__field {
+      color: $mainDark;
+    }
+
+    .input__button img {
+      filter: invert(0%);
+    }
+  }
+  &__2 {
+    background: $mainPeach;
+    border-color: $mainPeach;
+
+    .input__field {
+      color: $mainLight;
+    }
+
+    .input__button img {
+      filter: invert(100%);
+    }
   }
 }

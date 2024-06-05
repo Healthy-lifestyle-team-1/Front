@@ -4,7 +4,6 @@ import cn from 'classnames';
 import { ThemeSwitcher } from '../../../components/ui/ThemeSwitcher';
 import { set } from './slice';
 import s from './index.module.scss';
-import { TRUE } from 'sass';
 
 const Theme = ({ className }) => {
   const theme = useSelector(state => state.theme);
