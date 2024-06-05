@@ -124,21 +124,21 @@ export const ArcSlider = () => {
       items[activeIndex].classList.add('active');
     };
 
-    // Set initial active item
+
     updateActiveItem(0);
   }, []);
 
   return (
     <div className={s.container}>
       <div className={s.wrapper}>
-        <div className={`${s.item} `}><img src={plateOne} alt="" /></div>
-        <div className={s.item}><img src={plateTwo} alt="" /></div>
-        <div className={s.item}><img src={plateThree} alt="" /></div>
-        <div className={s.item}><img src={plateOne} alt="" /></div>
-        <div className={s.item}><img src={plateTwo} alt="" /></div>
-        <div className={s.item}><img src={plateThree} alt="" /></div>
-        <div className={s.item}><img src={plateOne} alt="" /></div>
-        <div className={s.item}><img src={plateTwo} alt="" /></div>
+        <div className={s.item}><img className={s.itemImg} src={plateOne} alt="" /></div>
+        <div className={s.item}><img className={s.itemImg} src={plateTwo} alt="" /></div>
+        <div className={s.item}><img className={s.itemImg} src={plateThree} alt="" /></div>
+        <div className={s.item}><img className={s.itemImg} src={plateOne} alt="" /></div>
+        <div className={s.item}><img className={s.itemImg} src={plateTwo} alt="" /></div>
+        <div className={s.item}><img className={s.itemImg} src={plateThree} alt="" /></div>
+        <div className={s.item}><img className={s.itemImg} src={plateOne} alt="" /></div>
+        <div className={s.item}><img className={s.itemImg} src={plateTwo} alt="" /></div>
         <svg viewBox="0 0 300 300">
           <circle id="holder" className={s.st0} cx="151" cy="151" r="150" />
         </svg>
