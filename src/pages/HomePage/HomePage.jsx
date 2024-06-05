@@ -10,6 +10,9 @@ import cn from 'classnames';
 import s from './styles.module.scss';
 import { SliderPlates } from '../../components/ui/Sliders/SliderPlates';
 import { Input } from '../../components/ui/Input/Input';
+import DropDown from '../../components/ui/DropDown/DropDown';
+
+const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
 import { ArcSlider } from '../../components/ui/Sliders/ArcSlider';
 
 export const HomePage = () => {
@@ -22,7 +25,6 @@ export const HomePage = () => {
       <Header />
       <PlateConstructor />
       <Input width="500px" colorScheme={1} />
-		<ArcSlider />
       {/* <PlateConstructor></PlateConstructor> */}
       {/* <Main /> */}
       {/* <div className={s.stories}>
