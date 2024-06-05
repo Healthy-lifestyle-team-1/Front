@@ -10,6 +10,9 @@ import cn from 'classnames';
 import s from './styles.module.scss';
 import { SliderPlates } from '../../components/ui/Sliders/SliderPlates';
 import { Input } from '../../components/ui/Input/Input';
+import DropDown from '../../components/ui/DropDown/DropDown';
+
+const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
 
 export const HomePage = () => {
   const handleSearch = query => {
@@ -20,7 +23,8 @@ export const HomePage = () => {
     <div className={s.container}>
       <Header />
       <PlateConstructor />
-      <Input width="500px" colorScheme={1} />
+      <Input width="500px" colorScheme={2} />
+      <DropDown colorScheme={2} options={options} />
       {/* <PlateConstructor></PlateConstructor> */}
       {/* <Main /> */}
       {/* <div className={s.stories}>
