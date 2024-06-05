@@ -15,6 +15,7 @@ import DropDown from '../../components/ui/DropDown/DropDown';
 
 const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
 import { ArcSlider } from '../../components/ui/Sliders/ArcSlider';
+import { Button } from '../../components/ui/Button/Button';
 
 export const HomePage = () => {
   const handleSearch = query => {
@@ -24,10 +25,11 @@ export const HomePage = () => {
   return (
     <div className={s.container}>
       <Header />
+      <Button colorScheme={2} title={'Заказать'} />
       <PlateConstructor />
       <Input width="500px" colorScheme={1} />
-      <HelpfulArticles />
       <ArcSlider />
+      <DropDown colorScheme={2} options={options} />
       {/* <PlateConstructor></PlateConstructor> */}
       {/* <Main /> */}
       {/* <div className={s.stories}>

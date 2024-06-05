@@ -8,31 +8,32 @@
 
 .wrapper {
   max-width: 1800px;
-  height: 900px;
+  height: 920px;
   position: relative;
   top: 200px;
 }
 
 .item {
-  width: 300px;
-  height: 300px;
-  border-radius: 100%;
-  z-index: 1;
-  background-color: aqua;
-  cursor: pointer;
-  transition: width 0.3s, height 0.3s, background-color 0.3s;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-
-  &.active {
-    width: 350px;
-    height: 350px;
-    background-color: blue;
-  }
-}
+	width: 270px;
+	height: 270px;
+	border-radius: 100%;
+	z-index: 1;
+ 
+	position: relative; 
+	cursor: pointer;
+ 
+	img {
+	  width: 100%;
+	  height: auto;
+	  transition: transform 0.3s; 
+	}
+ 
+	&.active {
+	  img {
+		 transform: scale(1.6);
+	  }
+	}
+ }
 
 svg {
   height: 900px;
