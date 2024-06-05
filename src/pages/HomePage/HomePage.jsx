@@ -2,6 +2,7 @@ import React from 'react';
 // import { Main } from "../../components/Main/Main";
 import { Header } from '../../components/Header/Header';
 import { PlateConstructor } from '../../components/PlateConstructor';
+import { HelpfulArticles } from '../../components/HelpfulArticles/HelpfulArticles';
 // import cardFood from "../../components/ui/Cards/CardFood/CardFood";
 // import sliderStories from "../../components/ui/Sliders/SliderStories";
 // import { PlateConstructor } from '../../components/PlateConstructor/PlateConstructor';
@@ -25,7 +26,8 @@ export const HomePage = () => {
       <Header />
       <PlateConstructor />
       <Input width="500px" colorScheme={1} />
-		<ArcSlider />
+      <HelpfulArticles />
+      <ArcSlider />
       {/* <PlateConstructor></PlateConstructor> */}
       {/* <Main /> */}
       {/* <div className={s.stories}>
