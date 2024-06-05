@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import s from './styles.module.scss';
@@ -9,6 +9,8 @@ import plateThree from '../../../../assets/images/plates/Plate2.png';
 gsap.registerPlugin(MotionPathPlugin);
 
 export const ArcSlider = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   useEffect(() => {
     const circlePath = MotionPathPlugin.convertToPath("#holder", false)[0];
     circlePath.id = "circlePath";
@@ -75,12 +77,6 @@ export const ArcSlider = () => {
     items.forEach((el, i) => {
       el.addEventListener("click", () => {
         const current = tracker.item;
-        const activeItem = i;
-
-        if (i === current) {
-          return;
-        }
-
         const diff = current - i;
 
         if (Math.abs(diff) < numItems / 2) {
@@ -113,32 +109,37 @@ export const ArcSlider = () => {
         }
       });
 
-      updateActiveItem(next);
+      setActiveIndex(next);
     };
-
-    const updateActiveItem = (activeIndex) => {
-      const activeElement = document.querySelector(`.${s.item}.active`);
-      if (activeElement) {
-        activeElement.classList.remove('active');
-      }
-      items[activeIndex].classList.add('active');
-    };
-
-
-    updateActiveItem(0);
   }, []);
 
   return (
     <div className={s.container}>
       <div className={s.wrapper}>
-        <div className={s.item}><img className={s.itemImg} src={plateOne} alt="" /></div>
-        <div className={s.item}><img className={s.itemImg} src={plateTwo} alt="" /></div>
-        <div className={s.item}><img className={s.itemImg} src={plateThree} alt="" /></div>
-        <div className={s.item}><img className={s.itemImg} src={plateOne} alt="" /></div>
-        <div className={s.item}><img className={s.itemImg} src={plateTwo} alt="" /></div>
-        <div className={s.item}><img className={s.itemImg} src={plateThree} alt="" /></div>
-        <div className={s.item}><img className={s.itemImg} src={plateOne} alt="" /></div>
-        <div className={s.item}><img className={s.itemImg} src={plateTwo} alt="" /></div>
+        <div className={`${s.item} ${activeIndex === 0 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateOne} alt="" />
+        </div>
+        <div className={`${s.item} ${activeIndex === 1 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateTwo} alt="" />
+        </div>
+        <div className={`${s.item} ${activeIndex === 2 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateThree} alt="" />
+        </div>
+        <div className={`${s.item} ${activeIndex === 3 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateOne} alt="" />
+        </div>
+        <div className={`${s.item} ${activeIndex === 4 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateTwo} alt="" />
+        </div>
+        <div className={`${s.item} ${activeIndex === 5 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateThree} alt="" />
+        </div>
+        <div className={`${s.item} ${activeIndex === 6 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateOne} alt="" />
+        </div>
+        <div className={`${s.item} ${activeIndex === 7 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateTwo} alt="" />
+        </div>
         <svg viewBox="0 0 300 300">
           <circle id="holder" className={s.st0} cx="151" cy="151" r="150" />
         </svg>
