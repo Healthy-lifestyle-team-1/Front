@@ -28,6 +28,7 @@ export const HomePage = () => {
       <Button colorScheme={2} title={'Заказать'} />
       <PlateConstructor />
       <Input width="500px" colorScheme={1} />
+      <HelpfulArticles/>
       <ArcSlider />
       <DropDown colorScheme={2} options={options} />
       {/* <PlateConstructor></PlateConstructor> */}
