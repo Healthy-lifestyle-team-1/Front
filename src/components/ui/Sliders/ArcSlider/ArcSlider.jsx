@@ -38,7 +38,7 @@ export const ArcSlider = () => {
         alignOrigin: [0.5, 0.5],
         end: i => i / items.length,
       },
-      scale: 0.9,
+      scale: 0.8,
     });
 
     gsap.set(`.${s.wrapper}`, {
@@ -156,15 +156,30 @@ export const ArcSlider = () => {
         <div className={`${s.item} ${activeIndex === 7 ? s.active : ''}`}>
           <img className={s.itemImg} src={plateTwo} alt="" />
         </div>
+		  <div className={`${s.item} ${activeIndex === 8 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateFour} alt="" />
+        </div>
+        <div className={`${s.item} ${activeIndex === 9 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateFive} alt="" />
+        </div>
+        <div className={`${s.item} ${activeIndex === 10 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateSix} alt="" />
+        </div>
+        <div className={`${s.item} ${activeIndex === 11 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateOne} alt="" />
+        </div>
+        <div className={`${s.item} ${activeIndex === 12 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateTwo} alt="" />
+        </div>
         <svg viewBox="0 0 300 300">
-          <circle id="holder" className={s.st0} cx="151" cy="151" r="150" />
+          <circle id="holder" className={s.st0} cx="151" cy="151" r="150" fill='none' />
           <image
             className={s.board}
             href={board}
             x="-110"
-            y="-120"
+            y="-110"
             width="520"
-            height="520"
+            height="500"
           />
         </svg>
         <div color={s.background}></div>

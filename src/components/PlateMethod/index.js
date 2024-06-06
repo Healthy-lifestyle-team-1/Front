@@ -1,0 +1,1 @@
+export {PlateMethod} from './PlateMethod'

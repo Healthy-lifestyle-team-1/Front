@@ -13,6 +13,7 @@ import s from './styles.module.scss';
 import { SliderPlates } from '../../components/ui/Sliders/SliderPlates';
 import { Input } from '../../components/ui/Input/Input';
 import DropDown from '../../components/ui/DropDown/DropDown';
+import { PlateMethod } from '../../components/PlateMethod';
 
 const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
 import { ArcSlider } from '../../components/ui/Sliders/ArcSlider';
@@ -32,6 +33,7 @@ export const HomePage = () => {
       <Advertisement />
       <HelpfulArticles />
       <ArcSlider />
+		<PlateMethod />
       <DropDown colorScheme={2} options={options} />
       {/* <PlateConstructor></PlateConstructor> */}
       {/* <Main /> */}
