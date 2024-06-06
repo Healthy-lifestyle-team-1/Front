@@ -3,9 +3,12 @@ import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import s from './styles.module.scss';
 import plateOne from '../../../../assets/images/plates/Plate.png';
-import plateTwo from '../../../../assets/images/plates/Plate5.png';
-import plateThree from '../../../../assets/images/plates/Plate2.png';
-import board from '../../../../assets/images/Board.png'
+import plateTwo from '../../../../assets/images/plates/Plate2.png';
+import plateThree from '../../../../assets/images/plates/Plate3.png';
+import plateFour from '../../../../assets/images/plates/Plate4.png';
+import plateFive from '../../../../assets/images/plates/Plate5.png';
+import plateSix from '../../../../assets/images/plates/Plate6.png';
+import board from '../../../../assets/images/Board.png';
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -139,13 +142,13 @@ export const ArcSlider = () => {
           <img className={s.itemImg} src={plateThree} alt="" />
         </div>
         <div className={`${s.item} ${activeIndex === 3 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateOne} alt="" />
+          <img className={s.itemImg} src={plateFour} alt="" />
         </div>
         <div className={`${s.item} ${activeIndex === 4 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateTwo} alt="" />
+          <img className={s.itemImg} src={plateFive} alt="" />
         </div>
         <div className={`${s.item} ${activeIndex === 5 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateThree} alt="" />
+          <img className={s.itemImg} src={plateSix} alt="" />
         </div>
         <div className={`${s.item} ${activeIndex === 6 ? s.active : ''}`}>
           <img className={s.itemImg} src={plateOne} alt="" />
@@ -153,9 +156,16 @@ export const ArcSlider = () => {
         <div className={`${s.item} ${activeIndex === 7 ? s.active : ''}`}>
           <img className={s.itemImg} src={plateTwo} alt="" />
         </div>
-		  <svg viewBox="0 0 300 300">
+        <svg viewBox="0 0 300 300">
           <circle id="holder" className={s.st0} cx="151" cy="151" r="150" />
-          <image className={s.board} href={board} x="-110" y="-120" width="520" height="520" />
+          <image
+            className={s.board}
+            href={board}
+            x="-110"
+            y="-120"
+            width="520"
+            height="520"
+          />
         </svg>
         <div color={s.background}></div>
       </div>
