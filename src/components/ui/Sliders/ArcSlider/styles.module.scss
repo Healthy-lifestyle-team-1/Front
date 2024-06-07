@@ -1,7 +1,7 @@
 .container {
   position: relative;
   max-width: 1800px;
-  max-height: 790px;
+  max-height: 600px;
   margin: auto;
   overflow: hidden;
 }
@@ -10,7 +10,7 @@
   max-width: 1800px;
   height: 920px;
   position: relative;
-  top: 213px;
+  top: 400px;
 }
 
 .item {
@@ -29,32 +29,30 @@
   }
 
   &.active {
-    z-index: 10;
     img {
       transform: scale(1.6);
+		z-index: 10;
     }
   }
 }
 
 svg {
-  height: 900px;
-  width: 1000px;
-  z-index: 1;
+  height: 1300px;
+  width: 1400px;
+  z-index: -5;
   position: absolute;
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  .board {
+	z-index: 5;
+  }
 }
 
 .st0 {
   fill: none;
-}
-
-.start {
-  position: absolute;
-  top: 50%;
-  right: -30px;
 }
 
 .controls {
