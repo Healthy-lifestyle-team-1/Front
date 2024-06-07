@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { Main } from "../../components/Main/Main";
 import { Header } from '../../components/Header/Header';
 import { PlateConstructor } from '../../components/PlateConstructor';
@@ -13,6 +13,7 @@ import { Button } from '../../components/ui/Button/Button';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
+import { Checkbox } from '../../components/ui/Checkbox/Checkbox';
 
 const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
 
@@ -21,12 +22,16 @@ export const HomePage = () => {
     console.log('Searching for:', query);
   };
 
+  const [checked, setChecked] = useState(false);
+
   return (
     <div className={s.container}>
       <div className={s.test}>TEST</div>
       <Header />
       <Button colorScheme={2} title={'Заказать'} />
       <DropDown colorScheme={2} options={options} />
+      <Checkbox shape="circle" checked={checked} onChange={setChecked} />
+      <Checkbox shape="square" checked={checked} onChange={setChecked} />
       <PlateConstructor />
       <Input width="500px" colorScheme={1} />
       <Advertisement />

@@ -82,15 +82,13 @@ export const PlateConstructor = () => {
           </div>
         )}
       </div>
-      <div className={s.plateConstructor__btn}>
+      <div>
         <Button
-          className={s.button}
+          colorScheme={3}
           width="280px"
           title="Собрать тарелку"
           onClick={handleCombinePlate}
-        >
-          Собрать тарелку
-        </Button>
+        />
       </div>
     </div>
   );
