@@ -6,9 +6,10 @@
 	  color: $mainDark;
 	  margin: 0 auto;
 	  gap: 35px;
+	  margin-top: 60px;
 	}
  
-	&__method {
+	&__methodBlock {
 	  display: flex;
 	  flex-direction: column;
  
@@ -18,57 +19,69 @@
 		 font-size: 100px;
  
 		 &Img {
-			width: 70px;
+			width: 100px;
+			height: auto;
 		 }
 	  }
+ 
+	  &__autors {
+		 display: flex;
+		 flex-wrap: nowrap;
+		 gap: 27px;
+	  }
+ 
+	  &__autor {
+		 display: flex;
+		 flex-direction: column;
+		 max-width: 180px;
+		 align-items: center;
+ 
+		 &Img {
+			width: 140px;
+			height: 140px;
+		 }
+ 
+		 &Name {
+			margin-top: 10px;
+			font-weight: bold;
+		 }
+ 
+		 &Description {
+			text-align: center;
+			margin-top: 5px;
+		 }
+	  }
+ 
+	  &__autorsDottedLineImg {
+		 height: 271px;
+		 width: 27px;
+	  }
 	}
  
-	&__autors {
-	  display: flex;
-	  flex-direction: row;
-	}
- 
-	&__autor {
+	&__bookBlock {
 	  display: flex;
 	  flex-direction: column;
-	  max-width: 180px;
 	  align-items: center;
+	  text-align: center;
  
-	  &Img {
-		 width: 140px;
-		 height: 140px;
+	  &__title {
+		 font-size: 24px;
+		 margin-bottom: 20px;
 	  }
  
-	  &Name {
-		 margin-top: 10px;
-		 font-weight: bold;
-	  }
- 
-	  &Description {
-		 text-align: center;
-		 margin-top: 5px;
-	  }
-	}
- 
-	&DottedLineImg {
-	  height: 70px;
-	  width: 27px;
-	}
- 
-	&__book {
-
-	  &Block {
-		 width: 800px;
+	  &Imgs {
+		 width: 600px;
 		 height: 600px;
 		 background-image: url(../../assets/images/Ellipse-salmon.png);
 		 background-repeat: no-repeat;
-		}
-
-		 &Img {
-			width: 500px;
-			
-		 }
-	  
+		 display: flex;
+		 justify-content: center;
+		 align-items: center;
+	  }
+ 
+	  &Img {
+		 width: 500px;
+	  }
 	}
  }
  

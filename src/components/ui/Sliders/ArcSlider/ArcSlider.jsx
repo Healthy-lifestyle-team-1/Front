@@ -23,7 +23,7 @@ export const ArcSlider = () => {
       svg.prepend(circlePath);
     }
 
-    let items = gsap.utils.toArray(`.${s.arcItem}`);
+    let items = gsap.utils.toArray(`.${s.item}`);
     let numItems = items.length;
     let itemStep = 1 / numItems;
     let wrapProgress = gsap.utils.wrap(0, 1);
@@ -41,7 +41,7 @@ export const ArcSlider = () => {
       scale: 0.7,
     });
 
-    gsap.set(`.${s.arcWrapper}`, {
+    gsap.set(`.${s.arc__wrapper}`, {
       rotation: -90,
       transformOrigin: 'center',
     });
@@ -53,7 +53,7 @@ export const ArcSlider = () => {
 
     const tl = gsap.timeline({ paused: true, reversed: true });
 
-    tl.to(`.${s.arcWrapper}`, {
+    tl.to(`.${s.arc__wrapper}`, {
       rotation: 270,
       transformOrigin: 'center',
       duration: 1,
@@ -130,59 +130,53 @@ export const ArcSlider = () => {
   }, []);
 
   return (
-    <div className={s.arcContainer}>
-		<div className={s.arcContainer__title}></div>
-      <div className={s.arcWrapper}>
-        <div className={`${s.arcItem} ${activeIndex === 0 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateOne} alt="" />
+    <div className={s.arc__container}>
+      <div className={s.arc__wrapper}>
+        <div className={`${s.item} ${activeIndex === 0 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateOne} alt="" />
         </div>
-        <div className={`${s.arcItem} ${activeIndex === 1 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateTwo} alt="" />
+        <div className={`${s.item} ${activeIndex === 1 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateTwo} alt="" />
         </div>
-        <div className={`${s.arcItem} ${activeIndex === 2 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateThree} alt="" />
+        <div className={`${s.item} ${activeIndex === 2 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateThree} alt="" />
         </div>
-        <div className={`${s.arcItem} ${activeIndex === 3 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateFour} alt="" />
+        <div className={`${s.item} ${activeIndex === 3 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateFour} alt="" />
         </div>
-        <div className={`${s.arcItem} ${activeIndex === 4 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateFive} alt="" />
+        <div className={`${s.item} ${activeIndex === 4 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateFive} alt="" />
         </div>
-        <div className={`${s.arcItem} ${activeIndex === 5 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateSix} alt="" />
+        <div className={`${s.item} ${activeIndex === 5 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateSix} alt="" />
         </div>
-        <div className={`${s.arcItem} ${activeIndex === 6 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateOne} alt="" />
+        <div className={`${s.item} ${activeIndex === 6 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateOne} alt="" />
         </div>
-        <div className={`${s.arcItem} ${activeIndex === 7 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateTwo} alt="" />
+        <div className={`${s.item} ${activeIndex === 7 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateTwo} alt="" />
         </div>
-        <div className={`${s.arcItem} ${activeIndex === 8 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateFour} alt="" />
+        <div className={`${s.item} ${activeIndex === 8 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateFour} alt="" />
         </div>
-        <div className={`${s.arcItem} ${activeIndex === 9 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateFive} alt="" />
+        <div className={`${s.item} ${activeIndex === 9 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateFive} alt="" />
         </div>
-        <div className={`${s.arcItem} ${activeIndex === 10 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateSix} alt="" />
+        <div className={`${s.item} ${activeIndex === 10 ? s.active : ''}`}>
+          <img className={s.itemImg} src={plateSix} alt="" />
         </div>
-        <div className={`${s.arcItem} ${activeIndex === 11 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateOne} alt="" />
-        </div>
-        <div className={`${s.arcItem} ${activeIndex === 12 ? s.active : ''}`}>
-          <img className={s.arcItemImg} src={plateTwo} alt="" />
-        </div>
-        <svg viewBox="0 0 400 400">
+
+        <svg className={s.svg} viewBox="0 0 400 400">
           <circle
             id="holder"
-            className={s.arcSt0}
+            className={s.st0}
             cx="200"
             cy="200"
             r="180"
             fill="none"
           />
           <image
-            className={s.arcBoard}
+            className={s.board}
             href={board}
             x="-65"
             y="-76"
@@ -190,7 +184,6 @@ export const ArcSlider = () => {
             height="530"
           />
         </svg>
-        <div className={s.arcBackground}></div>
       </div>
     </div>
   );
