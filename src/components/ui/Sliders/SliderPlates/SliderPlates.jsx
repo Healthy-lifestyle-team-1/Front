@@ -53,18 +53,18 @@ export const SliderPlates = () => {
   const rightImages = [rightImage, rightImage, rightImage, rightImage];
 
   return (
-    <div className={s.carouselContainer}>
+    <div className={s.carousel__Container}>
       <Slider {...leftSettings} className={s.leftSlider}>
         {leftImages.map((img, idx) => (
           <div key={idx} className={s.imageContainer}>
-            <img src={img} alt={`left ${idx}`} />
+            <img className={s.slider__image} src={img} alt={`left ${idx}`} />
           </div>
         ))}
       </Slider>
       <Slider {...rightSettings} className={s.rightSlider}>
         {rightImages.map((img, idx) => (
           <div key={idx} className={s.imageContainer}>
-            <img src={img} alt={`right ${idx}`} />
+            <img className={s.slider__image} src={img} alt={`right ${idx}`} />
           </div>
         ))}
       </Slider>

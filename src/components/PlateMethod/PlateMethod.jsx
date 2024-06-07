@@ -1,13 +1,10 @@
 import React from 'react';
-import { Button } from '../ui/Button/Button';
 import ForkAndKnife from '../../assets/images/plate-with-fork-and-knife.png';
-import MaksimKImg from '../../assets/images/MaksimKuderov.png'
-import LidaLImg from '../../assets/images/LidaLanskaya.png'
-import DottedLine from '../../assets/images/dotted-line-plate-method.png'
-import BookImg from '../../assets/images/method-plate-book.png'
-import EllipseSalmon from '../../assets/images/Ellipse-salmon.png'
+import MaksimKImg from '../../assets/images/MaksimKuderov.png';
+import LidaLImg from '../../assets/images/LidaLanskaya.png';
+import DottedLine from '../../assets/images/dotted-line-plate-method.png';
+import BookImg from '../../assets/images/method-plate-book.png';
 
-import cn from 'classnames';
 import s from './styles.module.scss';
 
 export const PlateMethod = () => {
@@ -27,7 +24,7 @@ export const PlateMethod = () => {
               Нутрициолог и фитнес-тренер (FPA), основатель проекта Зожник
             </div>
           </div>
-			 <img className={s.plateMethod__autorsDottedLineImg} src={DottedLine} alt="" />
+          <img className={s.plateMethod__autorsDottedLineImg} src={DottedLine} alt="" />
           <div className={s.plateMethod__autor}>
             <img className={s.plateMethod__autorImg} src={LidaLImg} alt="Фото Автора" />
             <div className={s.plateMethod__autorName}>Лида Ланская</div>
@@ -40,9 +37,10 @@ export const PlateMethod = () => {
       </div>
 
       <div className={s.plateMethod__book}>
-			<div className={s.plateMethod__bookBlock}><img className={s.plateMethod__bookImg} src={BookImg} alt="Фото книги" /></div>
-		
-		</div>
+        <div className={s.plateMethod__bookBlock}>
+          <img className={s.plateMethod__bookImg} src={BookImg} alt="Фото книги" />
+        </div>
+      </div>
     </div>
   );
 };

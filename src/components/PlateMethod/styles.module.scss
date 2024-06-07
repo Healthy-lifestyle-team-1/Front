@@ -1,74 +1,74 @@
 .plateMethod {
-  &__container {
-    max-width: 1280px;
-    display: flex;
-    flex-wrap: nowrap;
-    color: $mainDark;
-    margin: 0 auto;
-    gap: 35px;
-  }
+	&__container {
+	  max-width: 1280px;
+	  display: flex;
+	  flex-wrap: nowrap;
+	  color: $mainDark;
+	  margin: 0 auto;
+	  gap: 35px;
+	}
+ 
+	&__method {
+	  display: flex;
+	  flex-direction: column;
+ 
+	  &__title {
+		 text-transform: uppercase;
+		 font-weight: 700;
+		 font-size: 100px;
+ 
+		 &Img {
+			width: 70px;
+		 }
+	  }
+	}
+ 
+	&__autors {
+	  display: flex;
+	  flex-direction: row;
+	}
+ 
+	&__autor {
+	  display: flex;
+	  flex-direction: column;
+	  max-width: 180px;
+	  align-items: center;
+ 
+	  &Img {
+		 width: 140px;
+		 height: 140px;
+	  }
+ 
+	  &Name {
+		 margin-top: 10px;
+		 font-weight: bold;
+	  }
+ 
+	  &Description {
+		 text-align: center;
+		 margin-top: 5px;
+	  }
+	}
+ 
+	&DottedLineImg {
+	  height: 70px;
+	  width: 27px;
+	}
+ 
+	&__book {
 
-  &__method {
-    display: flex;
-    flex-direction: column;
+	  &Block {
+		 width: 800px;
+		 height: 600px;
+		 background-image: url(../../assets/images/Ellipse-salmon.png);
+		 background-repeat: no-repeat;
+		}
 
-    &__title {
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 100px;
-
-      &Img {
-        width: 70px;
-      }
-    }
-
-    &__autors {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 25px;
-
-      &__autor {
-        display: flex;
-        flex-direction: column;
-        max-width: 180px;
-        align-items: center;
-
-        &Img {
-          width: 140px;
-          height: 140px;
-        }
-
-        &Name {
-          margin-top: 10px;
-          font-weight: bold;
-        }
-
-        &Description {
-          text-align: center;
-          margin-top: 5px;
-        }
-      }
-
-      &DottedLineImg {
-        height: 271px;
-        width: 27px;
-      }
-    }
-  }
-
-  &__book {
-    &Block {
-      width: 530px;
-      height: 600px;
-      background-image: url('../../../../assets/images/Ellipse-salmon.png');
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &Img {
-        width: 500px;
-      }
-    }
-  }
-}
+		 &Img {
+			width: 500px;
+			
+		 }
+	  
+	}
+ }
+ 

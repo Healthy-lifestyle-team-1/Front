@@ -1,4 +1,4 @@
-.carouselContainer {
+.carousel__Container {
   display: flex;
   justify-content: space-between;
   width: 600px;
@@ -36,7 +36,7 @@
   bottom: 25px;
 }
 
-img {
+.slider__image {
   width: 50%;
   height: auto;
 }
