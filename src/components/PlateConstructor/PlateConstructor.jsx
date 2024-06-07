@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '../ui/Button/Button';
 import { SliderPlates } from '../ui/Sliders/SliderPlates';
 import { toggleTag } from '../../core/store/tagsSlice';
-
+import { UsersPlate } from '../UsersPlate';
 import cn from 'classnames';
 import s from './styles.module.scss';
+
+// Импортируем изображения
+import rightPlateImage from '../../assets/images/halfofplates/right/right.png';
+import leftPlateImage from '../../assets/images/halfofplates/left/left.png';
 
 export const PlateConstructor = () => {
   const tags = ['глютен', 'сахар', 'мучное', 'лук', 'морковь', 'ещё'];
   const activeTags = useSelector(state => state.tags);
   const dispatch = useDispatch();
+  const [leftImage, setLeftImage] = useState(leftPlateImage); // Устанавливаем начальное значение
+  const [rightImage, setRightImage] = useState(rightPlateImage); // Устанавливаем начальное значение
+  const [isPlateCombined, setIsPlateCombined] = useState(false);
 
   const handleTagClick = index => {
     console.log('Button clicked:', tags[index]);
     dispatch(toggleTag(index));
+  };
+
+  const handleCombinePlate = () => {
+    setIsPlateCombined(true);
+  };
+
+  const handleSelectImage = (side, image) => {
+    if (side === 'left') {
+      setLeftImage(image);
+    } else if (side === 'right') {
+      setRightImage(image);
+    }
   };
 
   return (
@@ -38,33 +57,37 @@ export const PlateConstructor = () => {
             />
           ))}
         </div>
-        <div className={s.plateConstructor__constructorBlock}>
-          <div
-            className={cn(
-              s.plateConstructor__plateHalf,
-              s['plateConstructor__plateHalf--first'],
-            )}
-          >
-            {/* Первый блок с половинкой тарелки */}
-            <SliderPlates />
-            <div className={s.plateConstructor__constructorBlock}></div>
+        {!isPlateCombined && (
+          <div className={s.plateConstructor__constructorBlock}>
+            <div
+              className={cn(
+                s.plateConstructor__plateHalf,
+                s['plateConstructor__plateHalf--first'],
+              )}
+            >
+              <SliderPlates onSelect={handleSelectImage} />
+              <div className={s.plateConstructor__constructorBlock}></div>
+            </div>
+            <div
+              className={cn(
+                s.plateConstructor__plateHalf,
+                s['plateConstructor__plateHalf--second'],
+              )}
+            ></div>
           </div>
-          <div
-            className={cn(
-              s.plateConstructor__plateHalf,
-              s['plateConstructor__plateHalf--second'],
-            )}
-          >
-            {/* Второй блок с половинкой тарелки */}
+        )}
+        {isPlateCombined && leftImage && rightImage && (
+          <div className={s.plateConstructor__combined}>
+            <UsersPlate leftImage={leftImage} rightImage={rightImage} />
           </div>
-        </div>
+        )}
       </div>
       <div className={s.plateConstructor__btn}>
         <Button
           className={s.button}
           width="280px"
           title="Собрать тарелку"
-          onClick={() => console.log('Button clicked')}
+          onClick={handleCombinePlate}
         >
           Собрать тарелку
         </Button>
