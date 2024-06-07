@@ -1,37 +1,74 @@
-.plateMethodTitleImg {
-	width: 50px;
-}
+.plateMethod {
+  &__container {
+    max-width: 1280px;
+    display: flex;
+    flex-wrap: nowrap;
+    color: $mainDark;
+    margin: 0 auto;
+    gap: 35px;
+  }
 
-.container {
-	display: flex;
-	flex-wrap: nowrap;
+  &__method {
+    display: flex;
+    flex-direction: column;
 
-	.plateMethodMethod {
-		display: flex;
-		flex-direction: column;
-	}
+    &__title {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 100px;
 
+      &Img {
+        width: 70px;
+      }
+    }
 
-}
+    &__autors {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 25px;
 
-.plateMethodAutors {
-	display: flex;
-	flex-wrap: nowrap;
-	gap: 25px;
+      &__autor {
+        display: flex;
+        flex-direction: column;
+        max-width: 180px;
+        align-items: center;
 
-	.plateMethodAutor {
-		display: flex;
-		flex-direction: column;
-		max-width: 180px;
+        &Img {
+          width: 140px;
+          height: 140px;
+        }
 
-		.plateMethodAutorImg {
-			width: 140px;
-			height: 140px;
-		}
-	}
-}
+        &Name {
+          margin-top: 10px;
+          font-weight: bold;
+        }
 
-.plateMethodAutorDottedLineImg {
-	height: 271px;
-	width: 27px;
+        &Description {
+          text-align: center;
+          margin-top: 5px;
+        }
+      }
+
+      &DottedLineImg {
+        height: 271px;
+        width: 27px;
+      }
+    }
+  }
+
+  &__book {
+    &Block {
+      width: 530px;
+      height: 600px;
+      background-image: url('../../../../assets/images/Ellipse-salmon.png');
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &Img {
+        width: 500px;
+      }
+    }
+  }
 }

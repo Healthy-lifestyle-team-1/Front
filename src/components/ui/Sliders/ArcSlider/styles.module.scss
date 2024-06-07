@@ -1,60 +1,67 @@
-.container {
+.arcContainer {
   position: relative;
-  max-width: 1800px;
-  max-height: 600px;
-  margin: auto;
+  width: 100%;
+  max-height: 1000px;
+  margin: 0 auto;
   overflow: hidden;
-}
 
-.wrapper {
-  max-width: 1800px;
-  height: 920px;
-  position: relative;
-  top: 400px;
-}
-
-.item {
-  width: 270px;
-  height: 270px;
-  border-radius: 100%;
-  position: relative;
-  cursor: pointer;
-  z-index: 1;
-
-  img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s;
-    z-index: -1;
+  &__title {
+	height: 400px;
+	background-color: aqua;
   }
 
-  &.active {
-    img {
-      transform: scale(1.6);
-		z-index: 10;
+  .arcWrapper {
+	margin: 0 auto;
+    width: 80%;
+    max-height: 600px;
+    position: relative;
+	 top: 280px;
+
+
+    .arcItem {
+      width: 270px;
+      height: 270px;
+      border-radius: 100%;
+      position: relative;
+      cursor: pointer;
+      z-index: 1;
+
+      img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s;
+        z-index: -1;
+        opacity: 0.8;
+      }
+
+      &.active {
+        z-index: 100;
+
+        img {
+          transform: scale(1.8) translateY(60px);
+          opacity: 1;
+        }
+      }
+    }
+
+    svg {
+      height: 1300px;
+      width: 1400px;
+      z-index: 5;
+      position: absolute;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      clip-path: ellipse(500px 500px at center);
+
+      .arcBoard {
+        z-index: 5;
+      }
+    }
+
+    .arcControls {
+      text-align: center;
     }
   }
-}
-
-svg {
-  height: 1300px;
-  width: 1400px;
-  z-index: -5;
-  position: absolute;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  .board {
-	z-index: 5;
-  }
-}
-
-.st0 {
-  fill: none;
-}
-
-.controls {
-  text-align: center;
 }
