@@ -25,6 +25,7 @@ export const HomePage = () => {
 
   return (
     <div className={s.container}>
+      <div className={s.test}>TEST</div>
       <Header />
       <Button colorScheme={2} title={'Заказать'} />
       <PlateConstructor />

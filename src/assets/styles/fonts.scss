@@ -1,11 +1,44 @@
-@mixin font-face-montserrat($font-size, $font-weight, $line-height) {
-  font-family: 'Montserrat', sans-serif;
+@mixin font-face-rubik($font-size, $font-weight, $line-height) {
+  font-family: 'Rubik', sans-serif;
   font-size: $font-size;
   font-weight: $font-weight;
   line-height: $line-height;
 }
 
-@mixin fontPrice() {
-	@include font-face-montserrat(28px, 500, 130%);
-	letter-spacing: 2%;
+@mixin fontTitle1() {
+  @include font-face-rubik(52px, 500, 120%);
+}
+
+@mixin fontTitle2() {
+  @include font-face-rubik(48px, 500, 120%);
+}
+
+@mixin fontTitle3() {
+  @include font-face-rubik(36px, 500, 120%);
+  text-transform: uppercase;
+}
+
+@mixin fontSubTitle1() {
+  @include font-face-rubik(28px, 400, 120%);
+  text-transform: uppercase;
+}
+
+@mixin fontSubTitle2() {
+  @include font-face-rubik(24px, 500, 120%);
+}
+
+@mixin fontSubTitle3() {
+  @include font-face-rubik(24px, 300, 120%);
+}
+
+@mixin fontMainText1() {
+  @include font-face-rubik(24px, 400, 120%);
+}
+
+@mixin fontMainText2() {
+  @include font-face-rubik(18px, 400, 120%);
+}
+
+@mixin fontMainText3() {
+  @include font-face-rubik(16px, 400, 120%);
 }
