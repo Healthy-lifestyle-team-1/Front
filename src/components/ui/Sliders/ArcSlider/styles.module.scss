@@ -53,3 +53,8 @@
   transform: translate(-50%, -50%);
   clip-path: ellipse(500px 500px at center);
 }
+
+
+.text {
+	z-index: 1000;
+}

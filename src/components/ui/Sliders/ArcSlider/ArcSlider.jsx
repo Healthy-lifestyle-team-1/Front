@@ -131,6 +131,7 @@ export const ArcSlider = () => {
 
   return (
     <div className={s.arc__container}>
+			  <div className={s.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis corporis molestias ipsam, aspernatur perferendis, quibusdam obcaecati amet nesciunt fugit fugiat exercitationem accusamus natus fuga qui officia minus vitae quod vel!</div>
       <div className={s.arc__wrapper}>
         <div className={`${s.item} ${activeIndex === 0 ? s.active : ''}`}>
           <img className={s.itemImg} src={plateOne} alt="" />
@@ -165,6 +166,7 @@ export const ArcSlider = () => {
         <div className={`${s.item} ${activeIndex === 10 ? s.active : ''}`}>
           <img className={s.itemImg} src={plateSix} alt="" />
         </div>
+	
 
         <svg className={s.svg} viewBox="0 0 400 400">
           <circle

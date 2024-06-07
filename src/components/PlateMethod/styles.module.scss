@@ -1,33 +1,38 @@
 .plateMethod {
 	&__container {
-	  max-width: 1280px;
+	  width: 100%;
 	  display: flex;
 	  flex-wrap: nowrap;
 	  color: $mainDark;
 	  margin: 0 auto;
-	  gap: 35px;
 	  margin-top: 60px;
 	}
  
 	&__methodBlock {
+		width: 50%;
 	  display: flex;
 	  flex-direction: column;
+	  align-items: center;
  
 	  &__title {
 		 text-transform: uppercase;
 		 font-weight: 700;
-		 font-size: 100px;
+		 font-size: 6vw;
+		 text-align: center;
  
 		 &Img {
-			width: 100px;
+			width: 13%;
 			height: auto;
 		 }
 	  }
  
 	  &__autors {
+	
+		width: 90%;
 		 display: flex;
 		 flex-wrap: nowrap;
-		 gap: 27px;
+		 justify-content: center;
+		 gap: 3%;
 	  }
  
 	  &__autor {
@@ -37,8 +42,7 @@
 		 align-items: center;
  
 		 &Img {
-			width: 140px;
-			height: 140px;
+			height: auto;
 		 }
  
 		 &Name {
@@ -59,6 +63,8 @@
 	}
  
 	&__bookBlock {
+		width: 50%;
+		height: auto;
 	  display: flex;
 	  flex-direction: column;
 	  align-items: center;
@@ -70,17 +76,17 @@
 	  }
  
 	  &Imgs {
-		 width: 600px;
-		 height: 600px;
+		 width: 100%;
+		 height: 100%;
 		 background-image: url(../../assets/images/Ellipse-salmon.png);
 		 background-repeat: no-repeat;
-		 display: flex;
-		 justify-content: center;
-		 align-items: center;
+		 background-position: center;
 	  }
  
 	  &Img {
-		 width: 500px;
+		 max-width: 100%;
+		 height: auto;
+		 margin-top: 10%;
 	  }
 	}
  }
