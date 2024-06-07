@@ -4,7 +4,7 @@
 
   &.colorScheme1 {
     .dropdownToggle {
-      background-color: #d4d700; // yellow-green
+      background-color: #d4d700;
       color: black;
 
       &:after {
@@ -13,14 +13,14 @@
       }
     }
     .dropdownMenu {
-      background-color: #ffffff; // white
+      background-color: #ffffff;
     }
   }
 
   &.colorScheme2 {
     .dropdownToggle {
-      background-color: #ff9f94; // coral pink
-      color: black;
+      background-color: #ff9f94;
+      color: white;
 
       &:after {
         content: ' ▼';
@@ -28,7 +28,7 @@
       }
     }
     .dropdownMenu {
-      background-color: #bde0fe; // light blue
+      background-color: #bde0fe;
     }
   }
 

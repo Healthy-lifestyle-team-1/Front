@@ -9,8 +9,8 @@ const UserPage = ({ onClose }) => {
           ×
         </button>
         <div className={s.profile__info}>
-          <div className={s.profile__name}>Имя</div>
-          <div className={s.profile__phone}>+7 999 999 99 99</div>
+          <div className={s.profile__name}>Надежда</div>
+          <div className={s.profile__phone}>+999 999 - 99 -99</div>
         </div>
         <div className={s.profile__menu}>
           <div className={s.profile__menu__item}>
@@ -24,6 +24,7 @@ const UserPage = ({ onClose }) => {
           </div>
           <div className={s.profile__menu__item}>
             <span className={s.profile__menu__icon}>🌗</span> Выбор темы
+            <span className={s.themeToggle}>🌞</span>
           </div>
         </div>
         <button className={s.logoutButton}>Выйти</button>

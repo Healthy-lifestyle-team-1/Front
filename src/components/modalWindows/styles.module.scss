@@ -19,6 +19,7 @@
   text-align: center;
   position: relative;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d9d9d9;
 }
 
 .closeButton {
@@ -142,26 +143,54 @@
   color: white;
 }
 
-// .profile {
-//   &__info {
-//     margin-bottom: 20px;
-//   }
-//   &__name {
-//     font-size: 20px;
-//     font-weight: bold;
-//   }
-//   &__phone {
-//     color: gray;
-//   }
-//   &__menu {
-//     margin-bottom: 20px;
-//     &__item {
-//       margin: 10px 0;
-//       display: flex;
-//       align-items: center;
-//     }
-//     &__icon {
-//       margin-right: 10px;
-//     }
-//   }
-// }
+.profile__info {
+  background-color: #a6dbe4;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.profile__name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.profile__phone {
+  font-size: 16px;
+  color: #333;
+}
+
+.profile__menu {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.profile__menu__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed #d9d9d9;
+}
+
+.profile__menu__icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.themeToggle {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.logoutButton {
+  background: #ffcc00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
