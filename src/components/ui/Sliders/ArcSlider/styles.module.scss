@@ -10,9 +10,9 @@
   &__wrapper {
     margin: 0 auto;
     width: 80%;
-    max-height: 700px;
+    max-height: 900px;
     position: relative;
-    top: 600px;
+    top: 400px;
   }
 }
 
@@ -36,7 +36,7 @@
     z-index: 100;
 
     Img {
-      transform: scale(1.8) translateY(60px);
+      transform: scale(1.9) translateY(60px);
       opacity: 1;
     }
   }
@@ -51,7 +51,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  clip-path: ellipse(500px 500px at center);
+  clip-path: ellipse(400px 400px at center);
 }
 
 

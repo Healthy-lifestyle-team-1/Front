@@ -14,8 +14,8 @@ export const PlateMethod = () => {
       <div className={s.plateMethod__methodBlock}>
         <div className={s.plateMethod__methodBlock__title}>
           мет
-          <img className={s.plateMethod__methodBlock__titleImg} src={ForkAndKnife} alt="о" />д
-          тарелки
+          <img className={s.plateMethod__methodBlock__titleImg} src={ForkAndKnife} alt="о" />д 
+			 <div className={`${s.plateMethod__methodBlock__title} ${s['plateMethod__methodBlock__title--salmon']}`}> тарелки</div>
         </div>
         <div className={s.plateMethod__methodBlock__autors}>
           <div className={s.plateMethod__methodBlock__autor}>

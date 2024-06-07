@@ -1,93 +1,101 @@
 .plateMethod {
-	&__container {
-	  width: 100%;
-	  display: flex;
-	  flex-wrap: nowrap;
-	  color: $mainDark;
-	  margin: 0 auto;
-	  margin-top: 60px;
-	}
- 
-	&__methodBlock {
-		width: 50%;
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
- 
-	  &__title {
-		 text-transform: uppercase;
-		 font-weight: 700;
-		 font-size: 6vw;
-		 text-align: center;
- 
-		 &Img {
-			width: 13%;
+  &__container {
+    width: 100%;
+	 height: 930px;
+    display: flex;
+    flex-wrap: nowrap;
+    color: $mainDark;
+    margin: 0 auto;
+    margin-top: 5%;
+  }
+
+  &__methodBlock {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+	 margin-top: 10%;
+	 margin-left: 2%;
+
+    &__title {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 8vw;
+		width: 100%;
+		line-height: normal;
+
+
+		&Img {
+			width: 17%;
 			height: auto;
-		 }
-	  }
- 
-	  &__autors {
-	
-		width: 90%;
-		 display: flex;
-		 flex-wrap: nowrap;
-		 justify-content: center;
-		 gap: 3%;
-	  }
- 
-	  &__autor {
-		 display: flex;
-		 flex-direction: column;
-		 max-width: 180px;
-		 align-items: center;
- 
-		 &Img {
-			height: auto;
+			padding: 0% 2%;
 		 }
  
-		 &Name {
-			margin-top: 10px;
-			font-weight: bold;
-		 }
- 
-		 &Description {
-			text-align: center;
-			margin-top: 5px;
+		 &--salmon {
+			color: $mainPeach;
+			padding-left: 20%;
 		 }
 	  }
- 
-	  &__autorsDottedLineImg {
-		 height: 271px;
-		 width: 27px;
-	  }
-	}
- 
-	&__bookBlock {
-		width: 50%;
-		height: auto;
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  text-align: center;
- 
-	  &__title {
-		 font-size: 24px;
-		 margin-bottom: 20px;
-	  }
- 
-	  &Imgs {
-		 width: 100%;
-		 height: 100%;
-		 background-image: url(../../assets/images/Ellipse-salmon.png);
-		 background-repeat: no-repeat;
-		 background-position: center;
-	  }
- 
-	  &Img {
-		 max-width: 100%;
-		 height: auto;
-		 margin-top: 10%;
-	  }
-	}
- }
- 
+
+    &__autors {
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 9%;
+		margin-top: 3%;
+    }
+
+    &__autor {
+      display: flex;
+      flex-direction: column;
+      max-width: 30%;
+      align-items: center;
+
+      &Img {
+        height: auto;
+      }
+
+      &Name {
+        margin-top: 3%;
+        font-weight: bold;
+      }
+
+      &Description {
+        margin-top: 3%;
+      }
+    }
+
+    &__autorsDottedLineImg {
+      height: 100%;
+      width: 3%;
+    }
+  }
+
+  &__bookBlock {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__title {
+      font-size: 3vw;
+      margin-bottom: 3%;
+    }
+
+    &Imgs {
+      width: 100%;
+      height: 100%;
+      background-image: url(../../assets/images/Ellipse-salmon.png);
+		background-position: top center;
+      background-repeat: no-repeat;
+    }
+
+    &Img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 17%;
+		padding-right: 13%;
+    }
+  }
+}

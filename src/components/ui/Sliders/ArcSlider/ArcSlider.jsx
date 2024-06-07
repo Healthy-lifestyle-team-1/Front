@@ -38,7 +38,7 @@ export const ArcSlider = () => {
         alignOrigin: [0.5, 0.5],
         end: i => i / items.length,
       },
-      scale: 0.7,
+      scale: 0.6,
     });
 
     gsap.set(`.${s.arc__wrapper}`, {
@@ -131,7 +131,6 @@ export const ArcSlider = () => {
 
   return (
     <div className={s.arc__container}>
-			  <div className={s.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis corporis molestias ipsam, aspernatur perferendis, quibusdam obcaecati amet nesciunt fugit fugiat exercitationem accusamus natus fuga qui officia minus vitae quod vel!</div>
       <div className={s.arc__wrapper}>
         <div className={`${s.item} ${activeIndex === 0 ? s.active : ''}`}>
           <img className={s.itemImg} src={plateOne} alt="" />
@@ -163,9 +162,7 @@ export const ArcSlider = () => {
         <div className={`${s.item} ${activeIndex === 9 ? s.active : ''}`}>
           <img className={s.itemImg} src={plateFive} alt="" />
         </div>
-        <div className={`${s.item} ${activeIndex === 10 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateSix} alt="" />
-        </div>
+      
 	
 
         <svg className={s.svg} viewBox="0 0 400 400">
@@ -174,19 +171,37 @@ export const ArcSlider = () => {
             className={s.st0}
             cx="200"
             cy="200"
-            r="180"
+            r="139"
             fill="none"
           />
           <image
             className={s.board}
             href={board}
-            x="-65"
-            y="-76"
-            width="530"
-            height="530"
+            x="-10"
+            y="-19"
+            width="421"
+            height="421"
           />
         </svg>
       </div>
     </div>
   );
 };
+  <svg className={s.svg} viewBox="0 0 100% 100%">
+          <circle
+            id="holder"
+            className={s.st0}
+            cx="50%"
+            cy="50%"
+            r="45%"
+            fill="none"
+          />
+          <image
+            className={s.board}
+            href={board}
+            x="-16.25%"
+            y="-19%"
+            width="132.5%"
+            height="132.5%"
+          />
+        </svg>
