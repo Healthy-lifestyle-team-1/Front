@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-import starFilled from '../../../assets/images/fullstar.png';
-import starOutline from '../../../assets/images/emptystar.png';
+import starFilled from '../../../assets/images/icons/filled-star.svg';
+import starOutline from '../../../assets/images/icons/empty-star.svg';
+
 import s from './styles.module.scss';
 
-export const StarRating = ({ count = 5 }) => {
+export const StarRating = ({ count = 5, size = '50px' }) => {
   const stars = Array(count).fill(0);
 
   const [currentItem, setCurrentItem] = useState();
@@ -28,6 +29,7 @@ export const StarRating = ({ count = 5 }) => {
               src={isFilled || isHovered ? starFilled : starOutline}
               alt="star"
               className={s.star}
+              style={{ width: size, height: size }}
             />
           </div>
         );

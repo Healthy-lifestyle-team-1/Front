@@ -33,7 +33,7 @@ export const HomePage = () => {
       <DropDown colorScheme={1} options={options} />
       <Checkbox shape="circle" checked={checked} onChange={setChecked} />
       <Checkbox shape="square" checked={checked} onChange={setChecked} />
-      <StarRating />
+      <StarRating size='50px'/>
       <PlateConstructor />
       <Input width="500px" colorScheme={1} />
       <Advertisement />
