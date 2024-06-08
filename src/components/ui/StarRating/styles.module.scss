@@ -1,26 +1,13 @@
 .stars {
   display: flex;
-  flex-direction: row;
 }
 
 .starContainer {
-  position: relative;
+  cursor: pointer;
 }
 
 .star {
-  width: 50px;
-  height: 50px;
-  transition: all 0.3s ease;
-}
-
-.starOutline {
-  color: #c0bc00;
-}
-
-.starFilled {
-  color: $mainGreenapple;
-  fill: $mainGreenapple;
-  stroke: #c0bc00;
-  stroke-width: 45px;
-  width: 50px;
+  width: 24px; // или любой другой размер
+  height: 24px; // или любой другой размер
+  margin: 0 4px;
 }

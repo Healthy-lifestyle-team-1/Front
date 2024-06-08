@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+
+import starFilled from '../../../assets/images/fullstar.png';
+import starOutline from '../../../assets/images/emptystar.png';
 import s from './styles.module.scss';
-import { FaRegStar, FaStar } from 'react-icons/fa';
 
 export const StarRating = ({ count = 5 }) => {
   const stars = Array(count).fill(0);
@@ -22,11 +24,11 @@ export const StarRating = ({ count = 5 }) => {
             onMouseOut={() => setHoverItem()}
             className={s.starContainer}
           >
-            {isFilled || isHovered ? (
-              <FaStar className={`${s.star} ${s.starFilled}`} />
-            ) : (
-              <FaRegStar className={`${s.star} ${s.starOutline}`} />
-            )}
+            <img
+              src={isFilled || isHovered ? starFilled : starOutline}
+              alt="star"
+              className={s.star}
+            />
           </div>
         );
       })}
