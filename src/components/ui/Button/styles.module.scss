@@ -1,8 +1,11 @@
 .button {
   border: none;
-  border-radius: 12px;
-  padding: 10px 20px;
-  font-size: 16px;
+  border-radius: 160px;
+  padding: 12px 68px;
+  width: 300px;
+  height: 53px;
+  @include font-face-rubik(24px, 400, 29px);
+  text-transform: uppercase;
   cursor: pointer;
   transition:
     background-color 0.3s,
@@ -11,13 +14,13 @@
   &.colorScheme__1 {
     background-color: $mainGreenapple;
     color: $mainDark;
-    // background-color: rgba($mainGreenapple, 0.5);
-    // color: rgba($mainDark, 0.5);
+    background-color: rgba($mainGreenapple, 0.5);
+    color: rgba($mainDark, 0.5);
 
-    // &:hover {
-    //   background-color: $mainGreenapple;
-    //   color: $mainDark;
-    // }
+    &:hover {
+      background-color: $mainGreenapple;
+      color: $mainDark;
+    }
     &::after {
       background-color: rgba($mainGreenapple, 0.5);
     }
@@ -26,13 +29,13 @@
   &.colorScheme__2 {
     background-color: $mainPeach;
     color: $mainLight;
-    // background-color: rgba($mainPeach, 0.5);
-    // color: rgba($mainLight, 0.5);
+    background-color: rgba($mainPeach, 0.5);
+    color: rgba($mainLight, 0.5);
 
-    // &:hover {
-    //   background-color: $mainPeach;
-    //   color: $mainLight;
-    // }
+    &:hover {
+      background-color: $mainPeach;
+      color: $mainLight;
+    }
   }
 
   &.colorScheme__3 {

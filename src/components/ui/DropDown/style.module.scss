@@ -1,19 +1,21 @@
 .dropdown {
+  display: flex;
+  flex-direction: row;
   position: relative;
   display: inline-block;
 
   &.colorScheme1 {
     .dropdownToggle {
-      background-color: #d4d700;
-      color: black;
+      background-color: $mainGreenapple;
+      color: $mainDark;
 
       &:after {
         content: ' ▼';
-        color: black;
+        color: $mainDark;
       }
     }
     .dropdownMenu {
-      background-color: #ffffff;
+      background-color: $mainLight;
     }
   }
 
@@ -33,9 +35,14 @@
   }
 
   .dropdownToggle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 220px;
+    height: 38px;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    @include fontMainText2;
     cursor: pointer;
     border-radius: 20px;
 
@@ -53,8 +60,8 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    // border-radius: 8px;
+    // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 
     li {
