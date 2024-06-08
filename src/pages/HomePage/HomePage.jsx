@@ -14,6 +14,7 @@ import { Button } from '../../components/ui/Button/Button';
 import cn from 'classnames';
 import s from './styles.module.scss';
 import { Checkbox } from '../../components/ui/Checkbox/Checkbox';
+import { StarRating } from '../../components/ui/StarRating/StarRating';
 
 const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
 
@@ -32,6 +33,7 @@ export const HomePage = () => {
       <DropDown colorScheme={2} options={options} />
       <Checkbox shape="circle" checked={checked} onChange={setChecked} />
       <Checkbox shape="square" checked={checked} onChange={setChecked} />
+      <StarRating />
       <PlateConstructor />
       <Input width="500px" colorScheme={1} />
       <Advertisement />
