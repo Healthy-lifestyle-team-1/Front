@@ -14,15 +14,12 @@ import { Footer } from '../../components/Footer/Footer';
 import cn from 'classnames';
 import s from './styles.module.scss';
 
-import { StarRating } from '../../components/ui/StarRating';
-
 export const CatalogPage = () => {
   return (
     <div className={s.container}>
       <HeaderCatalog />
       <Input width="500px" color="transparent" placeholder="Поиск" />
       <NavCatalog />
-      <StarRating />
       <Breakfast />
       <Lunch />
       <CardNewsList />
