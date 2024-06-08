@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import s from './styles.module.scss';
@@ -14,16 +14,8 @@ gsap.registerPlugin(MotionPathPlugin);
 
 export const ArcSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const itemsRef = useRef([]);
-  const circlePathRef = useRef(null);
-  const timelineRef = useRef(null);
-  const trackerRef = useRef({ item: 0 });
 
-  const initializeAnimation = () => {
-    if (circlePathRef.current) {
-      circlePathRef.current.remove();
-    }
-
+  useEffect(() => {
     const circlePath = MotionPathPlugin.convertToPath('#holder', false)[0];
     circlePath.id = 'circlePath';
     const svg = document.querySelector('svg');
@@ -31,14 +23,13 @@ export const ArcSlider = () => {
       svg.prepend(circlePath);
     }
 
-    circlePathRef.current = circlePath;
-    const items = itemsRef.current;
-    const numItems = items.length;
-    const itemStep = 1 / numItems;
-    const wrapProgress = gsap.utils.wrap(0, 1);
-    const snap = gsap.utils.snap(itemStep);
-    const wrapTracker = gsap.utils.wrap(0, numItems);
-    const tracker = trackerRef.current;
+    let items = gsap.utils.toArray(`.${s.item}`);
+    let numItems = items.length;
+    let itemStep = 1 / numItems;
+    let wrapProgress = gsap.utils.wrap(0, 1);
+    let snap = gsap.utils.snap(itemStep);
+    let wrapTracker = gsap.utils.wrap(0, numItems);
+    let tracker = { item: 0 };
 
     gsap.set(items, {
       motionPath: {
@@ -95,22 +86,6 @@ export const ArcSlider = () => {
       0,
     );
 
-    const moveWheel = amount => {
-      const progress = tl.progress();
-      tl.progress(wrapProgress(snap(tl.progress() + amount)));
-      const next = tracker.item;
-      tl.progress(progress);
-
-      gsap.to(tl, {
-        progress: snap(tl.progress() + amount),
-        modifiers: {
-          progress: wrapProgress,
-        },
-      });
-
-      setActiveIndex(next);
-    };
-
     items.forEach((el, i) => {
       el.addEventListener('click', () => {
         const current = tracker.item;
@@ -137,29 +112,20 @@ export const ArcSlider = () => {
       .getElementById('prev')
       ?.addEventListener('click', () => moveWheel(itemStep));
 
-    timelineRef.current = tl;
-  };
+    const moveWheel = amount => {
+      const progress = tl.progress();
+      tl.progress(wrapProgress(snap(tl.progress() + amount)));
+      const next = tracker.item;
+      tl.progress(progress);
 
-  useEffect(() => {
-    const items = gsap.utils.toArray(`.${s.item}`);
-    itemsRef.current = items;
-    initializeAnimation();
+      gsap.to(tl, {
+        progress: snap(tl.progress() + amount),
+        modifiers: {
+          progress: wrapProgress,
+        },
+      });
 
-    const handleResize = () => {
-      const progress = timelineRef.current.progress();
-      const currentItem = trackerRef.current.item;
-      timelineRef.current.kill();
-      initializeAnimation();
-      timelineRef.current.progress(progress);
-      trackerRef.current.item = currentItem;
-      setActiveIndex(currentItem);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      timelineRef.current.kill();
+      setActiveIndex(next);
     };
   }, []);
 
@@ -219,7 +185,6 @@ export const ArcSlider = () => {
     </div>
   );
 };
-
 <svg className={s.svg} viewBox="0 0 100% 100%">
   <circle id="holder" className={s.st0} cx="50%" cy="50%" r="45%" fill="none" />
   <image
