@@ -1,18 +1,12 @@
 @use 'sass:map';
-// @import './fonts.scss';
 
 $mainLight: #f7f4e8;
-// $green: #aedeb6;
 $blueLight: #aedade;
+$blueDark: #59a2a9;
 $mainPeach: #fe907a;
+$peachDark: #e5674f;
 $mainGreenapple: #e2dd01;
-// $color1: #e7b959;
 $mainDark: #2e3a45;
-// $brown: #b19069;
-// $blueDark: #59a2a9;
-// $violet: #e08aac;
-// $color2: #c7a165;
-// $color3: #d5975a;
 
 @mixin width-height($width, $height: $width) {
   width: $width;
