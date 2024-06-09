@@ -29,7 +29,8 @@ export const HomePage = () => {
     <div className={s.container}>
       <div className={s.test}>TEST</div>
       <Header />
-      <Button colorScheme={1} title={'Оплатить'} />
+      <Button colorScheme={1} title={'Оплатить'} size={1} />
+      <Button colorScheme={1} title={'Оплатить'} size={2} />
       <DropDown colorScheme={1} options={options} />
       <Checkbox shape="circle" checked={checked} onChange={setChecked} />
       <Checkbox shape="square" checked={checked} onChange={setChecked} />

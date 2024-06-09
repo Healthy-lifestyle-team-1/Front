@@ -1,10 +1,7 @@
 .button {
   border: none;
-  border-radius: 160px;
   padding: 12px 68px;
-  width: 300px;
-  height: 53px;
-  @include font-face-rubik(24px, 400, 29px);
+  border-radius: 160px;
   text-transform: uppercase;
   cursor: pointer;
   transition:
@@ -51,5 +48,15 @@
       background-color: $mainDark;
       color: $mainLight;
     }
+  }
+  &.size__1 {
+    width: 300px;
+    height: 48px;
+    @include fontMainText1;
+  }
+  &.size__2 {
+    width: 350px;
+    height: 68px;
+    @include fontSubTitle1;
   }
 }
