@@ -61,6 +61,36 @@
     height: 49px;
     padding: 10px 34px;
     border-radius: 40px;
-    @include fontSubTitle1;
+    @include fontMainText1;
   }
+  &.size__4 {
+    width: 150px;
+    height: 48px;
+    padding: 10px 44px;
+    border-radius: 40px;
+    @include font-face-rubik(28px, 300, 1);
+  }
+  &.size__5 {
+    width: 150px;
+    height: 48px;
+    padding: 2px 18px;
+    border-radius: 40px;
+    @include font-face-rubik(40px, 300, 1);
+  }
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+}
+
+.counterButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.counterValue {
+  margin: 0 10px;
 }

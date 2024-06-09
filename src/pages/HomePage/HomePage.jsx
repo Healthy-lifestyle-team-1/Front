@@ -32,8 +32,9 @@ export const HomePage = () => {
       <Button colorScheme={1} title={'Оплатить'} size={1} />
       <Button colorScheme={1} title={'Оплатить'} size={2} />
       <Button colorScheme={2} title={'100 ₽'} size={3} />
-      <Button colorScheme={2} title={'+'} size={3} />
-      <Button colorScheme={4} title={'1'} size={3} />
+      <Button colorScheme={2} title={'+'} size={5} />
+      <Button colorScheme={4} size={4} counter={1} />
+      <Button counter={1} colorScheme={4} size={4} />
       <DropDown colorScheme={1} options={options} />
       <Checkbox shape="circle" checked={checked} onChange={setChecked} />
       <Checkbox shape="square" checked={checked} onChange={setChecked} />
