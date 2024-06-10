@@ -166,11 +166,10 @@
 .profile__phone {
 	padding: 20px 0px;
 	@include font-face-rubik(32px, 400, 120%);
-  color: $mainDark;
 }
 
 .profile__theme {
-	padding-right: 40px;
+	margin-right: 70px;
 	padding-top: 30px;
 }
 
