@@ -12,7 +12,7 @@ import rightPlateImage from '../../assets/images/halfofplates/right/right.png';
 import leftPlateImage from '../../assets/images/halfofplates/left/left.png';
 
 export const PlateConstructor = () => {
-  const tags = ['глютен', 'сахар', 'мучное', 'лук', 'морковь', 'ещё'];
+  const tags = ['Глютен', 'Сахар', 'Мучное', 'Лук', 'Морковь', 'Ещё'];
   const activeTags = useSelector(state => state.tags);
   const dispatch = useDispatch();
   const [leftImage, setLeftImage] = useState(leftPlateImage); // Устанавливаем начальное значение
@@ -50,6 +50,7 @@ export const PlateConstructor = () => {
           {tags.map((tag, index) => (
             <Button
               colorScheme={3}
+              size={6}
               key={index}
               title={tag}
               isActive={activeTags.includes(index)}

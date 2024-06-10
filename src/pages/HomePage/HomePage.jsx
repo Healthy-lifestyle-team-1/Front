@@ -10,6 +10,7 @@ import DropDown from '../../components/ui/DropDown/DropDown';
 import { PlateMethod } from '../../components/PlateMethod';
 import { ArcSlider } from '../../components/ui/Sliders/ArcSlider';
 import { Button } from '../../components/ui/Button/Button';
+import { ButtonWithTheme } from '../../components/ui/Button';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -31,10 +32,9 @@ export const HomePage = () => {
       <Header />
       <Button colorScheme={1} title={'Оплатить'} size={1} />
       <Button colorScheme={1} title={'Оплатить'} size={2} />
-      <Button colorScheme={2} title={'100 ₽'} size={3} />
-      <Button colorScheme={2} title={'+'} size={5} />
-      <Button colorScheme={4} size={4} counter={1} />
-      <Button counter={1} colorScheme={4} size={4} />
+      <ButtonWithTheme colorScheme={2} title={'100 ₽'} size={3} />
+      <ButtonWithTheme colorScheme={2} title={'+'} size={5} />
+      <ButtonWithTheme colorScheme={4} size={4} withCounter={true} />
       <DropDown colorScheme={1} options={options} />
       <Checkbox shape="circle" checked={checked} onChange={setChecked} />
       <Checkbox shape="square" checked={checked} onChange={setChecked} />
