@@ -1,36 +1,73 @@
-import React from "react";
-
-import img1 from '../../../../assets/images/plates/plates1.jpg';
-
+import React from 'react';
+import { useState } from 'react';
+import plateImg from '../../../../assets/images/plates/card-food-img.png';
+import line from '../../../../assets/images/dotted-line-card-food.svg';
 import cn from 'classnames';
 import s from './styles.module.scss';
+import emptyLike from '../../../../assets/images/icons/light/emptyLike.svg'
 
-export const CardFood = ({img, title, description, price}) => {
-
+export const CardFood = ({
+  title,
+  extra,
+  weight,
+  calories,
+  description,
+  img,
+}) => {
   return (
     <div className={s.container}>
-      <div className={s.cardFood__img}>
-        <img className={s.cardFood__img__img} src={img1} alt={'фото тарелки'}/>
+      <div className={s.cardfood__info}>
+        <div className={s.cardfood__title}>{title}</div>
+        <div className={s.cardfood__extra}>{extra}</div>
+        <div className={s.cardfood__weightCalories}>
+          <span className={s.cardfood__weight}>{weight}</span>
+          <span className={s.cardfood__calories}>{calories}</span>
+        </div>
+        <div className={s.cardfood__details}>
+          <div className={s.cardfood__detailsText}>
+            <div className={s.cardfood__detailsTitle}>Описание</div>
+            <div className={s.cardfood__detailsDescription}>{description}</div>
+          </div>
+          <div className={s.cardfood__detailsLine}>
+            <img src={line} alt="линия"></img>
+            </div>
+          <div className={s.cardfood__detailsButton}>
+          </div>
+        </div>
       </div>
-      <div className={s.cardFood__text}>
-        <div className={s.cardFood__text__title}>{(title)}</div>
-        <div className={s.cardFood__text__description}>{(description)}</div>
+      <div className={s.cardfood__likeAndImg}>
+        <img src={emptyLike} alt="" />
+        <img src={img} alt="фото тарелки"></img>
       </div>
-      <div className={s.cardFood__order}>
-        <div className={s.cardFood__order__price}></div>
-        <button>Выбрать</button>
+      <div className={s.cardfood__buttons}>
+
       </div>
     </div>
-  )
-}
+  );
+};
 
-const titles = [
-  {img: img1, title: 'Томлёная говядина', description: 'в томатном соусе  с молодым картофелем в укропе ', price: '100₽'},
-  {img: img1, title: 'Томлёная говядина', description: 'в томатном соусе  с молодым картофелем в укропе ', price: '100₽'},
-  {img: img1, title: 'Томлёная говядина', description: 'в томатном соусе  с молодым картофелем в укропе ', price: '100₽'}
+const plates = [
+  {
+    title: 'Томленая говядина',
+    extra: 'в томатном соусе с молодым картофелем в укропе',
+    weight: '550 г',
+    calories: '675 ккал',
+    description:
+      'Салат из свежих овощей, с добавлением микро-зелени, приправлен ореховым соусом отличный гарнир на ужин',
+    img: plateImg,
+  },
+  {
+    title: 'Томленая говядина',
+    extra: 'в томатном соусе с молодым картофелем в укропе',
+    weight: '550 г',
+    calories: '675 ккал',
+    description:
+      'Салат из свежих овощей, с добавлением микро-зелени, приправлен ореховым соусом отличный гарнир на ужин',
+    img: plateImg,
+  },
 ];
 
-const cardFood = titles.map((item, index) => (
+const cardFood = plates.map((item, index) => (
   <CardFood key={index} {...item} />
 ));
 
