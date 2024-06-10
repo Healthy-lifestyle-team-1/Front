@@ -74,7 +74,7 @@ export const PlateConstructor = () => {
           {/* кнопки-описание */}
           {visibleDescriptions.map(descIndex => (
             <Button
-              colorScheme={3}
+              colorScheme={5}
               size={7}
               key={descIndex}
               title={descriptions[descIndex]}

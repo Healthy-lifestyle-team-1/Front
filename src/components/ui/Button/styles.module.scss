@@ -48,6 +48,15 @@
     color: var(--text-color);
     border: 2px solid var(--text-color);
   }
+  &.colorScheme__5 {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    &:hover {
+      background-color: var(--text-color);
+      color: var(--background-color);
+    }
+  }
   &.size__1 {
     width: 300px;
     height: 48px;
