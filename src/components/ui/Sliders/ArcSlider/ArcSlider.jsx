@@ -15,7 +15,7 @@ gsap.registerPlugin(MotionPathPlugin);
 export const ArcSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
+  const updatePathAndItems = () => {
     const circlePath = MotionPathPlugin.convertToPath('#holder', false)[0];
     circlePath.id = 'circlePath';
     const svg = document.querySelector('svg');
@@ -127,6 +127,20 @@ export const ArcSlider = () => {
 
       setActiveIndex(next);
     };
+  };
+
+  useEffect(() => {
+    updatePathAndItems();
+
+    const handleResize = () => {
+      updatePathAndItems();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
@@ -172,27 +186,9 @@ export const ArcSlider = () => {
             r="139"
             fill="none"
           />
-          <image
-            className={s.board}
-            href={board}
-            x="-10"
-            y="-19"
-            width="421"
-            height="421"
-          />
         </svg>
       </div>
     </div>
   );
 };
-<svg className={s.svg} viewBox="0 0 100% 100%">
-  <circle id="holder" className={s.st0} cx="50%" cy="50%" r="45%" fill="none" />
-  <image
-    className={s.board}
-    href={board}
-    x="-16.25%"
-    y="-19%"
-    width="132.5%"
-    height="132.5%"
-  />
-</svg>;
+
