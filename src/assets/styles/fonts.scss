@@ -5,44 +5,37 @@
   line-height: $line-height;
 }
 
+// H1
 @mixin fontTitle1() {
-  @include font-face-rubik(52px, 500, 120%);
-}
-
-@mixin fontTitle2() {
   @include font-face-rubik(48px, 500, 120%);
 }
-
-@mixin fontTitle3() {
+// H2
+@mixin fontTitle2() {
   @include font-face-rubik(36px, 500, 120%);
   text-transform: uppercase;
 }
-
+// H3
 @mixin fontSubTitle1() {
   @include font-face-rubik(28px, 400, 120%);
   text-transform: uppercase;
 }
-
+// H4
 @mixin fontSubTitle2() {
   @include font-face-rubik(24px, 500, 120%);
 }
-
-@mixin fontSubTitle3() {
-  @include font-face-rubik(24px, 300, 120%);
-}
-
+// T1
 @mixin fontMainText1() {
   @include font-face-rubik(24px, 400, 120%);
 }
-
+// T2
 @mixin fontMainText2() {
   @include font-face-rubik(20px, 400, 120%);
 }
-
+// B1
 @mixin fontMainText3() {
   @include font-face-rubik(18px, 400, 120%);
 }
-
+// B2
 @mixin fontText() {
   @include font-face-rubik(16px, 400, 120%);
 }

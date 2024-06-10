@@ -88,6 +88,14 @@
     @include fontText;
     text-transform: none;
   }
+  &.size__7 {
+    width: 96px;
+    height: 43px;
+    padding: 12px;
+    border-radius: 6px;
+    @include fontText;
+    text-transform: none;
+  }
 }
 
 .counter {

@@ -13,14 +13,15 @@ import leftPlateImage from '../../assets/images/halfofplates/left/left.png';
 
 export const PlateConstructor = () => {
   const tags = ['Глютен', 'Сахар', 'Мучное', 'Лук', 'Морковь', 'Ещё'];
+  const descriptions = ['кБЖУ', 'Состав', 'Описание'];
   const activeTags = useSelector(state => state.tags);
   const dispatch = useDispatch();
-  const [leftImage, setLeftImage] = useState(leftPlateImage); // Устанавливаем начальное значение
-  const [rightImage, setRightImage] = useState(rightPlateImage); // Устанавливаем начальное значение
+  const [leftImage, setLeftImage] = useState(leftPlateImage);
+  const [rightImage, setRightImage] = useState(rightPlateImage);
   const [isPlateCombined, setIsPlateCombined] = useState(false);
+  const [visibleDescriptions, setVisibleDescriptions] = useState([0, 1]);
 
   const handleTagClick = index => {
-    console.log('Button clicked:', tags[index]);
     dispatch(toggleTag(index));
   };
 
@@ -34,6 +35,16 @@ export const PlateConstructor = () => {
     } else if (side === 'right') {
       setRightImage(image);
     }
+  };
+
+  const handleDescriptionClick = index => {
+    const newVisibleDescriptions = [...visibleDescriptions];
+    const clickedIndex = newVisibleDescriptions.indexOf(index);
+    const remainingDescription = descriptions.findIndex(
+      (desc, i) => !newVisibleDescriptions.includes(i),
+    );
+    newVisibleDescriptions[clickedIndex] = remainingDescription;
+    setVisibleDescriptions(newVisibleDescriptions);
   };
 
   return (
@@ -58,6 +69,21 @@ export const PlateConstructor = () => {
             />
           ))}
         </div>
+
+        <div className={s.plateConstructor__tagBtns}>
+          {/* кнопки-описание */}
+          {visibleDescriptions.map(descIndex => (
+            <Button
+              colorScheme={3}
+              size={7}
+              key={descIndex}
+              title={descriptions[descIndex]}
+              isActive={activeTags.includes(descIndex)}
+              onClick={() => handleDescriptionClick(descIndex)}
+            />
+          ))}
+        </div>
+
         {!isPlateCombined && (
           <div className={s.plateConstructor__constructorBlock}>
             <div
