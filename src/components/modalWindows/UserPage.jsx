@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './styles.module.scss';
+import {ThemeSwitcher} from '../ui/ThemeSwitcher'
 
 const UserPage = ({ onClose }) => {
   return (
@@ -10,8 +11,11 @@ const UserPage = ({ onClose }) => {
           ×
         </button>
         <div className={s.profile__info}>
+			<div className={s.profile__infoBlock}>
           <div className={s.profile__name}>Надежда</div>
           <div className={s.profile__phone}>+ 999 999 - 99 -99</div>
+			 </div>
+			 <div className={s.profile__theme}><ThemeSwitcher /></div>
         </div>
 		  
         <div className={s.profile__menu}>
