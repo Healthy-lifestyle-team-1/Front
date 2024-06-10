@@ -3,11 +3,11 @@ import cn from 'classnames';
 import s from './styles.module.scss';
 
 export function Button({
-  width,
   title,
   onClick,
   colorScheme,
   isActive,
+  size,
   ...props
 }) {
   return (
@@ -15,9 +15,9 @@ export function Button({
       className={cn(s.button, {
         [s[`colorScheme__${colorScheme}`]]: colorScheme,
         [s.active]: isActive,
+        [s[`size__${size}`]]: size,
       })}
       onClick={onClick}
-      style={{ width }}
       {...props}
     >
       {title}
