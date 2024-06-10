@@ -14,7 +14,7 @@
 .modal__content {
   background: #fffae6;
   border-radius: 10px;
-  width: 320px;
+  width: 600px;
   position: relative;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border: 1px solid #d9d9d9;
@@ -28,7 +28,7 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #000000;
+  color: $mainDark;
   background-color: $mainGreenapple;
   border-radius: 100%;
 }
@@ -86,7 +86,6 @@
     }
 
     &__name {
-      font-size: 14px;
       margin-bottom: 5px;
     }
 
@@ -143,33 +142,40 @@
   color: white;
 }
 
+.modal__name {
+	@include fontTitle1();
+	padding-top: 35px;
+	padding-left: 20px;
+	margin-bottom: 30px
+}
+
 .profile__info {
   background-color: #a6dbe4;
-  padding: 20px;
-  margin-bottom: 15px;
+  padding: 20px 0px 0px 65px;
 }
 
 .profile__name {
-  font-weight: bold;
-  font-size: 18px;
+  @include font-face-rubik(36px, 500, 120%);
   margin-bottom: 5px;
 }
 
 .profile__phone {
-  font-size: 16px;
-  color: #333;
+	padding: 20px 0px;
+	@include font-face-rubik(32px, 400, 120%);
+  color: $mainDark;
 }
 
 .profile__menu {
   text-align: left;
   margin-bottom: 15px;
-  padding: 20px;
+  padding: 50px;
 }
 
 .profile__menu__item {
   display: flex;
   align-items: center;
-  padding: 10px 0;
+  padding: 44px 0px 10px 0px;
+  @include font-face-rubik(28px, 400, 120%);
   border-bottom: 1px dashed #B19069;
 }
 
@@ -184,13 +190,11 @@
 }
 
 .logoutButton {
-  background: $mainGreenapple;
   color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  font-size: 16px;
   width: 60%;
-  background-color: #ffcc00;
+  background-color: $mainGreenapple;
   border-radius: 30px;
 }
