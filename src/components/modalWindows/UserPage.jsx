@@ -119,13 +119,14 @@ const UserPage = ({ onClose }) => {
             Настройки
           </div>
         </div>
+		  <div className={s.logoutButton}>
         <Button
-		  className={s.logoutButton}
           title="Выйти"
           onClick={() => console.log('Button clicked')}
           colorScheme={1} 
           size={1} 
         />
+		  </div>
       </div>
     </div>
   );

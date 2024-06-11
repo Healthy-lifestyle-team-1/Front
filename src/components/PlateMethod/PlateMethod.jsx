@@ -4,7 +4,7 @@ import MaksimKImg from '../../assets/images/MaksimKuderov.png';
 import LidaLImg from '../../assets/images/LidaLanskaya.png';
 import DottedLine from '../../assets/images/dotted-line-plate-method.png';
 import BookImg from '../../assets/images/method-plate-book.png';
-import { Button } from '../ui/Button/Button';
+import { Button } from '../ui/Button';
 
 import s from './styles.module.scss';
 
@@ -39,9 +39,7 @@ export const PlateMethod = () => {
           className={s.button}
           width="280px"
           title="Купить"
-        >
-          Купить
-        </Button>
+        />
       </div>
       </div>
 
