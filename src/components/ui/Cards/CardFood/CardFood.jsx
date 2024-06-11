@@ -64,7 +64,7 @@ export const CardFood = ({
         return (
           <div>
             <div className={s.cardfood__detailsTitle}>кБЖУ</div>
-            <img src={chartLight} alt="кБЖУ" />;
+            <img src={chartLight} alt="кБЖУ" />
           </div>
         );
       case 1:
