@@ -17,6 +17,7 @@ import cn from 'classnames';
 import s from './styles.module.scss';
 import { Checkbox } from '../../components/ui/Checkbox/Checkbox';
 import { StarRating } from '../../components/ui/StarRating/StarRating';
+import Test from '../../components/ui/test/test';
 
 const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
 
@@ -45,6 +46,7 @@ export const HomePage = () => {
       />
       <Checkbox shape="square" checked={checked} onChange={setChecked} />
       <StarRating size="50px" />
+      <Test />
       <PlateConstructor />
       <PlateMethod />
       <Input onSearch={handleSearch} width="big" colorScheme={1} />

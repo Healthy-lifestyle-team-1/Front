@@ -105,6 +105,15 @@
     @include fontText;
     text-transform: none;
   }
+  &.backgroundColor__1 {
+    background-color: $mainPeach;
+  }
+  &.backgroundColor__2 {
+    background-color: $mainGreenapple;
+  }
+  &.backgroundColor__3 {
+    background-color: $blueLight;
+  }
 }
 
 .counter {
