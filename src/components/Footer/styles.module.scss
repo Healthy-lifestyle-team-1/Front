@@ -1,9 +1,84 @@
-.footer__container {
-	width: 100%;
-	height: auto;
-	overflow: hidden;
-	background-image: url('../../assets/images/footer.png');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
- }
+a {
+	list-style: none;
+	text-decoration: none;
+	color: $mainDark;
+}
+
+.footer {
+
+	&__container {
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+		background-image: url('../../assets/images/footer.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	 }
+
+	 &__navBlock {
+		display: flex;
+		flex-wrap: nowrap;
+	 }
+
+	 &__logo {
+
+	 }
+
+	 &__navList {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		padding-top: 16px;
+
+		&__item {
+			@include fontMainText2();
+		}
+	 }
+
+
+		&__socialAndAppBlock {
+			display: flex;
+			flex-direction: column;
+			padding-top: 12px;
+		}
+
+		&__socialBlock {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&__socialTitle {
+			@include fontMainText3()
+		}
+
+		&__socialIcons {
+			display: flex;
+			flex-wrap: nowrap;
+			gap: 12px;
+		}
+
+		&__appBlock {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&__appTitle {
+			@include fontMainText3()
+		}
+
+		&__appIcons {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+
+		&QR {
+
+		}
+	 }
+
+
