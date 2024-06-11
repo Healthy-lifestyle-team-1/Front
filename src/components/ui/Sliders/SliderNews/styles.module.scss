@@ -1,0 +1,34 @@
+.news__container {
+	width: 100%;
+	height: 600px;
+	display: flex;
+	flex-wrap: nowrap;
+
+
+	&__slider {
+		display: flex;
+		width: 100%;
+		background-color: $blueLight;
+	 }
+
+	 &__slide {
+		min-width: 100%;
+		background-color: $mainDark;
+	 }
+
+	 &__img {
+		width: 100%;
+		height: auto;
+		border-radius: 20px;
+	 }
+
+	 &__description {
+		text-align: center;
+		margin-top: 10px;
+	 }
+ }
+ 
+ 
+ 
+
+ 

@@ -44,9 +44,26 @@ export const Footer = () => {
         <div className={s.footer__socialBlock}>
           <div className={s.footer__socialTitle}>Мы в сетях</div>
           <div className={s.footer__socialIcons}>
-			 <img src={Instagram} alt="Instagram" />
-			 <img src={YouTube} alt="YouTube" />
-			 <img src={Telegram} alt="Telegram" />
+			 <a
+            href="https://www.instagram.com/zozhnik_ru?igsh=MWRoeXFhaDl0eGFlNA=="
+            target="_blank"
+          >
+            <img src={Instagram} alt="иконка Instagram" />
+          </a>
+
+			 <a
+            href="https://www.youtube.com/@zozhnik_ru"
+            target="_blank"
+          >
+            <img src={YouTube} alt="иконка Youtube" />
+          </a>
+
+			 <a
+            href="https://t.me/zozhnik"
+            target="_blank"
+          >
+            <img src={Telegram} alt="иконка Instagram" />
+          </a>			 
 			 </div>
         </div>
 
