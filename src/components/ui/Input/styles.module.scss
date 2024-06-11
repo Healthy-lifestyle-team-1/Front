@@ -1,5 +1,6 @@
 .input {
   &__container {
+    height: 38px;
     display: flex;
     align-items: center;
     border: 1px solid;
@@ -16,22 +17,25 @@
   &__field {
     border: none;
     outline: none;
+    height: 26px;
     flex-grow: 1;
-    padding: 8px;
+    padding: 10px 8px 6px 8px;
     background: transparent;
     &::placeholder {
-      color: inherit;
+      @include fontMainText1;
+      color: var(--color-input);
     }
   }
 }
 
 .colorScheme {
   &__1 {
-    background: $mainLight;
-    border-color: $mainDark;
+    background: var(--background-input);
+    border-color: var(--border-input);
 
     .input__field {
-      color: $mainDark;
+      @include fontMainText1;
+      color: var(--color-input);
     }
 
     .input__button img {

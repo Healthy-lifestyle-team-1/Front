@@ -10,12 +10,18 @@
   --background-color: #f7f4e8;
   --text-color: #2e3a45;
   --color-blue: #aedade;
+  --background-input: white;
+  --border-input: white;
+  --color-input: grey;
 }
 
 :root[data-theme='dark'] {
   --background-color: #2e3a45;
   --text-color: #f7f4e8;
   --color-blue: #59a2a9;
+  --background-input: #2e3a45;
+  --border-input: #eae4ce;
+  --color-input: #eae4ce;
 }
 
 body {
