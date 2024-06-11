@@ -37,9 +37,14 @@ export const HomePage = () => {
       <ButtonWithTheme colorScheme={2} title={'+'} size={5} />
       <ButtonWithTheme colorScheme={4} size={4} withCounter={true} />
       <DropDown colorScheme={1} options={options} />
-      <Checkbox shape="circle" checked={checked} onChange={setChecked} />
+      <Checkbox
+        shape="square"
+        checked={false}
+        disabled={true}
+        onChange={() => {}}
+      />
       <Checkbox shape="square" checked={checked} onChange={setChecked} />
-      <StarRating size='50px'/>
+      <StarRating size="50px" />
       <PlateConstructor />
 		<PlateMethod />
       <Input width="500px" colorScheme={1} />

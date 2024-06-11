@@ -9,11 +9,13 @@
 :root[data-theme='light'] {
   --background-color: #f7f4e8;
   --text-color: #2e3a45;
+  --color-blue: #aedade;
 }
 
 :root[data-theme='dark'] {
   --background-color: #2e3a45;
   --text-color: #f7f4e8;
+  --color-blue: #59a2a9;
 }
 
 body {

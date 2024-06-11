@@ -38,7 +38,7 @@ export const Checkbox = ({
         )}
       </span>
       <label className={s.checkbox__label}>
-        {checked ? 'Активный' : disabled ? 'Недоступно' : 'Обычный'}
+        {disabled ? 'Недоступно' : checked ? 'Активный' : 'Обычный'}
       </label>
     </div>
   );
