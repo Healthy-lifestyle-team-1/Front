@@ -37,7 +37,7 @@ export const HomePage = () => {
       <ButtonWithTheme colorScheme={2} title={'100 ₽'} size={3} />
       <ButtonWithTheme colorScheme={2} title={'+'} size={5} />
       <ButtonWithTheme colorScheme={4} size={4} withCounter={true} />
-      <DropDown colorScheme={1} options={options} buttonText={'Выбрать'}/>
+      <DropDown colorScheme={1} options={options} buttonText={'Выбрать'} />
       <Checkbox
         shape="square"
         checked={false}
