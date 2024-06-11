@@ -36,15 +36,16 @@ export const PlateMethod = () => {
         </div>
         <div className={s.plateMethod__methodBlock__btn}>
         <Button
-          className={s.button}
-          width="280px"
-          title="Купить"
+         title="Перейти"
+			onClick={() => console.log('Button clicked')}
+			colorScheme={1} 
+			size={1} 
         />
       </div>
       </div>
 
       <div className={s.plateMethod__bookBlock}>
-			<div className={s.plateMethod__bookBlock__title}>Идеология здорового питания по науке</div>
+			<div className={s.plateMethod__bookBlock__title}><span className={s.plateMethod__bookBlock__titleBlue}>Идеология</span> здорового питания по науке</div>
 	
         <div className={s.plateMethod__bookBlockImgs}>
           <img className={s.plateMethod__bookBlockImg} src={BookImg} alt="Фото книги" />

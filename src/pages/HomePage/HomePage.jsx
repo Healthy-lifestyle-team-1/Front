@@ -11,6 +11,7 @@ import { PlateMethod } from '../../components/PlateMethod';
 import { ArcSlider } from '../../components/ui/Sliders/ArcSlider';
 import { Button } from '../../components/ui/Button/Button';
 import { ButtonWithTheme } from '../../components/ui/Button';
+import { Footer } from '../../components/Footer/Footer';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -45,13 +46,15 @@ export const HomePage = () => {
       <Checkbox shape="square" checked={checked} onChange={setChecked} />
       <StarRating size="50px" />
       <PlateConstructor />
+      <PlateMethod />
       <Input onSearch={handleSearch} width="big" colorScheme={1} />
       <Input onSearch={handleSearch} width="small" colorScheme={1} />
       <Advertisement />
       <HelpfulArticles />
       <ArcSlider />
-      <PlateMethod />
+
       {/* <Main /> */}
+      <Footer />
     </div>
   );
 };
