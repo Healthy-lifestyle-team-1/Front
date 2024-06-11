@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '../ui/Button/Button';
 import { SliderPlates } from '../ui/Sliders/SliderPlates';
 import { toggleTag } from '../../core/store/tagsSlice';
-import { UsersPlate } from '../UsersPlate';
 import cn from 'classnames';
 import s from './styles.module.scss';
 
@@ -16,8 +15,6 @@ export const PlateConstructor = () => {
   const descriptions = ['кБЖУ', 'Состав', 'Описание'];
   const activeTags = useSelector(state => state.tags);
   const dispatch = useDispatch();
-  const [leftImage, setLeftImage] = useState(leftPlateImage);
-  const [rightImage, setRightImage] = useState(rightPlateImage);
   const [isPlateCombined, setIsPlateCombined] = useState(false);
   const [visibleDescriptions, setVisibleDescriptions] = useState([0, 1]);
 
@@ -50,12 +47,6 @@ export const PlateConstructor = () => {
   return (
     <div className={s.container}>
       <div className={s.plateConstructor}>
-        <div className={s.plateConstructor__header}>
-          <div className={s.plateConstructor__title}>Конструктор</div>
-          <div className={s.plateConstructor__description}>
-            Собери свою персональную тарелку
-          </div>
-        </div>
         <div className={s.plateConstructor__tagBtns}>
           {/* кнопки-теги */}
           {tags.map((tag, index) => (
@@ -84,36 +75,53 @@ export const PlateConstructor = () => {
           ))}
         </div>
 
-        {!isPlateCombined && (
-          <div className={s.plateConstructor__constructorBlock}>
-            <div
-              className={cn(
-                s.plateConstructor__plateHalf,
-                s['plateConstructor__plateHalf--first'],
-              )}
-            >
-              <SliderPlates onSelect={handleSelectImage} />
-              <div className={s.plateConstructor__constructorBlock}></div>
+        <div className={s.plateConstructor__main}>
+          <div className={s.main__description}>
+            <div className={s.main__tags}></div>
+            <div className={s.main__title}>{title}</div>
+            <div className={s.main__price}>{price}</div>
+            <div className={s.main__info}>{info}</div>
+
+            <div className={s.plateConstructor__tagBtns}>
+              {/* кнопки-описание */}
+              {visibleDescriptions.map(descIndex => (
+                <Button
+                  colorScheme={5}
+                  size={7}
+                  key={descIndex}
+                  title={descriptions[descIndex]}
+                  isActive={activeTags.includes(descIndex)}
+                  onClick={() => handleDescriptionClick(descIndex)}
+                />
+              ))}
             </div>
-            <div
-              className={cn(
-                s.plateConstructor__plateHalf,
-                s['plateConstructor__plateHalf--second'],
-              )}
-            ></div>
           </div>
-        )}
-        {isPlateCombined && leftImage && rightImage && (
-          <div className={s.plateConstructor__combined}>
-            <UsersPlate leftImage={leftImage} rightImage={rightImage} />
-          </div>
-        )}
+          {!isPlateCombined && (
+            <div className={s.plateConstructor__constructorBlock}>
+              <div
+                className={cn(
+                  s.plateConstructor__plateHalf,
+                  s['plateConstructor__plateHalf--first'],
+                )}
+              >
+                <SliderPlates onSelect={handleSelectImage} />
+                <div className={s.plateConstructor__constructorBlock}></div>
+              </div>
+              <div
+                className={cn(
+                  s.plateConstructor__plateHalf,
+                  s['plateConstructor__plateHalf--second'],
+                )}
+              ></div>
+            </div>
+          )}
+        </div>
       </div>
       <div>
         <Button
           colorScheme={3}
           width="280px"
-          title="Собрать тарелку"
+          title="Собрать"
           onClick={handleCombinePlate}
         />
       </div>
