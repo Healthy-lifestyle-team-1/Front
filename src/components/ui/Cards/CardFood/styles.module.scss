@@ -64,6 +64,13 @@
       gap: 24px;
       padding: 50% 0;
   }
+  &__options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 130%;
+    padding-top: 50px;
+  }
   &__likeAndImg {
     display: flex;
     flex-direction: column;

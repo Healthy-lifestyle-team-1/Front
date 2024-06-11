@@ -7,6 +7,7 @@ import cn from 'classnames';
 import s from './styles.module.scss';
 import emptyLike from '../../../../assets/images/icons/light/пустойЛайк.svg';
 import filledLike from '../../../../assets/images/icons/light/закрашенныйЛайк.svg';
+import DropDown from '../../../../components/ui/DropDown/DropDown';
 
 // иконки для маркировки продуктов питания
 import vegan from '../../../../assets/images/icons/light/вег.svg';
@@ -77,6 +78,10 @@ export const CardFood = ({
             </div>
           </div>
         </div>
+        <div className={s.cardfood__options}>
+          <DropDown colorScheme={1} options={options} />
+          <Button colorScheme={2} title={'В корзину'} size={1} />
+        </div>
       </div>
       <div className={s.cardfood__likeAndImg}>
         <button className={s.cardfood__like} onClick={handleLikeClick}>
@@ -91,6 +96,8 @@ export const CardFood = ({
     </div>
   );
 };
+
+const options = ['Отзыв 1?', 'Отзыв 2?', 'Отзыв 3?'];
 
 const plates = [
   {
