@@ -2,11 +2,11 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  width: 1080px;
+  width: 1000px;
 //   временно поставила border
   border: 1px solid black;
   border-radius: 20px;
-  padding: 20px;
+  padding: 40px;
 }
 
 .cardfood {
@@ -55,13 +55,14 @@
 
     &Description {
       @include fontMainText3();
+      width: 85%;
     }
-
-    &Line {
-    }
-
-    &Button {
-    }
+  }
+  &__tagBtns{
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 50% 0;
   }
   &__likeAndImg {
     display: flex;

@@ -1,5 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Button } from '../../../../components/ui/Button/Button';
 import plateImg from '../../../../assets/images/plates/card-food-img.png';
 import line from '../../../../assets/images/dotted-line-card-food.svg';
 import cn from 'classnames';
@@ -20,6 +21,20 @@ export const CardFood = ({
   description,
   img,
 }) => {
+  const descriptions = ['кБЖУ', 'Состав', 'Описание'];
+  const [visibleDescriptions, setVisibleDescriptions] = useState([0, 1]);
+  const activeTags = useSelector(state => state.tags);
+
+  const handleDescriptionClick = index => {
+    const newVisibleDescriptions = [...visibleDescriptions];
+    const clickedIndex = newVisibleDescriptions.indexOf(index);
+    const remainingDescription = descriptions.findIndex(
+      (desc, i) => !newVisibleDescriptions.includes(i),
+    );
+    newVisibleDescriptions[clickedIndex] = remainingDescription;
+    setVisibleDescriptions(newVisibleDescriptions);
+  };
+
   const [liked, setLiked] = useState(false);
   const handleLikeClick = () => {
     setLiked(!liked);
@@ -48,8 +63,18 @@ export const CardFood = ({
             <img src={line} alt="линия"></img>
           </div>
           <div className={s.cardfood__detailsButton}>
-            <button>Состав</button>
-            <button>кБЖУ</button>
+            <div className={s.cardfood__tagBtns}>
+              {visibleDescriptions.map(descIndex => (
+                <Button
+                  colorScheme={5}
+                  size={7}
+                  key={descIndex}
+                  title={descriptions[descIndex]}
+                  isActive={activeTags.includes(descIndex)}
+                  onClick={() => handleDescriptionClick(descIndex)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
