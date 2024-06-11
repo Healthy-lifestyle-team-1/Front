@@ -21,12 +21,13 @@
 
   &.colorScheme2 {
     .dropdownToggle {
-      background-color: #ff9f94;
-      color: white;
+      background-color: transparent;
+      color: $mainDark;
+      border: 1px solid $mainDark;
 
       &:after {
         content: ' ▼';
-        color: white;
+        color: $mainDark;
       }
     }
     .dropdownMenu {
@@ -41,7 +42,7 @@
     width: 220px;
     height: 38px;
     border: none;
-    padding: 10px 20px;
+    padding: 7px 20px;
     @include fontMainText2;
     cursor: pointer;
     border-radius: 20px;
