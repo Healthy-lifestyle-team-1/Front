@@ -21,7 +21,8 @@
     position: relative;
 
     &.checked {
-      background-color: yellow;
+      background-color: $mainGreenapple;
+      border: 2px solid $mainGreenapple;
     }
   }
   &__label {
@@ -37,7 +38,7 @@
   display: block;
   width: 10px;
   height: 10px;
-  background: #000;
+  background: $mainDark;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -47,13 +48,13 @@
 
 .check {
   display: block;
-  width: 14px;
+  width: 7px;
   height: 14px;
   border: solid #000;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
 }
