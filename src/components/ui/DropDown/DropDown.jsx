@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import s from './style.module.scss';
 
-const DropDown = ({ colorScheme, options }) => {
+const DropDown = ({ colorScheme, options, buttonText }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -28,7 +28,7 @@ const DropDown = ({ colorScheme, options }) => {
       className={`${s.dropdown} ${colorScheme === 1 ? s.colorScheme1 : s.colorScheme2}`}
     >
       <button className={s.dropdownToggle} onClick={handleToggle}>
-        Выбрать
+        {buttonText}
       </button>
       {isOpen && (
         <ul className={s.dropdownMenu}>
