@@ -16,22 +16,24 @@
   width: 600px;
   position: relative;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 2000;
   border: 3px solid $mainDark;
 
 }
 
 .closeButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
+  top: 25px;
+  right: 25px;
   border: none;
-  font-size: 24px;
   cursor: pointer;
-  color: $mainDark;
   background-color: $mainGreenapple;
-  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
 }
 
 .cart {
@@ -182,14 +184,14 @@
 .profile__menu__item {
   display: flex;
   align-items: center;
-  padding: 44px 0px 10px 0px;
+  padding: 44px 0px 15px 0px;
   @include font-face-rubik(28px, 400, 120%);
   border-bottom: 2px dashed #B19069;
 }
 
 .profile__menu__icon {
   font-size: 20px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .themeToggle {
@@ -198,11 +200,7 @@
 }
 
 .logoutButton {
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
+
   cursor: pointer;
-  width: 60%;
-  background-color: $mainGreenapple;
-  border-radius: 30px;
+
 }

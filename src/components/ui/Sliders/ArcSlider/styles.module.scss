@@ -24,7 +24,6 @@
   cursor: pointer;
   z-index: 1;
 
-
   &Img {
 	width: 100%;
     transition: transform 0.3s;
@@ -52,10 +51,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-
   .st0 {
-
-  }
+	stroke: $blueLight;
+	stroke-width: 2;  
+	stroke-dasharray: 5, 5; 
+ }
 }
 
 .text {
