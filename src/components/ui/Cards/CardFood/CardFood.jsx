@@ -79,7 +79,7 @@ export const CardFood = ({
           </div>
         </div>
         <div className={s.cardfood__options}>
-          <DropDown colorScheme={2} options={options} />
+          <DropDown colorScheme={2} options={options} buttonText={'Отзывы'}/>
           <Button colorScheme={2} title={'В корзину'} size={1} />
         </div>
       </div>
