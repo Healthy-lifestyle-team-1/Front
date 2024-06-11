@@ -11,7 +11,7 @@ import { CatalogPage } from './pages/CatalogPage/CatalogPage';
 function App() {
   return (
     <div>
-      <Theme />
+      <Theme className={'hidden'} />
       <div>Здесь будет наш прекрасный проект!</div>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -23,5 +23,3 @@ function App() {
 }
 
 export default App;
-
-
