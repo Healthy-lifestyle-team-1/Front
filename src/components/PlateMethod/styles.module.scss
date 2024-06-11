@@ -1,7 +1,6 @@
 .plateMethod {
   &__container {
     width: 100%;
-    height: 930px;
     display: flex;
     flex-wrap: nowrap;
     color: $mainDark;
@@ -47,19 +46,22 @@
       display: flex;
       flex-direction: column;
       max-width: 30%;
-      align-items: center;
+
 
       &Img {
-        height: auto;
+        width: 100%;
       }
 
       &Name {
         margin-top: 3%;
-        font-weight: bold;
+		  @include fontMainText1();
+		  display: flex;
+		  flex-wrap: nowrap;
       }
 
       &Description {
         margin-top: 3%;
+		  @include fontText();
       }
     }
 
@@ -67,6 +69,12 @@
       height: 100%;
       width: 3%;
     }
+
+	 &__btn {
+		display: flex;
+		justify-content: center;
+		margin-top: 75px;
+	  }
   }
 
   &__bookBlock {
@@ -78,8 +86,13 @@
     text-align: center;
 
     &__title {
-      font-size: 3vw;
+      @include fontTitle2();
       margin-bottom: 3%;
+		text-align: end;
+
+		&Blue {
+			color: $blueLight;
+		}
     }
 
     &Imgs {
@@ -88,6 +101,7 @@
       background-image: url(../../assets/images/Ellipse-salmon.png);
       background-position: top center;
       background-repeat: no-repeat;
+		background-size: 100%;
     }
 
     &Img {
@@ -97,4 +111,5 @@
       padding-right: 13%;
     }
   }
+
 }

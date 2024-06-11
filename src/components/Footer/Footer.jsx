@@ -1,11 +1,13 @@
 import React from 'react';
 import cn from 'classnames';
-import style from './styles.module.scss';
+import s from './styles.module.scss';
+import { Logo } from '../ui/Logo';
+
 
 export const Footer = () => {
   return (
-    <div className={style.container}>
-      <div>Футер</div>
+    <div className={s.footer__container}>
+		<div className={s.footer__container__b}><Logo /></div>
     </div>
   );
 };

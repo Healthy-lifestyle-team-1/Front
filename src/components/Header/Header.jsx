@@ -3,6 +3,7 @@ import { NavBar } from '../ui/NavBar';
 import UserPage from '../modalWindows/UserPage';
 import CartPage from '../modalWindows/CartPage';
 
+
 import s from './styles.module.scss';
 
 export const Header = () => {
