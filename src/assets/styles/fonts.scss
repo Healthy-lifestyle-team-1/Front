@@ -43,3 +43,7 @@
 @mixin fontArticle() {
   @include font-face-rubik(14px, 400, 120%);
 }
+// Rights text
+@mixin fontArticle2() {
+	@include font-face-rubik(14px, 400, 200%);
+ }

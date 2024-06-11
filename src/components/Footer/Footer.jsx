@@ -12,6 +12,7 @@ import QR from '../../assets/images/qr.png';
 export const Footer = () => {
   return (
     <div className={s.footer__container}>
+		 <div className={s.footer__wrapper}>
       <div className={s.footer__navBlock}>
         <div className={s.footer__logo}>
           <Logo />
@@ -37,6 +38,8 @@ export const Footer = () => {
           </a>
         </div>
       </div>
+		<div className={s.footer__socialAndAppAndQrWrapper}>
+	
       <div className={s.footer__socialAndAppBlock}>
         <div className={s.footer__socialBlock}>
           <div className={s.footer__socialTitle}>Мы в сетях</div>
@@ -50,12 +53,32 @@ export const Footer = () => {
         <div className={s.footer__appBlock}>
           <div className={s.footer__appTitle}>Мы в сетях</div>
           <div className={s.footer__appIcons}>
-				<img src={AppStore} alt="AppStore" />
-				<img src={GooglePlay} alt="GooglePlay" />
+			 <a
+            className={s.downloadOption}
+            href="https://apps.apple.com/ru/developer/apple/id284417353?mt=12"
+            target="_blank"
+          >
+            <img src={AppStore} alt="иконка App Store" />
+          </a>
+
+
+				<a
+            href="https://play.google.com"
+            target="_blank"
+          >
+            <img src={GooglePlay} alt="иконка Google Play" />
+          </a>
 			 </div>
         </div>
       </div>
+		
+		
       <div className={s.footer__QR}><img src={QR} alt="qr" /></div>
-    </div>
+		</div>
+		</div>
+
+		<div className={s.footer__rightsText}>Осуществляя вход на этот Сайт/в мобильное приложение ЗОЖНИК, вы подтверждаете, что ознакомлены с Пользовательским соглашением и Положением по обработке и защите персональных данных. С общими правилами участия в акциях и порядке получения подарков Вы можете ознакомиться здесь</div>
+		
+	 </div>
   );
 };

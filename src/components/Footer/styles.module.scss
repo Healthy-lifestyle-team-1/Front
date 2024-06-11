@@ -1,84 +1,108 @@
 a {
-	list-style: none;
-	text-decoration: none;
-	color: $mainDark;
+  list-style: none;
+  text-decoration: none;
+  color: $mainDark;
 }
 
 .footer {
+  &__container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-image: url('../../assets/images/footer.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+	 margin: 0 auto;
+  }
 
-	&__container {
-		width: 100%;
-		height: auto;
-		overflow: hidden;
-		background-image: url('../../assets/images/footer.png');
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-		display: flex;
-		flex-wrap: nowrap;
-		justify-content: space-between;
-	 }
+  &__wrapper {
+    width: 100%;
+    margin-top: 10vw;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+	 padding: 32px;
+  }
 
-	 &__navBlock {
-		display: flex;
-		flex-wrap: nowrap;
-	 }
+  &__navBlock {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 
-	 &__logo {
+  &__logo {
+	margin-right: 44px;
+  }
 
-	 }
+  &__navList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 16px;
 
-	 &__navList {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-		padding-top: 16px;
+    &__item {
+      @include fontMainText2();
+    }
+  }
 
-		&__item {
-			@include fontMainText2();
-		}
-	 }
+  &__socialAndAppAndQrWrapper {
+    display: flex;
+    flex-wrap: nowrap;
+	 padding-top: 2vw;
+	 margin-right: 62px;
+	 gap: 30px;
+  }
 
+    &__socialAndAppBlock {
+      display: flex;
+      flex-direction: column;
 
-		&__socialAndAppBlock {
-			display: flex;
-			flex-direction: column;
-			padding-top: 12px;
-		}
+    }
 
-		&__socialBlock {
-			display: flex;
-			flex-direction: column;
-		}
+    &__socialBlock {
+      display: flex;
+      flex-direction: column;
+		gap: 12px;
+		margin-bottom: 40px
+    }
 
-		&__socialTitle {
-			@include fontMainText3()
-		}
+    &__socialTitle {
+      @include fontMainText3();
+    }
 
-		&__socialIcons {
-			display: flex;
-			flex-wrap: nowrap;
-			gap: 12px;
-		}
+    &__socialIcons {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12px;
+    }
 
-		&__appBlock {
-			display: flex;
-			flex-direction: column;
-		}
+    &__appBlock {
+      display: flex;
+      flex-direction: column;
+		gap: 12px;
+    }
 
-		&__appTitle {
-			@include fontMainText3()
-		}
+    &__appTitle {
+      @include fontMainText3();
+    }
+ 
 
-		&__appIcons {
-			display: flex;
-			flex-direction: column;
-			gap: 12px;
-		}
+  &__appIcons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-		&QR {
+  &__QR {
+	display: flex;
+	flex-direction: column; 
+	justify-content: flex-end; 
+	height: 100%; 
+ }
 
-		}
-	 }
-
-
+ &__rightsText {
+	text-align: center;
+	@include fontArticle2();
+	margin-bottom: 32px;
+	padding: 0px 20px;
+ }
+}
