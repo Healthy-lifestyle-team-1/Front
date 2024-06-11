@@ -17,6 +17,7 @@ import cn from 'classnames';
 import s from './styles.module.scss';
 import { Checkbox } from '../../components/ui/Checkbox/Checkbox';
 import { StarRating } from '../../components/ui/StarRating/StarRating';
+import Test from '../../components/ui/test/test';
 
 const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
 
@@ -36,7 +37,7 @@ export const HomePage = () => {
       <ButtonWithTheme colorScheme={2} title={'100 ₽'} size={3} />
       <ButtonWithTheme colorScheme={2} title={'+'} size={5} />
       <ButtonWithTheme colorScheme={4} size={4} withCounter={true} />
-      <DropDown colorScheme={1} options={options} />
+      <DropDown colorScheme={1} options={options} buttonText={'Выбрать'}/>
       <Checkbox
         shape="square"
         checked={false}
@@ -45,15 +46,17 @@ export const HomePage = () => {
       />
       <Checkbox shape="square" checked={checked} onChange={setChecked} />
       <StarRating size="50px" />
+      <Test />
       <PlateConstructor />
-		<PlateMethod />
-      <Input width="500px" colorScheme={1} />
+      <PlateMethod />
+      <Input onSearch={handleSearch} width="big" colorScheme={1} />
+      <Input onSearch={handleSearch} width="small" colorScheme={1} />
       <Advertisement />
       <HelpfulArticles />
       <ArcSlider />
-     
+
       {/* <Main /> */}
-		<Footer />
+      <Footer />
     </div>
   );
 };

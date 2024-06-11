@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import s from './styles.module.scss';
-import searchIcon from '../../../assets/images/icons/search-icon.svg';
+import searchIcon from '../../../assets/images/icons/search.svg';
+import searchIconDark from '../../../assets/images/icons/searchDark.svg';
 
-export function Input({ onSearch, width = '300px', colorScheme = 1 }) {
+export function Input({ onSearch, width = 'small', colorScheme = 1 }) {
+  const theme = useSelector(state => state.theme);
+
   const [query, setQuery] = useState('');
 
   const handleSearch = () => {
@@ -20,13 +25,20 @@ export function Input({ onSearch, width = '300px', colorScheme = 1 }) {
   const containerClass =
     colorScheme === 1 ? s.colorScheme__1 : s.colorScheme__2;
 
+  const containerWidth = width === 'big' ? '882px' : '422px';
+
   return (
     <div
       className={`${s.input__container} ${containerClass}`}
-      style={{ width }}
+      style={{ width: containerWidth }}
     >
       <button onClick={handleSearch} className={s.input__button}>
-        <img src={searchIcon} alt="Search" width="24px" height="24px" />
+        <img
+          src={theme === 'dark' ? searchIconDark : searchIcon}
+          alt="Search"
+          width="24px"
+          height="24px"
+        />
       </button>
       <input
         type="text"
@@ -39,3 +51,9 @@ export function Input({ onSearch, width = '300px', colorScheme = 1 }) {
     </div>
   );
 }
+
+Input.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+  width: PropTypes.oneOf(['big', 'small']),
+  colorScheme: PropTypes.number,
+};

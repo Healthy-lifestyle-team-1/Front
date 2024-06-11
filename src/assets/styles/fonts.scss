@@ -39,3 +39,7 @@
 @mixin fontText() {
   @include font-face-rubik(16px, 400, 120%);
 }
+// Article
+@mixin fontArticle() {
+  @include font-face-rubik(14px, 400, 120%);
+}
