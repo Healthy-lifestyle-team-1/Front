@@ -33,7 +33,7 @@ function SliderNews() {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 6000,
+    speed: 10000,
     autoplaySpeed: 0,
     cssEase: "linear"
   };
@@ -45,7 +45,9 @@ function SliderNews() {
 			<div key={index} className={s.sliderNews__slide + ' ' + (index % 2 === 1 ? s.lowered : '')}>
 			  <img src={item.img} alt="news" className={s.sliderNews__img} />
 			  <div className={s.sliderNews__description}>{item.description}</div>
+			  <div className={s.sliderNews__btn}>Читать</div>
 			</div>
+			
 		 ))}
 	  </Slider>
 	</div>
