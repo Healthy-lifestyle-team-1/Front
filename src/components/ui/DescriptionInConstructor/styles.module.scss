@@ -1,0 +1,42 @@
+.main {
+  &__description {
+    width: 217px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  &__tags {
+    width: 82px;
+    height: 32px;
+    margin-bottom: 24px;
+  }
+  &__title {
+    @include fontTitle2;
+    width: 210px;
+    height: 86px;
+    margin-bottom: 16px;
+  }
+  &__price {
+    @include fontTitle2;
+    height: 43px;
+    margin-bottom: 32px;
+  }
+  &__info {
+    &_title {
+      @include fontSubTitle2;
+      margin-bottom: 12px;
+    }
+    &_text {
+      @include fontMainText3;
+      margin-bottom: 90px;
+    }
+  }
+}
+
+.plateConstructor {
+  &__tagBtns {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+  }
+}
