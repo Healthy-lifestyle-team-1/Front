@@ -39,20 +39,20 @@ function SliderNews() {
   };
 
   return (
-	<div className={s.sliderNews__container}>
-	  <Slider {...settings}>
-		 {newsData.map((item, index) => (
-			<div key={index} className={s.sliderNews__slide + ' ' + (index % 2 === 1 ? s.lowered : '')}>
-			  <img src={item.img} alt="news" className={s.sliderNews__img} />
-			  <div className={s.sliderNews__description}>{item.description}</div>
-			  <div className={s.sliderNews__btn}>Читать</div>
-			</div>
-			
-		 ))}
-	  </Slider>
-	</div>
- );
+    <div className={s.sliderNews__container}>
+      <Slider {...settings}>
+        {newsData.map((item, index) => (
+          <a href='' target='blank' key={index} className={`${s.sliderNews__slide} ${index % 2 === 1 ? s.lowered : ''}`}>
+            <img src={item.img} alt="news" className={s.sliderNews__img} />
+            <div className={s.sliderNews__description}>{item.description}</div>
+				<div className={s.sliderNews__btnWrapper}>
+            <div className={s.sliderNews__btn}>Читать</div>
+				</div>
+          </a>
+        ))}
+      </Slider>
+    </div>
+  );
 }
-
 
 export default SliderNews;
