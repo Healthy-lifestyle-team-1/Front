@@ -1,11 +1,75 @@
 .plateConstructor {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 30px;
-  &__constructorBlock {
-    margin-left: 100px;
+  gap: 50px;
+
+  &__slider {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
   }
+
+  &__constructorBlock {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    transition: transform 5s ease-in-out;
+    // width: 650px;
+  }
+
+  &__tagBtns {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  &.combined {
+    &__constructorBlock {
+      justify-content: center;
+      padding: 0 75px;
+    }
+
+    &__plateHalf {
+      &:first-child {
+        transform: translateX(50%);
+      }
+
+      &:last-child {
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &__plateHalf {
+    width: 50%;
+    transition: transform 2s ease-in-out;
+  }
+
+  .plateImage {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  &__btn_back {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    position: relative;
+    top: -80px;
+    left: -500px;
+    align-items: center;
+  }
+}
+
+.back__img {
+  width: 16px;
+  height: 30px;
+}
+
+.block {
+  // width: 650px;
+  padding: 0 15px;
 }

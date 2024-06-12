@@ -1,8 +1,8 @@
 .carousel {
   &__container {
     display: flex;
-    justify-content: space-between;
-    width: 1200px;
+    justify-content: center;
+    gap: 20px;
     margin: 0 auto;
     position: relative;
   }

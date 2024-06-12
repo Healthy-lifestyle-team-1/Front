@@ -5,7 +5,6 @@ import Slider from 'react-slick';
 import s from './styles.module.scss';
 import rightImage from '../../../../assets/images/halfofplates/right/right.png';
 import leftImage from '../../../../assets/images/halfofplates/left/left.png';
-import Description from '../../DescriptionInConstructor/Description';
 
 import arrowUp from '../../../../assets/images/icons/arrowUp.svg';
 import verticalLine from '../../../../assets/images/icons/verticalLine.svg';
@@ -36,15 +35,7 @@ const SlideIndicator = ({ currentSlide, totalSlides, side }) => {
   );
 };
 
-export const SliderPlates = ({
-  onSelect,
-  descriptions,
-  activeTags,
-  title,
-  price,
-  info_title,
-  info_text,
-}) => {
+export const SliderPlates = ({ onSelect }) => {
   const leftSliderRef = useRef(null);
   const rightSliderRef = useRef(null);
 
@@ -57,8 +48,8 @@ export const SliderPlates = ({
     verticalSwiping: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <NextArrow side="left" />, // теперь стрелка вниз перемещает вперед
-    prevArrow: <PrevArrow side="left" />, // теперь стрелка вверх перемещает назад
+    nextArrow: <NextArrow side="left" />,
+    prevArrow: <PrevArrow side="left" />,
     afterChange: current => {
       setLeftCurrentSlide(current);
       onSelect('left', leftImages[current]);
@@ -71,8 +62,8 @@ export const SliderPlates = ({
     verticalSwiping: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <NextArrow side="right" />, // теперь стрелка вниз перемещает вперед
-    prevArrow: <PrevArrow side="right" />, // теперь стрелка вверх перемещает назад
+    nextArrow: <NextArrow side="right" />,
+    prevArrow: <PrevArrow side="right" />,
     afterChange: current => {
       setRightCurrentSlide(current);
       onSelect('right', rightImages[current]);
@@ -84,14 +75,6 @@ export const SliderPlates = ({
 
   return (
     <div className={s.carousel__container}>
-      <Description
-        title={title}
-        price={price}
-        info_title={info_title}
-        info_text={info_text}
-        descriptions={descriptions}
-        activeTags={activeTags}
-      />
       <div className={s.sliderWrapper}>
         <Slider
           ref={leftSliderRef}
@@ -136,14 +119,6 @@ export const SliderPlates = ({
           side="right"
         />
       </div>
-      <Description
-        title={title}
-        price={price}
-        info_title={info_title}
-        info_text={info_text}
-        descriptions={descriptions}
-        activeTags={activeTags}
-      />
     </div>
   );
 };
