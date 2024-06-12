@@ -7,18 +7,17 @@ import rightImage from '../../../../assets/images/halfofplates/right/right.png';
 import leftImage from '../../../../assets/images/halfofplates/left/left.png';
 
 import arrowUp from '../../../../assets/images/icons/arrowUp.svg';
-import verticalLine from '../../../../assets/images/icons/verticalLine.svg';
 import arrowDown from '../../../../assets/images/icons/arrowDown.svg';
 
 const NextArrow = ({ onClick, side }) => (
   <div className={`${s.arrow} ${s[`${side}Arrow`]}`} onClick={onClick}>
-    <img src={arrowDown} alt="Next" />
+    <img className={s.arrow__img} src={arrowDown} alt="Next" />
   </div>
 );
 
 const PrevArrow = ({ onClick, side }) => (
   <div className={`${s.arrow} ${s[`${side}Arrow`]}`} onClick={onClick}>
-    <img src={arrowUp} alt="Prev" />
+    <img className={s.arrow__img} src={arrowUp} alt="Prev" />
   </div>
 );
 
