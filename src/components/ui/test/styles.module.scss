@@ -1,17 +1,29 @@
+.buttonsContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 8vw;
+}
+
 .first {
-  width: 100px;
-  height: 100px;
-  background-color: $mainPeach;
+	width: 10vw;
+	height: 11vw;
+  background-image: url(../../../assets/images/жёлтый-камушек-конструктор.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .second {
-  width: 100px;
-  height: 100px;
-  background-color: $mainGreenapple;
+	width: 10vw;
+	height: 11vw;
+  background-image: url(../../../assets/images/розовый-камушек-конструктор.png);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .third {
-  width: 100px;
-  height: 100px;
-  background-color: $blueLight;
+	width: 10vw;
+	height: 11vw;
+  background-image: url(../../../assets/images/голубой-камушек-конструктор.png);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
