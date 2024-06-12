@@ -1,11 +1,14 @@
 .navBar {
-  &__links{
+  &__links {
     display: flex;
-    gap: 20px;
-    font-size: 18px;
+    gap: 46px;
+    @include fontMainText3;
   }
   &__links a {
     text-decoration: none;
     color: black;
+  }
+  &__links .activeLink {
+    font-weight: 600;
   }
 }
