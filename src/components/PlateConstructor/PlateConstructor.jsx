@@ -10,7 +10,11 @@ import s from './styles.module.scss';
 import rightPlateImage from '../../assets/images/halfofplates/right/right.png';
 import leftPlateImage from '../../assets/images/halfofplates/left/left.png';
 
-export const PlateConstructor = () => {
+export const PlateConstructor = ({
+  title = 'Название блюда',
+  price = 'Цена',
+  info = 'Информация',
+}) => {
   const tags = ['Глютен', 'Сахар', 'Мучное', 'Лук', 'Морковь', 'Ещё'];
   const descriptions = ['кБЖУ', 'Состав', 'Описание'];
   const activeTags = useSelector(state => state.tags);

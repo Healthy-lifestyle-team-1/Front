@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import { Main } from "../../components/Main/Main";
 import { Header } from '../../components/Header/Header';
-import { PlateConstructor } from '../../components/PlateConstructor';
+// import { PlateConstructor } from '../../components/PlateConstructor';
 import { Advertisement } from '../../components/Advertisement';
 
 import { Input } from '../../components/ui/Input/Input';
@@ -17,7 +17,7 @@ import s from './styles.module.scss';
 import { Checkbox } from '../../components/ui/Checkbox/Checkbox';
 import { StarRating } from '../../components/ui/StarRating/StarRating';
 import Test from '../../components/ui/test/test';
-import { SliderNews } from '../../components/ui/Sliders/SliderNews'; 
+import { SliderNews } from '../../components/ui/Sliders/SliderNews';
 
 const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
 
@@ -47,12 +47,12 @@ export const HomePage = () => {
       <Checkbox shape="square" checked={checked} onChange={setChecked} />
       <StarRating size="50px" />
       <Test />
-      <PlateConstructor />
+      {/* <PlateConstructor /> */}
       <PlateMethod />
       <Input onSearch={handleSearch} width="big" colorScheme={1} />
       <Input onSearch={handleSearch} width="small" colorScheme={1} />
       <Advertisement />
-		<SliderNews />
+      <SliderNews />
       <ArcSlider />
 
       {/* <Main /> */}
