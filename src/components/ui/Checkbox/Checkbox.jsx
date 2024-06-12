@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import s from './styles.module.scss';
 
 export const Checkbox = ({
+  checkTitle,
   shape = 'square',
   checked = false,
   disabled = false,
@@ -38,7 +39,7 @@ export const Checkbox = ({
         )}
       </span>
       <label className={s.checkbox__label}>
-        {disabled ? 'Недоступно' : checked ? 'Активный' : 'Обычный'}
+        {checkTitle}
       </label>
     </div>
   );

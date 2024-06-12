@@ -46,16 +46,23 @@ export const HomePage = () => {
       />
       <Checkbox shape="square" checked={checked} onChange={setChecked} />
       <StarRating size="50px" />
+<<<<<<< HEAD
 		<ContentSlider />
 		{/* <SliderNews /> */}
       <PlateConstructor /> 
       <PlateMethod /> 
+=======
+      <ContentSlider />
+      <SliderNews />
+      <PlateConstructor />
+      <PlateMethod />
+>>>>>>> 20ede1a31d615088a354dbdf17647edddce7c919
       <Input onSearch={handleSearch} width="big" colorScheme={1} />
       <Input onSearch={handleSearch} width="small" colorScheme={1} />
       <ArcSlider />
 
       {/* <Main /> */}
-		<Advertisement />
+      <Advertisement />
       <Footer />
     </div>
   );

@@ -22,12 +22,12 @@
   &.colorScheme2 {
     .dropdownToggle {
       background-color: transparent;
-      color: $mainDark;
-      border: 1px solid $mainDark;
+      color: var(--text-color);
+      border: 1px solid var(--text-color);
 
       &:after {
         content: ' ▼';
-        color: $mainDark;
+        color: var(--text-color);
       }
     }
     .dropdownMenu {

@@ -64,21 +64,21 @@ export const CardFood = ({
         return (
           <div>
             <div className={s.cardfood__detailsTitle}>кБЖУ</div>
-            <img src={chartLight} alt="кБЖУ" />
+            <img className={s.cardfood__detailsImg} src={chartLight} alt="кБЖУ" />
           </div>
         );
       case 1:
         return (
           <div>
             <span className={s.cardfood__detailsTitle}>Состав</span>
-            <ul>
+            <ul className={s.cardfood__detailsContains}>
               {ingredients.map((ingredient, index) => (
-                <li key={index}>
+                <li className={s.cardfood__detailsIngredients} key={index}>
                   <Checkbox
+                    checkTitle={ingredient}
                     checked={checkedItems[index]}
                     onChange={() => handleCheckboxChange(index)}
                   />
-                  {ingredient}
                 </li>
               ))}
             </ul>
@@ -136,7 +136,7 @@ export const CardFood = ({
       </div>
       <div className={s.cardfood__likeAndImg}>
         <button className={s.cardfood__like} onClick={handleLikeClick}>
-          <img src={liked ? filledLike : emptyLike} alt="" />
+          <img src={liked ? filledLike : emptyLike} alt="кнопка лайка" />
         </button>
         <img
           className={s.cardfood__plateImg}
