@@ -1,0 +1,52 @@
+.contentSlider {
+
+
+	&__container {
+		width: 100%;
+		display: flex;
+		flex-wrap: nowrap;
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+
+	&__blockImg {
+		background-image: url(../../../../assets/images/Ellipse-content-slider.png);
+		width: 100%;
+      background-position: top left;
+      background-repeat: no-repeat;
+		background-size: 40%;
+	}
+
+	&__img {
+		width: 70%;
+	}
+
+	&__blockBtns {
+
+	}
+
+	&__blockDescription {
+		display: flex;
+		flex-direction: column;
+	
+
+	&__title {
+		@include fontTitle2();
+		margin-bottom: 80px;
+
+		&Pink {
+			color: $mainPeach
+		}
+	}
+
+	&___text {
+		@include fontMainText2();
+		margin-bottom: 116px;
+	}
+
+	&__btn {
+
+	}
+}
+}
+

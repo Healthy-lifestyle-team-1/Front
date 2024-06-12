@@ -1,10 +1,18 @@
+a {
+	list-style: none;
+	text-decoration: none;
+	color: $mainDark;
+ }
+
 .sliderNews {
   &__container {
     background-color: $blueLight;
+	 border: 1px solid red;
     padding-top: 90px;
     padding-bottom: 90px;
     margin-top: 50px;
     width: 100%;
+	 overflow: hidden;
   }
 
   &__slide {
@@ -17,6 +25,8 @@
     align-items: center;
     position: relative;
     cursor: pointer;
+	 overflow: hidden;
+	 border: none;
 
     &.lowered {
       margin-top: 100px !important;
