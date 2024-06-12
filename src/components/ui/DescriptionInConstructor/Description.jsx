@@ -1,8 +1,17 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { Button } from '../Button';
 import s from './styles.module.scss';
 
-export const Description = () => {
+const Description = ({
+  title = '',
+  price = '',
+  info_title = '',
+  info_text = '',
+  descriptions = [],
+  activeTags = [],
+}) => {
+  const [visibleDescriptions, setVisibleDescriptions] = useState([0, 1]);
+
   const handleDescriptionClick = index => {
     const newVisibleDescriptions = [...visibleDescriptions];
     const clickedIndex = newVisibleDescriptions.indexOf(index);
@@ -18,10 +27,10 @@ export const Description = () => {
       <div className={s.main__tags}></div>
       <div className={s.main__title}>{title}</div>
       <div className={s.main__price}>{price}</div>
-      <div className={s.main__info}>{info}</div>
+      <div className={s.main__info_title}>{info_title}</div>
+      <div className={s.main__info_text}>{info_text}</div>
 
       <div className={s.plateConstructor__tagBtns}>
-        {/* кнопки-описание */}
         {visibleDescriptions.map(descIndex => (
           <Button
             colorScheme={5}
@@ -36,3 +45,5 @@ export const Description = () => {
     </div>
   );
 };
+
+export default Description;
