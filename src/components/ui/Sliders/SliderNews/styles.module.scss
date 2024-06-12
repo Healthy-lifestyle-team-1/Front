@@ -16,10 +16,7 @@
 	  flex-direction: column;
 	  align-items: center;
 	  position: relative; 
- 
-	  &.lowered {
-
-	  }
+	  cursor: pointer;
 	}
  
 	&__img {
@@ -39,6 +36,15 @@
 	  bottom: 10px; 
 	  display: flex;
 	  justify-content: end;
+	  padding: 5px 10px;
+	  border-radius: 5px;
+	  background-color: transparent;
+	  transition: color 0.3s ease, background-color 0.3s ease; /* Add transition properties */
+ 
+	  &:hover {
+		 color: white; /* Change text color on hover */
+		 background-color: $greenPear; /* Change background color on hover */
+	  }
 	}
  }
  
