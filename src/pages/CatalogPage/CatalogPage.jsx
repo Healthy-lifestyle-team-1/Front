@@ -12,6 +12,7 @@ import { Advertisement } from '../../components/Advertisement';
 import { Footer } from '../../components/Footer/Footer';
 
 import { CardFoodList } from '../../components/ui/Cards/CardFood/CardFood';
+import { CardFoodCatalog } from '../../components/ui/Cards/CardCatalog/CardCatalog';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -23,6 +24,7 @@ export const CatalogPage = () => {
       <Input width="500px" color="transparent" placeholder="Поиск" />
       <NavCatalog />
       <CardFoodList />
+      <CardFoodCatalog />
       <Breakfast />
       <Lunch />
       <CardNewsList />
