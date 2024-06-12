@@ -11,12 +11,12 @@ import { ArcSlider } from '../../components/ui/Sliders/ArcSlider';
 import { Button } from '../../components/ui/Button/Button';
 import { ButtonWithTheme } from '../../components/ui/Button';
 import { Footer } from '../../components/Footer/Footer';
+import { ContentSlider } from '../../components/ui/Sliders/ContentSlider';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
 import { Checkbox } from '../../components/ui/Checkbox/Checkbox';
 import { StarRating } from '../../components/ui/StarRating/StarRating';
-import Test from '../../components/ui/test/test';
 import { SliderNews } from '../../components/ui/Sliders/SliderNews';
 
 const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
@@ -46,16 +46,16 @@ export const HomePage = () => {
       />
       <Checkbox shape="square" checked={checked} onChange={setChecked} />
       <StarRating size="50px" />
-      <Test />
-      <PlateConstructor />
+		<ContentSlider />
+		<SliderNews />
+      {/* <PlateConstructor /> */}
       <PlateMethod />
       <Input onSearch={handleSearch} width="big" colorScheme={1} />
       <Input onSearch={handleSearch} width="small" colorScheme={1} />
-      <Advertisement />
-      <SliderNews />
       <ArcSlider />
 
       {/* <Main /> */}
+		<Advertisement />
       <Footer />
     </div>
   );

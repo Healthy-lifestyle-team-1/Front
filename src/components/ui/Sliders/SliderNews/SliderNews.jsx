@@ -27,15 +27,23 @@ const newsData = [
   },
 ];
 
+const HiddenArrow = () => {
+	return null;
+ };
+
 function SliderNews() {
   const settings = {
+	dots: false,
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     speed: 10000,
     autoplaySpeed: 0,
-    cssEase: "linear"
+    cssEase: "linear",
+	 arrowsNav: false,
+	 nextArrow: <HiddenArrow />,
+    prevArrow: <HiddenArrow />
   };
 
   return (
@@ -51,7 +59,7 @@ function SliderNews() {
           </a>
         ))}
       </Slider>
-    </div>
+		</div>
   );
 }
 

@@ -3,7 +3,6 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: rgba(174, 218, 222, 1);
   padding: 0 10%;
 }
 
@@ -22,10 +21,10 @@
     font-weight: 600;
   }
   &__titleUp {
-    color: rgba(46, 58, 69, 1);
+    color: $mainDark;
   }
   &__titleDown {
-    color: rgba(254, 144, 122, 1);
+    color: $mainPeach;
   }
   &__text {
     padding-top: 3%;
