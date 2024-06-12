@@ -20,7 +20,7 @@ import { Button } from '../../ui/Button';
 
 import x from '../../../assets/images/icons/light/X.svg';
 
-const Authorization = ({ onClose, setIsAuthenticated }) => {
+export const Authorization = ({ onClose, setIsAuthenticated }) => {
   const [login, setLogin] = useState('');
   const [username, setUsername] = useState('');
   const [code, setCode] = useState('');
@@ -30,10 +30,13 @@ const Authorization = ({ onClose, setIsAuthenticated }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://grikoandrey.pythonanywhere.com/login/', {
-        username,
-        login
-      });
+      const response = await axios.post(
+        'https://grikoandrey.pythonanywhere.com/login/',
+        {
+          username,
+          login,
+        },
+      );
       console.log(response.data);
       setStep(2);
       setError('');
@@ -45,7 +48,10 @@ const Authorization = ({ onClose, setIsAuthenticated }) => {
 
   const handleVerify = async () => {
     try {
-      const response = await axios.post('https://grikoandrey.pythonanywhere.com/verify/', { code });
+      const response = await axios.post(
+        'https://grikoandrey.pythonanywhere.com/verify/',
+        { code },
+      );
       if (response.status === 200) {
         localStorage.setItem('access', response.data.tokens.access);
         localStorage.setItem('refresh', response.data.tokens.refresh);
@@ -78,14 +84,14 @@ const Authorization = ({ onClose, setIsAuthenticated }) => {
                 className={s.login__input}
                 placeholder="Имя пользователя"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={e => setUsername(e.target.value)}
               />
               <input
                 type="text"
                 className={s.login__input}
                 placeholder="Телефон или почта"
                 value={login}
-                onChange={(e) => setLogin(e.target.value)}
+                onChange={e => setLogin(e.target.value)}
               />
             </div>
           )}
@@ -96,13 +102,13 @@ const Authorization = ({ onClose, setIsAuthenticated }) => {
                 className={s.login__input}
                 placeholder="Код авторизации"
                 value={code}
-                onChange={(e) => setCode(e.target.value)}
+                onChange={e => setCode(e.target.value)}
               />
             </div>
           )}
           {step === 3 && (
             <div className={s.login__infoBlock}>
-                <div className={s.profile__name}>Вы успешно вошли в аккаунт!</div>
+              <div className={s.profile__name}>Вы успешно вошли в аккаунт!</div>
             </div>
           )}
           <div className={s.login__theme}>
@@ -142,5 +148,3 @@ const Authorization = ({ onClose, setIsAuthenticated }) => {
     </div>
   );
 };
-
-export default Authorization;
