@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import s from './styles.module.scss';
 import Theme from '../../assets/styles/themes/index';
 import { Button } from '../ui/Button';
+import axios from 'axios';
 
 import x from '../../assets/images/icons/light/X.svg';
 import blueCart from '../../assets/images/icons/light/blue-cart.svg';
@@ -14,8 +15,21 @@ import blueLikeDark from '../../assets/images/icons/dark/blue-like.svg';
 import blueSetDark from '../../assets/images/icons/dark/blue-set.svg';
 import blueSupDark from '../../assets/images/icons/dark/blue-sup.svg';
 
-const UserPage = ({ onClose }) => {
+const UserPage = ({ onClose, userInfo }) => {
   const theme = useSelector(state => state.theme);
+
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post('https://grikoandrey.pythonanywhere.com/logout/');
+      if (response.status === 200) {
+        localStorage.removeItem('access'); // Удаляем токен из локального хранилища
+        onClose();
+      }
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
+    window.location.reload();
+  };
 
   return (
     <div className={s.modalOverlay}>
@@ -26,8 +40,8 @@ const UserPage = ({ onClose }) => {
         </button>
         <div className={s.profile__info}>
           <div className={s.profile__infoBlock}>
-            <div className={s.profile__name}>Надежда</div>
-            <div className={s.profile__phone}>+ 999 999 - 99 -99</div>
+            <div className={s.profile__name}>{userInfo && userInfo.user ? userInfo.user.username : ''}</div>
+            <div className={s.profile__phone}>{userInfo && userInfo.user ? userInfo.user.email : ''}</div>
           </div>
           <div className={s.profile__theme}>
             <Theme />
@@ -67,7 +81,7 @@ const UserPage = ({ onClose }) => {
         <div className={s.logoutButton}>
           <Button
             title="Выйти"
-            onClick={() => console.log('Button clicked')}
+            onClick={handleLogout}
             colorScheme={1}
             size={1}
           />
