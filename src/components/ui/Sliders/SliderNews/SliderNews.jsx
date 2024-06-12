@@ -30,26 +30,27 @@ const newsData = [
 function SliderNews() {
   const settings = {
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 5000,
-    autoplaySpeed: 1000,
+    speed: 6000,
+    autoplaySpeed: 0,
     cssEase: "linear"
   };
 
   return (
-    <div className={s.sliderContainer}>
-      <Slider {...settings}>
-        {newsData.map((item, index) => (
-          <div key={index} className={s.newsSlide}>
-            <img src={item.img} alt="news" className={s.newsImg} />
-            <div className={s.newsDescription}>{item.description}</div>
-          </div>
-        ))}
-      </Slider>
-    </div>
-  );
+	<div className={s.sliderNews__container}>
+	  <Slider {...settings}>
+		 {newsData.map((item, index) => (
+			<div key={index} className={s.sliderNews__slide + ' ' + (index % 2 === 1 ? s.lowered : '')}>
+			  <img src={item.img} alt="news" className={s.sliderNews__img} />
+			  <div className={s.sliderNews__description}>{item.description}</div>
+			</div>
+		 ))}
+	  </Slider>
+	</div>
+ );
 }
+
 
 export default SliderNews;
