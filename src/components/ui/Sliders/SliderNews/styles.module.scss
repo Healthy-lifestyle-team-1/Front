@@ -23,7 +23,6 @@
     }
 
 	 &:hover .sliderNews__btn {
-      color: white;
       background-color: $mainGreenapple;
     }
   }
@@ -58,10 +57,5 @@
     transition:
     color 0.3s ease,
     background-color 0.3s ease;
-
-    &:hover {
-      color: white;
-      background-color: $mainGreenapple;
-    }
   }
 }
