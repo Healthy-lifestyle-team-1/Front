@@ -3,10 +3,11 @@
     display: flex;
     gap: 46px;
     @include fontMainText3;
+    cursor: pointer;
   }
   &__links a {
     text-decoration: none;
-    color: black;
+    color: $mainDark;
   }
   &__links .activeLink {
     font-weight: 600;
