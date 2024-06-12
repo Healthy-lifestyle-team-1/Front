@@ -5,43 +5,48 @@
 		width: 100%;
 		display: flex;
 		flex-wrap: nowrap;
+		justify-content: space-between;
 		padding-top: 100px;
 		padding-bottom: 100px;
+		position: relative;
 	}
 
 	&__blockImg {
-		background-image: url(../../../../assets/images/Ellipse-content-slider.png);
 		width: 100%;
-      background-position: top left;
-      background-repeat: no-repeat;
-		background-size: 40%;
+
+		
 	}
 
 	&__img {
-		width: 70%;
+		width: 35vw;
 	}
 
 	&__blockBtns {
-
+	
+		width: 10vw;
+		margin-right: 10vw;
+	
 	}
 
 	&__blockDescription {
 		display: flex;
 		flex-direction: column;
+		margin-top: 5vw;
 	
 
 	&__title {
 		@include fontTitle2();
-		margin-bottom: 80px;
+		margin-bottom: 5vw;
 
 		&Pink {
 			color: $mainPeach
 		}
 	}
 
-	&___text {
+	&__text {
 		@include fontMainText2();
-		margin-bottom: 116px;
+		margin-bottom: 7vw;
+		width: 25vw;
 	}
 
 	&__btn {
@@ -50,3 +55,6 @@
 }
 }
 
+.highlight {
+	color: $mainPeach;
+ }
