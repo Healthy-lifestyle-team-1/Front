@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HeaderCatalog } from '../../components/HeaderCatalog/HeaderCatalog';
+import { Header } from '../../components/Header/Header';
 import { Input } from '../../components/ui/Input/Input';
 import { NavCatalog } from '../../components/NavCatalog/NavCatalog';
 import { Breakfast } from '../../components/Breakfast/Breakfast';
@@ -11,7 +11,7 @@ import { Desserts } from '../../components/Desserts/Desserts';
 import { Advertisement } from '../../components/Advertisement';
 import { Footer } from '../../components/Footer/Footer';
 
-import {CardFoodList} from '../../components/ui/Cards/CardFood/CardFood'
+import { CardFoodList } from '../../components/ui/Cards/CardFood/CardFood';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -19,10 +19,10 @@ import s from './styles.module.scss';
 export const CatalogPage = () => {
   return (
     <div className={s.container}>
-      <HeaderCatalog />
+      <Header />
       <Input width="500px" color="transparent" placeholder="Поиск" />
       <NavCatalog />
-      <CardFoodList/>
+      <CardFoodList />
       <Breakfast />
       <Lunch />
       <CardNewsList />

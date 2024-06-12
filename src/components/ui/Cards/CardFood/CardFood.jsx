@@ -136,7 +136,7 @@ export const CardFood = ({
       </div>
       <div className={s.cardfood__likeAndImg}>
         <button className={s.cardfood__like} onClick={handleLikeClick}>
-          <img src={liked ? filledLike : emptyLike} alt="" />
+          <img src={liked ? filledLike : emptyLike} alt="кнопка лайка" />
         </button>
         <img
           className={s.cardfood__plateImg}
