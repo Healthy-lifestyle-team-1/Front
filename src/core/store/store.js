@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from '../../assets/styles/themes/slice';
 import tagsReducer from './tagsSlice';
 import authReducer from './authSlice';
+import starsReducer from './starsSlice';
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
     tags: tagsReducer,
     auth: authReducer,
+    stars: starsReducer,
   },
 });
 

@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleTag } from '../../../core/store/tagsSlice';
 import axios from 'axios';
 import starFilled from '../../../assets/images/icons/filled-star.svg';
 import starOutline from '../../../assets/images/icons/empty-star.svg';
-
 import s from './styles.module.scss';
+import { setStarRating } from '../../../core/store/starsSlice';
 
 export const StarRating = ({ count = 5, size = '50px' }) => {
   const dispatch = useDispatch();
-  const activeTags = useSelector(state => state.tags);
+  const activeTags = useSelector(state => state.stars);
 
   const stars = Array(count).fill(0);
   const [hoverItem, setHoverItem] = useState();
 
   const handleClick = async index => {
-    dispatch(toggleTag(index));
+    dispatch(setStarRating(index));
     try {
       const response = await axios.post('ссылка', {
-        rating: index + 1
+        rating: index + 1,
       });
       console.log('Рейтинг отправлен:', response.data);
     } catch (error) {
