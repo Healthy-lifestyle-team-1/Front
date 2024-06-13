@@ -6,16 +6,27 @@ import s from './styles.module.scss';
 import DropDown from '../../../../components/ui/DropDown/DropDown';
 import { Checkbox } from '../../Checkbox/Checkbox';
 
-import line from '../../../../assets/images/dotted-line-card-food.svg';
 import plateImg from '../../../../assets/images/plates/card-food-img.png';
-import emptyLike from '../../../../assets/images/icons/light/пустойЛайк.svg';
-import filledLike from '../../../../assets/images/icons/light/закрашенныйЛайк.svg';
-import chartLight from '../../../../assets/images/chart-light.svg';
+
+import line from '../../../../assets/images/dotted-line-card-food.svg';
+import lineDark from '../../../../assets/images/dotted-line-card-food-dark.svg';
+
+import chart from '../../../../assets/images/chart-light.svg';
 import chartDark from '../../../../assets/images/chart-dark.svg';
 
 import vegan from '../../../../assets/images/icons/light/вег.svg';
+import veganDark from '../../../../assets/images/icons/dark/вег.svg';
+
 import glutenFree from '../../../../assets/images/icons/light/глютенX.svg';
+import glutenFreeDark from '../../../../assets/images/icons/dark/глютенX.svg';
+
 import lactoseFree from '../../../../assets/images/icons/light/лактозaX.svg';
+import lactoseFreeDark from '../../../../assets/images/icons/dark/лактозaX.svg';
+
+import emptyLike from '../../../../assets/images/icons/light/пустойЛайк.svg';
+import emptyLikeDark from '../../../../assets/images/icons/dark/пустойЛайк.svg';
+import filledLike from '../../../../assets/images/icons/light/закрашенныйЛайк.svg';
+import filledLikeDark from '../../../../assets/images/icons/dark/закрашенныйЛайк.svg';
 
 export const CardFood = ({
   title,
@@ -25,7 +36,8 @@ export const CardFood = ({
   description,
   img,
 }) => {
-  const descriptions = ['кБЖУ', 'Состав', 'Описание'];
+  const theme = useSelector(state => state.theme);
+
   const [visibleDescriptions, setVisibleDescriptions] = useState([0, 1]);
   const [activeDescription, setActiveDescription] = useState(2);
   const activeTags = useSelector(state => state.tags);
@@ -46,6 +58,7 @@ export const CardFood = ({
     setLiked(!liked);
   };
 
+  const descriptions = ['кБЖУ', 'Состав', 'Описание'];
   const ingredients = ['Говядина', 'Картофель', 'Томаты', 'Салат', 'Лук'];
 
   const [checkedItems, setCheckedItems] = useState(
@@ -64,7 +77,11 @@ export const CardFood = ({
         return (
           <div>
             <div className={s.cardfood__detailsTitle}>кБЖУ</div>
-            <img className={s.cardfood__detailsImg} src={chartLight} alt="кБЖУ" />
+            <img
+              className={s.cardfood__detailsImg}
+              src={theme === 'dark' ? chartDark : chart}
+              alt="кБЖУ"
+            />
           </div>
         );
       case 1:
@@ -99,9 +116,18 @@ export const CardFood = ({
     <div className={s.container}>
       <div className={s.cardfood__info}>
         <div className={s.cardfood__labels}>
-          <img src={vegan} alt=""></img>
-          <img src={glutenFree} alt=""></img>
-          <img src={lactoseFree} alt=""></img>
+          <img
+            src={theme === 'dark' ? veganDark : vegan}
+            alt="Растительные продукты"
+          ></img>
+          <img
+            src={theme === 'dark' ? glutenFreeDark : glutenFree}
+            alt="Без глютена"
+          ></img>
+          <img
+            src={theme === 'dark' ? lactoseFreeDark : lactoseFree}
+            alt="Без глютена"
+          ></img>
         </div>
         <div className={s.cardfood__title}>{title}</div>
         <div className={s.cardfood__extra}>{extra}</div>
@@ -112,7 +138,7 @@ export const CardFood = ({
         <div className={s.cardfood__details}>
           <div className={s.cardfood__detailsSelect}>{renderContent()}</div>
           <div className={s.cardfood__detailsLine}>
-            <img src={line} alt="линия"></img>
+            <img src={theme === 'dark' ? lineDark : line} alt="линия"></img>
           </div>
           <div className={s.cardfood__detailsButton}>
             <div className={s.cardfood__tagBtns}>
@@ -136,7 +162,18 @@ export const CardFood = ({
       </div>
       <div className={s.cardfood__likeAndImg}>
         <button className={s.cardfood__like} onClick={handleLikeClick}>
-          <img src={liked ? filledLike : emptyLike} alt="кнопка лайка" />
+          <img
+            src={
+              liked
+                ? theme === 'dark'
+                  ? filledLikeDark
+                  : filledLike
+                : theme === 'dark'
+                  ? emptyLikeDark
+                  : emptyLike
+            }
+            alt="кнопка лайка"
+          />
         </button>
         <img
           className={s.cardfood__plateImg}
