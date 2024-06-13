@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.popular {
+  &__title {
+    @include fontTitle2();
+    color: var(--text-color);
+    text-transform: uppercase;
+  }
+  &__items {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: 520px 520px;
+      grid-template-rows: repeat(2, auto);
+      gap: 5% 2%;
+      padding: 40px 5% 99px 5%;
+  }
+  &__link {
+    @include fontMainText2();
+    align-self: flex-end;
+  }
+}
