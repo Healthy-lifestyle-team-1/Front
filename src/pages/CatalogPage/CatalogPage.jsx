@@ -7,6 +7,7 @@ import { Popular } from '../../components/Popular/Popular';
 import { CombinedDishes } from '../../components/CombinedDishes/CombinedDishes';
 import { MainDish } from '../../components/MainDish/MainDish';
 import { SideDish } from '../../components/SideDish/SideDish';
+import { ChooseBest } from '../../components/ChooseBest/ChooseBest';
 import { Soup } from '../../components/Soup/Soup';
 import { CardNewsList } from '../../components/NewsCatalog/NewsCatalog';
 import { Desserts } from '../../components/Desserts/Desserts';
@@ -30,6 +31,7 @@ export const CatalogPage = () => {
       <CardNewsList />
       <MainDish />
       <SideDish />
+      <ChooseBest />
       <Soup />
       <Desserts />
       <Advertisement />

@@ -22,7 +22,7 @@ export const Footer = () => {
             О нас
           </a>
           <a className={s.footer__navList__item} href="">
-            Почитать
+            Книга
           </a>
           <a className={s.footer__navList__item} href="">
             Каталог
