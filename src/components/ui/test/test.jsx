@@ -19,12 +19,16 @@ const Test = ({ onButtonClick, activeIndex }) => {
   ];
 
   const backgroundImages = [
-	[stone11, stone12, stone13],
-	[stone21, stone22, stone23],
-	[stone31, stone32, stone33],
- ];
+    [stone11, stone12, stone13],
+    [stone21, stone22, stone23],
+    [stone31, stone32, stone33],
+  ];
 
-  const buttonColors = ['backgroundColor__1', 'backgroundColor__2', 'backgroundColor__3'];
+  const buttonColors = [
+    'backgroundColor__1',
+    'backgroundColor__2',
+    'backgroundColor__3',
+  ];
 
   const handleClick = index => {
     onButtonClick(index);
@@ -45,13 +49,15 @@ const Test = ({ onButtonClick, activeIndex }) => {
     return positions.map(({ position, button }, index) => (
       <div
         key={index}
-        className={s[position]}
-        style={{ backgroundImage: `url(${getBackgroundImage(position, activeIndex)})` }}
+        className={`${s.position} ${s[position]}`}
+        style={{
+          backgroundImage: `url(${getBackgroundImage(position, activeIndex)})`,
+        }}
       >
         <ButtonStone
           title={button.title}
           onClick={() => handleClick(button.index)}
-          backgroundColor={buttonColors[button.index]}
+          className={`${s.button} ${s[buttonColors[button.index]]}`}
         />
       </div>
     ));

@@ -1,34 +1,44 @@
 .buttonsContainer {
-	display: flex;
-	flex-direction: column;
-	gap: 5vw;
- }
- 
- .first {
-	width: 13vw;
-	height: 10vw;
-	background-size: contain;
-	background-repeat: no-repeat;
-	transform: translateX(-10vw);
- }
- 
- .second {
-	width: 15vw;
-	height: 17vw;
-	background-size: contain;
-	background-repeat: no-repeat;
- }
- 
- .third {
-	width: 13vw;
-	height: 12vw;
-	background-size: contain;
-	background-repeat: no-repeat;
-	transform: translateX(-10vw);
- }
- 
- 
- .button {
+  display: flex;
+  flex-direction: column;
+  gap: 5vw;
+}
+
+.position {
+  width: 13vw;
+  height: 10vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.first {
+  width: 13vw;
+  height: 10vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateX(-10vw);
+}
+
+.second {
+  width: 15vw;
+  height: 17vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.third {
+  width: 13vw;
+  height: 12vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateX(-10vw);
+}
+
+.button {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -38,14 +48,13 @@
   text-transform: uppercase;
   cursor: pointer;
 
-
- &.backgroundColor__1 {
-	background-color: $mainGreenapple;
- }
- &.backgroundColor__2 {
-	background-color: $mainPeach;
- }
- &.backgroundColor__3 {
-	background-color: $blueLight;
- }
+  &.backgroundColor__1 {
+    background-color: $mainGreenapple;
+  }
+  &.backgroundColor__2 {
+    background-color: $mainPeach;
+  }
+  &.backgroundColor__3 {
+    background-color: $blueLight;
+  }
 }
