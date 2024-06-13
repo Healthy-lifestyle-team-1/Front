@@ -62,15 +62,13 @@
     left: -500px;
     align-items: center;
   }
+  &__dish {
+    width: 500px;
+    height: 549px;
+  }
 }
 
 .back__img {
   width: 16px;
   height: 30px;
-}
-
-.block {
-  // width: 650px;
-  padding: 0 10px;
-  height: 549px;
 }

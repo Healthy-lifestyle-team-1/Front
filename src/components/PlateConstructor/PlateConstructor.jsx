@@ -70,34 +70,36 @@ export const PlateConstructor = ({
           descriptions={descriptions}
           activeTags={activeTags}
         />
-        {!isPlateCombined && (
-          <div className={s.plateConstructor__constructorBlock}>
-            <SliderPlates onSelect={handleSelectImage} />
-          </div>
-        )}
+        <div className={s.plateConstructor__dish}>
+          {!isPlateCombined && (
+            <div className={s.plateConstructor__constructorBlock}>
+              <SliderPlates onSelect={handleSelectImage} />
+            </div>
+          )}
 
-        {isPlateCombined && (
-          <div className={s.block}>
-            <div
-              className={cn(s.plateConstructor__constructorBlock, s.combined)}
-            >
-              <div className={s.plateConstructor__plateHalf}>
-                <img
-                  src={leftPlate}
-                  alt="left plate"
-                  className={s.plateImage}
-                />
-              </div>
-              <div className={s.plateConstructor__plateHalf}>
-                <img
-                  src={rightPlate}
-                  alt="right plate"
-                  className={s.plateImage}
-                />
+          {isPlateCombined && (
+            <div className={s.block}>
+              <div
+                className={cn(s.plateConstructor__constructorBlock, s.combined)}
+              >
+                <div className={s.plateConstructor__plateHalf}>
+                  <img
+                    src={leftPlate}
+                    alt="left plate"
+                    className={s.plateImage}
+                  />
+                </div>
+                <div className={s.plateConstructor__plateHalf}>
+                  <img
+                    src={rightPlate}
+                    alt="right plate"
+                    className={s.plateImage}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
         <Description
           title={title}
           price={price}
