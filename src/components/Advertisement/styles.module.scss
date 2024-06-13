@@ -1,56 +1,68 @@
 .container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 10%;
+  justify-content: center;
+  gap: 100px;
+  padding: 0 15%;
 }
 
 .ad {
-  &__img {
+  &__ideology {
+    width: 25%;
+    &Title {
+      display: flex;
+      flex-direction: column;
+      &Changeable {
+        @include fontTitle2();
+        color: var(--text-color);
+      }
+      &Pink {
+        @include fontTitle2();
+        color: $mainPeach;
+      }
+    }
+    &Veggies {
+      padding-top: 3%;
+      width: 100%;
+      max-width: 40vw;
+      height: auto;
+    }
   }
-  &__content {
-    padding: 10% 0;
+  &__phoneImg {
+    display: flex;
+    justify-content: center;
   }
-  &__title {
+  &__info {
     display: flex;
     flex-direction: column;
-    text-align: right;
-    text-transform: uppercase;
-    font-size: 36px;
-    font-weight: 600;
-  }
-  &__titleUp {
-    color: $mainDark;
-  }
-  &__titleDown {
-    color: $mainPeach;
-  }
-  &__text {
-    padding-top: 3%;
-    font-size: 20px;
-    font-weight: 600;
-    width: 40%;
-    text-align: right;
-    margin-left: auto;
-  }
-  &__download {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    padding-top: 20%;
-  }
-  &__downloadText {
-    text-transform: uppercase;
-    align-self: right;
-    font-weight: 600;
-    padding-bottom: 2%;
-  }
-  &__downloadOptions {
-    display: flex;
-    gap: 5%;
-  }
-  &__downloadOptions img{
-    width: 100%;
+    width: 25%;
+    &Img {
+      padding-top: 3%;
+      width: 100%;
+      max-width: 10vw;
+      height: auto;
+      align-self: flex-end;
+      }
+    &Title {
+      @include fontSubTitle1();
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--text-color);
+    }
+    &Description {
+      @include fontMainText1();
+      color: var(--text-color);
+    }
+    &Text {
+      @include fontText();
+      text-transform: uppercase;
+      color: var(--text-color);
+    }
+    &Download {
+      display: flex;
+      flex-direction: row;
+      gap: 5%;
+      &Option {
+      }
+    }
   }
 }
