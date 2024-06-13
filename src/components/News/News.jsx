@@ -11,38 +11,38 @@ export const CardNewsList = () => {
   return (
     <div className={s.container}>
       <div className={s.cardNews}>
-      <div className={`${s.cardNews__item} ${s.harvard}`}>
+        <a href="/" className={`${s.cardNews__item} ${s.harvard}`}>
           <div className={s.cardNews__itemTitle}>Попробуй гарварскую тарелку</div>
           <img
             className={s.cardNews__itemImage}
             src={harvardPlate}
             alt={'фото тарелки'}
           />
-        </div>
-        <div className={`${s.cardNews__item} ${s.recommendations}`}>
+        </a>
+        <a href="/" className={`${s.cardNews__item} ${s.recommendations}`}>
           <div className={s.cardNews__itemTitle}>Рекомендации недели</div>
           <img
             className={s.cardNews__itemImage}
             src={fork}
             alt={'вилка'}
           />
-        </div>
-        <div className={`${s.cardNews__item} ${s.sport}`}>
+        </a>
+        <a href="/" className={`${s.cardNews__item} ${s.sport}`}>
           <div className={s.cardNews__itemTitle}>Здоровый образ жизни</div>
           <img
             className={s.cardNews__itemImage}
             src={sports}
             alt={'спорт'}
           />
-        </div>
-        <div className={`${s.cardNews__item} ${s.new}`}>
+        </a>
+        <a href="/" className={`${s.cardNews__item} ${s.new}`}>
           <div className={s.cardNews__itemTitle}>Новинки</div>
           <img
             className={s.cardNews__itemImage}
             src={watermelon}
             alt={'фрукт'}
           />
-        </div>
+        </a>
       </div>
     </div>
   );
