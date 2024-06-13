@@ -3,7 +3,7 @@ import React from 'react';
 import { Header } from '../../components/Header/Header';
 import { Input } from '../../components/ui/Input/Input';
 import { NavCatalog } from '../../components/NavCatalog/NavCatalog';
-import { Breakfast } from '../../components/Breakfast/Breakfast';
+import { Popular } from '../../components/Popular/Popular';
 import { Lunch } from '../../components/Lunch/Lunch';
 import { CardNewsList } from '../../components/News/News';
 import { Dinner } from '../../components/Dinner/Dinner';
@@ -23,9 +23,7 @@ export const CatalogPage = () => {
       <Header />
       <Input width="500px" color="transparent" placeholder="Поиск" />
       <NavCatalog />
-      <CardFoodList />
-      <CardFoodCatalog />
-      <Breakfast />
+      <Popular />
       <Lunch />
       <CardNewsList />
       <Dinner />
