@@ -27,9 +27,6 @@ const newsData = [
   },
 ];
 
-const HiddenArrow = () => {
-	return null;
- };
 
 function SliderNews() {
   const settings = {
@@ -41,12 +38,12 @@ function SliderNews() {
     speed: 10000,
     autoplaySpeed: 0,
     cssEase: "linear",
-	 arrowsNav: false,
-	 nextArrow: <HiddenArrow />,
-    prevArrow: <HiddenArrow />
+    arrows: false, 
+	 scrill: false
   };
 
   return (
+	<div className={s.sliderNews__container}>
     <div className={s.sliderNews__container}>
       <Slider {...settings}>
         {newsData.map((item, index) => (
@@ -59,6 +56,7 @@ function SliderNews() {
           </a>
         ))}
       </Slider>
+		</div>
 		</div>
   );
 }

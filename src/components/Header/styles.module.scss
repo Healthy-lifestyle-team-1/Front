@@ -1,15 +1,15 @@
 .header {
   &__container {
+	width: 100vw;
   }
   &__navigation {
     display: flex;
     align-items: center;
-    gap: 106px;
     justify-content: space-between;
     padding: 20px;
   }
   &__logo {
-    margin-right: 20px;
+    margin-right: 5vw;
   }
   &__userInfo {
     display: flex;

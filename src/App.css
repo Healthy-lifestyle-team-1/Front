@@ -1,5 +1,6 @@
 #root {
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 36px;
   width: 100vw;
   display: flex;
   flex-direction: column;
