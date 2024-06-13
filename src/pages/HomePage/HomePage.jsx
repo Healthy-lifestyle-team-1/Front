@@ -15,7 +15,6 @@ import { ContentSlider } from '../../components/ui/Sliders/ContentSlider';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
-import { Checkbox } from '../../components/ui/Checkbox/Checkbox';
 import { StarRating } from '../../components/ui/StarRating/StarRating';
 import { SliderNews } from '../../components/ui/Sliders/SliderNews';
 
@@ -31,30 +30,13 @@ export const HomePage = () => {
   return (
     <div className={s.container}>
       <div className={s.test}>TEST</div>
+      <StarRating count={5} size="50px" productId={1} userId={123} />
       <Header />
-      <Button colorScheme={1} title={'Оплатить'} size={1} />
-      <Button colorScheme={1} title={'Оплатить'} size={2} />
-      <ButtonWithTheme colorScheme={2} title={'100 ₽'} size={3} />
-      <ButtonWithTheme colorScheme={2} title={'+'} size={5} />
-      <ButtonWithTheme colorScheme={4} size={4} withCounter={true} />
-      <DropDown colorScheme={1} options={options} buttonText={'Выбрать'} />
-      <Checkbox
-        shape="square"
-        checked={false}
-        disabled={true}
-        onChange={() => {}}
-      />
-      <Checkbox shape="square" checked={checked} onChange={setChecked} />
-      <StarRating size="50px" />
       <ContentSlider />
       <SliderNews />
       <PlateConstructor />
       <PlateMethod />
-      <Input onSearch={handleSearch} width="big" colorScheme={1} />
-      <Input onSearch={handleSearch} width="small" colorScheme={1} />
       <ArcSlider />
-
-      {/* <Main /> */}
       <Advertisement />
       <Footer />
     </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import starFilled from '../../../assets/images/icons/filled-star.svg';
@@ -6,7 +7,7 @@ import starOutline from '../../../assets/images/icons/empty-star.svg';
 import s from './styles.module.scss';
 import { setStarRating } from '../../../core/store/starsSlice';
 
-export const StarRating = ({ count = 5, size = '50px' }) => {
+export const StarRating = ({ count = 5, size = '50px', productId, userId }) => {
   const dispatch = useDispatch();
   const activeTags = useSelector(state => state.stars);
 
@@ -16,12 +17,21 @@ export const StarRating = ({ count = 5, size = '50px' }) => {
   const handleClick = async index => {
     dispatch(setStarRating(index));
     try {
-      const response = await axios.post('ссылка', {
-        rating: index + 1,
-      });
+      const response = await axios.post(
+        'https://grikoandrey.pythonanywhere.com/rating/',
+        {
+          product: productId,
+          user: userId,
+          value: index + 1,
+        },
+      );
       console.log('Рейтинг отправлен:', response.data);
     } catch (error) {
-      console.error(error);
+      if (error.response) {
+        console.error('Ошибка при отправке рейтинга:', error.response.data);
+      } else {
+        console.error('Ошибка при отправке рейтинга:', error.message);
+      }
     }
   };
 
@@ -50,4 +60,11 @@ export const StarRating = ({ count = 5, size = '50px' }) => {
       })}
     </div>
   );
+};
+
+StarRating.propTypes = {
+  count: PropTypes.number,
+  size: PropTypes.string,
+  productId: PropTypes.number.isRequired,
+  userId: PropTypes.number.isRequired,
 };
