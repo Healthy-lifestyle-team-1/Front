@@ -1,45 +1,46 @@
 import React from 'react';
+import { Button } from '../ui/Button';
+import x from '../../assets/images/icons/light/X.svg';
+
 import s from './styles.module.scss';
 
 const CartPage = ({ onClose }) => {
+  const [cartItems, setCartItems] = useState([
+    { id: 1, name: 'Dish 1', price: '$10', img: 'path/to/image1.jpg' },
+    { id: 2, name: 'Dish 2', price: '$15', img: 'path/to/image2.jpg' },
+  ]);
+
+  const removeRow = id => {
+    setCartItems(cartItems.filter(item => item.id !== id));
+  };
+
   return (
     <div className={s.modalOverlay}>
       <div className={s.modal__content}>
         <button className={s.closeButton} onClick={onClose}>
-          ×
+          <img src={x} alt={'Закрыть'} />
         </button>
         <div className={s.cart__header}>
-          <h2>Корзина</h2>
-          <div className={s.cart__total}>Сумма товаров</div>
-          <div className={s.cart__totalAmount}>3 000 р</div>
+          <div className={s.cart__header__title}>Корзина</div>
+          <div className={s.cart__header__text}>
+            <div className={s.cart__header__text_total}>Сумма товаров</div>
+            <div className={s.cart__header__text_totalAmount}>3 000 р</div>
+          </div>
         </div>
         <div className={s.cart__items}>
-          {Array(3)
-            .fill(null)
-            .map((_, index) => (
-              <div key={index} className={s.cart__item}>
-                <img
-                  src="image_url"
-                  alt="product"
-                  className={s.cart__item__image}
-                />
-                <div className={s.cart__item__info}>
-                  <div className={s.cart__item__name}>
-                    Куриная грудка с яйцами, рисом
-                  </div>
-                  <div className={s.cart__item__price}>1 000 р</div>
-                  <div className={s.cart__item__controls}>
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
-                  </div>
-                </div>
-                <button className={s.remove__item}>×</button>
-              </div>
-            ))}
+          {cartItems.map(item => (
+            <RowInCart
+              key={item.id}
+              id={item.id}
+              dishImg={<img src={item.img} alt={item.name} />}
+              dishName={item.name}
+              price={item.price}
+              onRemove={removeRow}
+            />
+          ))}
         </div>
         <textarea placeholder="Комментарий" className={s.comment}></textarea>
-        <button className={s.checkoutButton}>Оформить</button>
+        <Button title={'Оформить'} colorScheme={1} />
       </div>
     </div>
   );
