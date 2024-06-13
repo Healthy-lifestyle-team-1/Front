@@ -1,15 +1,18 @@
 .catalog {
   &__navigation {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding-top: 4%;
+    max-width: 1070px;
+    justify-content: space-between;
+    margin: 0 auto;
+    @include fontText();
   }
   &__navigationItem {
-    padding: 18px 25px;
-    border: 1px solid rgba(64, 72, 81, 1);
+    padding: 10.5px 20px;
+    border: 1px solid var(--text-color);
     border-radius: 50px;
     text-decoration: none;
-    color: rgba(0, 0, 0, 1);
+    color: var(--text-color);
   }
 }

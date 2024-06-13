@@ -8,31 +8,28 @@ export const NavCatalog = () => {
     <div className={s.container}>
       <div className={s.catalog__navigation}>
         <LinkButton to="/" className={s.catalog__navigationItem}>
-          Суп
+          Без глютена
         </LinkButton>
         <LinkButton to="/" className={s.catalog__navigationItem}>
-          Гарнир
+          Без сахара
         </LinkButton>
         <LinkButton to="/" className={s.catalog__navigationItem}>
-          Салаты
+          Вегетарианское
         </LinkButton>
         <LinkButton to="/" className={s.catalog__navigationItem}>
-          Основное блюдо
+          Без лактозы
         </LinkButton>
         <LinkButton to="/" className={s.catalog__navigationItem}>
-          Десерты
+          Завтрак
         </LinkButton>
         <LinkButton to="/" className={s.catalog__navigationItem}>
-          Новинки
+          Гарниры
         </LinkButton>
         <LinkButton to="/" className={s.catalog__navigationItem}>
-          Избранное
+          Супы
         </LinkButton>
         <LinkButton to="/" className={s.catalog__navigationItem}>
-          Смотрели ранее
-        </LinkButton>
-        <LinkButton to="/" className={s.catalog__navigationItem}>
-          Популярное
+          Еще
         </LinkButton>
       </div>
     </div>
