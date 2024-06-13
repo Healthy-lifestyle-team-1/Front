@@ -8,7 +8,7 @@ import { CombinedDishes } from '../../components/CombinedDishes/CombinedDishes';
 import { MainDish } from '../../components/MainDish/MainDish';
 import { SideDish } from '../../components/SideDish/SideDish';
 import { Soup } from '../../components/Soup/Soup';
-import { CardNewsList } from '../../components/News/News';
+import { CardNewsList } from '../../components/NewsCatalog/NewsCatalog';
 import { Desserts } from '../../components/Desserts/Desserts';
 import { Advertisement } from '../../components/Advertisement';
 import { Footer } from '../../components/Footer/Footer';
