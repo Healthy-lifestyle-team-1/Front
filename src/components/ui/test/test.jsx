@@ -1,56 +1,63 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import s from './styles.module.scss';
 import { ButtonStone } from '../Button';
+import stone11 from '../../../assets/images/stones/верхний.камень-розовый1.png';
+import stone21 from '../../../assets/images/stones/верхний-камень-голубой2.png';
+import stone31 from '../../../assets/images/stones/верхний.камень-жёлтый3.png';
+import stone12 from '../../../assets/images/stones/центральный-камень-жёлтый1.png';
+import stone22 from '../../../assets/images/stones/центральный-камень-розовый2.png';
+import stone32 from '../../../assets/images/stones/центральный-камень-голубой3.png';
+import stone13 from '../../../assets/images/stones/нижний-камень-голубой1.png';
+import stone23 from '../../../assets/images/stones/нижний-камень-жёлтый2.png';
+import stone33 from '../../../assets/images/stones/нижний-камень-розовый3.png';
 
 const Test = ({ onButtonClick, activeIndex }) => {
-  const [buttons, setButtons] = useState([
-    { title: 'Кнопка 1', position: 'first', backgroundColor: 1, index: 0 },
-    { title: 'Кнопка 2', position: 'second', backgroundColor: 2, index: 1 },
-    { title: 'Кнопка 3', position: 'third', backgroundColor: 3, index: 2 },
-  ]);
+  const buttons = [
+    { title: 'Тарелка', index: 0 },
+    { title: 'Книга', index: 1 },
+    { title: 'Каталог', index: 2 },
+  ];
 
-  useEffect(() => {
-    const newButtons = [...buttons];
-    const activeButton = newButtons.find(button => button.index === activeIndex);
-    const activeButtonIndex = newButtons.indexOf(activeButton);
+  const backgroundImages = [
+	[stone11, stone12, stone13],
+	[stone21, stone22, stone23],
+	[stone31, stone32, stone33],
+ ];
 
-    [newButtons[1], newButtons[activeButtonIndex]] = [newButtons[activeButtonIndex], newButtons[1]];
-    setButtons(newButtons);
-  }, [activeIndex]);
+  const buttonColors = ['backgroundColor__1', 'backgroundColor__2', 'backgroundColor__3'];
 
   const handleClick = index => {
-    const newButtons = [...buttons];
-    [newButtons[1], newButtons[index]] = [newButtons[index], newButtons[1]];
-    setButtons(newButtons);
-    onButtonClick(newButtons[1].index);
+    onButtonClick(index);
   };
 
-  const getClassName = position => {
-    switch (position) {
-      case 'first':
-        return s.first;
-      case 'second':
-        return s.second;
-      case 'third':
-        return s.third;
-      default:
-        return '';
-    }
+  const getBackgroundImage = (position, activeIndex) => {
+    const posIndex = position === 'first' ? 0 : position === 'second' ? 1 : 2;
+    return backgroundImages[activeIndex][posIndex];
   };
 
-  return (
-    <div className={s.buttonsContainer}>
-      {buttons.map((button, index) => (
-        <div key={index} className={getClassName(button.position)}>
-          <ButtonStone
-            title={button.title}
-            backgroundColor={button.backgroundColor}
-            onClick={() => handleClick(index)}
-          />
-        </div>
-      ))}
-    </div>
-  );
+  const renderButtons = () => {
+    const positions = [
+      { position: 'first', button: buttons[(activeIndex + 1) % 3] },
+      { position: 'second', button: buttons[activeIndex] },
+      { position: 'third', button: buttons[(activeIndex + 2) % 3] },
+    ];
+
+    return positions.map(({ position, button }, index) => (
+      <div
+        key={index}
+        className={s[position]}
+        style={{ backgroundImage: `url(${getBackgroundImage(position, activeIndex)})` }}
+      >
+        <ButtonStone
+          title={button.title}
+          onClick={() => handleClick(button.index)}
+          backgroundColor={buttonColors[button.index]}
+        />
+      </div>
+    ));
+  };
+
+  return <div className={s.buttonsContainer}>{renderButtons()}</div>;
 };
 
 export default Test;

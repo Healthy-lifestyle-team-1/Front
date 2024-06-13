@@ -12,7 +12,7 @@ export function ButtonStone({
   return (
     <button
       className={cn(s.button, {
-        [s[`backgroundColor__${backgroundColor}`]]: backgroundColor,
+        [s[backgroundColor]]: backgroundColor,
         [s.active]: isActive,
       })}
       onClick={onClick}
