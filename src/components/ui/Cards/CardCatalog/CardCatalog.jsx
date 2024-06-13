@@ -14,14 +14,20 @@ import glutenFree from '../../../../assets/images/icons/light/глютенX.svg'
 import glutenFreeDark from '../../../../assets/images/icons/dark/глютенX.svg';
 
 export const CardCatalog = ({ title, extra, weight, calories, img }) => {
-  const theme = useSelector((state) => state.theme);
+  const theme = useSelector(state => state.theme);
 
   return (
     <div className={s.container}>
       <div className={s.cardfood__info}>
         <div className={s.cardfood__labels}>
-          <img src={theme === 'dark' ? veganDark : vegan} alt="Растительные продукты"></img>
-          <img src={theme === 'dark' ? glutenFreeDark : glutenFree} alt="Без глютена"></img>
+          <img
+            src={theme === 'dark' ? veganDark : vegan}
+            alt="Растительные продукты"
+          ></img>
+          <img
+            src={theme === 'dark' ? glutenFreeDark : glutenFree}
+            alt="Без глютена"
+          ></img>
         </div>
         <div className={s.cardfood__title}>{title}</div>
         <div className={s.cardfood__extra}>{extra}</div>
@@ -29,7 +35,7 @@ export const CardCatalog = ({ title, extra, weight, calories, img }) => {
           <span className={s.cardfood__weight}>{weight}</span>
           <span className={s.cardfood__calories}>{calories}</span>
         </div>
-        <ButtonWithTheme colorScheme={2} title={'100 ₽'} size={3} />
+        <ButtonWithTheme colorScheme={1} title={'100 ₽'} size={3} />
       </div>
       <div className={s.cardfood__line}>
         <img src={line} alt="линия"></img>
