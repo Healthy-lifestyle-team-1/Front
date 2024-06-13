@@ -41,12 +41,21 @@
   border: none;
   cursor: pointer;
 
-  &.leftArrow {
+  &.leftNextArrow {
     left: -50px;
+    top: 350px;
   }
-
-  &.rightArrow {
+  &.rightNextArrow {
     right: -50px;
+    top: 360px;
+  }
+  &.leftPrevArrow {
+    left: -50px;
+    top: 90px;
+  }
+  &.rightPrevArrow {
+    right: -50px;
+    top: 110px;
   }
   &__img {
     width: 16px;
@@ -56,14 +65,14 @@
 
 .slideIndicator {
   position: absolute;
-  width: 5px;
+  width: 2px;
   height: 140px;
   background: rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
 .leftSlideIndicator {
-  top: 25%;
+  top: 30%;
   left: -43px;
 }
 

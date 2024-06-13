@@ -10,13 +10,13 @@ import arrowUp from '../../../../assets/images/icons/arrowUp.svg';
 import arrowDown from '../../../../assets/images/icons/arrowDown.svg';
 
 const NextArrow = ({ onClick, side }) => (
-  <div className={`${s.arrow} ${s[`${side}Arrow`]}`} onClick={onClick}>
+  <div className={`${s.arrow} ${s[`${side}NextArrow`]}`} onClick={onClick}>
     <img className={s.arrow__img} src={arrowDown} alt="Next" />
   </div>
 );
 
 const PrevArrow = ({ onClick, side }) => (
-  <div className={`${s.arrow} ${s[`${side}Arrow`]}`} onClick={onClick}>
+  <div className={`${s.arrow} ${s[`${side}PrevArrow`]}`} onClick={onClick}>
     <img className={s.arrow__img} src={arrowUp} alt="Prev" />
   </div>
 );
