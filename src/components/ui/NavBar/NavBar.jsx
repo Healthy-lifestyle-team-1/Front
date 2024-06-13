@@ -6,6 +6,7 @@ import UserPage from '../../modalWindows/UserPage';
 import CartPage from '../../modalWindows/CartPage';
 import { Authorization } from '../../Auth/Authorization';
 import s from './styles.module.scss';
+import { loginSuccess, logoutSuccess } from '../../../core/store/authSlice';
 
 export const NavBar = () => {
   const isAuthorize = useSelector(state => state.auth.isAuthorize);
@@ -16,30 +17,12 @@ export const NavBar = () => {
   const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
-    const checkAuthentication = async () => {
-      const token = localStorage.getItem('access');
-      if (token) {
-        try {
-          const response = await axios.get(
-            'https://grikoandrey.pythonanywhere.com/user/',
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            },
-          );
-          if (response.status === 200) {
-            dispatch({ type: 'LOGIN_SUCCESS' });
-            setUserInfo(response.data); // Сохраняем информацию о пользователе
-          }
-        } catch (error) {
-          console.error('User is not authenticated', error);
-          dispatch({ type: 'LOGOUT_SUCCESS' });
-        }
-      }
-    };
-
-    checkAuthentication();
+    const token = localStorage.getItem('access');
+    if (token) {
+      dispatch(loginSuccess());
+    } else {
+      dispatch(logoutSuccess());
+    }
   }, [dispatch]);
 
   const handleOpenUserModal = () => {
@@ -78,7 +61,7 @@ export const NavBar = () => {
     <div className={s.container}>
       <div className={s.navBar__links}>
         <NavLink
-          exact
+          end
           to="/"
           className={({ isActive }) => (isActive ? s.activeLink : s.link)}
         >
@@ -131,9 +114,7 @@ export const NavBar = () => {
         <Authorization
           onClose={handleCloseAuthModal}
           setIsAuthenticated={value =>
-            dispatch(
-              value ? { type: 'LOGIN_SUCCESS' } : { type: 'LOGOUT_SUCCESS' },
-            )
+            dispatch(value ? loginSuccess() : logoutSuccess())
           }
         />
       )}

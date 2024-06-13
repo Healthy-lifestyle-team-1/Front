@@ -1,22 +1,10 @@
-// import React from "react";
-// import cn from 'classnames';
-// import style from './styles.module.scss';
-
-// export const Authorization = () => {
-
-//   return (
-//     <div className={style.container}>
-
-//     </div>
-//   )
-// }
-
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import s from './styles.module.scss';
 import Theme from '../../../assets/styles/themes/index';
 import { Button } from '../../ui/Button';
+import { loginSuccess } from '../../../core/store/authSlice'; // Импортируйте экшен
 
 import x from '../../../assets/images/icons/light/X.svg';
 
@@ -27,6 +15,7 @@ export const Authorization = ({ onClose, setIsAuthenticated }) => {
   const [step, setStep] = useState(1); // 1 - login, 2 - verify
   const [error, setError] = useState('');
   const theme = useSelector(state => state.theme);
+  const dispatch = useDispatch(); // Инициализируйте dispatch
 
   const handleLogin = async () => {
     try {
@@ -55,6 +44,7 @@ export const Authorization = ({ onClose, setIsAuthenticated }) => {
       if (response.status === 200) {
         localStorage.setItem('access', response.data.tokens.access);
         localStorage.setItem('refresh', response.data.tokens.refresh);
+        dispatch(loginSuccess()); // Обновление состояния в Redux
         setIsAuthenticated(true);
         setStep(3);
         setError('');
@@ -66,7 +56,7 @@ export const Authorization = ({ onClose, setIsAuthenticated }) => {
   };
 
   const handleReload = () => {
-    window.location.reload();
+    window.location.href = '/'; // Перенаправление на главную страницу
   };
 
   return (
