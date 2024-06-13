@@ -2,17 +2,17 @@ import React from 'react';
 import s from './styles.module.scss';
 import { CardFoodCatalog } from '../ui/Cards/CardCatalog/CardCatalog';
 
-export const Desserts = () => {
+export const CombinedDishes = () => {
   return (
     <div className={s.container}>
-      <p className={s.desserts__title}>Десерты</p>
-      <div className={s.desserts__items}>
+      <p className={s.combineddishes__title}>Готовые тарелки</p>
+      <div className={s.combineddishes__items}>
         <CardFoodCatalog />
         <CardFoodCatalog />
         <CardFoodCatalog />
         <CardFoodCatalog />
       </div>
-      <a className={s.desserts__link} href="/">
+      <a className={s.combineddishes__link} href="/">
         смотреть все →
       </a>
     </div>
