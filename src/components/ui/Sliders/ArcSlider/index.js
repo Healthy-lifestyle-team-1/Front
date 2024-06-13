@@ -1,1 +1,1 @@
-export { ArcSlider } from './ArcSlider'
+export { default as ArcSlider } from './ArcSlider';

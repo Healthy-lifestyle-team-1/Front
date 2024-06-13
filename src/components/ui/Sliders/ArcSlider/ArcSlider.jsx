@@ -1,137 +1,210 @@
-  import React, { useEffect, useState } from 'react';
-  import { gsap } from 'gsap';
-  import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-  import s from './styles.module.scss';
-  import cn from 'classnames';
-  import plateOne from '../../../../assets/images/plates/Plate.png';
-  import plateTwo from '../../../../assets/images/plates/Plate2.png';
-  import plateThree from '../../../../assets/images/plates/Plate3.png';
-  import plateFour from '../../../../assets/images/plates/Plate4.png';
-  import plateFive from '../../../../assets/images/plates/Plate5.png';
-  import plateSix from '../../../../assets/images/plates/Plate6.png';
+import React, { useEffect, useState } from 'react';
+import { gsap } from 'gsap';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import s from './styles.module.scss';
+import { useSelector } from 'react-redux';
+import cn from 'classnames';
+import { Button } from '../../Button';
 
-  
-  gsap.registerPlugin(MotionPathPlugin);
-  
-  export const ArcSlider = () => {
-	 const [activeIndex, setActiveIndex] = useState(0);
-  
-	 const updatePathAndItems = () => {
-	  const circlePath = MotionPathPlugin.convertToPath('#holder', false)[0];
-	  circlePath.id = 'circlePath';
-	  const svg = document.querySelector('svg');
-	  if (svg) {
-		 svg.prepend(circlePath);
-	  }
-	
-	  let items = gsap.utils.toArray(`.${s.item}`);
-	  let numItems = items.length;
-	  let itemStep = 1 / numItems;
-	  let wrapProgress = gsap.utils.wrap(0, 1);
-	  let snap = gsap.utils.snap(itemStep);
-	  let wrapTracker = gsap.utils.wrap(0, numItems);
-	  let tracker = { item: 0 };
-	
-	  gsap.set(items, {
-		 motionPath: {
-			path: circlePath,
-			align: circlePath,
-			alignOrigin: [0.5, 0.5],
-			end: i => i / items.length,
-		 },
-		 scale: 0.6,
-	  });
-	
-	  gsap.set(`.${s.arc__wrapper}`, {
-		 rotation: 0,
-		 transformOrigin: 'center',
-	  });
-	
-	  gsap.set(items, {
-		 rotation: 180,
-		 transformOrigin: 'center',
-	  });
-	
-	  const tl = gsap.timeline({ paused: true, reversed: true });
-	
-	  tl.to(`.${s.arc__wrapper}`, {
-		 rotation: 360,
-		 transformOrigin: 'center',
-		 duration: 1,
-		 ease: 'none',
-	  });
-	
-	  tl.to(
-		 items,
-		 {
-			rotation: '-=360',
-			transformOrigin: 'center',
-			duration: 1,
-			ease: 'none',
-		 },
-		 0,
-	  );
-	
-	  tl.to(
-		 tracker,
-		 {
-			item: numItems,
-			duration: 1,
-			ease: 'none',
-			modifiers: {
-			  item(value) {
-				 return wrapTracker(numItems - Math.round(value));
-			  },
-			},
-		 },
-		 0,
-	  );
-	
-	  items.forEach((el, i) => {
-		 el.addEventListener('click', () => {
-			const current = tracker.item;
-			const diff = current - i;
-	
-			if (Math.abs(diff) < numItems / 2) {
-			  moveWheel(diff * itemStep);
-			} else {
-			  const amt = numItems - Math.abs(diff);
-	
-			  if (current > i) {
-				 moveWheel(amt * -itemStep);
-			  } else {
-				 moveWheel(amt * itemStep);
-			  }
-			}
-		 });
-	  });
-	
-	  document
-		 .getElementById('next')
-		 ?.addEventListener('click', () => moveWheel(-itemStep));
-	  document
-		 .getElementById('prev')
-		 ?.addEventListener('click', () => moveWheel(itemStep));
-	
-	  const moveWheel = amount => {
-		 const progress = tl.progress();
-		 tl.progress(wrapProgress(snap(tl.progress() + amount)));
-		 const next = tracker.item;
-		 tl.progress(progress);
-	
-		 gsap.to(tl, {
-			progress: snap(tl.progress() + amount),
-			modifiers: {
-			  progress: wrapProgress,
-			},
-		 });
-	
-		 setActiveIndex(next);
-	  };
-	};
+import plateOne from '../../../../assets/images/plates/Plate.png';
+import plateTwo from '../../../../assets/images/plates/Plate2.png';
+import plateThree from '../../../../assets/images/plates/Plate3.png';
+import plateFour from '../../../../assets/images/plates/Plate4.png';
+import plateFive from '../../../../assets/images/plates/Plate5.png';
+import plateSix from '../../../../assets/images/plates/Plate6.png';
+
+gsap.registerPlugin(MotionPathPlugin);
+
+const plates = [
+  {
+    title: 'Куриная грудка, с ростками сои и красной капустой',
+    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    weight: '560 г',
+    calories: '675 ккал',
+    img: plateOne,
+	price: '1900 ₽'
+  },
+  {
+    title: 'Свинина, с чем-то там и салат',
+    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    weight: '460 г',
+    calories: '575 ккал',
+    img: plateTwo,
+	 price: '1340 ₽'
+  },
+  {
+    title: 'Сибас, с рисом и спаржей и свежими овощами',
+    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    weight: '530 г',
+    calories: '525 ккал',
+    img: plateThree,
+	 price: '1750 ₽'
+  },
+  {
+    title: 'Форель со свежими овощами и картофелем',
+    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    weight: '430 г',
+    calories: '490 ккал',
+    img: plateFour,
+	 price: '1800 ₽'
+  },
+  {
+    title: 'Томленая говядина, картофель и салат',
+    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    weight: '530 г',
+    calories: '690 ккал',
+    img: plateFive,
+	 price: '1400 ₽'
+  },
+  {
+    title: 'Сашими из лосося и тунца с салатом из апельсинов и огурцов',
+    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    weight: '510 г',
+    calories: '360 ккал',
+    img: plateSix,
+	 price: '1300 ₽'
+  },
+  {
+	title: 'Куриная грудка, с ростками сои и красной капустой',
+	description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+	weight: '560 г',
+	calories: '675 ккал',
+	img: plateOne,
+	price: '1990 ₽'
+ },
+ {
+	title: 'Свинина, с чем-то там и салат',
+	description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+	weight: '460 г',
+	calories: '575 ккал',
+	img: plateTwo,
+	price: '1340 ₽'
+ },
+];
+
+
+export const ArcSlider = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const theme = useSelector((state) => state.theme);
+
+  const updatePathAndItems = () => {
+    const circlePath = MotionPathPlugin.convertToPath('#holder', false)[0];
+    circlePath.id = 'circlePath';
+    const svg = document.querySelector('svg');
+    if (svg) {
+      svg.prepend(circlePath);
+    }
+
+    let items = gsap.utils.toArray(`.${s.item}`);
+    let numItems = items.length;
+    let itemStep = 1 / numItems;
+    let wrapProgress = gsap.utils.wrap(0, 1);
+    let snap = gsap.utils.snap(itemStep);
+    let wrapTracker = gsap.utils.wrap(0, numItems);
+    let tracker = { item: 0 };
+
+    gsap.set(items, {
+      motionPath: {
+        path: circlePath,
+        align: circlePath,
+        alignOrigin: [0.5, 0.5],
+        end: i => i / items.length,
+      },
+      scale: 0.6,
+    });
+
+    gsap.set(`.${s.arc__block}`, {
+      rotation: 0,
+      transformOrigin: 'center',
+    });
+
+    gsap.set(items, {
+      rotation: 180,
+      transformOrigin: 'center',
+    });
+
+    const tl = gsap.timeline({ paused: true, reversed: true });
+
+    tl.to(`.${s.arc__block}`, {
+      rotation: 360,
+      transformOrigin: 'center',
+      duration: 1,
+      ease: 'none',
+    });
+
+    tl.to(
+      items,
+      {
+        rotation: '-=360',
+        transformOrigin: 'center',
+        duration: 1,
+        ease: 'none',
+      },
+      0,
+    );
+
+    tl.to(
+      tracker,
+      {
+        item: numItems,
+        duration: 1,
+        ease: 'none',
+        modifiers: {
+          item(value) {
+            return wrapTracker(numItems - Math.round(value));
+          },
+        },
+      },
+      0,
+    );
+
+    const moveWheel = (amount) => {
+      const progress = tl.progress();
+      tl.progress(wrapProgress(snap(tl.progress() + amount)));
+      const next = tracker.item;
+      tl.progress(progress);
+
+      gsap.to(tl, {
+        progress: snap(tl.progress() + amount),
+        modifiers: {
+          progress: wrapProgress,
+        },
+      });
+
+      setActiveIndex(next);
+    };
+
+    items.forEach((el, i) => {
+      el.addEventListener('click', () => {
+        const current = tracker.item;
+        const diff = current - i;
+
+        if (Math.abs(diff) < numItems / 2) {
+          moveWheel(diff * itemStep);
+        } else {
+          const amt = numItems - Math.abs(diff);
+
+          if (current > i) {
+            moveWheel(amt * -itemStep);
+          } else {
+            moveWheel(amt * itemStep);
+          }
+        }
+      });
+    });
+
+    document
+      .getElementById('next')
+      ?.addEventListener('click', () => moveWheel(-itemStep));
+    document
+      .getElementById('prev')
+      ?.addEventListener('click', () => moveWheel(itemStep));
+
+    return moveWheel;
+  };
 
   useEffect(() => {
-    updatePathAndItems();
+    const moveWheel = updatePathAndItems();
 
     const handleResize = () => {
       updatePathAndItems();
@@ -139,52 +212,68 @@
 
     window.addEventListener('resize', handleResize);
 
+
+    const intervalId = setInterval(() => {
+      moveWheel(-1 / plates.length);
+    }, 5000);
+
     return () => {
       window.removeEventListener('resize', handleResize);
+      clearInterval(intervalId);
     };
   }, []);
 
   return (
-    <div className={s.arc__container}>
+    <div className={s.arcSlider__container}>
       <div className={s.arc__wrapper}>
-        <div className={`${s.item} ${activeIndex === 0 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateOne} alt="" />
+        <div className={s.arc__block}>
+          {plates.map((plate, index) => (
+            <div
+              key={index}
+              className={cn(s.item, { [s.active]: activeIndex === index })}
+            >
+              <img className={s.itemImg} src={plate.img} alt={plate.title} />
+            </div>
+          ))}
+          <svg className={s.svg} viewBox="0 0 400 400">
+            <circle
+              id="holder"
+              className={s.st0}
+              cx="200"
+              cy="200"
+              r="139"
+              fill="none"
+            />
+          </svg>
         </div>
-        <div className={`${s.item} ${activeIndex === 1 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateTwo} alt="" />
+      </div>
+      <div className={s.arcSlider__infoBlock}>
+        <div className={s.arcSlider__infoBlock__title}>
+          Сбалансированные <span className={s.arcSlider__infoBlock__title__pink}>готовые</span> блюда
         </div>
-        <div className={`${s.item} ${activeIndex === 2 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateThree} alt="" />
+        <div className={s.arcSlider__infoBlock__dishName}>
+          {plates[activeIndex].title}
         </div>
-        <div className={`${s.item} ${activeIndex === 3 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateFour} alt="" />
+        <div className={s.arcSlider__infoBlock__description}>
+          {plates[activeIndex].description}
         </div>
-        <div className={`${s.item} ${activeIndex === 4 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateFive} alt="" />
+        <div className={s.arcSlider__infoBlock__nutritionalValues}>
+          <div className={s.arcSlider__infoBlock__nutritionalValues__weight}>
+            {plates[activeIndex].weight}
+          </div>
+          <div className={s.arcSlider__infoBlock__nutritionalValues__calories}>
+            {plates[activeIndex].calories}
+          </div>
         </div>
-        <div className={`${s.item} ${activeIndex === 5 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateSix} alt="" />
-        </div>
-        <div className={`${s.item} ${activeIndex === 6 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateOne} alt="" />
-        </div>
-        <div className={`${s.item} ${activeIndex === 7 ? s.active : ''}`}>
-          <img className={s.itemImg} src={plateTwo} alt="" />
-        </div>
-
-
-        <svg className={s.svg} viewBox="0 0 400 400">
-          <circle
-            id="holder"
-            className={s.st0}
-            cx="200"
-            cy="200"
-            r="139"
-            fill="none"
+		  <Button
+            title={plates[activeIndex].price}
+            onClick={() => console.log('Button clicked')}
+            colorScheme={1}
+            size={1}
           />
-        </svg>
       </div>
     </div>
   );
 };
 
+export default ArcSlider;
