@@ -72,11 +72,6 @@ export const PlateMethod = () => {
       </div>
 
       <div className={s.plateMethod__bookBlock}>
-        <div className={s.plateMethod__bookBlock__title}>
-          <span className={s.plateMethod__bookBlock__titleBlue}>Идеология</span>{' '}
-          здорового питания по науке
-        </div>
-
         <div className={s.plateMethod__bookBlockImgs}>
           <img
             className={s.plateMethod__bookBlockImg}

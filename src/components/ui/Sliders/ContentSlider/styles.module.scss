@@ -10,15 +10,16 @@
 
 	&__blockImgAndBtns {
 		width: 50vw;
+		height: 50vw;
 		display: flex;
 		flex-wrap: nowrap;
 		justify-content: space-between;
+		align-items: center;
 	}
  
 	&__blockImg {
 	  width: 32vw;
-	  display: flex;
-	  align-items: center;
+
 	}
  
 	&__img {
@@ -47,7 +48,7 @@
 	  &__text {
 		 @include fontMainText2();
 		 margin-bottom: 7vw;
-		 width: 25vw;
+		 width: 30vw;
 	  }
  
 	  &__btn {}
@@ -57,33 +58,3 @@
  .highlight {
 	color: $mainPeach;
  }
- 
- .buttonsContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 10px;
- 
-	.first, .second, .third {
-	  width: 100%;
-	}
- 
-	.second {
-	  transform: scale(1.2);
-	}
- }
- 
- .button {
-	background-size: cover;
-	background-repeat: no-repeat;
-	border: none;
-	padding: 10px 20px;
-	cursor: pointer;
-	transition: background-color 0.3s ease, color 0.3s ease;
- 
-	&.active {
-	  background-color: #000;
-	  color: #fff;
-	}
- }
- 
