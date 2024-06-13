@@ -1,32 +1,49 @@
 import React from 'react';
-
-import img1 from '../../assets/images/plates/plates1.jpg';
-
-import cn from 'classnames';
 import s from './styles.module.scss';
 
-export const CardNews = ({ title, img }) => {
-  return (
-    <div className={s.container}>
-      <div className={s.cardNews__title}>{title}</div>
-      <img className={s.cardNews__image} src={img} alt={'фото тарелки'} />
-    </div>
-  );
-};
-
-const news = [
-  { title: 'Собери свою тарелку', img: img1 },
-  { title: 'Рекомендации недели', img: img1 },
-  { title: 'Здоровый образ жизни', img: img1 },
-  { title: 'Новинки', img: img1 },
-];
+// импорты изображений
+import harvardPlate from '../../assets/images/NewsCatalog/harvard-plate.png';
+import fork from '../../assets/images/NewsCatalog/fork.png';
+import sports from '../../assets/images/NewsCatalog/sports.png';
+import watermelon from '../../assets/images/NewsCatalog/watermelon.png';
 
 export const CardNewsList = () => {
   return (
-    <div className={s.newsContainer}>
-      {news.map((item, index) => (
-        <CardNews key={index} {...item} />
-      ))}
+    <div className={s.container}>
+      <div className={s.cardNews}>
+      <div className={`${s.cardNews__item} ${s.harvard}`}>
+          <div className={s.cardNews__itemTitle}>Попробуй гарварскую тарелку</div>
+          <img
+            className={s.cardNews__itemImage}
+            src={harvardPlate}
+            alt={'фото тарелки'}
+          />
+        </div>
+        <div className={`${s.cardNews__item} ${s.recommendations}`}>
+          <div className={s.cardNews__itemTitle}>Рекомендации недели</div>
+          <img
+            className={s.cardNews__itemImage}
+            src={fork}
+            alt={'вилка'}
+          />
+        </div>
+        <div className={`${s.cardNews__item} ${s.sport}`}>
+          <div className={s.cardNews__itemTitle}>Здоровый образ жизни</div>
+          <img
+            className={s.cardNews__itemImage}
+            src={sports}
+            alt={'спорт'}
+          />
+        </div>
+        <div className={`${s.cardNews__item} ${s.new}`}>
+          <div className={s.cardNews__itemTitle}>Новинки</div>
+          <img
+            className={s.cardNews__itemImage}
+            src={watermelon}
+            alt={'фрукт'}
+          />
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,43 @@
-// временный размер, чтобы кратинки не вставали в полэкрана
-.cardNews__image {
-    width: 10%;
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1070px;
+    margin-top: 40px;
+}
+
+.cardNews {
+    display: flex;
+    gap: 3%;
+    &__item {
+        border-radius: 20px;
+        &.harvard {
+            color: $mainDark;
+            width: 25%;
+            background-color: $mainPeach;
+        }
+        &.recommendations {
+            color: var(--text-color);
+            width: 25%;
+            border: 6px solid $mainPeach;
+        }
+        &.sport {
+            color: $mainDark;
+            width: 25%;
+            background-color: $blueLight;
+        }
+        &.new {
+            color: var(--text-color);
+            width: 25%;
+            border: 6px solid $blueLight;
+        }
+    }
+    &__itemTitle {
+        text-transform: uppercase;
+        padding: 26px;
+        @include fontSubTitle2();
+        font-weight: 400;
+    }
+    &__itemImage {
+    }
 }
