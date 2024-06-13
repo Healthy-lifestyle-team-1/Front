@@ -25,12 +25,8 @@ export const HomePage = () => {
     console.log('Searching for:', query);
   };
 
-  const [checked, setChecked] = useState(false);
-
   return (
     <div className={s.container}>
-      <div className={s.test}>TEST</div>
-      <StarRating count={5} size="50px" productId={1} userId={123} />
       <Header />
       <ContentSlider />
       <SliderNews />
