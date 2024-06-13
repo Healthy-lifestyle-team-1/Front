@@ -77,32 +77,48 @@ export const NavBar = () => {
   return (
     <div className={s.container}>
       <div className={s.navBar__links}>
-        <NavLink exact to="/" activeClassName={s.activeLink}>
+        <NavLink
+          exact
+          to="/"
+          className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+        >
           Главная
         </NavLink>
-        <NavLink to="/book" activeClassName={s.activeLink}>
+        <NavLink
+          to="/book"
+          className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+        >
           Книга
         </NavLink>
-        <NavLink to="/constructor" activeClassName={s.activeLink}>
+        <NavLink
+          to="/constructor"
+          className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+        >
           Конструктор
         </NavLink>
-        <NavLink to="/catalog" activeClassName={s.activeLink}>
+        <NavLink
+          to="/catalog"
+          className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+        >
           Каталог
         </NavLink>
-        <NavLink to="/news" activeClassName={s.activeLink}>
+        <NavLink
+          to="/news"
+          className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+        >
           Новости
         </NavLink>
         {isAuthorize ? (
           <>
-            <span onClick={handleOpenUserModal} className={s.navBar__links}>
+            <span onClick={handleOpenUserModal} className={s.link}>
               Профиль
             </span>
-            <span onClick={handleOpenCartModal} className={s.navBar__links}>
+            <span onClick={handleOpenCartModal} className={s.link}>
               Корзина
             </span>
           </>
         ) : (
-          <span onClick={handleOpenAuthModal} className={s.navBar__links}>
+          <span onClick={handleOpenAuthModal} className={s.link}>
             Войти
           </span>
         )}
@@ -124,3 +140,5 @@ export const NavBar = () => {
     </div>
   );
 };
+
+export default NavBar;

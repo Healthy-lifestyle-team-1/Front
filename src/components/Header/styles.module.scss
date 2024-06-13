@@ -1,13 +1,12 @@
 .header {
   &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
   }
   &__navigation {
     display: flex;
     align-items: center;
+    gap: 106px;
+    justify-content: space-between;
+    padding: 20px;
   }
   &__logo {
     margin-right: 20px;

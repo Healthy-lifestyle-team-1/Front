@@ -4,12 +4,24 @@
     gap: 46px;
     @include fontMainText3;
     cursor: pointer;
+    text-transform: uppercase;
+
+    a {
+      text-decoration: none;
+      color: $mainDark;
+    }
+
+    .activeLink {
+      font-weight: 600;
+    }
   }
-  &__links a {
-    text-decoration: none;
+
+  .link {
+    cursor: pointer;
     color: $mainDark;
-  }
-  &__links .activeLink {
-    font-weight: 600;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
