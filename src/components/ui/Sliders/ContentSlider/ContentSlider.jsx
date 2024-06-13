@@ -52,13 +52,12 @@ export const ContentSlider = () => {
 
   return (
     <div className={s.contentSlider__container}>
+		<div className={s.contentSlider__blockImgAndBtns}>
       <div className={s.contentSlider__blockImg}><img className={s.contentSlider__img} src={imgSrc} alt="Фото тарелки" /></div>
       <div className={s.contentSlider__blockBtns}>
         <Test onButtonClick={handleButtonClick} activeIndex={activeIndex} />
-	
-
-
       </div>
+		</div>
       <div className={s.contentSlider__blockDescription}>
         <div className={s.contentSlider__blockDescription__title} id="title">
           {title}
