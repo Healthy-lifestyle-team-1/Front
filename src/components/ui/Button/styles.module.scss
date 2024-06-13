@@ -12,22 +12,14 @@
     color 0.3s;
 
   &.colorScheme__1 {
-    background-color: rgba($mainGreenapple, 0.5);
-    color: rgba($mainDark, 0.5);
-
-    &:hover {
-      background-color: $mainGreenapple;
-      color: $mainDark;
-    }
-    &::after {
-      background-color: rgba($mainGreenapple, 0.5);
-    }
-  }
-
-  &.colorScheme__2 {
     background-color: $mainGreenapple;
     color: $mainDark;
   }
+
+  // &.colorScheme__2 {
+  //   background-color: $mainGreenapple;
+  //   color: $mainDark;
+  // }
 
   &.colorScheme__3 {
     background-color: transparent;
@@ -113,6 +105,12 @@
   }
   &.backgroundColor__3 {
     background-color: $blueLight;
+  }
+
+  &.disabled {
+    background-color: rgba($mainGreenapple, 0.5);
+    color: rgba($mainDark, 0.5);
+    cursor: not-allowed;
   }
 }
 

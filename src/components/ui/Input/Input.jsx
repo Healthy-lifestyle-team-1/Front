@@ -5,7 +5,7 @@ import s from './styles.module.scss';
 import searchIcon from '../../../assets/images/icons/search.svg';
 import searchIconDark from '../../../assets/images/icons/searchDark.svg';
 
-export function Input({ onSearch, width = 'small', colorScheme = 1 }) {
+export function Input({ onSearch, width, colorScheme, ...props }) {
   const theme = useSelector(state => state.theme);
 
   const [query, setQuery] = useState('');
@@ -25,7 +25,7 @@ export function Input({ onSearch, width = 'small', colorScheme = 1 }) {
   const containerClass =
     colorScheme === 1 ? s.colorScheme__1 : s.colorScheme__2;
 
-  const containerWidth = width === 'big' ? '882px' : '422px';
+  const containerWidth = width === 'big' ? '1072px' : '422px';
 
   return (
     <div

@@ -13,15 +13,17 @@ import { Desserts } from '../../components/Desserts/Desserts';
 import { Advertisement } from '../../components/Advertisement';
 import { Footer } from '../../components/Footer/Footer';
 
-
 import cn from 'classnames';
 import s from './styles.module.scss';
 
 export const CatalogPage = () => {
+  const onSearch = () => {
+    console.log('Searching');
+  };
   return (
     <div className={s.container}>
       <Header />
-      <Input width="500px" color="transparent" placeholder="Поиск" />
+      <Input width={'big'} colorScheme={1} onSearch={onSearch} />
       <NavCatalog />
       <Popular />
       <CombinedDishes />

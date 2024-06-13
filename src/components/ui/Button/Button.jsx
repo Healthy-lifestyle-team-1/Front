@@ -7,6 +7,7 @@ export function Button({
   onClick,
   colorScheme,
   isActive,
+  disabled,
   size,
   ...props
 }) {
@@ -18,6 +19,7 @@ export function Button({
         [s[`size__${size}`]]: size,
       })}
       onClick={onClick}
+      disabled={disabled}
       {...props}
     >
       {title}

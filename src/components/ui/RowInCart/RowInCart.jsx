@@ -2,7 +2,7 @@ import React from 'react';
 import s from './styles.module.scss';
 import { ButtonWithTheme } from '../Button';
 
-import remove from '../../../assets/images/icons/remove.svg';
+import removeIcon from '../../../assets/images/icons/remove.svg';
 
 export const RowInCart = ({ id, dishImg, dishName, price, onRemove }) => {
   return (
@@ -20,7 +20,7 @@ export const RowInCart = ({ id, dishImg, dishName, price, onRemove }) => {
           <img src={removeIcon} alt="Удалить" />
         </div>
         <div className={s.row__actions__count}>
-          <ButtonWithTheme colorScheme={3} withCounter={true} />
+          <ButtonWithTheme colorScheme={3} withCounter={true} size={3} />
         </div>
       </div>
     </div>

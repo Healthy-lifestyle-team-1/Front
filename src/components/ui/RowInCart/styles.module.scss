@@ -1,0 +1,36 @@
+.row {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    width: 550px;
+    border-bottom: dashed 2px #b19069;
+    padding: 15px 9px;
+  }
+  &__img {
+    padding-right: 24px;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-right: 62px;
+    &__name {
+      width: 178px;
+      @include fontMainText2;
+      color: $mainDark;
+    }
+    &__price {
+      @include fontSubTitle2;
+    }
+  }
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 28px;
+    &__remove {
+    }
+    &__count {
+    }
+  }
+}
