@@ -4,7 +4,6 @@ import MaksimKImg from '../../assets/images/MaksimKuderov.png';
 import LidaLImg from '../../assets/images/LidaLanskaya.png';
 import DottedLine from '../../assets/images/dotted-line-plate-method.png';
 import BookImg from '../../assets/images/method-plate-book.png';
-// import test from '../../assets/гл2.gif';
 import { Button } from '../ui/Button';
 
 import s from './styles.module.scss';

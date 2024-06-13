@@ -4,15 +4,15 @@ import { Header } from '../../components/Header/Header';
 import { Input } from '../../components/ui/Input/Input';
 import { NavCatalog } from '../../components/NavCatalog/NavCatalog';
 import { Popular } from '../../components/Popular/Popular';
-import { Lunch } from '../../components/Lunch/Lunch';
+import { CombinedDishes } from '../../components/CombinedDishes/CombinedDishes';
+import { MainDish } from '../../components/MainDish/MainDish';
+import { SideDish } from '../../components/SideDish/SideDish';
+import { Soup } from '../../components/Soup/Soup';
 import { CardNewsList } from '../../components/News/News';
-import { Dinner } from '../../components/Dinner/Dinner';
 import { Desserts } from '../../components/Desserts/Desserts';
 import { Advertisement } from '../../components/Advertisement';
 import { Footer } from '../../components/Footer/Footer';
 
-import { CardFoodList } from '../../components/ui/Cards/CardFood/CardFood';
-import { CardFoodCatalog } from '../../components/ui/Cards/CardCatalog/CardCatalog';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -24,11 +24,13 @@ export const CatalogPage = () => {
       <Input width="500px" color="transparent" placeholder="Поиск" />
       <NavCatalog />
       <Popular />
-      <Lunch />
+      <CombinedDishes />
       <CardNewsList />
-      <Dinner />
-      <Advertisement />
+      <MainDish />
+      <SideDish />
+      <Soup />
       <Desserts />
+      <Advertisement />
       <Footer />
     </div>
   );
