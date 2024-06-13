@@ -12,6 +12,7 @@ import { Button } from '../../components/ui/Button/Button';
 import { ButtonWithTheme } from '../../components/ui/Button';
 import { Footer } from '../../components/Footer/Footer';
 import { ContentSlider } from '../../components/ui/Sliders/ContentSlider';
+import { DailyRation } from '../../components/DailyRation';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -32,6 +33,7 @@ export const HomePage = () => {
       <SliderNews />
       <PlateConstructor />
       <PlateMethod />
+		<DailyRation />
       <ArcSlider />
       <Advertisement />
       <Footer />

@@ -1,0 +1,80 @@
+.dailyRation {
+
+
+
+&__container {
+	width: 100%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	margin-top: 10vw;
+}
+
+&__dishesInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 5vw;
+	margin-left: 7vw;
+	width: 40vw;
+
+
+&__title {
+	@include fontTitle2();
+	width: 40vw;
+
+	&__pink {
+		color: $mainPeach;
+	}
+}
+
+&__text {
+	@include fontSubTitle3();
+	padding-bottom: 0.5vw;
+	position: relative; 
+ 
+	&:before {
+	  content: '';
+	  position: absolute;
+	  bottom: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 1px; 
+	  background: linear-gradient(to right, $mainDark 60%, rgba(0, 0, 0, 0) 0%);
+	  background-size: 35px 1px; 
+	}
+ }
+
+}
+
+&__dishesImgs {
+	margin-right: 4vw;
+	width: 42vw;
+	height: 39vw;
+	position: relative;
+
+	&__imgOne {
+		position: absolute;
+		left: 11vw;
+		width: 20vw;
+
+	}
+	&__imgTwo {
+		position: absolute;
+		bottom: 0;
+		width: 21vw;
+	}
+	&__imgThree {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 20vw;
+	}
+
+	&__imgBestChoice {
+		position: absolute;
+		bottom: 11vw;
+		right: 14vw;
+		width: 14vw;
+	}
+}
+}

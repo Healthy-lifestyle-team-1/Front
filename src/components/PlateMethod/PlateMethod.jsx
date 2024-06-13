@@ -7,6 +7,7 @@ import BookImg from '../../assets/images/method-plate-book.png';
 import { Button } from '../ui/Button';
 
 import s from './styles.module.scss';
+import cn from 'classnames';
 
 export const PlateMethod = () => {
   return (
