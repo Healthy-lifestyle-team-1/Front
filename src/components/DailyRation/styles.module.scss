@@ -20,7 +20,7 @@
 
 &__title {
 	@include fontTitle2();
-	width: 40vw;
+	width: 33vw;
 
 	&__pink {
 		color: $mainPeach;
@@ -28,7 +28,9 @@
 }
 
 &__text {
-	@include fontSubTitle3();
+	font-size: 28px;
+	color: $mainDark;
+	font-weight: 500;
 	padding-bottom: 0.5vw;
 	position: relative; 
  

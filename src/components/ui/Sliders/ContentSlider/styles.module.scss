@@ -29,7 +29,7 @@
 	}
  
 	&__blockDescription {
-		width: 46vw;
+		width: 43vw;
 	  display: flex;
 	  flex-direction: column;
 	  margin-top: 5vw;
@@ -37,6 +37,7 @@
 	  &__title {
 		 @include fontTitle2();
 		 margin-bottom: 5vw;
+
  
 		 &Pink {
 			color: $mainPeach;

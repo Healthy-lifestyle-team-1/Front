@@ -26,9 +26,6 @@
 @mixin fontSubTitle3() {
 	@include font-face-rubik(28px, 500, 120%);
  }
- @mixin fontSubTitle3() {
-	@include font-face-rubik(28px, 400, 120%);
- }
 // T1
 @mixin fontMainText1() {
   @include font-face-rubik(24px, 400, 120%);

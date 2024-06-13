@@ -1,1 +1,1 @@
-export { DailyRation } from './DailyRation'
+export {DailyRation} from './DailyRation'

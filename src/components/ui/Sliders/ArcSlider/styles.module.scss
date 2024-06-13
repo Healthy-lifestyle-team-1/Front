@@ -16,10 +16,10 @@
 			&__block {
 			  margin: 0 auto;
 			  width: 100%;
-			  height: 53vw;
+			  height: 57vw;
 			  position: relative;
 			  top: 0px;
-			  left: -42%;
+			  left: -39%;
 			}
 		 }
 		 
@@ -32,7 +32,7 @@
 			z-index: 1;
 		 
 			&Img {
-			 width: 100%;
+			 width: 15vw;
 			  transition: transform 0.3s;
 			  z-index: 100;
 			  opacity: 0.8;
@@ -43,7 +43,7 @@
 		 
 			  
 			  Img {
-				transform: scale(2.3) translateX(-20%);
+				transform: scale(2.7) translateX(-25%);
 				 opacity: 1;
 			  }
 			}
@@ -51,7 +51,7 @@
 		 
 		 .svg {
 			width: 65vw;
-			height: 55vw;
+			height: 57vw;
 			z-index: -5;
 			position: absolute;
 			border-radius: 50%;
@@ -67,9 +67,9 @@
 
 
 			&__infoBlock {
-				width: 60vw;
+				width: 64vw;
 				margin-top: 8vw;
-				margin-right: 4vw;
+				margin-right: 10vw;
 
 
 				&__title {
