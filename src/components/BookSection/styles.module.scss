@@ -43,7 +43,7 @@
 				font-style: italic;
 
 				&Item {
-
+					
 				}
 			}
 		}
@@ -51,7 +51,8 @@
 
 	&__content {
 border-left: 1px solid $mainPeach;
-height: 50vw;
+height: fit-content;
+width: 30vw;
 
 
 
@@ -67,11 +68,17 @@ list-style: none;
 
 		&Item {
 			margin-bottom: 2vw;
+			cursor: pointer;
 			
 			&.active {
 				color: $mainPeach;
 			}
 		}
+	}
+	&__btn {
+		width: 28vw;
+		display: flex;
+		justify-content: center;
 	}
 }
 }

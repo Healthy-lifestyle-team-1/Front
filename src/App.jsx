@@ -13,7 +13,6 @@ function App() {
   return (
     <div>
       <Theme className={'hidden'} />
-      <div>Здесь будет наш прекрасный проект!</div>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
