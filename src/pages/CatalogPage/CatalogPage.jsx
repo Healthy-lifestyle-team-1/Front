@@ -1,18 +1,18 @@
 import React from 'react';
 
-import { Header } from '../../components/Header/Header';
-import { Input } from '../../components/ui/Input/Input';
-import { NavCatalog } from '../../components/NavCatalog/NavCatalog';
-import { Popular } from '../../components/Popular/Popular';
-import { CombinedDishes } from '../../components/CombinedDishes/CombinedDishes';
-import { MainDish } from '../../components/MainDish/MainDish';
-import { SideDish } from '../../components/SideDish/SideDish';
-import { ChooseBest } from '../../components/ChooseBest/ChooseBest';
-import { Soup } from '../../components/Soup/Soup';
-import { CardNewsList } from '../../components/NewsCatalog/NewsCatalog';
-import { Desserts } from '../../components/Desserts/Desserts';
+import { Header } from '../../components/Header';
+import { Input } from '../../components/ui/Input';
+import { NavCatalog } from '../../components/NavCatalog';
+import { Popular } from '../../components/Catalog/Popular';
+import { CombinedDishes } from '../../components/Catalog/CombinedDishes';
+import { MainDish } from '../../components/Catalog/MainDish';
+import { SideDish } from '../../components/Catalog/SideDish';
+import { ChooseBest } from '../../components/Catalog/ChooseBest';
+import { Soup } from '../../components/Catalog/Soup';
+import { CardNewsList } from '../../components/Catalog/NewsCatalog';
+import { Desserts } from '../../components/Catalog/Desserts';
 import { Advertisement } from '../../components/Advertisement';
-import { Footer } from '../../components/Footer/Footer';
+import { Footer } from '../../components/Footer';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
