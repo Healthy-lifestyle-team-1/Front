@@ -1,0 +1,26 @@
+.container {
+  background-image: url('../../../assets/images/top-catalog.png');
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+}
+
+.heading {
+  &__wrapper {
+    max-width: 1070px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__text {
+    @include fontTitle1();
+    text-transform: uppercase;
+    color: var(--text-color);
+    text-align: center;
+  }
+}
