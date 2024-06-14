@@ -17,6 +17,7 @@ export function Button({
         [s[`colorScheme__${colorScheme}`]]: colorScheme,
         [s.active]: isActive,
         [s[`size__${size}`]]: size,
+        [s.disabled]: disabled,
       })}
       onClick={onClick}
       disabled={disabled}

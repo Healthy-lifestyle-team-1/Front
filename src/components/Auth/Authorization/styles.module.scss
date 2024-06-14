@@ -12,61 +12,24 @@
 }
 
 .modal {
-  &__auth {
-    &__content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 36px;
-      width: 600px;
-      height: 600px;
-      // border: ;
-      border-radius: 20px;
-      background: var(--background-color);
-      position: relative;
-      z-index: 100001;
-    }
-    &__name {
-      @include fontTitle2;
-      text-transform: uppercase;
-      padding: 40px 100px 0 100px;
-    }
-    &__info {
-      width: 300px;
-      height: 300px;
-      padding: 59px 150px 0 150px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 36px;
-      justify-content: space-around;
-    }
-    &__reg {
-      padding: 37px 80px;
-      display: flex;
-      flex-direction: row;
-      gap: 5px;
-      &_link {
-        color: $blueDark;
-      }
-    }
+  &__content {
+    background: var(--background-color);
+    border-radius: 20px;
+    width: 600px;
+    height: 600px;
+    position: relative;
+    z-index: 100001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 66px 100px;
+    // gap: 59px;
+    // border: 4px solid $mainDark;
   }
-}
-
-.closeButton {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  border: none;
-  cursor: pointer;
-  background-color: $mainGreenapple;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  &__name {
+    @include fontTitle2;
+  }
 }
 
 .checkoutButton {
@@ -83,24 +46,30 @@
 .login {
   &__info {
     display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  &__name {
+    @include font-face-rubik(36px, 500, 120%);
+  }
+  &__phone {
+    @include font-face-rubik(32px, 400, 120%);
+  }
+  &__infoBlock {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    &__choice {
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-      align-items: center;
-    }
-    &__btn {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-    }
-    &__block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
+    gap: 20px;
+  }
+  &__input {
+    width: 300px;
+    height: 48px;
+    border-radius: 20px;
+    border: transparent;
+    padding-left: 20px;
+    @include fontMainText1;
+    color: $mainDark;
+    &::placeholder {
     }
   }
 }
@@ -108,5 +77,10 @@
 .loginButton {
   display: flex;
   justify-content: center;
-  width: 300px;
+}
+
+.error {
+  min-height: 20px; // Adjust the height as needed
+  color: red; // Example color for error text
+  margin-top: -40px; // Example margin, adjust as needed
 }
