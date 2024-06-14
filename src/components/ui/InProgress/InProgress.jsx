@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import s from './styles.module.scss';
-import { InProgressLoader } from '../../components/ui/InProgressLoader';
+import { InProgressLoader } from '../InProgressLoader';
 
 export function InProgress() {
   return (
