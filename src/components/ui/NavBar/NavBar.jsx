@@ -5,6 +5,7 @@ import axios from 'axios';
 import UserPage from '../../modalWindows/UserPage';
 import CartPage from '../../modalWindows/CartPage';
 import { Authorization } from '../../Auth/Authorization';
+import { Registration } from '../../Auth/Registration';
 import s from './styles.module.scss';
 import { loginSuccess, logoutSuccess } from '../../../core/store/authSlice';
 
@@ -14,6 +15,7 @@ export const NavBar = () => {
   const [isUserModalOpen, setIsUserModalOpen] = useState(false);
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false); // Добавлено состояние для OnBoarding
   const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
@@ -55,6 +57,15 @@ export const NavBar = () => {
     setIsAuthModalOpen(false);
     setIsUserModalOpen(false);
     setIsCartModalOpen(false);
+  };
+
+  const handleOpenRegistration = () => {
+    setIsRegistrationOpen(true);
+    setIsAuthModalOpen(false);
+  };
+
+  const handleCloseRegistration = () => {
+    setIsRegistrationOpen(false);
   };
 
   return (
@@ -116,8 +127,10 @@ export const NavBar = () => {
           setIsAuthenticated={value =>
             dispatch(value ? loginSuccess() : logoutSuccess())
           }
+          setShowRegistration={handleOpenRegistration} // Передаем функцию для открытия OnBoarding
         />
       )}
+      {isRegistrationOpen && <Registration onClose={handleCloseRegistration} />}
     </div>
   );
 };
