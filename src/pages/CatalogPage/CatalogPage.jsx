@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Header } from '../../components/Header';
+import { Heading } from '../../components/Catalog/Heading/Heading'
 import { Input } from '../../components/ui/Input';
 import { NavCatalog } from '../../components/NavCatalog';
 import { Popular } from '../../components/Catalog/Popular';
@@ -24,6 +25,7 @@ export const CatalogPage = () => {
   return (
     <div className={s.container}>
       <Header />
+      <Heading />
       <Input
         hasButton={true}
         width={'big'}
