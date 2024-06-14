@@ -1,0 +1,85 @@
+.bookSection {
+
+
+	&__container {
+		background-color: white;
+		width: 95%;
+		margin: 0 auto;
+		display: flex;
+		flex-wrap: nowrap;
+		padding-top: 5vw;
+		padding-left: 3vw;
+		padding-right: 3vw;
+		padding-bottom: 10vw;
+	}
+
+	&__about {
+		padding-right: 4vw;
+		width: 110vw;
+
+
+		&__title {
+			@include fontTitle2();
+			margin-bottom: 3vw
+		}
+
+		&__text {
+			@include fontMainText3();
+
+&Thumbnail {
+	font-weight: 600;
+}
+
+&Italic {
+	font-style: italic;
+}
+
+
+			&Img {
+
+			}
+
+			&List {
+				font-style: italic;
+
+				&Item {
+					
+				}
+			}
+		}
+	}
+
+	&__content {
+border-left: 1px solid $mainPeach;
+height: fit-content;
+width: 30vw;
+
+
+
+	&__title {
+@include fontTitle2();
+margin-bottom: 3vw;
+padding-left: 3vw;
+	}
+
+	&__list {
+@include fontMainText1();
+list-style: none;
+
+		&Item {
+			margin-bottom: 2vw;
+			cursor: pointer;
+			
+			&.active {
+				color: $mainPeach;
+			}
+		}
+	}
+	&__btn {
+		width: 28vw;
+		display: flex;
+		justify-content: center;
+	}
+}
+}
+
