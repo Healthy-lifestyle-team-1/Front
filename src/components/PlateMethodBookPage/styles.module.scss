@@ -1,0 +1,155 @@
+.plateMethod {
+	&__container {
+	  width: 100%;
+	  display: flex;
+	  flex-wrap: nowrap;
+	  justify-content: space-between;
+	  color: $mainDark;
+	  margin: 0 auto;
+	  margin-top: 3vw;
+	  position: relative;
+	  margin-bottom: 7vw;
+ 
+	  &__bgImg1 {
+ position: absolute;
+ top: 4vw;
+ left: 34vw;
+ width: 6vw;
+	  }
+	  &__bgImg2 {
+		 position: absolute;
+		 width: 10vw;
+		 top: 10vw;
+		 left: 3vw;
+	  }
+	  &__bgImg6 {
+		 position: absolute;
+		 left: 35vw;
+		 top: 17vw;
+		 width: 9vw;
+	  }
+	  &__bgImg7 {
+		 position: absolute;
+		 left: 40vw;
+		 top: 5vw;
+		 width: 9vw;
+	  }
+	}
+ 
+	&__methodBlock {
+	  width: 100%;
+	  display: flex;
+	  flex-direction: column;
+	  margin-left: 2%;
+
+ 
+	  &__title {
+		 text-transform: uppercase;
+		 font-weight: 700;
+		 font-size: 8vw;
+		 width: 100%;
+		 line-height: normal;
+		 z-index: 10;
+		 margin-bottom: 3vw;
+ 
+		 &Img {
+			width: 10vw;
+			padding: 0% 2%;
+		 }
+ 
+		 &--salmon {
+			color: $mainPeach;
+			padding-left: 20%;
+		 }
+	  }
+
+	  &__titleTwo {
+		@include fontMainText1();
+		margin-bottom: 3vw;
+		width: 30vw;
+	  }
+
+	  &__text {
+		@include fontText();
+		margin-bottom: 1vw;
+		width: 13vw;
+	  }
+ 
+	  &__autors {
+		margin-right: 1vw;
+		padding-right: 3vw;
+		 width: 85vw;
+		 height: 40vw;
+		 display: flex;
+		 flex-wrap: nowrap;
+		 justify-content: center;
+		 gap: 2vw;
+		 margin-top: 2vw;
+		 background-image: url(../../assets/images/элипс-метод-тарелки-страница.png);
+		 background-repeat: no-repeat;
+		 background-size: 44vw;
+	  }
+ 
+	  &__autorOne, &__autorTwo {
+		 display: flex;
+		 flex-direction: column;
+		 width: 15vw;
+	  }
+
+	  &__autorOne {
+		padding-top: 2vw;
+
+		 
+		&Img {
+			width: 17vw;
+		 }
+ 
+		 &Name {
+			margin-top: 3%;
+			@include fontMainText1();
+			display: flex;
+			flex-wrap: nowrap;
+		 }
+ 
+		 &Description {
+			margin-top: 3%;
+			@include fontText();
+		 }
+	  }
+
+	  &__autorTwo {
+		padding-top: 8vw;
+
+		 
+		&Img {
+			width: 17vw;
+		 }
+ 
+		 &Name {
+			margin-top: 3%;
+			@include fontMainText1();
+			display: flex;
+			flex-wrap: nowrap;
+		 }
+ 
+		 &Description {
+			margin-top: 3%;
+			@include fontText();
+		 }
+	  }
+ 
+	  &__autorsDottedLineImg {
+		padding-top: 5vw;
+		 height: 30vw;
+		 width: 3vw;
+	  }
+ 
+	  &__btn {
+		 display: flex;
+		 
+		 margin-top: 5vw;
+		}
+	}
+}
+ 
+ 

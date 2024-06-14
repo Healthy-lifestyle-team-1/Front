@@ -1,0 +1,1 @@
+export {PlateMethodBookPage} from './PlateMethodBookPage'
