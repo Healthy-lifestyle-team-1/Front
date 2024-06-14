@@ -50,7 +50,9 @@
 		 width: 30vw;
 	  }
  
-	  &__btn {}
+	  &__btn {
+		@include fontSubTitle1();
+	  }
 	}
  }
  
