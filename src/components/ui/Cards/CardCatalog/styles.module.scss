@@ -12,14 +12,14 @@
   &__info {
     display: flex;
     flex-direction: column;
-    padding: 3.5% 0 0 3.5%;
+    justify-content: space-between;
+    padding: 3.5% 0 3.5% 3.5%;
     width: 43%;
   }
   &__labels {
     display: flex;
     flex-direction: row;
     gap: 5%;
-    padding-bottom: 9%;
     img {
       fill: red;
     }
@@ -27,12 +27,10 @@
   &__title {
     @include fontMainText1();
     font-weight: 500;
-    padding-bottom: 3%;
   }
   &__extra {
     @include fontText();
     width: 70%;
-    padding-bottom: 3%;
   }
   &__weightCalories {
     @include fontText();
@@ -40,7 +38,6 @@
     display: flex;
     flex-direction: row;
     gap: 5%;
-    padding-bottom: 6%;
   }
   &__line {
     padding-top: 9%;
@@ -50,3 +47,48 @@
     align-self: end;
   }
 }
+
+
+// .cardfood {
+//   &__info {
+//     display: flex;
+//     flex-direction: column;
+//     padding: 3.5% 0 0 3.5%;
+//     width: 43%;
+//   }
+//   &__labels {
+//     display: flex;
+//     flex-direction: row;
+//     gap: 5%;
+//     padding-bottom: 9%;
+//     img {
+//       fill: red;
+//     }
+//   }
+//   &__title {
+//     @include fontMainText1();
+//     font-weight: 500;
+//     padding-bottom: 3%;
+//   }
+//   &__extra {
+//     @include fontText();
+//     width: 70%;
+//     padding-bottom: 3%;
+//   }
+//   &__weightCalories {
+//     @include fontText();
+//     color: var(--color-input);
+//     display: flex;
+//     flex-direction: row;
+//     gap: 5%;
+//     padding-bottom: 6%;
+//   }
+//   &__line {
+//     padding-top: 9%;
+//   }
+//   &__plateImg {
+//     width: 100%;
+//     align-self: end;
+//   }
+// }
+

@@ -16,7 +16,7 @@ export const ChooseBest = () => {
         <p className={s.choosebest__TextParagraph}>
           Мы предлагаем уникальную возможность создать свою тарелку
         </p>
-        <ButtonWithTheme colorScheme={2} title={'В КОНСТРУКТОР'} size={1} />
+        <ButtonWithTheme colorScheme={1} title={'В КОНСТРУКТОР'} size={1} />
       </div>
       <div className={s.choosebest__Img}>
         <img src={plate} alt="фото тарелки" />

@@ -19,7 +19,20 @@ const plates = [
     calories: '600 ккал',
     img: plateImg,
   },
-  // Добавьте другие элементы здесь, если необходимо
+  {
+    title: 'Медовик веган',
+    extra: 'с клубникой',
+    weight: '560 г',
+    calories: '675 ккал',
+    img: plateImg,
+  },
+  {
+    title: 'Конфеты',
+    extra: 'из сухофруктов и орехов',
+    weight: '500 г',
+    calories: '600 ккал',
+    img: plateImg,
+  },
 ];
 
 export const Desserts = () => {

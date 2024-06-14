@@ -19,7 +19,20 @@ const plates = [
     calories: '600 ккал',
     img: plateImg,
   },
-  // Добавьте другие элементы здесь, если необходимо
+  {
+    title: 'Рыба и салат',
+    extra: 'в томатном соусе с молодым картофелем в укропе',
+    weight: '560 г',
+    calories: '675 ккал',
+    img: plateImg,
+  },
+  {
+    title: 'Котлеты с рисом',
+    extra: 'в сливочном соусе',
+    weight: '500 г',
+    calories: '600 ккал',
+    img: plateImg,
+  },
 ];
 
 export const MainDish = () => {
