@@ -5,7 +5,52 @@
     flex-wrap: nowrap;
     color: $mainDark;
     margin: 0 auto;
-	 margin-top: 2vw;
+	 padding-top: 10vw;
+	 margin-top: 3vw;
+	 position: relative;
+
+	 &__bgImg1 {
+position: absolute;
+top: 17vw;
+left: 28vw;
+width: 4vw;
+	 }
+	 &__bgImg2 {
+		position: absolute;
+		width: 8vw;
+		top: 19vw;
+		left: 3vw;
+	 }
+	 &__bgImg3 {
+		position: absolute;
+		width: 14vw;
+		left: 54vw;
+		top: 44vw;
+	 }
+	 &__bgImg4 {
+		position: absolute;
+		top: 2vw;
+		width: 8vw;
+		left: 3vw;
+	 }
+	 &__bgImg5 {
+		position: absolute;
+		width: 9vw;
+		left: 47vw;
+		top: 29vw;
+	 }
+	 &__bgImg6 {
+		position: absolute;
+		left: 35vw;
+		top: 26vw;
+		width: 9vw;
+	 }
+	 &__bgImg7 {
+		position: absolute;
+		left: 40vw;
+		top: 14vw;
+		width: 10vw;
+	 }
   }
 
   &__methodBlock {
@@ -20,6 +65,7 @@
       font-size: 8vw;
       width: 100%;
       line-height: normal;
+		z-index: 10;
 
       &Img {
         width: 17%;
@@ -37,7 +83,7 @@
       display: flex;
       flex-wrap: nowrap;
       gap: 9%;
-      margin-top: 3%;
+      margin-top: 7vw;
     }
 
     &__autor {
@@ -78,6 +124,7 @@
   &__bookBlock {
     width: 45%;
     display: flex;
+	 z-index: 10;
 
     &Imgs {
       width: 100%;

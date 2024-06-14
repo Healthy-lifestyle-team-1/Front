@@ -18,74 +18,81 @@ gsap.registerPlugin(MotionPathPlugin);
 const plates = [
   {
     title: 'Куриная грудка, с ростками сои и красной капустой',
-    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    description:
+      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
     weight: '560 г',
     calories: '675 ккал',
     img: plateOne,
-	price: '1900 ₽'
+    price: '1900 ₽',
   },
   {
     title: 'Свинина, с чем-то там и салат',
-    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    description:
+      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
     weight: '460 г',
     calories: '575 ккал',
     img: plateTwo,
-	 price: '1340 ₽'
+    price: '1340 ₽',
   },
   {
     title: 'Филе сибаса, с рисом и спаржей и свежими овощами',
-    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    description:
+      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
     weight: '530 г',
     calories: '525 ккал',
     img: plateThree,
-	 price: '1750 ₽'
+    price: '1750 ₽',
   },
   {
     title: 'Форель со свежими овощами и картофелем',
-    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    description:
+      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
     weight: '430 г',
     calories: '490 ккал',
     img: plateFour,
-	 price: '1800 ₽'
+    price: '1800 ₽',
   },
   {
     title: 'Томленая говядина, картофель и салат',
-    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    description:
+      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
     weight: '530 г',
     calories: '690 ккал',
     img: plateFive,
-	 price: '1400 ₽'
+    price: '1400 ₽',
   },
   {
     title: 'Сашими из лосося и тунца с салатом из апельсинов и огурцов',
-    description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    description:
+      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
     weight: '510 г',
     calories: '360 ккал',
     img: plateSix,
-	 price: '1300 ₽'
+    price: '1300 ₽',
   },
   {
-	title: 'Куриная грудка, с ростками сои и красной капустой',
-	description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
-	weight: '560 г',
-	calories: '675 ккал',
-	img: plateOne,
-	price: '1990 ₽'
- },
- {
-	title: 'Свинина, с чем-то там и салат',
-	description: 'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
-	weight: '460 г',
-	calories: '575 ккал',
-	img: plateTwo,
-	price: '1340 ₽'
- },
+    title: 'Куриная грудка, с ростками сои и красной капустой',
+    description:
+      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    weight: '560 г',
+    calories: '675 ккал',
+    img: plateOne,
+    price: '1990 ₽',
+  },
+  {
+    title: 'Свинина, с чем-то там и салат',
+    description:
+      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+    weight: '460 г',
+    calories: '575 ккал',
+    img: plateTwo,
+    price: '1340 ₽',
+  },
 ];
-
 
 export const ArcSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const theme = useSelector((state) => state.theme);
+  const theme = useSelector(state => state.theme);
 
   const updatePathAndItems = () => {
     const circlePath = MotionPathPlugin.convertToPath('#holder', false)[0];
@@ -158,7 +165,7 @@ export const ArcSlider = () => {
       0,
     );
 
-    const moveWheel = (amount) => {
+    const moveWheel = amount => {
       const progress = tl.progress();
       tl.progress(wrapProgress(snap(tl.progress() + amount)));
       const next = tracker.item;
@@ -212,7 +219,6 @@ export const ArcSlider = () => {
 
     window.addEventListener('resize', handleResize);
 
-
     const intervalId = setInterval(() => {
       moveWheel(-1 / plates.length);
     }, 5000);
@@ -249,7 +255,9 @@ export const ArcSlider = () => {
       </div>
       <div className={s.arcSlider__infoBlock}>
         <div className={s.arcSlider__infoBlock__title}>
-          Сбалансированные <span className={s.arcSlider__infoBlock__title__pink}>готовые</span> блюда
+          Сбалансированные{' '}
+          <span className={s.arcSlider__infoBlock__title__pink}>готовые</span>{' '}
+          блюда
         </div>
         <div className={s.arcSlider__infoBlock__dishName}>
           {plates[activeIndex].title}
@@ -265,12 +273,12 @@ export const ArcSlider = () => {
             {plates[activeIndex].calories}
           </div>
         </div>
-		  <Button
-            title={plates[activeIndex].price}
-            onClick={() => console.log('Button clicked')}
-            colorScheme={1}
-            size={1}
-          />
+        <Button
+          title={plates[activeIndex].price}
+          onClick={() => console.log('Button clicked')}
+          colorScheme={1}
+          size={1}
+        />
       </div>
     </div>
   );
