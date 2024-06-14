@@ -1,0 +1,54 @@
+.bookSection {
+
+
+	&__container {
+		background-color: white;
+		display: flex;
+		flex-wrap: nowrap;
+	}
+
+	&__about {
+
+
+		&__title {
+
+		}
+
+		&__text {
+
+
+
+
+
+			&Img {
+
+			}
+
+			&List {
+
+
+				&Item {
+
+				}
+			}
+		}
+	}
+
+	&__content {
+border-left: 1px solid $mainPeach;
+
+
+	&__title {
+
+	}
+
+	&__list {
+
+
+		&Item {
+
+		}
+	}
+}
+}
+
