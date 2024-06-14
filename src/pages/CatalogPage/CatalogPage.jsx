@@ -24,7 +24,13 @@ export const CatalogPage = () => {
   return (
     <div className={s.container}>
       <Header />
-      <Input width={'big'} colorScheme={1} onSearch={onSearch} />
+      <Input
+        hasButton={true}
+        width={'big'}
+        colorScheme={1}
+        onSearch={onSearch}
+        placeholder={'Поиск'}
+      />
       <NavCatalog />
       <Popular />
       <CombinedDishes />

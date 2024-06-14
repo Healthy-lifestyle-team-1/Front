@@ -76,13 +76,14 @@
     @include font-face-rubik(28px, 300, 1);
   }
   &.size__5 {
-    width: 114px;
-    height: 44px;
+    width: 140px;
+    height: 48px;
     padding: 2px 18px;
     border-radius: 40px;
     @include font-face-rubik(40px, 300, 1);
   }
   &.size__6 {
+    width: 140px;
     height: 40px;
     padding: 10px 20px;
     border-radius: 30px;
@@ -97,6 +98,15 @@
     @include fontText;
     text-transform: none;
   }
+  &.size__8 {
+    width: 140px;
+    height: 40px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    @include fontMainText1;
+    text-transform: none;
+  }
+
   &.backgroundColor__1 {
     background-color: $mainGreenapple;
   }
