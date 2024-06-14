@@ -19,7 +19,20 @@ const plates = [
     calories: '600 ккал',
     img: plateImg,
   },
-  // Добавьте другие элементы здесь, если необходимо
+  {
+    title: 'Борщ',
+    extra: 'сибирский на говяжьем бульоне',
+    weight: '560 г',
+    calories: '675 ккал',
+    img: plateImg,
+  },
+  {
+    title: 'Уха',
+    extra: 'из трех видов рыб',
+    weight: '500 г',
+    calories: '600 ккал',
+    img: plateImg,
+  },
 ];
 
 export const Soup = () => {
