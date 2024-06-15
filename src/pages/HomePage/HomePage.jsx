@@ -4,7 +4,6 @@ import { Header } from '../../components/Header/Header';
 import { PlateConstructor } from '../../components/PlateConstructor';
 import { Advertisement } from '../../components/Advertisement';
 
-
 import { Input } from '../../components/ui/Input/Input';
 import DropDown from '../../components/ui/DropDown/DropDown';
 import { PlateMethod } from '../../components/PlateMethod';
@@ -34,7 +33,7 @@ export const HomePage = () => {
       <SliderNews />
       <PlateConstructor />
       <PlateMethod />
-		<DailyRation />
+      <DailyRation />
       <ArcSlider />
       <Advertisement />
       <Footer />

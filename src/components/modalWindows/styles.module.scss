@@ -11,6 +11,11 @@
   z-index: 100000;
 }
 
+// убираем задний фон у категории
+.categoryModalOverlay {
+  background-color: transparent;
+}
+
 .modal {
   &__content {
     background: var(--background-color);
@@ -24,6 +29,7 @@
       width: 396px;
       height: 620px;
       border: 2px solid $mainDark;
+      margin: 380px 0 0 670px;
     }
   }
   &__name {
