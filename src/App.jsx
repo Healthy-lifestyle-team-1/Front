@@ -9,6 +9,7 @@ import './App.css';
 import { CatalogPage } from './pages/CatalogPage/CatalogPage';
 import { BookPage } from './pages/BookPage';
 import {NewsPage} from './pages/NewsPage';
+import { ConstructorPage } from './pages/ConstructorPage/ConstructorPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/book" element={<BookPage />} />
 		  <Route path="/news" element={<NewsPage />} />
+      <Route path='/constructor' element={<ConstructorPage/>} />
         {/* <Route path="/userpage" element={<UserPage />} /> */}
       </Routes>
     </div>

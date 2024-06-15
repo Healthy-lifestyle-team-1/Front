@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Header } from '../../components/Header/Header';
 import { PlateConstructor } from '../../components/PlateConstructor';
 import { Advertisement } from '../../components/Advertisement';
-import gif from '../../assets/images/animation.gif'
+import gif from '../../assets/images/animation.gif';
 
 import { Input } from '../../components/ui/Input/Input';
 import DropDown from '../../components/ui/DropDown/DropDown';
@@ -29,13 +29,13 @@ export const HomePage = () => {
 
   return (
     <div className={s.container}>
-		<img src={gif} alt="" />
+      <img src={gif} alt="" />
       <Header />
       <ContentSlider />
       <SliderNews />
       <PlateConstructor />
       <PlateMethod />
-		<DailyRation />
+      <DailyRation />
       <ArcSlider />
       <Advertisement />
       <Footer />
