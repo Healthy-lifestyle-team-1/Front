@@ -18,6 +18,7 @@ import cn from 'classnames';
 import s from './styles.module.scss';
 import { StarRating } from '../../components/ui/StarRating/StarRating';
 import { SliderNews } from '../../components/ui/Sliders/SliderNews';
+import { OnBoarding } from '../../components/Auth/OnBoarding/OnBoarding';
 
 const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
 
@@ -33,6 +34,7 @@ export const HomePage = () => {
       <SliderNews />
       <PlateConstructor />
       <PlateMethod />
+      {/* <OnBoarding /> */}
       <DailyRation />
       <ArcSlider />
       <Advertisement />
