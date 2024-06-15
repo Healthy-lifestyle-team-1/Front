@@ -14,5 +14,10 @@
     border-radius: 50px;
     text-decoration: none;
     color: var(--text-color);
+
+    &.active {
+      background-color: var(--text-color);
+      color: var(--background-color);
+    }
   }
 }
