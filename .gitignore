@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+versel.json
+sync_repos.sh
 
 # Editor directories and files
 .vscode/*
