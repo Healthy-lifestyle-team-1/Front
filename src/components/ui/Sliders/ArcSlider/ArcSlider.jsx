@@ -225,7 +225,7 @@ export const ArcSlider = () => {
  
 	  const intervalId = setInterval(() => {
 		 moveWheel(-1 / plates.length);
-	  }, 5000);
+	  }, 10000);
  
 	  return () => {
 		 window.removeEventListener('resize', handleResize);

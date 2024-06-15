@@ -25,7 +25,7 @@ export const DailyRation = () => {
           colorScheme={1}
           size={1}
           onMouseEnter={() => setButtonText('в корзину')}
-          onMouseLeave={() => setButtonText('1300')}
+          onMouseLeave={() => setButtonText('1300 ₽')}
         />
       </div>
       <div className={s.dailyRation__dishesImgs}>
