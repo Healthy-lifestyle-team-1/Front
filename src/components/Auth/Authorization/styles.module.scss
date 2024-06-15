@@ -30,6 +30,20 @@
   &__name {
     @include fontTitle2;
   }
+  &__reg {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 500px;
+    @include fontText;
+    &__link {
+      padding-right: 5px;
+      cursor: pointer;
+      color: $blueDark;
+    }
+    &__text {
+    }
+  }
 }
 
 .checkoutButton {
@@ -51,7 +65,8 @@
     margin-bottom: 40px;
   }
   &__name {
-    @include font-face-rubik(36px, 500, 120%);
+    @include fontText;
+    text-align: center;
   }
   &__phone {
     @include font-face-rubik(32px, 400, 120%);
@@ -60,6 +75,11 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    &__text {
+      text-align: center;
+      width: 300px;
+      height: 48px;
+    }
   }
   &__input {
     width: 300px;
@@ -80,7 +100,18 @@
 }
 
 .error {
-  min-height: 20px; // Adjust the height as needed
-  color: red; // Example color for error text
-  margin-top: -40px; // Example margin, adjust as needed
+  width: 450px;
+  @include fontArticle;
+  color: red; // Пример цвета для текста ошибки
+  margin-top: -40px; // Пример отступа, настройте по необходимости
+  min-height: 18px; // Устанавливает минимальную высоту элемента
+  visibility: hidden; // Скрывает элемент, когда нет ошибки
+}
+
+.error:empty::after {
+  content: '\00a0'; // Добавляет неразрывный пробел, чтобы сохранить высоту элемента
+}
+
+.error:not(:empty) {
+  visibility: visible; // Показывает элемент, когда в нём есть текст
 }

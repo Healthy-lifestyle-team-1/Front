@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import s from './styles.module.scss';
-import { Button } from '../../ui/Button';
 
-export const Authorization = ({
-  onClose,
-  setIsAuthenticated,
-  setShowRegistration,
-}) => {
+export const Registration = ({ onClose }) => {
   const [login, setLogin] = useState('');
   const [username, setUsername] = useState('');
   const [code, setCode] = useState('');
@@ -57,8 +50,8 @@ export const Authorization = ({
   };
 
   const handleShowRegistration = () => {
-    onClose();
-    setShowRegistration(true);
+    onClose(); // Закрыть модальное окно авторизации
+    setShowRegistration(true); // Открыть окно OnBoarding
   };
 
   const handleOverlayClick = event => {
@@ -70,7 +63,7 @@ export const Authorization = ({
   return (
     <div className={s.modalOverlay} onClick={handleOverlayClick}>
       <div className={s.modal__content}>
-        <div className={s.modal__name}>ВХОД В АККАУНТ</div>
+        <div className={s.modal__name}>РЕГИСТРАЦИЯ</div>
         <div className={s.login__info}>
           {step === 1 && (
             <div className={s.login__infoBlock}>
@@ -88,6 +81,8 @@ export const Authorization = ({
                 value={login}
                 onChange={e => setLogin(e.target.value)}
               />
+              <Checkbox />
+              <Checkbox />
             </div>
           )}
           {step === 2 && (
@@ -142,14 +137,6 @@ export const Authorization = ({
               />
             </>
           )}
-        </div>
-        <div className={s.modal__reg}>
-          <span className={s.modal__reg__link} onClick={handleShowRegistration}>
-            Зарегистрируйтесь
-          </span>
-          <div className={s.modal__reg__text}>
-            для полного доступа к приложению
-          </div>
         </div>
       </div>
     </div>
