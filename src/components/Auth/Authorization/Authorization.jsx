@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import s from './styles.module.scss';
 import { Button } from '../../ui/Button';
+
+import x from '../../../assets/images/icons/light/X.svg';
+import s from './styles.module.scss';
 
 export const Authorization = ({
   onClose,
@@ -75,6 +77,9 @@ export const Authorization = ({
     <div className={s.modalOverlay} onClick={handleOverlayClick}>
       <div className={s.modal__content}>
         <div className={s.modal__name}>ВХОД В АККАУНТ</div>
+        <button className={s.closeButton} onClick={onClose}>
+          <img src={x} alt={'Закрыть'} />
+        </button>
         <div className={s.login__info}>
           {step === 1 && (
             <div className={s.login__infoBlock}>

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Checkbox } from '../../ui/Checkbox/Checkbox';
 import { Button } from '../../ui/Button';
+
+import x from '../../../assets/images/icons/light/X.svg';
 import s from './styles.module.scss';
 
 export const Registration = ({ onClose }) => {
@@ -83,6 +85,9 @@ export const Registration = ({ onClose }) => {
     <div className={s.modalOverlay} onClick={handleOverlayClick}>
       <div className={s.modal__content}>
         <div className={s.modal__name}>РЕГИСТРАЦИЯ</div>
+        <button className={s.closeButton} onClick={onClose}>
+          <img src={x} alt={'Закрыть'} />
+        </button>
         <div className={s.login__info}>
           {step === 1 && (
             <div className={s.login__infoBlock}>
