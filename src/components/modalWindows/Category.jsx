@@ -25,7 +25,7 @@ const Category = ({ onClose }) => {
   };
 
   return (
-    <div className={s.modalOverlay}>
+    <div className={`${s.modalOverlay} ${s.categoryModalOverlay}`}>
       <div className={cn(s.modal__content, s.modal__content_cat)}>
         <button className={s.closeButton} onClick={() => onClose && onClose()}>
           <img src={x} alt={'Закрыть'} />
