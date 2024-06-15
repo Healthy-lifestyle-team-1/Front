@@ -13,6 +13,8 @@ import BgImg4 from '../../assets/images/PlateMethod/помидор-и-базил
 import BgImg5 from '../../assets/images/PlateMethod/салатный-лист.png';
 import BgImg6 from '../../assets/images/PlateMethod/укроп.png';
 import BgImg7 from '../../assets/images/PlateMethod/перец.png';
+import PlateBookImg from '../../assets/images/Plate-for-MP.png';
+
 
 import s from './styles.module.scss';
 import cn from 'classnames';
@@ -98,6 +100,11 @@ export const PlateMethod = () => {
             className={s.plateMethod__bookBlockImg}
             src={BookImg}
             alt="Книга"
+          />
+			 <img
+            className={s.plateMethod__bookBlockImgPlate}
+            src={PlateBookImg}
+            alt=""
           />
         </div>
       </div>

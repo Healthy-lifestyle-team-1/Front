@@ -133,6 +133,8 @@ width: 4vw;
     width: 45%;
     display: flex;
 	 z-index: 10;
+	 position: relative;
+	
 
     &Imgs {
       width: 100%;
@@ -140,12 +142,20 @@ width: 4vw;
       background-position: top center;
       background-repeat: no-repeat;
 		background-size: 40vw;
+
     }
 
     &Img {
       width: 43vw;
       margin-top: 17%;
       padding-right: 13%;
+
+		&Plate {
+			position: absolute;
+			top: 24vw;
+			left: 18.6vw;
+			z-index: 100;
+		}
     }
   }
 
