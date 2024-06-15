@@ -26,6 +26,7 @@
   }
   &__name {
     @include fontTitle2;
+    text-align: center;
   }
   &__reg {
     display: flex;

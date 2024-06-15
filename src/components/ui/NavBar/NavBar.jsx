@@ -15,8 +15,9 @@ export const NavBar = () => {
   const [isUserModalOpen, setIsUserModalOpen] = useState(false);
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false); // Добавлено состояние для OnBoarding
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('access');
@@ -127,10 +128,18 @@ export const NavBar = () => {
           setIsAuthenticated={value =>
             dispatch(value ? loginSuccess() : logoutSuccess())
           }
-          setShowRegistration={handleOpenRegistration} // Передаем функцию для открытия OnBoarding
+          setShowRegistration={handleOpenRegistration}
         />
       )}
-      {isRegistrationOpen && <Registration onClose={handleCloseRegistration} />}
+      {isRegistrationOpen && (
+        <Registration
+          onClose={handleCloseRegistration}
+          setIsAuthenticated={value =>
+            dispatch(value ? loginSuccess() : logoutSuccess())
+          }
+          setShowOnBoarding={() => {}}
+        />
+      )}
     </div>
   );
 };

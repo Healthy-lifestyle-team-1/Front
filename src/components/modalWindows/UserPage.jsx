@@ -14,7 +14,6 @@ import blueCartDark from '../../assets/images/icons/dark/blue-cart.svg';
 import blueLikeDark from '../../assets/images/icons/dark/blue-like.svg';
 import blueSetDark from '../../assets/images/icons/dark/blue-set.svg';
 import blueSupDark from '../../assets/images/icons/dark/blue-sup.svg';
-import Authorization from '../Auth/Authorization/Authorization';
 
 const UserPage = ({ onClose }) => {
   const theme = useSelector(state => state.theme);
@@ -26,11 +25,14 @@ const UserPage = ({ onClose }) => {
       const token = localStorage.getItem('access');
       if (token) {
         try {
-          const response = await axios.get('https://grikoandrey.pythonanywhere.com/user/', {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          });
+          const response = await axios.get(
+            'https://grikoandrey.pythonanywhere.com/user/',
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            },
+          );
           if (response.status === 200) {
             setIsAuthenticated(true);
             setUserInfo(response.data); // Сохраняем информацию о пользователе
@@ -47,7 +49,9 @@ const UserPage = ({ onClose }) => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post('https://grikoandrey.pythonanywhere.com/logout/');
+      const response = await axios.post(
+        'https://grikoandrey.pythonanywhere.com/logout/',
+      );
       if (response.status === 200) {
         localStorage.removeItem('access'); // Удаляем токен из локального хранилища
         onClose();
@@ -67,8 +71,12 @@ const UserPage = ({ onClose }) => {
         </button>
         <div className={s.profile__info}>
           <div className={s.profile__infoBlock}>
-            <div className={s.profile__name}>{userInfo && userInfo.user ? userInfo.user.username : ''}</div>
-            <div className={s.profile__phone}>{userInfo && userInfo.user ? userInfo.user.email : ''}</div>
+            <div className={s.profile__name}>
+              {userInfo && userInfo.user ? userInfo.user.username : ''}
+            </div>
+            <div className={s.profile__phone}>
+              {userInfo && userInfo.user ? userInfo.user.email : ''}
+            </div>
           </div>
           <div className={s.profile__theme}>
             <Theme />

@@ -4,9 +4,14 @@ import { Checkbox } from '../../ui/Checkbox/Checkbox';
 import { Button } from '../../ui/Button';
 
 import x from '../../../assets/images/icons/light/X.svg';
+import regDone from '../../../assets/images/regDone.svg';
 import s from './styles.module.scss';
 
-export const Registration = ({ onClose }) => {
+export const Registration = ({
+  onClose,
+  setIsAuthenticated,
+  setShowOnBoarding,
+}) => {
   const [login, setLogin] = useState('');
   const [username, setUsername] = useState('');
   const [code, setCode] = useState('');
@@ -53,13 +58,9 @@ export const Registration = ({ onClose }) => {
     }
   };
 
-  const handleReload = () => {
-    window.location.reload();
-  };
-
-  const handleShowRegistration = () => {
+  const handleShowOnBoarding = () => {
     onClose();
-    setShowRegistration(true);
+    setShowOnBoarding(true);
   };
 
   const handleOverlayClick = event => {
@@ -84,7 +85,9 @@ export const Registration = ({ onClose }) => {
   return (
     <div className={s.modalOverlay} onClick={handleOverlayClick}>
       <div className={s.modal__content}>
-        <div className={s.modal__name}>РЕГИСТРАЦИЯ</div>
+        <div className={s.modal__name}>
+          {step === 3 ? 'РЕГИСТРАЦИЯ ПРОШЛА УСПЕШНО' : 'РЕГИСТРАЦИЯ'}
+        </div>
         <button className={s.closeButton} onClick={onClose}>
           <img src={x} alt={'Закрыть'} />
         </button>
@@ -138,9 +141,8 @@ export const Registration = ({ onClose }) => {
           )}
           {step === 3 && (
             <div className={s.login__infoBlock}>
-              <div className={s.login__name}>
-                Вы успешно вошли в аккаунт! Бла-бла-бла что-то рекламное про
-                онбординг.
+              <div className={s.login__img}>
+                <img src={regDone} alt={'Успех!'} />
               </div>
             </div>
           )}
@@ -169,7 +171,7 @@ export const Registration = ({ onClose }) => {
             <>
               <Button
                 title="Перейти на главную"
-                onClick={handleReload}
+                onClick={handleShowOnBoarding}
                 colorScheme={1}
                 size={1}
               />
