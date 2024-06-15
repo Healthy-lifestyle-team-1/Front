@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import s from './styles.module.scss';
 import Theme from '../../assets/styles/themes/index';
 import { Button } from '../ui/Button';
@@ -15,15 +14,40 @@ import blueCartDark from '../../assets/images/icons/dark/blue-cart.svg';
 import blueLikeDark from '../../assets/images/icons/dark/blue-like.svg';
 import blueSetDark from '../../assets/images/icons/dark/blue-set.svg';
 import blueSupDark from '../../assets/images/icons/dark/blue-sup.svg';
+import Authorization from '../Auth/Authorization/Authorization';
 
-const UserPage = ({ onClose, userInfo }) => {
+const UserPage = ({ onClose }) => {
   const theme = useSelector(state => state.theme);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      const token = localStorage.getItem('access');
+      if (token) {
+        try {
+          const response = await axios.get('https://grikoandrey.pythonanywhere.com/user/', {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          });
+          if (response.status === 200) {
+            setIsAuthenticated(true);
+            setUserInfo(response.data); // Сохраняем информацию о пользователе
+          }
+        } catch (error) {
+          console.error('User is not authenticated', error);
+          setIsAuthenticated(false);
+        }
+      }
+    };
+
+    checkAuthentication();
+  }, []);
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post(
-        'https://grikoandrey.pythonanywhere.com/logout/',
-      );
+      const response = await axios.post('https://grikoandrey.pythonanywhere.com/logout/');
       if (response.status === 200) {
         localStorage.removeItem('access'); // Удаляем токен из локального хранилища
         onClose();
@@ -43,12 +67,8 @@ const UserPage = ({ onClose, userInfo }) => {
         </button>
         <div className={s.profile__info}>
           <div className={s.profile__infoBlock}>
-            <div className={s.profile__name}>
-              {userInfo && userInfo.user ? userInfo.user.username : ''}
-            </div>
-            <div className={s.profile__phone}>
-              {userInfo && userInfo.user ? userInfo.user.email : ''}
-            </div>
+            <div className={s.profile__name}>{userInfo && userInfo.user ? userInfo.user.username : ''}</div>
+            <div className={s.profile__phone}>{userInfo && userInfo.user ? userInfo.user.email : ''}</div>
           </div>
           <div className={s.profile__theme}>
             <Theme />
@@ -56,34 +76,34 @@ const UserPage = ({ onClose, userInfo }) => {
         </div>
 
         <div className={s.profile__menu}>
-          <Link to="/inprogress" className={s.profile__menu__item}>
+          <div className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueCartDark : blueCart}
               alt={'Заказы'}
             />
             Заказы
-          </Link>
-          <Link to="/inprogress" className={s.profile__menu__item}>
+          </div>
+          <div className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueLikeDark : blueLike}
               alt={'Избранное'}
             />
             Избранное
-          </Link>
-          <Link to="/inprogress" className={s.profile__menu__item}>
+          </div>
+          <div className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueSupDark : blueSup}
               alt={'Поддержка'}
             />
             Поддержка
-          </Link>
-          <Link to="/inprogress" className={s.profile__menu__item}>
+          </div>
+          <div className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueSetDark : blueSet}
               alt={'Настройки'}
             />
             Настройки
-          </Link>
+          </div>
         </div>
         <div className={s.logoutButton}>
           <Button
