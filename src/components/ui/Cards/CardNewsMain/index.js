@@ -1,0 +1,1 @@
+export {CardNewsMain} from './CardNewsMain'

@@ -29,18 +29,18 @@ const newsData = [
 
 
 function SliderNews() {
-  const settings = {
-	dots: false,
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 10000,
-    autoplaySpeed: 0,
-    cssEase: "linear",
-    arrows: false, 
-	 scrill: false
-  };
+	const settings = {
+		dots: false,
+		infinite: true,
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		autoplay: true,
+		speed: 10000, 
+		autoplaySpeed: 0,
+		cssEase: "linear",
+		arrows: false,
+		pauseOnHover: false 
+	 };
 
   return (
 	<div className={s.sliderNews__container}>
