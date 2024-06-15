@@ -8,6 +8,7 @@ export const Checkbox = ({
   checked = false,
   disabled = false,
   onChange,
+  link,
 }) => {
   const getShapeClass = () => {
     switch (shape) {
@@ -39,7 +40,7 @@ export const Checkbox = ({
         )}
       </span>
       <label className={s.checkbox__label}>
-        {checkTitle}
+        {link ? <a href={link}>{checkTitle}</a> : checkTitle}
       </label>
     </div>
   );
@@ -50,4 +51,5 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
+  link: PropTypes.string,
 };

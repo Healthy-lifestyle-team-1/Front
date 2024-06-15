@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import s from './styles.module.scss';
 import Theme from '../../assets/styles/themes/index';
 import { Button } from '../ui/Button';
@@ -20,7 +21,9 @@ const UserPage = ({ onClose, userInfo }) => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post('https://grikoandrey.pythonanywhere.com/logout/');
+      const response = await axios.post(
+        'https://grikoandrey.pythonanywhere.com/logout/',
+      );
       if (response.status === 200) {
         localStorage.removeItem('access'); // Удаляем токен из локального хранилища
         onClose();
@@ -40,8 +43,12 @@ const UserPage = ({ onClose, userInfo }) => {
         </button>
         <div className={s.profile__info}>
           <div className={s.profile__infoBlock}>
-            <div className={s.profile__name}>{userInfo && userInfo.user ? userInfo.user.username : ''}</div>
-            <div className={s.profile__phone}>{userInfo && userInfo.user ? userInfo.user.email : ''}</div>
+            <div className={s.profile__name}>
+              {userInfo && userInfo.user ? userInfo.user.username : ''}
+            </div>
+            <div className={s.profile__phone}>
+              {userInfo && userInfo.user ? userInfo.user.email : ''}
+            </div>
           </div>
           <div className={s.profile__theme}>
             <Theme />
@@ -49,34 +56,34 @@ const UserPage = ({ onClose, userInfo }) => {
         </div>
 
         <div className={s.profile__menu}>
-          <div className={s.profile__menu__item}>
+          <Link to="/inprogress" className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueCartDark : blueCart}
               alt={'Заказы'}
             />
             Заказы
-          </div>
-          <div className={s.profile__menu__item}>
+          </Link>
+          <Link to="/inprogress" className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueLikeDark : blueLike}
               alt={'Избранное'}
             />
             Избранное
-          </div>
-          <div className={s.profile__menu__item}>
+          </Link>
+          <Link to="/inprogress" className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueSupDark : blueSup}
               alt={'Поддержка'}
             />
             Поддержка
-          </div>
-          <div className={s.profile__menu__item}>
+          </Link>
+          <Link to="/inprogress" className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueSetDark : blueSet}
               alt={'Настройки'}
             />
             Настройки
-          </div>
+          </Link>
         </div>
         <div className={s.logoutButton}>
           <Button

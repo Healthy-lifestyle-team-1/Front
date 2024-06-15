@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
 import ForkAndKnife from '../../assets/images/plate-with-fork-and-knife.png';
 import MaksimKImg from '../../assets/images/MaksimKuderov.png';
 import LidaLImg from '../../assets/images/LidaLanskaya.png';
@@ -13,20 +14,25 @@ import BgImg5 from '../../assets/images/PlateMethod/салатный-лист.pn
 import BgImg6 from '../../assets/images/PlateMethod/укроп.png';
 import BgImg7 from '../../assets/images/PlateMethod/перец.png';
 
-
 import s from './styles.module.scss';
 import cn from 'classnames';
 
 export const PlateMethod = () => {
+  const navigate = useNavigate(); // Используем useNavigate для навигации
+
+  const handleButtonClick = () => {
+    navigate('/book'); // Навигация на страницу /book
+  };
+
   return (
     <div className={s.plateMethod__container}>
-		<img className={s.plateMethod__container__bgImg1} src={BgImg1} alt="" />
-		<img className={s.plateMethod__container__bgImg2} src={BgImg2} alt="" />
-		<img className={s.plateMethod__container__bgImg3} src={BgImg3} alt="" />
-		<img className={s.plateMethod__container__bgImg4} src={BgImg4} alt="" />
-		<img className={s.plateMethod__container__bgImg5} src={BgImg5} alt="" />
-		<img className={s.plateMethod__container__bgImg6} src={BgImg6} alt="" />
-		<img className={s.plateMethod__container__bgImg7} src={BgImg7} alt="" />
+      <img className={s.plateMethod__container__bgImg1} src={BgImg1} alt="" />
+      <img className={s.plateMethod__container__bgImg2} src={BgImg2} alt="" />
+      <img className={s.plateMethod__container__bgImg3} src={BgImg3} alt="" />
+      <img className={s.plateMethod__container__bgImg4} src={BgImg4} alt="" />
+      <img className={s.plateMethod__container__bgImg5} src={BgImg5} alt="" />
+      <img className={s.plateMethod__container__bgImg6} src={BgImg6} alt="" />
+      <img className={s.plateMethod__container__bgImg7} src={BgImg7} alt="" />
       <div className={s.plateMethod__methodBlock}>
         <div className={s.plateMethod__methodBlock__title}>
           мет
@@ -79,7 +85,7 @@ export const PlateMethod = () => {
         <div className={s.plateMethod__methodBlock__btn}>
           <Button
             title="Перейти"
-            onClick={() => console.log('Button clicked')}
+            onClick={handleButtonClick} // Обработчик клика
             colorScheme={1}
             size={1}
           />
