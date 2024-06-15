@@ -58,6 +58,11 @@
 			display: flex;
 			justify-content: end;
 			font-weight: 600;
+			align-items: center;
+
+		}
+		&__arrow {
+			padding-left: 1vw;
 		}
 	}
 

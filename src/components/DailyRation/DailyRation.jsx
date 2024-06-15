@@ -8,7 +8,7 @@ import BestChoice from '../../assets/images/лучший.выбор.png';
 import { Button } from '../ui/Button';
 
 export const DailyRation = () => {
-  const [buttonText, setButtonText] = useState('1300');
+  const [buttonText, setButtonText] = useState('1300 ₽');
 
   return (
     <div className={s.dailyRation__container}>

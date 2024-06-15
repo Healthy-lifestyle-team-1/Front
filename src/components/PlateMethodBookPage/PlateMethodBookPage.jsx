@@ -53,7 +53,7 @@ export const PlateMethodBookPage = () => {
        
         <div className={s.plateMethod__methodBlock__btn}>
           <Button
-            title="Купить"
+            title="Купить книгу"
             onClick={() => console.log('Button clicked')}
             colorScheme={1}
             size={1}

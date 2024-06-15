@@ -71,8 +71,9 @@ export const BookSection = () => {
           {activeArticle.content}
           <div className={s.bookSection__about__next}>
             <a href="#" onClick={() => setActiveArticle(nextArticle)}>
-              {nextArticle.title} <img src={arrow} alt="" />
+              {nextArticle.title} 
             </a>
+				<img className={s.bookSection__about__arrow} src={arrow} alt="" />
           </div>
         </div>
       </div>

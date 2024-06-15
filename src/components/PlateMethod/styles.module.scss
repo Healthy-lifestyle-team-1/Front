@@ -3,6 +3,7 @@
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
+	 justify-content: space-between;
     color: $mainDark;
     margin: 0 auto;
 	 padding-top: 10vw;
@@ -17,15 +18,15 @@ width: 4vw;
 	 }
 	 &__bgImg2 {
 		position: absolute;
-		width: 8vw;
+		width: 10vw;
 		top: 19vw;
-		left: 3vw;
+		left: 6vw;
 	 }
 	 &__bgImg3 {
 		position: absolute;
-		width: 14vw;
-		left: 54vw;
-		top: 44vw;
+		width: 16vw;
+		left: 57vw;
+		top: 42vw;
 	 }
 	 &__bgImg4 {
 		position: absolute;
@@ -36,7 +37,7 @@ width: 4vw;
 	 &__bgImg5 {
 		position: absolute;
 		width: 9vw;
-		left: 47vw;
+		left: 49vw;
 		top: 29vw;
 	 }
 	 &__bgImg6 {
@@ -47,9 +48,9 @@ width: 4vw;
 	 }
 	 &__bgImg7 {
 		position: absolute;
-		left: 40vw;
+		left: 39vw;
 		top: 14vw;
-		width: 10vw;
+		width: 11vw;
 	 }
   }
 
@@ -57,24 +58,28 @@ width: 4vw;
     width: 50%;
     display: flex;
     flex-direction: column;
-    margin-left: 2%;
+
+
+
 
     &__title {
       text-transform: uppercase;
       font-weight: 700;
-      font-size: 8vw;
+      font-size: 7vw;
       width: 100%;
-      line-height: normal;
+      line-height: 140%;
 		z-index: 10;
+		padding-left: 4vw;
+
 
       &Img {
-        width: 17%;
+        width: 23%;
         padding: 0% 2%;
       }
 
       &--salmon {
         color: $mainPeach;
-        padding-left: 20%;
+        padding-left: 13vw;
       }
     }
 
@@ -82,18 +87,21 @@ width: 4vw;
       width: 100%;
       display: flex;
       flex-wrap: nowrap;
-      gap: 9%;
-      margin-top: 7vw;
+		justify-content: center;
+      margin-top: 2vw;
+		gap: 1vw;
     }
 
     &__autor {
       display: flex;
       flex-direction: column;
-      max-width: 30%;
+		align-items: center;
+      width: 15vw;
+		padding-top: 2vw;
 
 
       &Img {
-        width: 100%;
+        width: 13vw;
       }
 
       &Name {
@@ -110,8 +118,8 @@ width: 4vw;
     }
 
     &__autorsDottedLineImg {
-      height: 100%;
-      width: 3%;
+      height: 25vw;
+      width: 3vw;
     }
 
 	 &__btn {
@@ -136,7 +144,6 @@ width: 4vw;
 
     &Img {
       width: 43vw;
-      height: auto;
       margin-top: 17%;
       padding-right: 13%;
     }

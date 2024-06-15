@@ -20,16 +20,18 @@
 .sliderNews {
   &__container {
     background-color: $blueLight;
-    padding-top: 3vw;
-    padding-bottom: 3vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
     width: 100%;
 	 overflow: hidden !important;
 	 margin: 0 auto;
+	 position: relative;
   }
 
   &__slide {
-    width: 80% !important;
-    padding: 10px;
+    width: 83% !important;
+	 height: 23vw;
+    padding: 0.8vw;
     background-color: $mainLight;
     border-radius: 30px;
     display: flex;
@@ -65,9 +67,11 @@
   }
 
   &__btnWrapper {
-	width: 100%;
-	display: flex;
-	justify-content: end
+	width: fit-content;
+	position: absolute;
+	bottom: 0.2vw;
+	right: 1vw;
+	
   }
 
   &__btn {
