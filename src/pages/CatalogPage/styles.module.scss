@@ -1,9 +1,15 @@
-.container {
-  background-image: url('../../assets/images/top-catalog.svg');
-  width: 100%;
-  height: auto;
-  background-size: contain;
-  background-position: 0 100px;
-  background-repeat: no-repeat;
-  margin: 0 auto;
+.catalogpage {
+  &__container {
+    background-image: url('../../assets/images/top-catalog.svg');
+    width: 100%;
+    height: auto;
+    background-size: contain;
+    background-position: 0 100px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+  }
+  &__nav{
+    max-width: 1070px;
+    margin: 0 auto;
+  }
 }

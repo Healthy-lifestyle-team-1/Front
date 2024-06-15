@@ -26,6 +26,13 @@
       color: var(--color-input);
     }
   }
+      &__filter {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
 }
 
 .colorScheme {

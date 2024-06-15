@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import s from './styles.module.scss';
 import searchIcon from '../../../assets/images/icons/search.svg';
 import searchIconDark from '../../../assets/images/icons/searchDark.svg';
+import searchFilter from '../../../assets/images/icons/search-filter.svg';
 
 export function Input({
   onSearch,
@@ -57,6 +58,14 @@ export function Input({
         placeholder={placeholder}
         className={s.input__field}
       />
+      <button className={s.input__filter}>
+        <img
+          src={searchFilter}
+          alt="Filter"
+          width="24px"
+          height="24px"
+        />
+      </button>
     </div>
   );
 }

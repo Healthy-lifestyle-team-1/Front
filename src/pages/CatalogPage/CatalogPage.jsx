@@ -23,9 +23,10 @@ export const CatalogPage = () => {
     console.log('Searching');
   };
   return (
-    <div className={s.container}>
+    <div className={s.catalogpage__container}>
       <Header />
       <Heading />
+      <div className={s.catalogpage__nav}>
       <Input
         hasButton={true}
         width={'big'}
@@ -34,6 +35,7 @@ export const CatalogPage = () => {
         placeholder={'Поиск'}
       />
       <NavCatalog />
+      </div>
       <Popular />
       <CombinedDishes />
       <CardNewsList />
