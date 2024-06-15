@@ -1,6 +1,7 @@
 .navBar {
   &__links {
     display: flex;
+
     gap: 46px;
     @include fontMainText3;
     cursor: pointer;

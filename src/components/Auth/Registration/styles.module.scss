@@ -24,4 +24,82 @@
     justify-content: space-between;
     padding: 66px 100px;
   }
+  &__name {
+    @include fontTitle2;
+  }
+  &__reg {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 500px;
+    @include fontText;
+    &__link {
+      padding-right: 5px;
+      cursor: pointer;
+      color: $blueDark;
+    }
+    &__text {
+    }
+  }
+}
+
+.login {
+  &__info {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  &__name {
+    @include fontText;
+    text-align: center;
+  }
+  &__phone {
+    @include font-face-rubik(32px, 400, 120%);
+  }
+  &__infoBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    &__text {
+      text-align: center;
+      width: 400px;
+      height: 48px;
+    }
+  }
+  &__input {
+    width: 300px;
+    height: 48px;
+    border-radius: 20px;
+    border: transparent;
+    padding-left: 20px;
+    @include fontMainText1;
+    color: $mainDark;
+    &::placeholder {
+    }
+  }
+}
+
+.loginButton {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  width: 450px;
+  @include fontArticle;
+  color: red;
+  margin-top: -40px;
+  min-height: 18px;
+  visibility: hidden;
+  text-align: center;
+}
+
+.error:empty::after {
+  content: '\00a0';
+}
+
+.error:not(:empty) {
+  visibility: visible;
 }

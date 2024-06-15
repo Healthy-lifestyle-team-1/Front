@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Checkbox } from '../../ui/Checkbox/Checkbox';
+import { Button } from '../../ui/Button';
 import s from './styles.module.scss';
 
 export const Registration = ({ onClose }) => {
@@ -7,6 +10,9 @@ export const Registration = ({ onClose }) => {
   const [code, setCode] = useState('');
   const [step, setStep] = useState(1); // 1 - login, 2 - verify
   const [error, setError] = useState('');
+
+  const [isTermsAccepted, setIsTermsAccepted] = useState(false);
+  const [isPrivacyAccepted, setIsPrivacyAccepted] = useState(false);
 
   const handleLogin = async () => {
     try {
@@ -50,14 +56,27 @@ export const Registration = ({ onClose }) => {
   };
 
   const handleShowRegistration = () => {
-    onClose(); // Закрыть модальное окно авторизации
-    setShowRegistration(true); // Открыть окно OnBoarding
+    onClose();
+    setShowRegistration(true);
   };
 
   const handleOverlayClick = event => {
     if (event.target === event.currentTarget) {
       onClose();
     }
+  };
+
+  const handleTermsChange = checked => {
+    setIsTermsAccepted(checked);
+  };
+
+  const handlePrivacyChange = checked => {
+    setIsPrivacyAccepted(checked);
+  };
+
+  const isPhoneNumber = login => {
+    const phoneRegex = /^[+]*[0-9]{1,4}[0-9]*$/;
+    return phoneRegex.test(login);
   };
 
   return (
@@ -81,14 +100,27 @@ export const Registration = ({ onClose }) => {
                 value={login}
                 onChange={e => setLogin(e.target.value)}
               />
-              <Checkbox />
-              <Checkbox />
+              <div className={s.login__checkbox}>
+                <Checkbox
+                  checkTitle={'Принимаю соглашение об использовании Зожник'}
+                  checked={isTermsAccepted}
+                  onChange={handleTermsChange}
+                  link="https://taplink.cc/zozhnik_ru/p/dee108/"
+                />
+                <Checkbox
+                  checkTitle={'Согласен на получение рекламной рассылки'}
+                  checked={isPrivacyAccepted}
+                  onChange={handlePrivacyChange}
+                />
+              </div>
             </div>
           )}
           {step === 2 && (
             <div className={s.login__infoBlock}>
               <div className={s.login__infoBlock__text}>
-                Введите код из смс, мы отправили его на указанный номер.
+                {isPhoneNumber(login)
+                  ? 'Введите код из смс, мы отправили его на указанный номер.'
+                  : 'Введите код из письма, мы отправили его на указанный email. Если код не пришел, проверьте папку Спам.'}
               </div>
               <input
                 type="text"
@@ -116,21 +148,22 @@ export const Registration = ({ onClose }) => {
               onClick={handleLogin}
               colorScheme={1}
               size={1}
-              disabled={!username || !login}
+              disabled={!username || !login || !isTermsAccepted}
             />
           )}
           {step === 2 && (
             <Button
-              title="Войти"
+              title="Подтвердить"
               onClick={handleVerify}
               colorScheme={1}
               size={1}
+              disabled={!code}
             />
           )}
           {step === 3 && (
             <>
               <Button
-                title="Перейти на сайт"
+                title="Перейти на главную"
                 onClick={handleReload}
                 colorScheme={1}
                 size={1}

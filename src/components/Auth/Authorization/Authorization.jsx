@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
 import s from './styles.module.scss';
 import { Button } from '../../ui/Button';
 
@@ -67,6 +66,11 @@ export const Authorization = ({
     }
   };
 
+  const isPhoneNumber = login => {
+    const phoneRegex = /^[+]*[0-9]{1,4}[0-9]*$/;
+    return phoneRegex.test(login);
+  };
+
   return (
     <div className={s.modalOverlay} onClick={handleOverlayClick}>
       <div className={s.modal__content}>
@@ -93,7 +97,9 @@ export const Authorization = ({
           {step === 2 && (
             <div className={s.login__infoBlock}>
               <div className={s.login__infoBlock__text}>
-                Введите код из смс, мы отправили его на указанный номер.
+                {isPhoneNumber(login)
+                  ? 'Введите код из смс, мы отправили его на указанный номер.'
+                  : 'Введите код из письма, мы отправили его на указанный email. Если код не пришел, проверьте папку Спам.'}
               </div>
               <input
                 type="text"
