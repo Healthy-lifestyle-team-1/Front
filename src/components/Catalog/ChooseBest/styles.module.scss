@@ -1,11 +1,19 @@
 .container {
     display: flex;
+	 position: relative;
     margin: 0 auto;
-    max-width: 1070px;
-    padding-top: 5%;
+    width: 100%;
+    padding-top: 8vw;
+	 height: 55vw;
 }
 
 .choosebest {
+	&__InfoBlock {
+		width: 46vw;
+		z-index: 100;
+		padding-left: 8vw;
+		}
+		
   &__Text {
     padding: 10% 0;
     display: flex;
@@ -22,8 +30,17 @@
       @include fontSubTitle2();
       padding-bottom: 4%;
     }
-  }
+  
+}
   
   &__Img {
+	width: 90vw;
+	&Img {
+		position: absolute;
+		top: 0;
+		left: 5vw;
+		width: 90vw;
+		z-index: -1;
+	}
   }
 }

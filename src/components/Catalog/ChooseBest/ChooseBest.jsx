@@ -1,11 +1,13 @@
 import React from 'react';
 import s from './styles.module.scss';
 import plate from '../../../assets/images/plates/choose-best.png';
+import platesAnimation from '../../../assets/images/animation.gif'
 import { ButtonWithTheme } from '../../ui/Button/ButtonWithTheme';
 
 export const ChooseBest = () => {
   return (
     <div className={s.container}>
+		<div className={s.choosebest__InfoBlock}>
       <div className={s.choosebest__Text}>
         <div className={s.choosebest__TextTitles}>
           <p>
@@ -18,8 +20,9 @@ export const ChooseBest = () => {
         </p>
         <ButtonWithTheme colorScheme={1} title={'В КОНСТРУКТОР'} size={1} />
       </div>
+		</div>
       <div className={s.choosebest__Img}>
-        <img src={plate} alt="фото тарелки" />
+        <img className={s.choosebest__ImgImg} src={platesAnimation} alt="фото тарелки" />
       </div>
     </div>
   );
