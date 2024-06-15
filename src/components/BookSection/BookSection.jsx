@@ -4,6 +4,7 @@ import s from './styles.module.scss';
 import brainImg from '../../assets/images/brain-img.png';
 import { Button } from '../ui/Button';
 import { InProgress } from '../ui/InProgress/InProgress';
+import arrow from '../../assets/images/icons/стрелка.svg'
 
 const articles = [
   {
@@ -57,6 +58,8 @@ const articles = [
 
 export const BookSection = () => {
   const [activeArticle, setActiveArticle] = useState(articles[0]);
+  const activeIndex = articles.findIndex(article => article.title === activeArticle.title);
+  const nextArticle = articles[(activeIndex + 1) % articles.length];
 
   return (
     <div className={s.bookSection__container}>
@@ -66,6 +69,11 @@ export const BookSection = () => {
         </div>
         <div className={s.bookSection__about__text}>
           {activeArticle.content}
+          <div className={s.bookSection__about__next}>
+            <a href="#" onClick={() => setActiveArticle(nextArticle)}>
+              {nextArticle.title} <img src={arrow} alt="" />
+            </a>
+          </div>
         </div>
       </div>
       <div className={s.bookSection__content}>
@@ -85,15 +93,17 @@ export const BookSection = () => {
             </li>
           ))}
         </ul>
-		  <div className={s.bookSection__content__btn}>
-        <Button
-          title="Открыть доступ"
-          onClick={() => console.log('Button clicked')}
-          colorScheme={1}
-          size={1}
-        />
-		  </div>
+        <div className={s.bookSection__content__btn}>
+          <Button
+            title="Открыть доступ"
+            onClick={() => console.log('Button clicked')}
+            colorScheme={1}
+            size={1}
+          />
+        </div>
       </div>
     </div>
   );
 };
+
+export default BookSection;
