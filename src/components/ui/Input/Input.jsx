@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import Category from '../../modalWindows/Category';
 import PropTypes from 'prop-types';
 import s from './styles.module.scss';
 import searchIcon from '../../../assets/images/icons/search.svg';
@@ -17,11 +18,20 @@ export function Input({
   const theme = useSelector(state => state.theme);
 
   const [query, setQuery] = useState('');
+  const [isCategoryVisible, setIsCategoryVisible] = useState(false);
 
   const handleSearch = () => {
     if (onSearch) {
       onSearch(query);
     }
+  };
+
+  const handleFilterClick = () => {
+    setIsCategoryVisible(prevState => !prevState);
+  };
+
+  const handleCloseCategory = () => {
+    setIsCategoryVisible(false);
   };
 
   const handleKeyPress = event => {
@@ -58,7 +68,7 @@ export function Input({
         placeholder={placeholder}
         className={s.input__field}
       />
-      <button className={s.input__filter}>
+      <button className={s.input__filter} onClick={handleFilterClick}>
         <img
           src={searchFilter}
           alt="Filter"
@@ -66,6 +76,7 @@ export function Input({
           height="24px"
         />
       </button>
+      {isCategoryVisible && <Category onClose={handleCloseCategory} />}
     </div>
   );
 }
@@ -84,3 +95,5 @@ Input.defaultProps = {
   placeholder: 'Поиск',
   hasButton: true,
 };
+
+export default Input;
