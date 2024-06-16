@@ -1,13 +1,11 @@
 .modalOverlay {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100vw;
   height: 1000px;
-  background-color: rgba($mainDark, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba($mainDark, 0.7);
+
   z-index: 100000;
 }
 
@@ -20,11 +18,12 @@
   &__content {
     background: var(--background-color);
     border-radius: 20px;
-    width: 600px;
-    height: 820px;
-    position: relative;
+    width: 500px;
+    height: 600px;
+    position: absolute;
+	 top: 5vw;
+	 right: 2vw;
     z-index: 100001;
-    border: 4px solid var(--text-color);
     &_cat {
       width: 396px;
       height: 620px;
@@ -34,9 +33,7 @@
   }
   &__name {
     @include fontTitle1;
-    padding-top: 35px;
     padding-left: 20px;
-    margin-bottom: 30px;
     &__cat {
       @include fontTitle2;
       text-transform: uppercase;
@@ -68,17 +65,17 @@
 
 .closeButton {
   position: absolute;
-  top: 25px;
+  top: 15px;
   right: 25px;
   border: none;
   cursor: pointer;
-  background-color: $mainGreenapple;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: transparent;
 }
 
 .cart {
@@ -207,10 +204,11 @@
 .profile {
   &__info {
     background-color: var(--color-blue);
-    padding: 20px 0px 0px 65px;
+    padding: 62px 0px 0px 32px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+	 border-radius: 20px;
   }
   &__name {
     @include font-face-rubik(36px, 500, 120%);
@@ -222,18 +220,17 @@
   }
   &__theme {
     margin-right: 70px;
-    padding-top: 30px;
+    padding-top: 50px;
   }
   &__menu {
     text-align: left;
     margin-bottom: 15px;
-    padding: 0 50px;
+    padding: 0 32px;
     &__item {
       display: flex;
       align-items: center;
-      padding: 44px 0px 15px 0px;
+      padding: 20px 0px 0px 0px;
       @include font-face-rubik(28px, 400, 120%);
-      border-bottom: 2px dashed #b19069;
       gap: 20px;
 		cursor: pointer;
     }

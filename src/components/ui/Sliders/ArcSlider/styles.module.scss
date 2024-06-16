@@ -72,7 +72,7 @@
 			&__infoBlock {
 				width: 64vw;
 				margin-top: 8vw;
-				margin-right: 10vw;
+				margin-right: 6vw;
 
 
 				&__title {
@@ -86,6 +86,7 @@
 
 				&__dishName {
 					@include fontSubTitle3();
+					width: 20vw;
 					margin-bottom: 2vw;
 				}
 

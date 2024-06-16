@@ -60,6 +60,10 @@
 			font-weight: 600;
 			align-items: center;
 
+			&:hover {
+				text-decoration: underline;
+			}
+
 		}
 		&__arrow {
 			padding-left: 1vw;

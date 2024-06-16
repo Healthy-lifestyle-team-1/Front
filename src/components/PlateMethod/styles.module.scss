@@ -87,9 +87,9 @@ width: 4vw;
       width: 100%;
       display: flex;
       flex-wrap: nowrap;
-		justify-content: center;
       margin-top: 2vw;
-		gap: 1vw;
+		margin-left: 3vw;
+		gap: 2vw;
     }
 
     &__autor {
@@ -101,7 +101,7 @@ width: 4vw;
 
 
       &Img {
-        width: 13vw;
+        width: 12vw;
       }
 
       &Name {
@@ -118,7 +118,7 @@ width: 4vw;
     }
 
     &__autorsDottedLineImg {
-      height: 25vw;
+      height: 23vw;
       width: 3vw;
     }
 
