@@ -84,34 +84,34 @@ const UserPage = ({ onClose }) => {
         </div>
 
         <div className={s.profile__menu}>
-          <div className={s.profile__menu__item}>
+          <Link to="/inprogress" className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueCartDark : blueCart}
               alt={'Заказы'}
             />
             Заказы
-          </div>
-          <div className={s.profile__menu__item}>
+          </Link>
+          <Link to="/inprogress" className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueLikeDark : blueLike}
               alt={'Избранное'}
             />
             Избранное
-          </div>
-          <div className={s.profile__menu__item}>
+          </Link>
+          <Link to="/inprogress" className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueSupDark : blueSup}
               alt={'Поддержка'}
             />
             Поддержка
-          </div>
-          <div className={s.profile__menu__item}>
+          </Link>
+          <Link to="/inprogress" className={s.profile__menu__item}>
             <img
               src={theme === 'dark' ? blueSetDark : blueSet}
               alt={'Настройки'}
             />
             Настройки
-          </div>
+          </Link>
         </div>
         <div className={s.logoutButton}>
           <Button

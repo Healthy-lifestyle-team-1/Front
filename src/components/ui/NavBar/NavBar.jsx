@@ -101,7 +101,7 @@ export const NavBar = () => {
           to="/news"
           className={({ isActive }) => (isActive ? s.activeLink : s.link)}
         >
-          Новости
+          Статьи
         </NavLink>
         {isAuthorize ? (
           <>
