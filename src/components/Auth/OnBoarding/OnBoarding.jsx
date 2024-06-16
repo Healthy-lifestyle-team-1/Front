@@ -20,42 +20,90 @@ export const OnBoarding = ({ onClose }) => {
     switch (step) {
       case 1:
         return (
-          <div className={s.content}>
-            <h2>МЕТОД СБАЛАНСИРОВАННОЙ ТАРЕЛКИ</h2>
-            <p>
+          <div className={s.onBoarding__content}>
+            <div className={s.onBoarding__title}>
+              <span>МЕТОД СБАЛАНСИРОВАННОЙ </span>
+              <span>ТАРЕЛКИ</span>
+            </div>
+            {/* <div className={s.onBoarding__img}>
+              <img src={Frame1} alt={'Тарелка'} />
+            </div> */}
+            <div className={s.onBoarding__text}>
               Тарелки собираются с расчётом необходимых калорий, белков, жиров,
               углеводов, а также микроэлементов
-            </p>
-            <Button title="ПРОДОЛЖИТЬ" onClick={handleNext} />
+            </div>
+            <Button
+              title="ПРОДОЛЖИТЬ"
+              onClick={handleNext}
+              colorScheme={1}
+              size={1}
+            />
           </div>
         );
       case 2:
         return (
-          <div className={s.content}>
-            <h2>СОБЕРИ СВОЮ ЗДОРОВУЮ ТАРЕЛКУ</h2>
-            <p>
+          <div className={s.onBoarding__content}>
+            <div className={s.onBoarding__title}>
+              <span>СОБЕРИ СВОЮ </span>
+              <span>ЗДОРОВУЮ ТАРЕЛКУ</span>
+            </div>
+            {/* <div className={s.onBoarding__img}>
+              <img src={Frame2} alt={'Конструктор'} />
+            </div> */}
+            <div className={s.onBoarding__text}>
               Собери тарелку из двух половинок с любимыми ингредиентами на свой
               вкус, и можно исключить свои аллергены с помощью тегов
-            </p>
-            <Button title="ПРОДОЛЖИТЬ" onClick={handleNext} />
+            </div>
+            <Button
+              title="ПРОДОЛЖИТЬ"
+              onClick={handleNext}
+              colorScheme={1}
+              size={1}
+            />
           </div>
         );
       case 3:
         return (
-          <div className={s.content}>
-            <h2>ИДЕОЛОГИЯ ЗДОРОВОГО ПИТАНИЯ</h2>
-            <p>
+          <div className={s.onBoarding__content}>
+            <div className={s.onBoarding__title}>
+              <span>ИДЕОЛОГИЯ</span>
+              <span>ЗДОРОВОГО ПИТАНИЯ</span>
+            </div>
+            {/* <div className={s.onBoarding__img}>
+              <img src={Frame3} alt={'Книга рецептов'} />
+            </div> */}
+            <div className={s.onBoarding__text}>
               Современные рекомендации по правильному сбалансированному питанию
               на научной основе
-            </p>
-            <Button title="ПРОДОЛЖИТЬ" onClick={handleNext} />
+            </div>
+            <Button
+              title="ПРОДОЛЖИТЬ"
+              onClick={handleNext}
+              colorScheme={1}
+              size={1}
+            />
           </div>
         );
       case 4:
         return (
-          <div className={s.content}>
-            <h2>ЧТО НАМ ИСКЛЮЧИТЬ ИЗ ТАРЕЛОК?</h2>
-            <Button title="В КАТАЛОГ" onClick={onClose} />
+          <div className={s.onBoarding__content}>
+            <div className={s.onBoarding__title}>
+              <span>ЧТО НАМ ИСКЛЮЧИТЬ</span>
+              <span>ИЗ ТАРЕЛОК?</span>
+            </div>
+            {/* <div className={s.onBoarding__img}>
+              <img src={Frame4} alt={'Выбор аллергенов'} />
+            </div> */}
+            <div className={s.onBoarding__text}>
+              Современные рекомендации по правильному сбалансированному питанию
+              на научной основе
+            </div>
+            <Button
+              title="В КАТАЛОГ"
+              onClick={handleNext}
+              colorScheme={1}
+              size={1}
+            />
           </div>
         );
       default:
