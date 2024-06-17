@@ -1,32 +1,55 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ButtonWithTheme } from '../../Button';
 import cn from 'classnames';
 import s from './styles.module.scss';
 
 import line from '../../../../assets/images/dotted-line-card-catalog.svg';
+import { icons } from '../../../../assets/images/icons/icons';
 
-import vegan from '../../../../assets/images/icons/light/вег.svg';
-import veganDark from '../../../../assets/images/icons/dark/вег.svg';
-
-import glutenFree from '../../../../assets/images/icons/light/глютенX.svg';
-import glutenFreeDark from '../../../../assets/images/icons/dark/глютенX.svg';
-
-export const CardCatalog = ({ title, extra, weight, calories, img }) => {
+export const CardCatalog = ({
+  title,
+  extra,
+  weight,
+  calories,
+  img,
+  tags = [],
+  categories = [],
+  allTags = [],
+  allCategories = [],
+}) => {
   const theme = useSelector(state => state.theme);
+
+  useEffect(() => {
+    console.log('tags:', tags);
+    console.log('categories:', categories);
+    console.log('allTags:', allTags);
+    console.log('allCategories:', allCategories);
+  }, [tags, categories, allTags, allCategories]);
+
+  const getTagNameById = id => {
+    const tag = allTags.find(tag => tag.id === id);
+    return tag ? tag.name : 'Unknown';
+  };
 
   return (
     <div className={s.container}>
       <div className={s.cardfood__info}>
         <div className={s.cardfood__labels}>
-          <img
-            src={theme === 'dark' ? veganDark : vegan}
-            alt="Растительные продукты"
-          ></img>
-          <img
-            src={theme === 'dark' ? glutenFreeDark : glutenFree}
-            alt="Без глютена"
-          ></img>
+          {tags.map((tagId, index) => {
+            const tagName = getTagNameById(tagId);
+            const iconSrc = icons[theme][tagName];
+            return (
+              iconSrc && (
+                <img
+                  key={index}
+                  src={iconSrc}
+                  alt={tagName}
+                  className={s.icon}
+                />
+              )
+            );
+          })}
         </div>
         <div className={s.cardfood__title}>{title}</div>
         <div className={s.cardfood__extra}>{extra}</div>

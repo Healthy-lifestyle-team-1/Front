@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Header } from '../../components/Header';
-import { Heading } from '../../components/Catalog/Heading/Heading'
+import { Heading } from '../../components/Catalog/Heading/Heading';
 import { Input } from '../../components/ui/Input';
 import { NavCatalog } from '../../components/NavCatalog';
 import { Popular } from '../../components/Catalog/Popular';
@@ -27,23 +27,23 @@ export const CatalogPage = () => {
       <Header />
       <Heading />
       <div className={s.catalogpage__nav}>
-      <Input
-        hasButton={true}
-        width={'big'}
-        colorScheme={1}
-        onSearch={onSearch}
-        placeholder={'Поиск'}
-      />
-      <NavCatalog />
+        <Input
+          hasButton={true}
+          width={'big'}
+          colorScheme={1}
+          onSearch={onSearch}
+          placeholder={'Поиск'}
+        />
+        <NavCatalog />
       </div>
       <Popular />
-      <CombinedDishes />
+      {/* <CombinedDishes />
       <CardNewsList />
       <MainDish />
       <SideDish />
       <ChooseBest />
       <Soup />
-      <Desserts />
+      <Desserts /> */}
       <Advertisement />
       <Footer />
     </div>

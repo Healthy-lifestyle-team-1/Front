@@ -5,6 +5,8 @@ import { BASE_URL } from '../../../core/url';
 
 export const Popular = () => {
   const [plates, setPlates] = useState([]);
+  const [tags, setTags] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchPlates = async () => {
@@ -19,6 +21,8 @@ export const Popular = () => {
           weight: `${item.weight} г`,
           calories: `${item.calories} ккал`,
           img: item.image,
+          categories: item.category || [],
+          tags: item.tag || [],
         }));
         setPlates(formattedData);
       } catch (error) {
@@ -26,7 +30,39 @@ export const Popular = () => {
       }
     };
 
+    const fetchTags = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/tag/`);
+        const data = await response.json();
+        const formattedTags = data.map((tag, index) => ({
+          id: index + 1,
+          ...tag,
+        }));
+        console.log('Fetched tags data:', formattedTags);
+        setTags(formattedTags);
+      } catch (error) {
+        console.error('Error fetching tags:', error);
+      }
+    };
+
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/category/`);
+        const data = await response.json();
+        const formattedCategories = data.map((category, index) => ({
+          id: index + 1,
+          ...category,
+        }));
+        console.log('Fetched categories data:', formattedCategories);
+        setCategories(formattedCategories);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
     fetchPlates();
+    fetchTags();
+    fetchCategories();
   }, []);
 
   return (
@@ -35,7 +71,13 @@ export const Popular = () => {
       <div className={s.popular__items}>
         {plates.map((item, index) => (
           <div key={index} className={s.card}>
-            <CardCatalog {...item} />
+            <CardCatalog
+              {...item}
+              tags={item.tags}
+              categories={item.categories}
+              allTags={tags}
+              allCategories={categories}
+            />
           </div>
         ))}
       </div>
