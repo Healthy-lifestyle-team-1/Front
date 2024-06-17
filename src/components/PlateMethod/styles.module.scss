@@ -3,7 +3,6 @@
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
-	 justify-content: space-between;
     color: $mainDark;
     margin: 0 auto;
 	 padding-top: 10vw;
@@ -18,15 +17,15 @@ width: 4vw;
 	 }
 	 &__bgImg2 {
 		position: absolute;
-		width: 10vw;
+		width: 8vw;
 		top: 19vw;
-		left: 6vw;
+		left: 3vw;
 	 }
 	 &__bgImg3 {
 		position: absolute;
-		width: 16vw;
-		left: 57vw;
-		top: 42vw;
+		width: 14vw;
+		left: 54vw;
+		top: 44vw;
 	 }
 	 &__bgImg4 {
 		position: absolute;
@@ -37,7 +36,7 @@ width: 4vw;
 	 &__bgImg5 {
 		position: absolute;
 		width: 9vw;
-		left: 49vw;
+		left: 47vw;
 		top: 29vw;
 	 }
 	 &__bgImg6 {
@@ -48,9 +47,9 @@ width: 4vw;
 	 }
 	 &__bgImg7 {
 		position: absolute;
-		left: 39vw;
+		left: 40vw;
 		top: 14vw;
-		width: 11vw;
+		width: 10vw;
 	 }
   }
 
@@ -58,28 +57,24 @@ width: 4vw;
     width: 50%;
     display: flex;
     flex-direction: column;
-
-
-
+    margin-left: 2%;
 
     &__title {
       text-transform: uppercase;
       font-weight: 700;
-      font-size: 7vw;
+      font-size: 8vw;
       width: 100%;
-      line-height: 140%;
+      line-height: normal;
 		z-index: 10;
-		padding-left: 4vw;
-
 
       &Img {
-        width: 23%;
+        width: 17%;
         padding: 0% 2%;
       }
 
       &--salmon {
         color: $mainPeach;
-        padding-left: 13vw;
+        padding-left: 20%;
       }
     }
 
@@ -87,21 +82,18 @@ width: 4vw;
       width: 100%;
       display: flex;
       flex-wrap: nowrap;
-      margin-top: 2vw;
-		margin-left: 3vw;
-		gap: 2vw;
+      gap: 9%;
+      margin-top: 7vw;
     }
 
     &__autor {
       display: flex;
       flex-direction: column;
-		align-items: center;
-      width: 15vw;
-		padding-top: 2vw;
+      max-width: 30%;
 
 
       &Img {
-        width: 12vw;
+        width: 100%;
       }
 
       &Name {
@@ -118,8 +110,8 @@ width: 4vw;
     }
 
     &__autorsDottedLineImg {
-      height: 23vw;
-      width: 3vw;
+      height: 100%;
+      width: z;
     }
 
 	 &__btn {
@@ -133,8 +125,6 @@ width: 4vw;
     width: 45%;
     display: flex;
 	 z-index: 10;
-	 position: relative;
-	
 
     &Imgs {
       width: 100%;
@@ -142,20 +132,13 @@ width: 4vw;
       background-position: top center;
       background-repeat: no-repeat;
 		background-size: 40vw;
-
     }
 
     &Img {
       width: 43vw;
+      height: auto;
       margin-top: 17%;
       padding-right: 13%;
-
-		&Plate {
-			position: absolute;
-			top: 24vw;
-			left: 18.6vw;
-			z-index: 100;
-		}
     }
   }
 

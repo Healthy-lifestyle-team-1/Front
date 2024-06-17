@@ -45,9 +45,9 @@
   &__plateImg {
     width: 100%;
     align-self: end;
+    transform: scaleX(-1);
   }
 }
-
 
 // .cardfood {
 //   &__info {
@@ -91,4 +91,3 @@
 //     align-self: end;
 //   }
 // }
-
