@@ -19,8 +19,6 @@ import cn from 'classnames';
 import s from './styles.module.scss';
 
 import { CardFood } from '../../components/ui/Cards/CardFood/CardFood';
-import { ReviewContainer } from '../../components/ui/ReviewContainer';
-import { Comments } from '../../components/ui/Comments';
 
 export const CatalogPage = () => {
   const onSearch = () => {
@@ -41,8 +39,6 @@ export const CatalogPage = () => {
         <NavCatalog />
       </div>
       <CardFood />
-      <ReviewContainer />
-      <Comments />
       <Popular />
       {/* <CombinedDishes />
       <CardNewsList />
