@@ -1,17 +1,17 @@
 .heading {
-  &__title {
-    @include fontTitle2();
-    color: var(--text-color);
+  &__wrapper {
+    max-width: 1070px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__text {
+    @include fontTitle1();
     text-transform: uppercase;
-  }
-  &__items {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: repeat(2, auto);
-      gap: 50px 30px;
-  }
-  &__link {
-    @include fontMainText2();
-    align-self: flex-end;
+    color: var(--text-color);
+    text-align: center;
+    padding: 67px 0 97px 0;
   }
 }
