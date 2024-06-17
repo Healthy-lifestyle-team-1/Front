@@ -3,7 +3,7 @@
   box-shadow: 0px 4px 13px -8px var(--text-color);
   border-radius: 20px;
   width: 328px;
-  padding: 8px;
+  padding: 8px 8px 18px 8px;
 }
 
 .comments {
@@ -15,8 +15,8 @@
       @include fontMainText3;
       color: var(--text-color);
     }
-    &Stars {
-    }
+    // &Stars {
+    // }
     &Text {
       @include fontText;
       color: var(--text-color);
