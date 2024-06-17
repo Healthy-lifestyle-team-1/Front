@@ -2,10 +2,8 @@
   &__navigation {
     display: flex;
     align-items: center;
-    padding-top: 4%;
-    max-width: 1070px;
+    padding-top: 46px;
     justify-content: space-between;
-    margin: 0 auto;
     @include fontText();
   }
   &__navigationItem {

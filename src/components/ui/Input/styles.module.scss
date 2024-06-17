@@ -1,11 +1,11 @@
 .input {
   &__container {
-    height: 38px;
+    height: 48px;
     display: flex;
     align-items: center;
     border: 1px solid;
     border-radius: 9999px;
-    padding: 4px 8px;
+    padding: 11px 30px;
   }
   &__button {
     background: none;
@@ -19,10 +19,10 @@
     outline: none;
     height: 26px;
     flex-grow: 1;
-    padding: 10px 8px 6px 8px;
+    padding: 10px 8px 10px 8px;
     background: transparent;
     &::placeholder {
-      @include fontMainText1;
+      @include fontMainText2;
       color: var(--color-input);
     }
   }
@@ -41,7 +41,7 @@
     border-color: var(--border-input);
 
     .input__field {
-      @include fontMainText1;
+      @include fontMainText2;
       color: var(--color-input);
     }
 

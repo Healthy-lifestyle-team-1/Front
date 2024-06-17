@@ -43,7 +43,7 @@ export function Input({
   const containerClass =
     colorScheme === 1 ? s.colorScheme__1 : s.colorScheme__2;
 
-  const containerWidth = width === 'big' ? '1072px' : '300px';
+  const containerWidth = width === 'big' ? '1216px' : '300px';
 
   return (
     <div
