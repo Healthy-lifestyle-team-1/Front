@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 1070px;
+    max-width: 1216px;
 }
 
 .soup {
@@ -13,11 +13,9 @@
   }
   &__items {
       display: grid;
-      justify-content: center;
-      grid-template-columns: 520px 520px;
+      grid-template-columns: 1fr 1fr;
       grid-template-rows: repeat(2, auto);
-      gap: 5% 3%;
-      padding: 40px 5% 99px 5%;
+      gap: 50px 30px;
   }
   &__link {
     @include fontMainText2();

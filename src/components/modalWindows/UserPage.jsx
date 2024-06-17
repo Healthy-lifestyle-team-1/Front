@@ -76,7 +76,9 @@ const UserPage = ({ onClose }) => {
               {userInfo && userInfo.user ? userInfo.user.username : ''}
             </div>
             <div className={s.profile__phone}>
-              {userInfo && userInfo.user ? userInfo.user.email : ''}
+              {userInfo && userInfo.user 
+                ? userInfo.user.email || userInfo.user.phone
+                : ''}
             </div>
           </div>
           <div className={s.profile__theme}>

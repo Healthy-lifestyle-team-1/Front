@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import s from './style.module.scss';
+import { ReviewContainer } from '../ReviewContainer';
 
 const DropDown = ({ colorScheme, options, buttonText }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,16 +32,10 @@ const DropDown = ({ colorScheme, options, buttonText }) => {
         {buttonText}
       </button>
       {isOpen && (
-        <ul className={s.dropdownMenu}>
-          {options.map((option, index) => (
-            <li key={index}>{option}</li>
-          ))}
-        </ul>
+        <ReviewContainer />
       )}
     </div>
   );
 };
 
 export default DropDown;
-
-// const options = ['Что-то', 'Еще что-то', 'Супер что-то']; скопировать и поменять значения в требуемый компонент
