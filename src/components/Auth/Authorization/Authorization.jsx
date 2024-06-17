@@ -21,7 +21,6 @@ export const Authorization = ({
       const response = await axios.post(
         'https://grikoandrey.pythonanywhere.com/login/',
         {
-          username,
           login,
         },
       );
@@ -83,13 +82,7 @@ export const Authorization = ({
         <div className={s.login__info}>
           {step === 1 && (
             <div className={s.login__infoBlock}>
-              <input
-                type="text"
-                className={s.login__input}
-                placeholder="Имя пользователя"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-              />
+              <div style={{ width: '300px', height: '48px' }} />
               <input
                 type="text"
                 className={s.login__input}
@@ -132,7 +125,7 @@ export const Authorization = ({
               onClick={handleLogin}
               colorScheme={1}
               size={1}
-              disabled={!username || !login}
+              // disabled={!username || !login}
             />
           )}
           {step === 2 && (
