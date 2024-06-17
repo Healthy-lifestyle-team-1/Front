@@ -11,7 +11,6 @@ export const Authorization = ({
   setShowRegistration,
 }) => {
   const [login, setLogin] = useState('');
-  const [username, setUsername] = useState('');
   const [code, setCode] = useState('');
   const [step, setStep] = useState(1); // 1 - login, 2 - verify
   const [error, setError] = useState('');
