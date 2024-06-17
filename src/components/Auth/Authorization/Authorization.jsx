@@ -21,7 +21,6 @@ export const Authorization = ({
       const response = await axios.post(
         'https://grikoandrey.pythonanywhere.com/login/',
         {
-          username,
           login,
         },
       );
@@ -49,7 +48,8 @@ export const Authorization = ({
       }
     } catch (error) {
       console.error('Error during verification:', error);
-      setError('Неправильный код или истекло время его действия.');
+      // setError('Неправильный код или истекло время его действия.');
+      setError('Пользователь уже существует. Пожалуйста, залогиньтесь.');
     }
   };
 
@@ -83,13 +83,6 @@ export const Authorization = ({
         <div className={s.login__info}>
           {step === 1 && (
             <div className={s.login__infoBlock}>
-              <input
-                type="text"
-                className={s.login__input}
-                placeholder="Имя пользователя"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-              />
               <input
                 type="text"
                 className={s.login__input}
@@ -132,7 +125,7 @@ export const Authorization = ({
               onClick={handleLogin}
               colorScheme={1}
               size={1}
-              disabled={!username || !login}
+              disabled={!login}
             />
           )}
           {step === 2 && (

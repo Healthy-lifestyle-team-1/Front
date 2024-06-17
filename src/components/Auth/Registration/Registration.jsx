@@ -35,7 +35,8 @@ export const Registration = ({
       setError('');
     } catch (error) {
       console.error('Error during login:', error);
-      setError('Ошибка при авторизации. Проверьте данные и попробуйте снова.');
+      // setError('Ошибка при авторизации. Проверьте данные и попробуйте снова.');
+      setError('Пользователь не найден. Пожалуйста, зарегистрируйтесь.');
     }
   };
 
