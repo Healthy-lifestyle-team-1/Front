@@ -11,7 +11,6 @@ export const Authorization = ({
   setShowRegistration,
 }) => {
   const [login, setLogin] = useState('');
-  const [username, setUsername] = useState('');
   const [code, setCode] = useState('');
   const [step, setStep] = useState(1); // 1 - login, 2 - verify
   const [error, setError] = useState('');
@@ -28,8 +27,16 @@ export const Authorization = ({
       setStep(2);
       setError('');
     } catch (error) {
+      if (error.response && error.response.status === 404) {
+        setError(
+          'Такой пользователь не найден. Пожалуйста, зарегистрируйтесь.',
+        );
+      } else {
+        setError(
+          'Ошибка при авторизации. Проверьте данные и попробуйте снова.',
+        );
+      }
       console.error('Error during login:', error);
-      setError('Ошибка при авторизации. Проверьте данные и попробуйте снова.');
     }
   };
 
@@ -125,7 +132,7 @@ export const Authorization = ({
               onClick={handleLogin}
               colorScheme={1}
               size={1}
-              // disabled={!username || !login}
+              disabled={!login}
             />
           )}
           {step === 2 && (

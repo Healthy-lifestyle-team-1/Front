@@ -4,7 +4,6 @@
 	  display: flex;
 	  flex-wrap: nowrap;
 	  justify-content: space-between;
-	  color: $mainDark;
 	  margin: 0 auto;
 	  margin-top: 3vw;
 	  position: relative;
@@ -51,6 +50,7 @@
 		 line-height: normal;
 		 z-index: 10;
 		 margin-bottom: 3vw;
+		 color: var(--text-color);
  
 		 &Img {
 			width: 10vw;
@@ -58,7 +58,7 @@
 		 }
  
 		 &--salmon {
-			color: $mainPeach;
+			color: var(--peach);
 			padding-left: 13vw;
 		 }
 	  }

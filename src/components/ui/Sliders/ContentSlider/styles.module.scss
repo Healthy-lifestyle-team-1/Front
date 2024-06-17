@@ -40,7 +40,7 @@
 
  
 		 &Pink {
-			color: $mainPeach;
+			color: var(--peach);
 		 }
 	  }
  
@@ -57,5 +57,5 @@
  }
  
  .highlight {
-	color: $mainPeach;
+	color: var(--peach);
  }

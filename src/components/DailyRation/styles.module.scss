@@ -23,13 +23,13 @@
 	width: 33vw;
 
 	&__pink {
-		color: $mainPeach;
+		color: var(--peach);
 	}
 }
 
 &__text {
 	font-size: 28px;
-	color: $mainDark;
+	color: var(--text-color);
 	font-weight: 500;
 	padding-bottom: 0.7vw;
 	position: relative; 
@@ -41,7 +41,7 @@
 	  left: 0;
 	  width: 100%;
 	  height: 1px; 
-	  background: linear-gradient(to right, $mainDark 43%, rgba(0, 0, 0, 0) 0%);
+	  background: linear-gradient(to right, var(--text-color) 43%, rgba(0, 0, 0, 0) 0%);
 	  background-size: 30px 1px; 
 	}
  }

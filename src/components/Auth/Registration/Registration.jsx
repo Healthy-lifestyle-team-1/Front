@@ -34,8 +34,12 @@ export const Registration = ({
       setStep(2);
       setError('');
     } catch (error) {
+      if (error.response && error.response.status === 400) {
+        setError('Такой пользователь уже существует. Пожалуйста, залогиньтесь.');
+      } else {
+        setError('Ошибка при авторизации. Проверьте данные и попробуйте снова.');
+      }
       console.error('Error during login:', error);
-      setError('Ошибка при авторизации. Проверьте данные и попробуйте снова.');
     }
   };
 

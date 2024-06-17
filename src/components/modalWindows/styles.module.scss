@@ -209,10 +209,12 @@
     flex-wrap: nowrap;
     justify-content: space-between;
 	 border-radius: 20px;
+	 color: var(--text-color);
   }
   &__name {
     @include font-face-rubik(36px, 500, 120%);
     margin-bottom: 5px;
+	 color: var(--text-color);
   }
   &__phone {
     padding: 20px 0px;
@@ -227,6 +229,7 @@
     margin-bottom: 15px;
     padding: 0 32px;
     &__item {
+		color: var(--text-color);
       display: flex;
       align-items: center;
       padding: 20px 0px 0px 0px;

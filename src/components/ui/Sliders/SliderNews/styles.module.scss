@@ -19,7 +19,7 @@
 
 .sliderNews {
   &__container {
-    background-color: $blueLight;
+    background-color: var(--blue);
     padding-top: 2vw;
     padding-bottom: 2vw;
     width: 100%;
@@ -32,7 +32,7 @@
     width: 83% !important;
 	 height: 23vw;
     padding: 0.8vw;
-    background-color: $mainLight;
+    background-color: var(--background-color);
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -41,6 +41,7 @@
     cursor: pointer;
 	 overflow: hidden;
 	 border: none;
+	 color: var(--text-color);
 
 	 box-sizing: border-box;
 

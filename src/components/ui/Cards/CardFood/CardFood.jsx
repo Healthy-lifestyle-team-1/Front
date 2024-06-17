@@ -20,8 +20,8 @@ import veganDark from '../../../../assets/images/icons/dark/вег.svg';
 import glutenFree from '../../../../assets/images/icons/light/глютенX.svg';
 import glutenFreeDark from '../../../../assets/images/icons/dark/глютенX.svg';
 
-import lactoseFree from '../../../../assets/images/icons/light/лактозaX.svg';
-import lactoseFreeDark from '../../../../assets/images/icons/dark/лактозaX.svg';
+import lactoseFree from '../../../../assets/images/icons/light/лактозаX.svg';
+import lactoseFreeDark from '../../../../assets/images/icons/light/лактозаX.svg';
 
 import emptyLike from '../../../../assets/images/icons/light/пустойЛайк.svg';
 import emptyLikeDark from '../../../../assets/images/icons/dark/пустойЛайк.svg';
@@ -157,7 +157,7 @@ export const CardFood = ({
         </div>
         <div className={s.cardfood__options}>
           <DropDown colorScheme={2} options={options} buttonText={'Отзывы'} />
-          <Button colorScheme={2} title={'В корзину'} size={1} />
+          <Button colorScheme={1} title={'В корзину'} size={1} />
         </div>
       </div>
       <div className={s.cardfood__likeAndImg}>

@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    color: $mainDark;
+    color: var(--text-color);
     margin: 0 auto;
 	 padding-top: 10vw;
 	 margin-top: 3vw;
@@ -66,6 +66,7 @@ width: 4vw;
       width: 100%;
       line-height: normal;
 		z-index: 10;
+		color: var(--text-color);
 
       &Img {
         width: 17%;
@@ -73,7 +74,7 @@ width: 4vw;
       }
 
       &--salmon {
-        color: $mainPeach;
+		color: var(--peach);
         padding-left: 20%;
       }
     }
@@ -111,7 +112,7 @@ width: 4vw;
 
     &__autorsDottedLineImg {
       height: 100%;
-      width: z;
+      width: 3%;
     }
 
 	 &__btn {

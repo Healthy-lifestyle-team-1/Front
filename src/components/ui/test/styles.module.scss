@@ -51,10 +51,10 @@
   &.backgroundColor__1 {
     background-color: $mainGreenapple;
   }
-  &.backgroundColor__2 {
-    background-color: $mainPeach;
-  }
-  &.backgroundColor__3 {
-    background-color: $blueLight;
-  }
+ &.backgroundColor__2 {
+  background-color: var( --peach);
+ }
+ &.backgroundColor__3 {
+  background-color: var( --blue);
+ }
 }
