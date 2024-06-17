@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import s from './styles.module.scss';
 import Theme from '../../assets/styles/themes/index';
 import { Button } from '../ui/Button';

@@ -11,7 +11,6 @@ import BgImg2 from '../../assets/images/PlateMethod/перец-и-петрушк
 import BgImg3 from '../../assets/images/PlateMethod/чили.png';
 import BgImg4 from '../../assets/images/PlateMethod/помидор-и-базилик.png';
 import BgImg5 from '../../assets/images/PlateMethod/салатный-лист.png';
-import BgImg6 from '../../assets/images/PlateMethod/укроп.png';
 import BgImg7 from '../../assets/images/PlateMethod/перец.png';
 import PlateBookImg from '../../assets/images/Plate-for-MP.png';
 
@@ -33,7 +32,6 @@ export const PlateMethod = () => {
       <img className={s.plateMethod__container__bgImg3} src={BgImg3} alt="" />
       <img className={s.plateMethod__container__bgImg4} src={BgImg4} alt="" />
       <img className={s.plateMethod__container__bgImg5} src={BgImg5} alt="" />
-      <img className={s.plateMethod__container__bgImg6} src={BgImg6} alt="" />
       <img className={s.plateMethod__container__bgImg7} src={BgImg7} alt="" />
       <div className={s.plateMethod__methodBlock}>
         <div className={s.plateMethod__methodBlock__title}>

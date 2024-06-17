@@ -1,6 +1,6 @@
 .plateMethod {
   &__container {
-    width: 100%;
+    max-width: 1280px;
     display: flex;
     flex-wrap: nowrap;
 	 justify-content: space-between;
@@ -40,12 +40,6 @@ width: 4vw;
 		left: 49vw;
 		top: 29vw;
 	 }
-	 &__bgImg6 {
-		position: absolute;
-		left: 35vw;
-		top: 26vw;
-		width: 9vw;
-	 }
 	 &__bgImg7 {
 		position: absolute;
 		left: 39vw;
@@ -65,7 +59,7 @@ width: 4vw;
     &__title {
       text-transform: uppercase;
       font-weight: 700;
-      font-size: 7vw;
+      font-size: 90px;
       width: 100%;
       line-height: 140%;
 		z-index: 10;
@@ -73,13 +67,13 @@ width: 4vw;
 
 
       &Img {
-        width: 23%;
+        width: 125px;
         padding: 0% 2%;
       }
 
       &--salmon {
         color: $mainPeach;
-        padding-left: 13vw;
+        padding-left: 194px;
       }
     }
 
@@ -101,25 +95,25 @@ width: 4vw;
 
 
       &Img {
-        width: 12vw;
+        width: 140px;
       }
 
       &Name {
-        margin-top: 3%;
+        margin-top: 6px;
 		  @include fontMainText1();
 		  display: flex;
 		  flex-wrap: nowrap;
       }
 
       &Description {
-        margin-top: 3%;
+        margin-top: 6px;
 		  @include fontText();
       }
     }
 
     &__autorsDottedLineImg {
-      height: 23vw;
-      width: 3vw;
+      height: 264px;
+      width: 23px;
     }
 
 	 &__btn {
@@ -141,20 +135,21 @@ width: 4vw;
       background-image: url(../../assets/images/Ellipse-salmon.png);
       background-position: top center;
       background-repeat: no-repeat;
-		background-size: 40vw;
+		background-size: contain;
 
     }
 
     &Img {
-      width: 43vw;
+      width: 514px;
       margin-top: 17%;
       padding-right: 13%;
 
 		&Plate {
 			position: absolute;
-			top: 24vw;
-			left: 18.6vw;
+			top: 290px;
+			left: 220px;
 			z-index: 100;
+			width: 219px;
 		}
     }
   }
