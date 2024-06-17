@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import s from './styles.module.scss';
 import { CardCatalog } from '../../ui/Cards/CardCatalog';
+import { BASE_URL } from '../../../core/url';
 
 export const Popular = () => {
   const [plates, setPlates] = useState([]);
@@ -9,7 +10,7 @@ export const Popular = () => {
     const fetchPlates = async () => {
       try {
         const response = await fetch(
-          'https://grikoandrey.pythonanywhere.com/product/?name=&category=1&calories=&proteins=&fats=&carbs=&price=&is_prepared=unknown&not_name=&not_calories=&not_proteins=&not_fats=&not_carbs=&not_price=&not_is_prepared=unknown',
+          `${BASE_URL}/product/?name=&category=1&calories=&proteins=&fats=&carbs=&price=&is_prepared=unknown&not_name=&not_calories=&not_proteins=&not_fats=&not_carbs=&not_price=&not_is_prepared=unknown`,
         );
         const data = await response.json();
         const formattedData = data.map(item => ({
