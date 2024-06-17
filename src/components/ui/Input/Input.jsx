@@ -9,10 +9,10 @@ import searchFilter from '../../../assets/images/icons/search-filter.svg';
 
 export function Input({
   onSearch,
-  width,
-  colorScheme,
-  placeholder,
-  hasButton,
+  width = 'small',
+  colorScheme = 1,
+  placeholder = 'Поиск',
+  hasButton = true,
   ...props
 }) {
   const theme = useSelector(state => state.theme);
@@ -67,14 +67,10 @@ export function Input({
         onKeyDown={handleKeyPress}
         placeholder={placeholder}
         className={s.input__field}
+        {...props}
       />
       <button className={s.input__filter} onClick={handleFilterClick}>
-        <img
-          src={searchFilter}
-          alt="Filter"
-          width="24px"
-          height="24px"
-        />
+        <img src={searchFilter} alt="Filter" width="24px" height="24px" />
       </button>
       {isCategoryVisible && <Category onClose={handleCloseCategory} />}
     </div>
@@ -87,13 +83,6 @@ Input.propTypes = {
   colorScheme: PropTypes.number,
   placeholder: PropTypes.string,
   hasButton: PropTypes.bool,
-};
-
-Input.defaultProps = {
-  width: 'small',
-  colorScheme: 1,
-  placeholder: 'Поиск',
-  hasButton: true,
 };
 
 export default Input;
