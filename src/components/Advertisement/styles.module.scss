@@ -17,7 +17,7 @@
       }
       &Pink {
         @include fontTitle2();
-        color: $mainPeach;
+        color: var(--peach);
       }
     }
     &Veggies {

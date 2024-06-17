@@ -35,7 +35,6 @@
 			 width: 15vw;
 			  transition: transform 0.3s;
 			  z-index: 100;
-			  opacity: 0.8;
 			}
 		 
 			&.active {
@@ -58,9 +57,13 @@
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-		 
-			
-		 }
+		}
+
+		.st0 {
+			stroke: var(--text-color);
+			stroke-width: 1;
+			stroke-dasharray: 5, 5;
+		}
 
 		 .arcSlider {
 
@@ -76,7 +79,7 @@
 					margin-bottom: 6vw;
 
 					&__pink {
-						color: $mainPeach;
+						color: var(--peach);
 					}
 				}
 

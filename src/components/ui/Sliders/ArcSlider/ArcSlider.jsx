@@ -253,6 +253,7 @@ export const ArcSlider = () => {
 					cy="200"
 					r="139"
 					fill="none"
+					stroke="red" strokeWidth="1" strokeDasharray="5,5"
 				 />
 			  </svg>
 			</div>

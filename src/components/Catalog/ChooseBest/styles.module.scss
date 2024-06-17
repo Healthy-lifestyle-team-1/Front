@@ -23,7 +23,7 @@
       @include fontTitle2();
       text-transform: uppercase;
       &Pink {
-        color: $mainPeach;
+			color: var(--peach);
       }
     }
     &Paragraph {

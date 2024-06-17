@@ -9,7 +9,7 @@
 
     a {
       text-decoration: none;
-      color: $mainDark;
+		color: var(--text-color);
     }
 
     .activeLink {
@@ -18,8 +18,8 @@
   }
 
   .link {
+	color: var(--text-color);
     cursor: pointer;
-    color: $mainDark;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
