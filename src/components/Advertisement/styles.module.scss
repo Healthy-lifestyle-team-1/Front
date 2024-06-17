@@ -1,13 +1,12 @@
 .container {
   display: flex;
-  justify-content: center;
-  gap: 100px;
-  padding: 0 15%;
+  gap: 31px;
+  margin: 0 auto;
+  max-width: 1216px;
 }
 
 .ad {
   &__ideology {
-    width: 25%;
     &Title {
       display: flex;
       flex-direction: column;
@@ -18,50 +17,52 @@
       &Pink {
         @include fontTitle2();
         color: $mainPeach;
+        width: 450px;
       }
     }
     &Veggies {
       padding-top: 3%;
+      padding-left: 50px;
       width: 100%;
       max-width: 40vw;
       height: auto;
     }
   }
   &__phoneImg {
-    display: flex;
-    justify-content: center;
+    margin-top: auto;
+    img {
+      height: 525px;
+    }
   }
   &__info {
     display: flex;
-    flex-direction: column;
-    width: 25%;
+    position: relative;
     &Img {
-      padding-top: 3%;
-      width: 100%;
-      max-width: 10vw;
-      height: auto;
-      align-self: flex-end;
-      }
-    &Title {
-      @include fontSubTitle1();
-      font-weight: 500;
-      text-transform: uppercase;
-      color: var(--text-color);
+      position: absolute;
+      top: 30px;
+      right: 72.4px;
+      width: 156px;
     }
-    &Description {
-      @include fontMainText1();
-      color: var(--text-color);
-    }
-    &Text {
-      @include fontText();
-      text-transform: uppercase;
-      color: var(--text-color);
-    }
-    &Download {
+    &Block {
       display: flex;
-      flex-direction: row;
-      gap: 5%;
-      &Option {
+      flex-direction: column;
+      margin-top: auto;
+      padding-left: 70px;
+      &Description {
+        @include fontSubTitle1();
+        color: var(--text-color);
+        width: 350px;
+        text-transform: none;
+      }
+      &Download {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        &Option {
+          img {
+            width: 206px;
+          }
+        }
       }
     }
   }
