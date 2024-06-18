@@ -71,6 +71,7 @@ a {
 	 &__five {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		gap: 16px;
 		padding-top: 16px;
 	 }
@@ -132,5 +133,6 @@ a {
 
 &__qrImg {
 	width: 7vw;
+	text-align: center;
 }
 }
