@@ -80,7 +80,7 @@ const CartPage = ({ onClose }) => {
   const fetchCart = async () => {
     const token = localStorage.getItem('access');
     try {
-      const response = await axios.get('http://127.0.0.1:8000/cart/', {
+      const response = await axios.get('https://grikoandrey.pythonanywhere.com/cart/', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -125,7 +125,7 @@ const CartPage = ({ onClose }) => {
                 dishImg={
                   <img
                     className={s.item__img}
-                    src={`http://127.0.0.1:8000${item.product.image}`}
+                    src={`https://grikoandrey.pythonanywhere.com${item.product.image}`}
                     alt={item.product.title}
                   />
                 }
