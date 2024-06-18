@@ -38,15 +38,30 @@ export const CatalogPage = () => {
         />
         <NavCatalog />
       </div>
-      {/* <CardFood /> */}
-      <Popular />
-      <CombinedDishes />
-      <CardNewsList />
-      <MainDish />
-      <SideDish />
-      <ChooseBest />
-      <Soup />
-      <Desserts />
+      <div id="Popular">
+        <Popular />
+      </div>
+      <div id="CombinedDishes">
+        <CombinedDishes />
+      </div>
+      <div id="CardNewsList">
+        <CardNewsList />
+      </div>
+      <div id="MainDish">
+        <MainDish />
+      </div>
+      <div id="SideDish">
+        <SideDish />
+      </div>
+      <div id="ChooseBest">
+        <ChooseBest />
+      </div>
+      <div id="Soup">
+        <Soup />
+      </div>
+      <div id="Desserts">
+        <Desserts />
+      </div>
       <Advertisement />
       <Footer />
     </div>

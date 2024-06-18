@@ -5,23 +5,24 @@ import s from './styles.module.scss';
 
 const Category = ({ onClose }) => {
   const categories = [
-    { name: 'Основные блюда', path: '/' },
-    { name: 'Гарниры', path: '/' },
-    { name: 'Супы', path: '/' },
-    { name: 'Десерты', path: '/' },
-    { name: 'Тарелки', path: '/' },
-    { name: 'Популярное', path: '/' },
+    { name: 'Популярное', path: 'Popular' },
+    { name: 'Тарелки', path: 'CombinedDishes' },
+    { name: 'Основные блюда', path: 'MainDish' },
+    { name: 'Гарниры', path: 'SideDish' },
+    { name: 'Супы', path: 'Soup' },
+    { name: 'Десерты', path: 'Desserts' },
   ];
 
   const handleLinkClick = (event, path, name) => {
     event.preventDefault();
     console.log(`Category clicked: ${name}`);
+    const section = document.getElementById(path);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
     if (onClose) {
       onClose();
     }
-    setTimeout(() => {
-      window.location.href = path;
-    }, 300);
   };
 
   return (
@@ -37,7 +38,7 @@ const Category = ({ onClose }) => {
               <span className={s.category__items} key={index}>
                 <a
                   className={s.category__item}
-                  href={category.path}
+                  href={`#${category.path}`}
                   onClick={event =>
                     handleLinkClick(event, category.path, category.name)
                   }
