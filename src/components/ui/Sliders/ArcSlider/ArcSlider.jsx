@@ -6,86 +6,88 @@ import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import { Button } from '../../Button';
 
-import plateOne from '../../../../assets/images/plates/Plate.png';
-import plateTwo from '../../../../assets/images/plates/Plate2.png';
-import plateThree from '../../../../assets/images/plates/Plate3.png';
-import plateFour from '../../../../assets/images/plates/Plate4.png';
-import plateFive from '../../../../assets/images/plates/Plate5.png';
-import plateSix from '../../../../assets/images/plates/Plate6.png';
+import plateOne from '../../../../assets/images/plates/plate1.png';
+import plateTwo from '../../../../assets/images/plates/plate2.png';
+import plateThree from '../../../../assets/images/plates/plate3.png';
+import plateFour from '../../../../assets/images/plates/plate4.png';
+import plateFive from '../../../../assets/images/plates/plate5.png';
+import plateSix from '../../../../assets/images/plates/plate6.png';
+import plateSeven from '../../../../assets/images/plates/plate7.png';
+import plateEight from '../../../../assets/images/plates/plate8.png';
 
 gsap.registerPlugin(MotionPathPlugin);
 
 const plates = [
   {
-    title: 'Куриная грудка, с ростками сои и красной капустой',
+    title: 'Куриная грудка с яйцами, рисом, ростками сои и красной капустой',
     description:
-      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+      'Сочная куриная грудка, приправленная специями, сочетается с ароматным рисом, пропитанным вкусом жареных яиц и питательными ростками сои.',
     weight: '560 г',
-    calories: '675 ккал',
+    calories: '410 ккал',
     img: plateOne,
     price: '1900 ₽',
   },
   {
-    title: 'Свинина, с чем-то там и салат',
+    title: 'Слабосоленая семга с салатом из помидоров, моцареллы, авокадо и рукколы',
     description:
-      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+      'Изысканное блюдо с слабосоленой семгой и нежным салатом создает гармоничное сочетание вкусов и текстур',
     weight: '460 г',
     calories: '575 ккал',
     img: plateTwo,
     price: '1340 ₽',
   },
   {
-    title: 'Филе сибаса, с рисом и спаржей и свежими овощами',
+    title: 'Морской коктейль с пастой, винегретом и огурцами',
     description:
-      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+      'Морской коктейль, сопровождаемый аппетитной пастой, ароматным винегретом и освежающими огурцами, представляет собой насыщенное питательное блюдо',
     weight: '530 г',
     calories: '525 ккал',
     img: plateThree,
     price: '1750 ₽',
   },
   {
-    title: 'Форель со свежими овощами и картофелем',
+    title: 'Свиная шея с отварным картофелем и капустным салатом',
     description:
-      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+      'Свиная шея, приготовленная в сочных пряностях, сочетается с отварным картофелем и капустным салатом придавая блюду насыщенности',
     weight: '430 г',
     calories: '490 ккал',
     img: plateFour,
     price: '1800 ₽',
   },
   {
-    title: 'Томленая говядина, картофель и салат',
+    title: 'Фарш из телятины с пастой и овощным салатом',
     description:
-      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+      'Ароматный фарш из телятины, подается с пастой, и овощным салатом, делая его здоровым и вкусным выбором',
     weight: '530 г',
     calories: '690 ккал',
     img: plateFive,
     price: '1400 ₽',
   },
   {
-    title: 'Сашими из лосося и тунца с салатом из апельсинов и огурцов',
+    title: 'Куриная грудка с грибами c картофельным пюре, кукурузой и винегретом',
     description:
-      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+      'Золотистая куриная грудка с грибами подается на гарнире из кремового картофельного пюре, с добавлением кукурузы и легкого винегрета',
     weight: '510 г',
     calories: '360 ккал',
     img: plateSix,
     price: '1300 ₽',
   },
   {
-    title: 'Куриная грудка, с ростками сои и красной капустой',
+    title: 'Копченый палтус с кускусом, свеклой, помидорами и шпинатом',
     description:
-      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+      'Сочетание копченого палтуса с нежным кускусом, свеклой и сочными помидорами отличается своим богатством вкусов и питательностью',
     weight: '560 г',
     calories: '675 ккал',
-    img: plateOne,
+    img: plateSeven,
     price: '1990 ₽',
   },
   {
-    title: 'Свинина, с чем-то там и салат',
+    title: 'Индейка с картофелем и салатом из свежей капусты и сочной груши',
     description:
-      'Красочное и аппетитное блюдо - здоровый и сбалансированный выбор для обеда или ужина.',
+      'Нежное мясо индейки, приготовленное с ароматными специями, подается с картофелем и необычным салатом из свежей капусты и сочной груши',
     weight: '460 г',
     calories: '575 ккал',
-    img: plateTwo,
+    img: plateEight,
     price: '1340 ₽',
   },
 ];
@@ -225,7 +227,7 @@ export const ArcSlider = () => {
  
 	  const intervalId = setInterval(() => {
 		 moveWheel(-1 / plates.length);
-	  }, 10000);
+	  }, 12000);
  
 	  return () => {
 		 window.removeEventListener('resize', handleResize);
