@@ -38,7 +38,7 @@ export const CatalogPage = () => {
         />
         <NavCatalog />
       </div>
-      <CardFood />
+      {/* <CardFood /> */}
       <Popular />
       {/* <CombinedDishes />
       <CardNewsList />
