@@ -1,5 +1,4 @@
 #root {
-  /* padding-left: 20px; */
   padding-right: 0.9vw;
   width: 100vw;
   display: flex;
@@ -21,8 +20,6 @@
 }
 
 .hideHeader {
-  position: fixed;
-  top: 0;
   width: 100%;
   transition: transform 0.3s ease-in-out;
   transform: translateY(-100%);

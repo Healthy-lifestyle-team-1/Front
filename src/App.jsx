@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 import { HomePage } from './pages/HomePage';
 import { CatalogPage } from './pages/CatalogPage';
@@ -13,28 +13,22 @@ import Theme from './assets/styles/themes/index';
 import './App.css';
 
 const Layout = ({ children }) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
-  const handleScroll = () => {
-    const currentScrollTop = window.scrollY;
-
-    if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
-      // Скроллим вниз
-      setIsScrollingUp(false);
-    } else if (currentScrollTop < lastScrollTop) {
-      // Скроллим вверх
-      setIsScrollingUp(true);
-    }
-
-    setLastScrollTop(currentScrollTop);
-  };
-
   useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollTop = window.pageYOffset;
+
+      if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+        setIsScrollingUp(false);
+      } else if (currentScrollTop < lastScrollTop) {
+        setIsScrollingUp(true);
+      }
+
+      setLastScrollTop(currentScrollTop);
+    };
+
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -53,6 +47,12 @@ const Layout = ({ children }) => {
 };
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <>
       <Theme className="hidden" />
