@@ -23,26 +23,26 @@
     background: transparent;
     &::placeholder {
       @include fontMainText2;
-      color: var(--color-input);
+      color: $mainDark;
     }
   }
-      &__filter {
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
+  &__filter {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .colorScheme {
   &__1 {
-    background: var(--background-input);
+    background: $mainLight;
     border-color: var(--border-input);
 
     .input__field {
       @include fontMainText2;
-      color: var(--color-input);
+      color: $mainDark;
     }
 
     .input__button img {

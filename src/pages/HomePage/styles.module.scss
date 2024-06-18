@@ -1,5 +1,3 @@
-
- 
 .container {
 }
 
@@ -18,4 +16,22 @@
 
 .test {
   @include fontTitle1;
+}
+
+.showHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(0);
+  z-index: 1000;
+}
+
+.hideHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(-100%);
+  z-index: 1000;
 }

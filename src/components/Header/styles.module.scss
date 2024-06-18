@@ -1,6 +1,7 @@
 .header {
   &__container {
     width: 100vw;
+    background-color: var(--background-opacity);
   }
   &__navigation {
     display: flex;

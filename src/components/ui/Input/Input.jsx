@@ -53,7 +53,8 @@ export function Input({
       {hasButton && (
         <button onClick={handleSearch} className={s.input__button}>
           <img
-            src={theme === 'dark' ? searchIconDark : searchIcon}
+            // src={theme === 'dark' ? searchIconDark : searchIcon}
+            src={searchIcon}
             alt="Search"
             width="24px"
             height="24px"
