@@ -16,12 +16,11 @@ export const NavBar = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('access');
     if (token) {
-      dispatch(loginSuccess());
+      dispatch(loginSuccess(token)); // передача токена
     } else {
       dispatch(logoutSuccess());
     }

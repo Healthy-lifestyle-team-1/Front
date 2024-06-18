@@ -1,4 +1,3 @@
-// src/components/Catalog/Popular/index.js
 import React, { useEffect, useState } from 'react';
 import s from './styles.module.scss';
 import { CardCatalog } from '../../ui/Cards/CardCatalog';

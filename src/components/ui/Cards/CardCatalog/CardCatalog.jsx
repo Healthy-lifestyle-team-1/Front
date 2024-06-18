@@ -1,10 +1,10 @@
-// src/components/ui/Cards/CardCatalog/index.js
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ButtonWithTheme } from '../../Button/ButtonWithTheme';
 import cn from 'classnames';
 import s from './styles.module.scss';
 import { icons } from '../../../../assets/images/icons/icons';
+import { BASE_URL } from '../../../../core/url';
 
 export const CardCatalog = ({
   title,
@@ -19,6 +19,7 @@ export const CardCatalog = ({
   allCategories = [],
 }) => {
   const theme = useSelector(state => state.theme);
+  const token = useSelector(state => state.auth.token); // Получение токена из Redux
 
   useEffect(() => {
     console.log('tags:', tags);
@@ -30,6 +31,52 @@ export const CardCatalog = ({
   const getTagNameById = id => {
     const tag = allTags.find(tag => tag.id === id);
     return tag ? tag.name : 'Unknown';
+  };
+
+  const handleAddToCart = async () => {
+    if (!token) {
+      console.error('Токен аутентификации отсутствует');
+      return;
+    }
+
+    // Предполагаем, что сервер ожидает массив идентификаторов категорий и тегов, а не объекты
+    const cartItem = {
+      product: {
+        // Обертывание данных в ключ product
+        title,
+        extra,
+        weight,
+        calories,
+        img,
+        price,
+        tags: tags.map(tag => tag.id), // предполагаем, что tags содержит объекты с id
+        categories: categories.map(category => category.id), // предполагаем, что categories содержит объекты с id
+      },
+    };
+
+    console.log('Отправка данных в корзину:', cartItem); // Логирование данных перед отправкой
+
+    try {
+      const response = await fetch(`${BASE_URL}/cart_item/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`, // Добавление токена аутентификации
+        },
+        body: JSON.stringify(cartItem),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Ошибка при добавлении в корзину:', errorData);
+        throw new Error('Ошибка при добавлении в корзину');
+      }
+
+      const result = await response.json();
+      console.log('Успешно добавлено в корзину:', result);
+    } catch (error) {
+      console.error('Ошибка при добавлении в корзину:', error);
+    }
   };
 
   return (
@@ -66,6 +113,7 @@ export const CardCatalog = ({
           title={price}
           size={3}
           showRubleSign={true}
+          onClick={handleAddToCart} // Добавление обработчика клика
         />
       </div>
       <div className={s.cardfood__Img} style={{ display: 'flex' }}>
