@@ -25,12 +25,17 @@ const tagToFilterParam = {
   3: '3', // Без лактозы
 };
 
-export const NavCatalog = ({ setFilteredTags }) => {
+export const NavCatalog = ({ setFilteredTags, setCategory }) => {
   const activeTags = useSelector(state => state.tags);
   const dispatch = useDispatch();
 
   const handleTagClick = tagIndex => {
     dispatch(toggleTag(tagIndex));
+    if (tagIndex === 4) {
+      setCategory(7); // Завтрак
+    } else {
+      setCategory(null); // Сброс категории
+    }
   };
 
   useEffect(() => {

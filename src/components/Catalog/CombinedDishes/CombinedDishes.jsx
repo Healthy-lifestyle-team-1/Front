@@ -1,20 +1,22 @@
 // src/components/Catalog/CombinedDishes/index.js
 import React, { useState, useEffect } from 'react';
 import s from './styles.module.scss';
-import { CardCatalog } from '../../ui/Cards/CardCatalog/CardCatalog';
+import { CardCatalog } from '../../ui/Cards/CardCatalog';
 import { BASE_URL } from '../../../core/url';
 
-export const CombinedDishes = ({ filteredTags }) => {
+export const CombinedDishes = ({ filteredTags, category }) => {
   const [plates, setPlates] = useState([]);
   const [tags, setTags] = useState([]);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchPlates = async () => {
+      let url = `${BASE_URL}/product/?category=2`;
+      if (category) {
+        url = `${BASE_URL}/product/?category=${category}`;
+      }
       try {
-        const response = await fetch(
-          `${BASE_URL}product/?name=&category=2&calories=&proteins=&fats=&carbs=&price=&is_prepared=&not_name=&not_calories=&not_proteins=&not_fats=&not_carbs=&not_price=&not_is_prepared=`,
-        );
+        const response = await fetch(url);
         const data = await response.json();
         console.log('Fetched plates data:', data);
 
@@ -79,7 +81,7 @@ export const CombinedDishes = ({ filteredTags }) => {
     fetchPlates();
     fetchTags();
     fetchCategories();
-  }, []);
+  }, [category]);
 
   const filteredPlates =
     filteredTags.length > 0

@@ -4,17 +4,19 @@ import s from './styles.module.scss';
 import { CardCatalog } from '../../ui/Cards/CardCatalog';
 import { BASE_URL } from '../../../core/url';
 
-export const Popular = ({ filteredTags }) => {
+export const Popular = ({ filteredTags, category }) => {
   const [plates, setPlates] = useState([]);
   const [tags, setTags] = useState([]);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchPlates = async () => {
+      let url = `${BASE_URL}/product/?category=1`;
+      if (category) {
+        url = `${BASE_URL}/product/?category=${category}`;
+      }
       try {
-        const response = await fetch(
-          `${BASE_URL}/product/?category=1`, // Предположим, что категория 1 - это популярные продукты
-        );
+        const response = await fetch(url);
         const data = await response.json();
         console.log('Fetched plates data:', data);
 
@@ -79,7 +81,7 @@ export const Popular = ({ filteredTags }) => {
     fetchPlates();
     fetchTags();
     fetchCategories();
-  }, []);
+  }, [category]);
 
   const filteredPlates =
     filteredTags.length > 0
