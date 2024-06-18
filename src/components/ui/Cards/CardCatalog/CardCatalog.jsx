@@ -39,7 +39,7 @@ export const CardCatalog = ({
           {tags.length > 0 ? (
             tags.map((tagId, index) => {
               const tagName = getTagNameById(tagId);
-              const iconSrc = icons[theme][tagName]; // предполагается, что иконки хранятся в объекте icons
+              const iconSrc = icons[theme][tagName];
               return (
                 iconSrc && (
                   <img
