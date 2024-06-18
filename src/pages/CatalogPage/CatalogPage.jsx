@@ -24,7 +24,7 @@ export const CatalogPage = () => {
     console.log('Searching');
   };
 
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   const handleScroll = () => {
@@ -51,9 +51,6 @@ export const CatalogPage = () => {
 
   return (
     <div className={s.catalogpage__container}>
-      <div className={isScrollingUp ? s.showHeader : s.hideHeader}>
-        <Header />
-      </div>
       <div className={s.catalogpage__main}>
         <Heading />
         <div className={s.catalogpage__nav}>

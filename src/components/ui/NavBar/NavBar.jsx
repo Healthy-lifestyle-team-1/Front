@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import UserPage from '../../modalWindows/UserPage/UserPage';
 import CartPage from '../../modalWindows/CartPage';
 import { Authorization } from '../../Auth/Authorization';
@@ -75,31 +74,41 @@ export const NavBar = () => {
         <NavLink
           end
           to="/"
-          className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+          className={({ isActive }) =>
+            isActive ? `${s.activeLink} ${s.link}` : s.link
+          }
         >
           Главная
         </NavLink>
         <NavLink
           to="/book"
-          className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+          className={({ isActive }) =>
+            isActive ? `${s.activeLink} ${s.link}` : s.link
+          }
         >
           Книга
         </NavLink>
         <NavLink
           to="/constructor"
-          className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+          className={({ isActive }) =>
+            isActive ? `${s.activeLink} ${s.link}` : s.link
+          }
         >
           Конструктор
         </NavLink>
         <NavLink
           to="/catalog"
-          className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+          className={({ isActive }) =>
+            isActive ? `${s.activeLink} ${s.link}` : s.link
+          }
         >
           Каталог
         </NavLink>
         <NavLink
           to="/news"
-          className={({ isActive }) => (isActive ? s.activeLink : s.link)}
+          className={({ isActive }) =>
+            isActive ? `${s.activeLink} ${s.link}` : s.link
+          }
         >
           Статьи
         </NavLink>

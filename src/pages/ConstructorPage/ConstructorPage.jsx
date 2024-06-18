@@ -12,7 +12,7 @@ export const ConstructorPage = () => {
     console.log('Searching');
   };
 
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   const handleScroll = () => {
@@ -39,9 +39,6 @@ export const ConstructorPage = () => {
 
   return (
     <div className={s.container}>
-      <div className={isScrollingUp ? s.showHeader : s.hideHeader}>
-        <Header />
-      </div>
       <div className={s.constructor__inner}>
         <PlateConstructor />
         <Advertisement />

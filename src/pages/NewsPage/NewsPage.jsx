@@ -8,7 +8,7 @@ import { Advertisement } from '../../components/Advertisement';
 import { CardNewsMain } from '../../components/ui/Cards/CardNewsMain';
 
 export const NewsPage = () => {
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   const handleScroll = () => {
@@ -35,9 +35,6 @@ export const NewsPage = () => {
 
   return (
     <div className={s.container}>
-      <div className={isScrollingUp ? s.showHeader : s.hideHeader}>
-        <Header />
-      </div>
       <CardNewsMain className={s.block} />
       <Advertisement />
       <Footer />

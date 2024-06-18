@@ -2,6 +2,9 @@
   &__container {
     width: 100vw;
     background-color: var(--background-opacity);
+    position: fixed; // Фиксированное положение хедера
+    top: 0;
+    z-index: 1000; // Хедер выше остального контента
   }
   &__navigation {
     display: flex;
@@ -28,4 +31,7 @@
   cursor: pointer;
   text-decoration: underline;
   color: blue;
+  &.activeLink {
+    font-weight: bold; // Делает ссылку жирной при активном состоянии
+  }
 }

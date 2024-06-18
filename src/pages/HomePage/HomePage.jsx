@@ -13,7 +13,7 @@ import { DailyRation } from '../../components/DailyRation';
 import s from './styles.module.scss';
 
 export const HomePage = () => {
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   const handleScroll = () => {
@@ -40,9 +40,6 @@ export const HomePage = () => {
 
   return (
     <div className={s.container}>
-      <div className={isScrollingUp ? s.showHeader : s.hideHeader}>
-        <Header />
-      </div>
       <ContentSlider />
       <SliderNews />
       <PlateConstructor />
