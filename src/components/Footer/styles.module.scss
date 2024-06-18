@@ -1,7 +1,7 @@
 a {
   list-style: none;
   text-decoration: none;
-  color: var(--always-white);
+  color: var(--text-color-white-first);
 }
 
 .footer {
@@ -12,7 +12,7 @@ a {
 	  background-size: 100%;
 	  background-repeat: no-repeat;
 	  margin: 0 auto;
-	  color: var(--always-white);
+	  color: var(--text-color-white-first);
  
 	  &.light {
 		 background-image: url('../../assets/images/Подвал-фон.png');

@@ -1,13 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import ForkAndKnife from '../../assets/images/plate-with-fork-and-knife.png';
 import MaksimKImg from '../../assets/images/MaksimKuderov.png';
 import LidaLImg from '../../assets/images/LidaLanskaya.png';
 import DottedLine from '../../assets/images/dotted-line-plate-method.png';
 import BookImg from '../../assets/images/method-plate-book.png';
 import { Button } from '../ui/Button';
-import BgImg1 from '../../assets/images/PlateMethod/базилик.png';
 import BgImg2 from '../../assets/images/PlateMethod/перец-и-петрушка.png';
-import BgImg6 from '../../assets/images/PlateMethod/укроп.png';
 import BgImg7 from '../../assets/images/PlateMethod/перец.png';
 import Ellipse from '../../assets/images/элипс-метод-тарелки-страница.png'
 
@@ -16,11 +15,12 @@ import s from './styles.module.scss';
 import cn from 'classnames';
 
 export const PlateMethodBookPage = () => {
+	const isAuthorize = useSelector(state => state.auth.isAuthorize);
+	const theme = useSelector(state => state.theme);
+	
   return (
     <div className={s.plateMethod__container}>
-		<img className={s.plateMethod__container__bgImg1} src={BgImg1} alt="" />
 		<img className={s.plateMethod__container__bgImg2} src={BgImg2} alt="" />
-		<img className={s.plateMethod__container__bgImg6} src={BgImg6} alt="" />
 		<img className={s.plateMethod__container__bgImg7} src={BgImg7} alt="" />
 
 
@@ -61,7 +61,7 @@ export const PlateMethodBookPage = () => {
         </div>
       </div>
 
-		<div className={s.plateMethod__methodBlock__autors}>
+<div className={cn(s.plateMethod__methodBlock__autors, { [s.dark]: theme === 'dark', [s.light]: theme !== 'dark' })}>
           <div className={s.plateMethod__methodBlock__autorOne}>
             <img
               className={s.plateMethod__methodBlock__autorTwoImg}

@@ -2,7 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import s from './styles.module.scss';
-import { Logo } from '../ui/Logo';
+import LogoLight from '../../assets/images/logo-light.png';
+import LogoDark from '../../assets/images/logo-dark.png';
 import Instagram from '../../assets/images/icons/instagram.svg';
 import YouTube from '../../assets/images/icons/youtube.svg';
 import Telegram from '../../assets/images/icons/telegram.svg';
@@ -10,13 +11,13 @@ import QR from '../../assets/images/qr.png';
 
 export const Footer = () => {
   const isAuthorize = useSelector(state => state.auth.isAuthorize);
-  const theme = useSelector(state => state.theme); // Предположим, что тема хранится в state.theme
+  const theme = useSelector(state => state.theme);
 
   return (
     <div className={cn(s.footer__container, { [s.dark]: theme === 'dark', [s.light]: theme !== 'dark' })}>
       <div className={s.footer__wrapper}>
         <div className={s.footer__logo}>
-          <Logo />
+          <img src={theme === 'dark' ? LogoDark : LogoLight} alt="ЗОЖНИК" />
         </div>
         <div className={s.footer__navBlock}>
           <div className={s.footer__navList__one}>

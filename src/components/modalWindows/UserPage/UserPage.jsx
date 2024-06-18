@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import s from './styles.module.scss';
-import Theme from '../../assets/styles/themes/index';
-import { Button } from '../ui/Button';
+import Theme from '../../../assets/styles/themes/index';
+import { Button } from '../../ui/Button';
 import axios from 'axios';
 
-import x from '../../assets/images/icons/light/X.svg';
-import blueCart from '../../assets/images/icons/light/blue-cart.svg';
-import blueLike from '../../assets/images/icons/light/blue-like.svg';
-import blueSet from '../../assets/images/icons/light/blue-set.svg';
-import blueSup from '../../assets/images/icons/light/blue-sup.svg';
-import blueCartDark from '../../assets/images/icons/dark/blue-cart.svg';
-import blueLikeDark from '../../assets/images/icons/dark/blue-like.svg';
-import blueSetDark from '../../assets/images/icons/dark/blue-set.svg';
-import blueSupDark from '../../assets/images/icons/dark/blue-sup.svg';
+import x from '../../../assets/images/icons/light/X.svg';
+import blueCart from '../../../assets/images/icons/light/blue-cart.svg';
+import blueLike from '../../../assets/images/icons/light/blue-like.svg';
+import blueSet from '../../../assets/images/icons/light/blue-set.svg';
+import blueSup from '../../../assets/images/icons/light/blue-sup.svg';
+import blueCartDark from '../../../assets/images/icons/dark/blue-cart.svg';
+import blueLikeDark from '../../../assets/images/icons/dark/blue-like.svg';
+import blueSetDark from '../../../assets/images/icons/dark/blue-set.svg';
+import blueSupDark from '../../../assets/images/icons/dark/blue-sup.svg';
 
 const UserPage = ({ onClose }) => {
   const theme = useSelector(state => state.theme);
@@ -106,13 +106,9 @@ const UserPage = ({ onClose }) => {
 
   return (
     <div className={s.modalOverlay}>
-      <div className={s.modal__content__user}>
-        <div className={s.modal__name}></div>
-        <button className={s.closeButton} onClick={onClose}>
-          <img src={x} alt={'Закрыть'} />
-        </button>
+      <div className={s.modal__content}>
         <div className={s.profile__info}>
-          <div className={s.profile__infoBlock}>
+          <div className={s.profile__userInfo}>
             {editingField === 'username' ? (
               <input
                 type="text"
@@ -148,9 +144,14 @@ const UserPage = ({ onClose }) => {
               </div>
             )}
           </div>
+			 <div className={s.profile__controls}>
+			 <button className={s.profile__closeButton} onClick={onClose}>
+          <img src={x} alt={'Закрыть'} />
+        </button>
           <div className={s.profile__theme}>
             <Theme />
           </div>
+			 </div>
         </div>
         <div className={s.profile__menu}>
           <Link to="/inprogress" className={s.profile__menu__item}>

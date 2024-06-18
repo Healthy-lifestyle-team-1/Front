@@ -1,0 +1,102 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 1000px;
+  background-color: rgba($mainDark, 0.7);
+
+  z-index: 100000;
+}
+
+// убираем задний фон у категории
+.categoryModalOverlay {
+  background-color: transparent;
+}
+
+.modal {
+  &__content {
+    background: var(--background-color);
+    border-radius: 20px;
+    width: 500px;
+    height: auto;
+    position: absolute;
+    top: 7vw;
+    right: 15vw;
+    z-index: 100001;
+  }
+}
+
+.profile {
+  &__info {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: var(--color-blue);
+    min-height: 180px;
+    padding: 25px 0px 12px 32px;
+    border-radius: 20px;
+    color: var(--text-color);
+  }
+  &__userInfo {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__input {
+  }
+
+  &__name {
+    @include font-face-rubik(36px, 500, 120%);
+    margin-bottom: 1px;
+    color: var(--text-color);
+  }
+  &__phone {
+    @include font-face-rubik(32px, 400, 120%);
+  }
+
+  &__menu {
+    text-align: left;
+    margin-bottom: 15px;
+    padding: 0 32px;
+    &__item {
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      padding: 20px 0px 0px 0px;
+      @include font-face-rubik(28px, 400, 120%);
+      gap: 20px;
+      cursor: pointer;
+    }
+    &__icon {
+      font-size: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+  }
+  &__closeButton {
+    background-color: transparent;
+    border: none;
+  }
+  &__theme {
+    padding-top: 40px;
+    text-align: end;
+  }
+}
+
+.logoutButton {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+.item__img {
+  width: 100px;
+  height: 100px;
+}

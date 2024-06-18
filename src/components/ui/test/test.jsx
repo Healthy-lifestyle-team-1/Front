@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import s from './styles.module.scss';
 import { ButtonStone } from '../Button';
 import stone11 from '../../../assets/images/stones/верхний.камень-розовый1.png';
@@ -11,18 +12,34 @@ import stone13 from '../../../assets/images/stones/нижний-камень-г�
 import stone23 from '../../../assets/images/stones/нижний-камень-жёлтый2.png';
 import stone33 from '../../../assets/images/stones/нижний-камень-розовый3.png';
 
+import stone11Dark from '../../../assets/images/stones/stone11-dark.png';
+import stone21Dark from '../../../assets/images/stones/stone21-dark.png';
+import stone22Dark from '../../../assets/images/stones/stone22-dark.png';
+import stone32Dark from '../../../assets/images/stones/stone32-dark.png';
+import stone13Dark from '../../../assets/images/stones/stone13-dark.png';
+import stone33Dark from '../../../assets/images/stones/stone23-dark.png';
+
 const Test = ({ onButtonClick, activeIndex }) => {
+  const theme = useSelector(state => state.theme); 
+
   const buttons = [
     { title: 'Тарелка', index: 0 },
     { title: 'Книга', index: 1 },
     { title: 'Каталог', index: 2 },
   ];
 
-  const backgroundImages = [
-    [stone11, stone12, stone13],
-    [stone21, stone22, stone23],
-    [stone31, stone32, stone33],
-  ];
+  const backgroundImages = {
+    light: [
+      [stone11, stone12, stone13],
+      [stone21, stone22, stone23],
+      [stone31, stone32, stone33],
+    ],
+    dark: [
+      [stone11Dark, stone12, stone13Dark],
+      [stone21Dark, stone22Dark, stone23],
+      [stone31, stone32Dark, stone33Dark],
+    ],
+  };
 
   const buttonColors = [
     'backgroundColor__1',
@@ -36,7 +53,8 @@ const Test = ({ onButtonClick, activeIndex }) => {
 
   const getBackgroundImage = (position, activeIndex) => {
     const posIndex = position === 'first' ? 0 : position === 'second' ? 1 : 2;
-    return backgroundImages[activeIndex][posIndex];
+    const themeImages = backgroundImages[theme] || backgroundImages.light;
+    return themeImages[activeIndex][posIndex];
   };
 
   const renderButtons = () => {

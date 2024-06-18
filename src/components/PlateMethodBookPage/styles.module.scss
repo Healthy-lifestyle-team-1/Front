@@ -9,23 +9,11 @@
 	  position: relative;
 	  margin-bottom: 7vw;
  
-	  &__bgImg1 {
- position: absolute;
- top: 4vw;
- left: 32vw;
- width: 6vw;
-	  }
 	  &__bgImg2 {
 		 position: absolute;
 		 width: 10vw;
 		 top: 8vw;
 		 left: 3vw;
-	  }
-	  &__bgImg6 {
-		 position: absolute;
-		 left: 32vw;
-		 top: 17vw;
-		 width: 9vw;
 	  }
 	  &__bgImg7 {
 		 position: absolute;
@@ -85,10 +73,18 @@
 		 justify-content: center;
 		 gap: 2vw;
 		 margin-top: 2vw;
-		 background-image: url(../../assets/images/элипс-метод-тарелки-страница.png);
 		 background-repeat: no-repeat;
 		 background-size: 44vw;
-	  }
+		 color: var(--always-dark);
+	
+	  &.light {
+		background-image: url(../../assets/images/элипс-метод-тарелки-страница.png);
+	 }
+
+	 &.dark {
+		background-image: url(../../assets/images/элипс-метод-тарелки-страница-тёмная.png);
+	 }
+	}
  
 	  &__autorOne, &__autorTwo {
 		 display: flex;

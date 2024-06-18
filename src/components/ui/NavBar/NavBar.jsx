@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-import UserPage from '../../modalWindows/UserPage';
+import UserPage from '../../modalWindows/UserPage/UserPage';
 import CartPage from '../../modalWindows/CartPage';
 import { Authorization } from '../../Auth/Authorization';
 import { Registration } from '../../Auth/Registration';
