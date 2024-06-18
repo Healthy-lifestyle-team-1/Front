@@ -16,12 +16,12 @@
 		
   &__Text {
     padding: 10% 0;
+	 width: 25vw;
     display: flex;
     flex-direction: column;
     color: var(--text-color);
     &Titles {
       @include fontTitle2();
-      text-transform: uppercase;
       &Pink {
 			color: var(--peach);
       }
@@ -34,12 +34,12 @@
 }
   
   &__Img {
-	width: 90vw;
+	width: 50vw;
 	&Img {
 		position: absolute;
-		top: 0;
-		left: 5vw;
-		width: 90vw;
+		top: -10vw;
+		left: -13vw;
+		width: 120vw;
 		z-index: -1;
 	}
   }
