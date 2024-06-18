@@ -12,9 +12,10 @@ export const MainDish = ({ filteredTags, category }) => {
   useEffect(() => {
     const fetchPlates = async () => {
       let url = `${BASE_URL}/product/?category=3`;
-      if (category) {
-        url = `${BASE_URL}/product/?category=${category}`;
+      if (category === 7) {
+        url = `${BASE_URL}/product/?category=7`;
       }
+
       try {
         const response = await fetch(url);
         const data = await response.json();
@@ -84,29 +85,34 @@ export const MainDish = ({ filteredTags, category }) => {
     fetchCategories();
   }, [category]);
 
-  const filteredPlates =
-    filteredTags.length > 0
-      ? plates.filter(
-          plate => !plate.tags.some(tag => filteredTags.includes(tag)),
-        )
-      : plates;
+  const filteredPlates = plates
+    .filter(plate =>
+      filteredTags.length > 0
+        ? !plate.tags.some(tag => filteredTags.includes(tag))
+        : true,
+    )
+    .filter(plate => (category ? plate.categories.includes(category) : true));
 
   return (
     <div className={s.container}>
-      <p className={s.maindish__title}>Основное блюдо</p>
-      <div className={s.maindish__items}>
-        {filteredPlates.map((item, index) => (
-          <div key={index} className={s.card}>
-            <CardCatalog
-              {...item}
-              tags={item.tags}
-              categories={item.categories}
-              allTags={tags}
-              allCategories={categories}
-            />
-          </div>
-        ))}
-      </div>
+      <p className={s.maindish__title}>Основные блюда</p>
+      {filteredPlates.length > 0 ? (
+        <div className={s.maindish__items}>
+          {filteredPlates.map((item, index) => (
+            <div key={index} className={s.card}>
+              <CardCatalog
+                {...item}
+                tags={item.tags}
+                categories={item.categories}
+                allTags={tags}
+                allCategories={categories}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className={s.noResults}>Ничего не найдено</p>
+      )}
       <a className={s.maindish__link} href="/">
         смотреть все →
       </a>

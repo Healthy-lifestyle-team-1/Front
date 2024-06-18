@@ -5,7 +5,6 @@ import { toggleTag } from '../../core/store/tagsSlice';
 import cn from 'classnames';
 import s from './styles.module.scss';
 import { CatalogLinkButton as LinkButton } from './CatalogLinkButton';
-import { BASE_URL } from '../../core/url'; // Импортируем BASE_URL
 
 const tagNames = [
   'Без глютена',
@@ -34,6 +33,8 @@ export const NavCatalog = ({ setFilteredTags, setCategory }) => {
     if (tagIndex === 4) {
       // Завтрак
       setCategory(prevCategory => (prevCategory === 7 ? null : 7));
+    } else {
+      setCategory(null);
     }
   };
 

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { ButtonWithTheme } from '../../Button/ButtonWithTheme';
 import cn from 'classnames';
 import s from './styles.module.scss';
+import { icons } from '../../../../assets/images/icons/icons';
 
 export const CardCatalog = ({
   title,
@@ -38,10 +39,16 @@ export const CardCatalog = ({
           {tags.length > 0 ? (
             tags.map((tagId, index) => {
               const tagName = getTagNameById(tagId);
+              const iconSrc = icons[theme][tagName]; // предполагается, что иконки хранятся в объекте icons
               return (
-                <span key={index} className={s.tag}>
-                  {tagName}
-                </span>
+                iconSrc && (
+                  <img
+                    key={index}
+                    src={iconSrc}
+                    alt={tagName}
+                    className={s.icon}
+                  />
+                )
               );
             })
           ) : (
