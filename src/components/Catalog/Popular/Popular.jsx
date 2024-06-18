@@ -1,9 +1,10 @@
+// src/components/Catalog/Popular/index.js
 import React, { useEffect, useState } from 'react';
 import s from './styles.module.scss';
 import { CardCatalog } from '../../ui/Cards/CardCatalog';
 import { BASE_URL } from '../../../core/url';
 
-export const Popular = () => {
+export const Popular = ({ filteredTags }) => {
   const [plates, setPlates] = useState([]);
   const [tags, setTags] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -12,7 +13,7 @@ export const Popular = () => {
     const fetchPlates = async () => {
       try {
         const response = await fetch(
-          `${BASE_URL}/product/?name=&category=1&calories=&proteins=&fats=&carbs=&price=&is_prepared=&not_name=&not_calories=&not_proteins=&not_fats=&not_carbs=&not_price=&not_is_prepared=`,
+          `${BASE_URL}/product/?category=1`, // Предположим, что категория 1 - это популярные продукты
         );
         const data = await response.json();
         console.log('Fetched plates data:', data);
@@ -80,11 +81,18 @@ export const Popular = () => {
     fetchCategories();
   }, []);
 
+  const filteredPlates =
+    filteredTags.length > 0
+      ? plates.filter(
+          plate => !plate.tags.some(tag => filteredTags.includes(tag)),
+        )
+      : plates;
+
   return (
     <div className={s.container}>
       <p className={s.popular__title}>Популярное</p>
       <div className={s.popular__items}>
-        {plates.map((item, index) => (
+        {filteredPlates.map((item, index) => (
           <div key={index} className={s.card}>
             {console.log('Plate item:', item)}
             <CardCatalog

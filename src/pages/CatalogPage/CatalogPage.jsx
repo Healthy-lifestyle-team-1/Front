@@ -1,5 +1,5 @@
-import React from 'react';
-
+// src/pages/CatalogPage/index.js
+import React, { useState } from 'react';
 import { Header } from '../../components/Header';
 import { Heading } from '../../components/Catalog/Heading/Heading';
 import { Input } from '../../components/ui/Input';
@@ -14,16 +14,15 @@ import { CardNewsList } from '../../components/Catalog/NewsCatalog';
 import { Desserts } from '../../components/Catalog/Desserts';
 import { Advertisement } from '../../components/Advertisement';
 import { Footer } from '../../components/Footer';
-
-import cn from 'classnames';
 import s from './styles.module.scss';
 
-import { CardFood } from '../../components/ui/Cards/CardFood/CardFood';
-
 export const CatalogPage = () => {
+  const [filteredTags, setFilteredTags] = useState([]);
+
   const onSearch = () => {
     console.log('Searching');
   };
+
   return (
     <div className={s.catalogpage__container}>
       <Header />
@@ -36,31 +35,31 @@ export const CatalogPage = () => {
           onSearch={onSearch}
           placeholder={'Поиск'}
         />
-        <NavCatalog />
+        <NavCatalog setFilteredTags={setFilteredTags} />
       </div>
       <div id="Popular">
-        <Popular />
+        <Popular filteredTags={filteredTags} />
       </div>
       <div id="CombinedDishes">
-        <CombinedDishes />
+        <CombinedDishes filteredTags={filteredTags} />
       </div>
       <div id="CardNewsList">
         <CardNewsList />
       </div>
       <div id="MainDish">
-        <MainDish />
+        <MainDish filteredTags={filteredTags} />
       </div>
       <div id="SideDish">
-        <SideDish />
+        <SideDish filteredTags={filteredTags} />
       </div>
       <div id="ChooseBest">
         <ChooseBest />
       </div>
       <div id="Soup">
-        <Soup />
+        <Soup filteredTags={filteredTags} />
       </div>
       <div id="Desserts">
-        <Desserts />
+        <Desserts filteredTags={filteredTags} />
       </div>
       <Advertisement />
       <Footer />

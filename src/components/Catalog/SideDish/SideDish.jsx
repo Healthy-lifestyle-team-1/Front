@@ -1,9 +1,10 @@
+// src/components/Catalog/SideDish/index.js
 import React, { useState, useEffect } from 'react';
 import s from './styles.module.scss';
 import { CardCatalog } from '../../ui/Cards/CardCatalog/CardCatalog';
 import { BASE_URL } from '../../../core/url';
 
-export const SideDish = () => {
+export const SideDish = ({ filteredTags }) => {
   const [plates, setPlates] = useState([]);
   const [tags, setTags] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -80,11 +81,18 @@ export const SideDish = () => {
     fetchCategories();
   }, []);
 
+  const filteredPlates =
+    filteredTags.length > 0
+      ? plates.filter(
+          plate => !plate.tags.some(tag => filteredTags.includes(tag)),
+        )
+      : plates;
+
   return (
     <div className={s.container}>
       <p className={s.sidedish__title}>Гарниры</p>
       <div className={s.sidedish__items}>
-        {plates.map((item, index) => (
+        {filteredPlates.map((item, index) => (
           <div key={index} className={s.card}>
             <CardCatalog
               {...item}

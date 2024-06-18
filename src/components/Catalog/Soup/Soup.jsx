@@ -1,9 +1,10 @@
+// src/components/Catalog/Soup/index.js
 import React, { useState, useEffect } from 'react';
 import s from './styles.module.scss';
 import { CardCatalog } from '../../ui/Cards/CardCatalog/CardCatalog';
 import { BASE_URL } from '../../../core/url';
 
-export const Soup = () => {
+export const Soup = ({ filteredTags }) => {
   const [plates, setPlates] = useState([]);
   const [tags, setTags] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -80,12 +81,20 @@ export const Soup = () => {
     fetchCategories();
   }, []);
 
+  const filteredPlates =
+    filteredTags.length > 0
+      ? plates.filter(
+          plate => !plate.tags.some(tag => filteredTags.includes(tag)),
+        )
+      : plates;
+
   return (
     <div className={s.container}>
       <p className={s.soup__title}>Супы</p>
       <div className={s.soup__items}>
-        {plates.map((item, index) => (
+        {filteredPlates.map((item, index) => (
           <CardCatalog
+            key={index}
             {...item}
             tags={item.tags}
             categories={item.categories}

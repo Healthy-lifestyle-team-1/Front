@@ -25,7 +25,7 @@ const tagToFilterParam = {
   3: '3', // Без лактозы
 };
 
-export const NavCatalog = () => {
+export const NavCatalog = ({ setFilteredTags }) => {
   const activeTags = useSelector(state => state.tags);
   const dispatch = useDispatch();
 
@@ -34,31 +34,12 @@ export const NavCatalog = () => {
   };
 
   useEffect(() => {
-    const fetchFilteredProducts = async () => {
-      const activeFilterParams = activeTags
-        .filter(tagIndex => tagIndex in tagToFilterParam)
-        .map(tagIndex => tagToFilterParam[tagIndex])
-        .join('&not_tag=');
+    const activeFilterParams = activeTags
+      .filter(tagIndex => tagIndex in tagToFilterParam)
+      .map(tagIndex => parseInt(tagToFilterParam[tagIndex]));
 
-      if (activeFilterParams) {
-        try {
-          const response = await fetch(
-            `${BASE_URL}/product/?not_tag=${activeFilterParams}`,
-          );
-          if (response.ok) {
-            const data = await response.json();
-            console.log(`Количество найденных объектов: ${data.length}`);
-          } else {
-            console.error('Ошибка при получении данных');
-          }
-        } catch (error) {
-          console.error('Ошибка при выполнении запроса:', error);
-        }
-      }
-    };
-
-    fetchFilteredProducts();
-  }, [activeTags]);
+    setFilteredTags(activeFilterParams);
+  }, [activeTags, setFilteredTags]);
 
   return (
     <div className={s.container}>
