@@ -38,16 +38,13 @@
     &__title {
       @include fontTitle2();
       margin-bottom: 40px;
-
-      &Pink {
-        color: var(--peach);
-      }
     }
 
     &__text {
       @include fontMainText2();
       margin-bottom: 80px;
       width: 27vw;
+      padding-right: 7vw;
     }
 
     &__btn {
