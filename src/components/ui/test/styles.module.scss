@@ -16,26 +16,27 @@
 }
 
 .first {
-  width: 13vw;
-  height: 10vw;
+  width: 18vw;
+  height: 13vw;
   background-size: contain;
   background-repeat: no-repeat;
-  transform: translateX(-5vw);
+  transform: translateX(-10vw);
 }
 
 .second {
-  width: 15vw;
-  height: 17vw;
+  width: 17vw;
+  height: 19vw;
   background-size: contain;
   background-repeat: no-repeat;
+  transform: translateX(4vw);
 }
 
 .third {
-  width: 13vw;
-  height: 12vw;
+  width: 16vw;
+  height: 14vw;
   background-size: contain;
   background-repeat: no-repeat;
-  transform: translateX(-6vw);
+  transform: translateX(-9vw);
 }
 
 .button {
@@ -45,7 +46,7 @@
   align-items: center;
   border: none;
   border-radius: 160px;
-  @include fontSubTitle2();
+  @include fontSubTitle1();
   cursor: pointer;
 
   &.backgroundColor__1 {
