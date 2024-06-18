@@ -27,6 +27,7 @@ export const CombinedDishes = ({ filteredTags, category }) => {
             weight: `${item.weight} г`,
             calories: `${item.calories} ккал`,
             img: item.image,
+            price: item.price,
             categories: item.category || [],
             tags: item.tag || [],
           }));

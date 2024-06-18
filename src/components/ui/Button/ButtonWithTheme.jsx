@@ -1,3 +1,4 @@
+// src/components/ui/ButtonWithTheme/index.js
 import React, { useState } from 'react';
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -9,6 +10,7 @@ export function ButtonWithTheme({
   isActive,
   size,
   withCounter,
+  showRubleSign,
   ...props
 }) {
   const [counterValue, setCounterValue] = useState(1); // Начальное значение установлено в 1
@@ -50,7 +52,10 @@ export function ButtonWithTheme({
           </button>
         </div>
       ) : (
-        title
+        <>
+          {title}
+          {showRubleSign && ' ₽'}
+        </>
       )}
     </div>
   );

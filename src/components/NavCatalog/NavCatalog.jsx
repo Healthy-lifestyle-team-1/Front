@@ -32,9 +32,8 @@ export const NavCatalog = ({ setFilteredTags, setCategory }) => {
   const handleTagClick = tagIndex => {
     dispatch(toggleTag(tagIndex));
     if (tagIndex === 4) {
-      setCategory(7); // Завтрак
-    } else {
-      setCategory(null); // Сброс категории
+      // Завтрак
+      setCategory(prevCategory => (prevCategory === 7 ? null : 7));
     }
   };
 
