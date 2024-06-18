@@ -20,7 +20,7 @@ export const Popular = () => {
         if (Array.isArray(data)) {
           const formattedData = data.map(item => ({
             title: item.title,
-            extra: item.cooking_method,
+            extra: item.subtitle,
             weight: `${item.weight} г`,
             calories: `${item.calories} ккал`,
             img: item.image,

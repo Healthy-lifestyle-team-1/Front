@@ -40,13 +40,13 @@ export const CatalogPage = () => {
       </div>
       {/* <CardFood /> */}
       <Popular />
-      {/* <CombinedDishes />
+      <CombinedDishes />
       <CardNewsList />
       <MainDish />
       <SideDish />
       <ChooseBest />
       <Soup />
-      <Desserts /> */}
+      <Desserts />
       <Advertisement />
       <Footer />
     </div>
