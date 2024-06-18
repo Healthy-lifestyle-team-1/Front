@@ -1,5 +1,5 @@
-import React from 'react';
-
+// src/pages/CatalogPage/index.js
+import React, { useState } from 'react';
 import { Header } from '../../components/Header';
 import { Heading } from '../../components/Catalog/Heading/Heading';
 import { Input } from '../../components/ui/Input';
@@ -10,20 +10,20 @@ import { MainDish } from '../../components/Catalog/MainDish';
 import { SideDish } from '../../components/Catalog/SideDish';
 import { ChooseBest } from '../../components/Catalog/ChooseBest';
 import { Soup } from '../../components/Catalog/Soup';
-import { CardNewsList } from '../../components/Catalog/NewsCatalog';
 import { Desserts } from '../../components/Catalog/Desserts';
+import { CardNewsList } from '../../components/Catalog/NewsCatalog';
 import { Advertisement } from '../../components/Advertisement';
 import { Footer } from '../../components/Footer';
-
-import cn from 'classnames';
 import s from './styles.module.scss';
 
-import { CardFood } from '../../components/ui/Cards/CardFood/CardFood';
-
 export const CatalogPage = () => {
+  const [filteredTags, setFilteredTags] = useState([]);
+  const [category, setCategory] = useState(null);
+
   const onSearch = () => {
     console.log('Searching');
   };
+
   return (
     <div className={s.catalogpage__container}>
       <Header />
@@ -36,19 +36,41 @@ export const CatalogPage = () => {
           onSearch={onSearch}
           placeholder={'Поиск'}
         />
-        <NavCatalog />
+        <NavCatalog
+          setFilteredTags={setFilteredTags}
+          setCategory={setCategory}
+        />
       </div>
-      <CardFood />
-      <Popular />
-      {/* <CombinedDishes />
-      <CardNewsList />
-      <MainDish />
-      <SideDish />
-      <ChooseBest />
-      <Soup />
-      <Desserts /> */}
-      <Advertisement />
-      <Footer />
+      <div id="Popular">
+        <Popular filteredTags={filteredTags} category={category} />
+      </div>
+      <div id="CombinedDishes">
+        <CombinedDishes filteredTags={filteredTags} category={category} />
+      </div>
+      <div id="MainDish">
+        <MainDish filteredTags={filteredTags} category={category} />
+      </div>
+      <div id="SideDish">
+        <SideDish filteredTags={filteredTags} category={category} />
+      </div>
+      <div id="Soup">
+        <Soup filteredTags={filteredTags} category={category} />
+      </div>
+      <div id="Desserts">
+        <Desserts filteredTags={filteredTags} category={category} />
+      </div>
+      <div id="CardNewsList">
+        <CardNewsList />
+      </div>
+      <div id="ChooseBest">
+        <ChooseBest />
+      </div>
+      <div id="Advertisement">
+        <Advertisement />
+      </div>
+      <div id="Footer">
+        <Footer />
+      </div>
     </div>
   );
 };

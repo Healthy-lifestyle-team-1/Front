@@ -20,6 +20,9 @@ const UserPage = ({ onClose }) => {
   const theme = useSelector(state => state.theme);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
+  const [editingField, setEditingField] = useState(null);
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
     const checkAuthentication = async () => {
@@ -37,6 +40,8 @@ const UserPage = ({ onClose }) => {
           if (response.status === 200) {
             setIsAuthenticated(true);
             setUserInfo(response.data); // Сохраняем информацию о пользователе
+            setUsername(response.data.user.username);
+            setEmail(response.data.user.email);
           }
         } catch (error) {
           console.error('User is not authenticated', error);
@@ -63,29 +68,90 @@ const UserPage = ({ onClose }) => {
     window.location.reload();
   };
 
+  const handleSave = async () => {
+    try {
+      const token = localStorage.getItem('access');
+      const response = await axios.put(
+        'https://grikoandrey.pythonanywhere.com/user/',
+        {
+          username,
+          email,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      if (response.status === 200) {
+        setUserInfo({
+          ...userInfo,
+          user: { ...userInfo.user, username, email },
+        });
+        setEditingField(null);
+      }
+    } catch (error) {
+      console.error('Error updating user info:', error);
+    }
+  };
+
+  const handleFieldClick = field => {
+    setEditingField(field);
+  };
+
+  const handleBlur = () => {
+    handleSave();
+    setEditingField(null);
+  };
+
   return (
     <div className={s.modalOverlay}>
-      <div className={s.modal__content}>
+      <div className={s.modal__content__user}>
         <div className={s.modal__name}></div>
         <button className={s.closeButton} onClick={onClose}>
           <img src={x} alt={'Закрыть'} />
         </button>
         <div className={s.profile__info}>
           <div className={s.profile__infoBlock}>
-            <div className={s.profile__name}>
-              {userInfo && userInfo.user ? userInfo.user.username : ''}
-            </div>
-            <div className={s.profile__phone}>
-              {userInfo && userInfo.user 
-                ? userInfo.user.email || userInfo.user.phone
-                : ''}
-            </div>
+            {editingField === 'username' ? (
+              <input
+                type="text"
+                value={username}
+                onChange={e => setUsername(e.target.value)}
+                className={s.profile__input}
+                onBlur={handleBlur}
+                autoFocus
+              />
+            ) : (
+              <div
+                className={s.profile__name}
+                onClick={() => handleFieldClick('username')}
+              >
+                {userInfo && userInfo.user ? userInfo.user.username : ''}
+              </div>
+            )}
+            {editingField === 'email' ? (
+              <input
+                type="text"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                className={s.profile__input}
+                onBlur={handleBlur}
+                autoFocus
+              />
+            ) : (
+              <div
+                className={s.profile__phone}
+                onClick={() => handleFieldClick('email')}
+              >
+                {userInfo && userInfo.user ? userInfo.user.email : ''}
+              </div>
+            )}
           </div>
           <div className={s.profile__theme}>
             <Theme />
           </div>
         </div>
-
         <div className={s.profile__menu}>
           <Link to="/inprogress" className={s.profile__menu__item}>
             <img

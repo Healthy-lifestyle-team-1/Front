@@ -3,6 +3,7 @@ import themeReducer from '../../assets/styles/themes/slice';
 import tagsReducer from './tagsSlice';
 import authReducer from './authSlice';
 import starsReducer from './starsSlice';
+import selectedTagReducer from './selectedTagsSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     tags: tagsReducer,
     auth: authReducer,
     stars: starsReducer,
+    selectedTag: selectedTagReducer,
   },
 });
 

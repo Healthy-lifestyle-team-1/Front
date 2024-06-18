@@ -6,7 +6,7 @@ import { HomePage } from './pages/HomePage';
 import Theme from './assets/styles/themes/index';
 
 import './App.css';
-import { CatalogPage } from './pages/CatalogPage/CatalogPage';
+import { CatalogPage } from './pages/CatalogPage';
 import { BookPage } from './pages/BookPage';
 import { NewsPage } from './pages/NewsPage';
 import { ConstructorPage } from './pages/ConstructorPage/ConstructorPage';

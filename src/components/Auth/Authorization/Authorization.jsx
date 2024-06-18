@@ -27,8 +27,16 @@ export const Authorization = ({
       setStep(2);
       setError('');
     } catch (error) {
+      if (error.response && error.response.status === 404) {
+        setError(
+          'Такой пользователь не найден. Пожалуйста, зарегистрируйтесь.',
+        );
+      } else {
+        setError(
+          'Ошибка при авторизации. Проверьте данные и попробуйте снова.',
+        );
+      }
       console.error('Error during login:', error);
-      setError('Ошибка при авторизации. Проверьте данные и попробуйте снова.');
     }
   };
 
@@ -47,8 +55,7 @@ export const Authorization = ({
       }
     } catch (error) {
       console.error('Error during verification:', error);
-      // setError('Неправильный код или истекло время его действия.');
-      setError('Пользователь уже существует. Пожалуйста, залогиньтесь.');
+      setError('Неправильный код или истекло время его действия.');
     }
   };
 
@@ -82,6 +89,7 @@ export const Authorization = ({
         <div className={s.login__info}>
           {step === 1 && (
             <div className={s.login__infoBlock}>
+              <div style={{ width: '300px', height: '48px' }} />
               <input
                 type="text"
                 className={s.login__input}

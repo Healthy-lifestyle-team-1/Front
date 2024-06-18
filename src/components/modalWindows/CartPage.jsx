@@ -23,10 +23,10 @@ const CartPage = ({ onClose }) => {
   return (
     <div className={s.modalOverlay}>
       <div className={s.modal__content}>
-        <button className={s.closeButton} onClick={onClose}>
-          <img src={x} alt={'Закрыть'} />
-        </button>
         <div className={s.cart__header}>
+          <button className={s.closeButton} onClick={onClose}>
+            <img className={s.closeButton__img} src={x} alt={'Закрыть'} />
+          </button>
           <div className={s.cart__header__title}>Корзина</div>
           <div className={s.cart__header__text}>
             <div className={s.cart__header__text_total}>Сумма товаров</div>
