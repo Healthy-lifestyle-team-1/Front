@@ -1,0 +1,148 @@
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($mainDark, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nreview {
+  &__content {
+    position: absolute;
+    width: 1080px;
+    background-color: var(--background-color);
+    overflow: hidden;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 4%;
+    color: var(--text-color);
+  }
+  &__info {
+    width: 40%;
+    &Img {
+    }
+    &Text {
+      display: flex;
+      flex-direction: column;
+      &Labels {
+        padding-left: 40px;
+        display: flex;
+        flex-direction: row;
+        gap: 5%;
+      }
+      &Title {
+        @include fontTitle2;
+        padding: 16px 0 10px 40px;
+        text-transform: none;
+      }
+      &Description {
+        @include fontMainText1;
+        padding-left: 40px;
+      }
+      &Contains {
+        @include fontMainText1;
+        padding-left: 40px;
+        display: flex;
+        gap: 16px;
+        color: var(--border-input);
+        padding: 24px 0 20px 40px;
+        // &Weight {
+        // }
+        // &Calories {
+        // }
+      }
+    }
+  }
+
+  &__rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 38px 40px 24px 0;
+    &X {
+      position: absolute;
+      top: 23px;
+      right: 23px;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+    }
+    &Title {
+      @include fontSubTitle2;
+    }
+    // &Stars {
+    // }
+    &Comment {
+      height: 58px;
+      width: 580px;
+      display: flex;
+      align-items: center;
+      border: 1px solid $grayLight;
+      border-radius: 20px;
+      padding: 25px;
+      @include fontMainText1;
+      color: $mainDark;
+      &::placeholder {
+        @include fontMainText1;
+        color: var(--color-input);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    &Photo {
+      display: flex;
+      gap: 32px;
+      &Upload {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid $grayLight;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: var(--background-drag);
+
+        input[type='file'] {
+          //обнеление стилей инпута
+          &::-webkit-file-upload-button {
+            visibility: hidden;
+          }
+          &::-moz-file-upload-button {
+            visibility: hidden;
+          }
+          &::-ms-browse {
+            visibility: hidden;
+          }
+          //стили инпута
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          background-color: $mainGreenapple;
+          border: none;
+          background-image: url('../../../assets/images/icons/plus.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          cursor: pointer;
+        }
+      }
+      &More {
+        @include fontMainText1;
+        align-self: center;
+        color: var(--border-input);
+      }
+    }
+    // &Button {
+    // }
+  }
+}
