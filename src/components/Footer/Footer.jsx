@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import s from './styles.module.scss';
 import { Logo } from '../ui/Logo';
-import AppStore from '../../assets/images/icons/app-store.svg';
-import GooglePlay from '../../assets/images/icons/google-play.svg';
 import Instagram from '../../assets/images/icons/instagram.svg';
 import YouTube from '../../assets/images/icons/youtube.svg';
 import Telegram from '../../assets/images/icons/telegram.svg';
@@ -55,9 +53,9 @@ export const Footer = () => {
             )}
 				</div>
 				<div className={s.footer__navList__three}>
-				<a className={s.footer__navList__item} href="">
-              Связаться с нами
-            </a>
+				<span className={s.footer__navList__item} href="">
+              Связаться с нами :
+            </span>
 				<a className={s.footer__navList__item} href="">
 				+7 999 999 99 99
             </a>
@@ -91,7 +89,7 @@ export const Footer = () => {
           
 
           <div className={s.footer__navList__five}>
-				<span>Скачай с помощью</span>
+				<span className={s.footer__navList__item} >Скачай с помощью</span>
             <img className={s.footer__qrImg} src={QR} alt="qr" />
           </div>
 			 </div>
