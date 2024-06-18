@@ -36,20 +36,24 @@ export const CardCatalog = ({
     <div className={s.container}>
       <div className={s.cardfood__info}>
         <div className={s.cardfood__labels}>
-          {tags.map((tagId, index) => {
-            const tagName = getTagNameById(tagId);
-            const iconSrc = icons[theme][tagName];
-            return (
-              iconSrc && (
-                <img
-                  key={index}
-                  src={iconSrc}
-                  alt={tagName}
-                  className={s.icon}
-                />
-              )
-            );
-          })}
+          {tags.length > 0 ? (
+            tags.map((tagId, index) => {
+              const tagName = getTagNameById(tagId);
+              const iconSrc = icons[theme][tagName];
+              return (
+                iconSrc && (
+                  <img
+                    key={index}
+                    src={iconSrc}
+                    alt={tagName}
+                    className={s.icon}
+                  />
+                )
+              );
+            })
+          ) : (
+            <div className={s.invisibleBlock}></div>
+          )}
         </div>
         <div className={s.cardfood__title}>{title}</div>
         <div className={s.cardfood__extra}>{extra}</div>
@@ -59,10 +63,10 @@ export const CardCatalog = ({
         </div>
         <ButtonWithTheme colorScheme={1} title={'100 ₽'} size={3} />
       </div>
-      <div className={s.cardfood__line}>
+      {/* <div className={s.cardfood__line}>
         <img src={line} alt="линия"></img>
-      </div>
-      <div className={s.cardfood__Img}>
+      </div> */}
+      <div className={s.cardfood__Img} style={{ display: 'flex' }}>
         <img
           className={s.cardfood__plateImg}
           src={img}

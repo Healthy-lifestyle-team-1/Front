@@ -19,7 +19,7 @@
     background: var(--background-color);
     border-radius: 20px;
     width: 500px;
-    height: 600px;
+    height: auto;
     position: absolute;
     top: 5vw;
     right: 2vw;
@@ -29,6 +29,16 @@
       height: 620px;
       border: 2px solid $mainDark;
       margin: 200px 0 0 0;
+    }
+    &__user {
+      background: var(--background-color);
+      border-radius: 20px;
+      width: 500px;
+      height: 600px;
+      position: absolute;
+      top: 5vw;
+      right: 9vw;
+      z-index: 100001;
     }
   }
   &__name {
@@ -64,41 +74,33 @@
 }
 
 .closeButton {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  border: none;
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 500px;
+  height: 62px;
   background-color: transparent;
+  border: none;
+  text-align: end;
+  padding: 12px 32px 0 0;
 }
 
 .cart {
   width: 600px;
   height: 820px;
   &__header {
-    margin-bottom: 10px;
+    background-color: var(--peach);
+    border-radius: 20px;
     text-align: left;
-
     &__title {
-      padding: 37px 0 31px 30px;
-      @include fontTitle1;
+      padding-left: 32px;
+      @include fontTitle2;
       color: $mainDark;
     }
     &__text {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      background-color: #ff867c;
       color: $mainLight;
       @include font-face-rubik(32px, 500, 120%);
-      padding: 20px 47px 20px 33px;
-      gap: 85px;
+      padding: 0 32px 0 32px;
       &__total {
       }
       &__totalAmount {
@@ -116,7 +118,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
-    border-bottom: 1px dashed #ccc;
 
     &__image {
       width: 50px;

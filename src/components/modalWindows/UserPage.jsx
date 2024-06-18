@@ -106,7 +106,7 @@ const UserPage = ({ onClose }) => {
 
   return (
     <div className={s.modalOverlay}>
-      <div className={s.modal__content}>
+      <div className={s.modal__content__user}>
         <div className={s.modal__name}></div>
         <button className={s.closeButton} onClick={onClose}>
           <img src={x} alt={'Закрыть'} />
