@@ -1,10 +1,10 @@
 .container {
     display: flex;
-	 position: relative;
     margin: 0 auto;
     width: 100%;
     padding-top: 8vw;
-	 height: 55vw;
+	 height: 60vw;
+	 margin-bottom: 130px;
 }
 
 .choosebest {
@@ -34,11 +34,13 @@
 }
   
   &__Img {
-	width: 50vw;
+	width: 55vw;
+	overflow: hidden;
+	position: relative;
 	&Img {
 		position: absolute;
-		top: -10vw;
-		left: -13vw;
+		top: -11vw;
+		left: -60vw;
 		width: 120vw;
 		z-index: -1;
 	}

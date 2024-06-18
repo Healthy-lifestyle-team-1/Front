@@ -5,17 +5,23 @@ a {
 }
 
 .footer {
-  &__container {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    background-image: url('../../assets/images/Подвал-фон.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-	 color: var(--always-white);
-
-  }
+	&__container {
+	  width: 100%;
+	  height: auto;
+	  overflow: hidden;
+	  background-size: 100%;
+	  background-repeat: no-repeat;
+	  margin: 0 auto;
+	  color: var(--always-white);
+ 
+	  &.light {
+		 background-image: url('../../assets/images/Подвал-фон.png');
+	  }
+ 
+	  &.dark {
+		 background-image: url('../../assets/images/Подвал-фон-тёмная.png');
+	  }
+	}
 
   &__wrapper {
     width: 100%;
