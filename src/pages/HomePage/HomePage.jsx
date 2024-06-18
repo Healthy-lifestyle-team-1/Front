@@ -1,42 +1,54 @@
-import React, { useState } from 'react';
-// import { Main } from "../../components/Main/Main";
+import React, { useState, useEffect } from 'react';
 import { Header } from '../../components/Header/Header';
 import { PlateConstructor } from '../../components/PlateConstructor';
 import { Advertisement } from '../../components/Advertisement';
 
-import { Input } from '../../components/ui/Input/Input';
-import DropDown from '../../components/ui/DropDown/DropDown';
+import { ContentSlider } from '../../components/ui/Sliders/ContentSlider';
 import { PlateMethod } from '../../components/PlateMethod';
 import { ArcSlider } from '../../components/ui/Sliders/ArcSlider';
-import { Button } from '../../components/ui/Button/Button';
-import { ButtonWithTheme } from '../../components/ui/Button';
 import { Footer } from '../../components/Footer/Footer';
-import { ContentSlider } from '../../components/ui/Sliders/ContentSlider';
+import { SliderNews } from '../../components/ui/Sliders/SliderNews';
 import { DailyRation } from '../../components/DailyRation';
 
-import cn from 'classnames';
 import s from './styles.module.scss';
-import { StarRating } from '../../components/ui/StarRating/StarRating';
-import { SliderNews } from '../../components/ui/Sliders/SliderNews';
-import { OnBoarding } from '../../components/Auth/OnBoarding/OnBoarding';
-
-const options = ['Что-то', 'Еще что-то', 'Супер что-то'];
 
 export const HomePage = () => {
-  const handleSearch = query => {
-    console.log('Searching for:', query);
+  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+
+  const handleScroll = () => {
+    const currentScrollTop = window.scrollY;
+
+    if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+      // Скроллим вниз
+      setIsScrollingUp(false);
+    } else if (currentScrollTop < lastScrollTop) {
+      // Скроллим вверх
+      setIsScrollingUp(true);
+    }
+
+    setLastScrollTop(currentScrollTop);
   };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollTop]);
 
   return (
     <div className={s.container}>
-      <Header />
+      <div className={isScrollingUp ? s.showHeader : s.hideHeader}>
+        <Header />
+      </div>
       <ContentSlider />
       <SliderNews />
       <PlateConstructor />
       <PlateMethod />
-      {/* <OnBoarding /> */}
       <ArcSlider />
-		<DailyRation />
+      <DailyRation />
       <Advertisement />
       <Footer />
     </div>
