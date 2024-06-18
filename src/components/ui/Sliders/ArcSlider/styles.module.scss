@@ -74,8 +74,6 @@
 				width: 57vw;
 				margin-top: 8vw;
 
-
-
 				&__title {
 					@include fontTitle2();
 					margin-bottom: 80px;
@@ -83,6 +81,13 @@
 					&__pink {
 						color: var(--peach);
 					}
+				}
+
+				&__labels {
+					display: flex;
+					flex-wrap: nowrap;
+					gap: 18px;
+					margin-bottom: 20px
 				}
 
 				&__dishName {
@@ -111,6 +116,20 @@
 					&__calories {
 						@include fontMainText1();
 					}
+					
+				}
+				&__showAll {
+					width: 100%;
+					display: flex;
+					justify-content: end;
+				}
+
+				&__showAllBtn {
+					margin-top: 80px;
+					padding-right: 32px;
+					background-color: transparent;
+					border: none;
+					color: var(--text-color);
 				}
 			}
 		 }
