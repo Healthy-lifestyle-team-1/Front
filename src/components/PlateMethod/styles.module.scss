@@ -9,28 +9,22 @@
 	 margin-top: 3vw;
 	 position: relative;
 
-	 &__bgImg1 {
-position: absolute;
-top: 17vw;
-left: 28vw;
-width: 4vw;
-	 }
 	 &__bgImg2 {
 		position: absolute;
-		width: 8vw;
-		top: 19vw;
+		width: 10vw;
+		top: 18vw;
 		left: 3vw;
 	 }
 	 &__bgImg3 {
 		position: absolute;
 		width: 14vw;
 		left: 54vw;
-		top: 44vw;
+		top: 46vw;
 	 }
 	 &__bgImg4 {
 		position: absolute;
-		top: 2vw;
-		width: 8vw;
+		top: 3vw;
+		width: 7vw;
 		left: 3vw;
 	 }
 	 &__bgImg5 {
@@ -39,15 +33,9 @@ width: 4vw;
 		left: 47vw;
 		top: 29vw;
 	 }
-	 &__bgImg6 {
-		position: absolute;
-		left: 35vw;
-		top: 26vw;
-		width: 9vw;
-	 }
 	 &__bgImg7 {
 		position: absolute;
-		left: 40vw;
+		left: 38vw;
 		top: 14vw;
 		width: 10vw;
 	 }
@@ -62,9 +50,9 @@ width: 4vw;
     &__title {
       text-transform: uppercase;
       font-weight: 700;
-      font-size: 8vw;
+      font-size: 7vw; 
       width: 100%;
-      line-height: normal;
+      line-height: 130%;
 		z-index: 10;
 		color: var(--text-color);
 
@@ -75,7 +63,7 @@ width: 4vw;
 
       &--salmon {
 		color: var(--peach);
-        padding-left: 20%;
+        padding-left: 25%;
       }
     }
 
@@ -83,18 +71,19 @@ width: 4vw;
       width: 100%;
       display: flex;
       flex-wrap: nowrap;
-      gap: 9%;
-      margin-top: 7vw;
+      margin-top: 2vw;
     }
 
     &__autor {
       display: flex;
       flex-direction: column;
-      max-width: 30%;
+		align-items: center;
+      max-width: 33%;
+		margin-top: 2vw;
 
 
       &Img {
-        width: 100%;
+        width: 11vw;
       }
 
       &Name {
@@ -112,13 +101,15 @@ width: 4vw;
 
     &__autorsDottedLineImg {
       height: 100%;
-      width: 3%;
+      width: 4%;
+		margin-right: 2vw;
+		margin-left: 2vw;
     }
 
 	 &__btn {
 		display: flex;
-		justify-content: center;
-		margin-top: 5vw;
+		margin-left: 7.5vw;
+		margin-top: 60px;
 	  }
   }
 
@@ -129,17 +120,12 @@ width: 4vw;
 
     &Imgs {
       width: 100%;
-      background-image: url(../../assets/images/Ellipse-salmon.png);
-      background-position: top center;
-      background-repeat: no-repeat;
-		background-size: 40vw;
     }
 
     &Img {
-      width: 43vw;
+      width: 52vw;
       height: auto;
-      margin-top: 17%;
-      padding-right: 13%;
+      padding-right: 11%;
     }
   }
 

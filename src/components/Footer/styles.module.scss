@@ -1,48 +1,86 @@
 a {
   list-style: none;
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--always-white);
 }
 
 .footer {
-  &__container {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    background-image: url('../../assets/images/footer.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-	 color: var(--always-dark);
-  }
+	&__container {
+	  width: 100%;
+	  height: auto;
+	  overflow: hidden;
+	  background-size: 100%;
+	  background-repeat: no-repeat;
+	  margin: 0 auto;
+	  color: var(--always-white);
+ 
+	  &.light {
+		 background-image: url('../../assets/images/Подвал-фон.png');
+	  }
+ 
+	  &.dark {
+		 background-image: url('../../assets/images/Подвал-фон-тёмная.png');
+	  }
+	}
 
   &__wrapper {
     width: 100%;
-    margin-top: 10vw;
+    margin-top: 1vw;
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    padding: 32px;
+    flex-direction: column;
+    padding: 50px 32px 20px 32px;
+	 
   }
+
+  &__logo {
+	margin-right: 44px;
+ }
 
   &__navBlock {
     display: flex;
     flex-wrap: nowrap;
-  }
-
-  &__logo {
-    margin-right: 44px;
+	 justify-content: space-between;
+	 margin-bottom: 30px;
   }
 
   &__navList {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding-top: 16px;
+
 
     &__item {
       @include fontMainText2();
     }
+
+	 &__one {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		padding-top: 16px;
+	 }
+	 &__two {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		padding-top: 16px;
+	 }
+	 &__three {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		padding-top: 16px;
+	 }
+	 &__four {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		padding-top: 16px;
+	 }
+	 &__five {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 16px;
+		padding-top: 16px;
+	 }
   }
 
   &__socialAndAppAndQrWrapper {
@@ -55,6 +93,7 @@ a {
   &__socialAndAppBlock {
     display: flex;
     flex-direction: column;
+
   }
 
   &__socialBlock {
@@ -90,12 +129,6 @@ a {
     gap: 12px;
   }
 
-  &__QR {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
-  }
 
   &__rightsText {
     text-align: center;
@@ -103,4 +136,9 @@ a {
     margin-bottom: 32px;
     padding: 0px 20px;
   }
+
+&__qrImg {
+	width: 7vw;
+	text-align: center;
+}
 }

@@ -44,27 +44,31 @@ export const CatalogPage = () => {
       <div id="Popular">
         <Popular filteredTags={filteredTags} category={category} />
       </div>
-      <div id="CombinedDishes">
-        <CombinedDishes filteredTags={filteredTags} category={category} />
-      </div>
-      <div id="MainDish">
-        <MainDish filteredTags={filteredTags} category={category} />
-      </div>
-      <div id="SideDish">
-        <SideDish filteredTags={filteredTags} category={category} />
-      </div>
-      <div id="Soup">
-        <Soup filteredTags={filteredTags} category={category} />
-      </div>
-      <div id="Desserts">
-        <Desserts filteredTags={filteredTags} category={category} />
-      </div>
-      <div id="CardNewsList">
-        <CardNewsList />
-      </div>
-      <div id="ChooseBest">
-        <ChooseBest />
-      </div>
+      {category !== 7 && (
+        <>
+          <div id="CombinedDishes">
+            <CombinedDishes filteredTags={filteredTags} category={category} />
+          </div>
+          <div id="MainDish">
+            <MainDish filteredTags={filteredTags} category={category} />
+          </div>
+          <div id="SideDish">
+            <SideDish filteredTags={filteredTags} category={category} />
+          </div>
+          <div id="Soup">
+            <Soup filteredTags={filteredTags} category={category} />
+          </div>
+          <div id="Desserts">
+            <Desserts filteredTags={filteredTags} category={category} />
+          </div>
+          <div id="CardNewsList">
+            <CardNewsList />
+          </div>
+          <div id="ChooseBest">
+            <ChooseBest />
+          </div>
+        </>
+      )}
       <div id="Advertisement">
         <Advertisement />
       </div>

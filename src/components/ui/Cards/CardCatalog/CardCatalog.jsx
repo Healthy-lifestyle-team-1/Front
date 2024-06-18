@@ -1,10 +1,9 @@
+// src/components/ui/Cards/CardCatalog/index.js
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { ButtonWithTheme } from '../../Button';
+import { ButtonWithTheme } from '../../Button/ButtonWithTheme';
 import cn from 'classnames';
 import s from './styles.module.scss';
-
-import line from '../../../../assets/images/dotted-line-card-catalog.svg';
 import { icons } from '../../../../assets/images/icons/icons';
 
 export const CardCatalog = ({
@@ -13,6 +12,7 @@ export const CardCatalog = ({
   weight,
   calories,
   img,
+  price,
   tags = [],
   categories = [],
   allTags = [],
@@ -39,7 +39,7 @@ export const CardCatalog = ({
           {tags.length > 0 ? (
             tags.map((tagId, index) => {
               const tagName = getTagNameById(tagId);
-              const iconSrc = icons[theme][tagName];
+              const iconSrc = icons[theme][tagName]; // предполагается, что иконки хранятся в объекте icons
               return (
                 iconSrc && (
                   <img
@@ -61,11 +61,13 @@ export const CardCatalog = ({
           <span className={s.cardfood__weight}>{weight}</span>
           <span className={s.cardfood__calories}>{calories}</span>
         </div>
-        <ButtonWithTheme colorScheme={1} title={'100 ₽'} size={3} />
+        <ButtonWithTheme
+          colorScheme={1}
+          title={price}
+          size={3}
+          showRubleSign={true}
+        />
       </div>
-      {/* <div className={s.cardfood__line}>
-        <img src={line} alt="линия"></img>
-      </div> */}
       <div className={s.cardfood__Img} style={{ display: 'flex' }}>
         <img
           className={s.cardfood__plateImg}

@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import s from './styles.module.scss';
 import { Logo } from '../ui/Logo';
-import AppStore from '../../assets/images/icons/app-store.svg';
-import GooglePlay from '../../assets/images/icons/google-play.svg';
 import Instagram from '../../assets/images/icons/instagram.svg';
 import YouTube from '../../assets/images/icons/youtube.svg';
 import Telegram from '../../assets/images/icons/telegram.svg';
@@ -12,26 +10,32 @@ import QR from '../../assets/images/qr.png';
 
 export const Footer = () => {
   const isAuthorize = useSelector(state => state.auth.isAuthorize);
+  const theme = useSelector(state => state.theme); // Предположим, что тема хранится в state.theme
 
   return (
-    <div className={s.footer__container}>
+    <div className={cn(s.footer__container, { [s.dark]: theme === 'dark', [s.light]: theme !== 'dark' })}>
       <div className={s.footer__wrapper}>
+        <div className={s.footer__logo}>
+          <Logo />
+        </div>
         <div className={s.footer__navBlock}>
-          <div className={s.footer__logo}>
-            <Logo />
-          </div>
-          <div className={s.footer__navList}>
+          <div className={s.footer__navList__one}>
             <a className={s.footer__navList__item} href="">
-              О нас
+              Главная
             </a>
             <a className={s.footer__navList__item} href="">
-              Книга
+              Конструктор
             </a>
             <a className={s.footer__navList__item} href="">
               Каталог
             </a>
             <a className={s.footer__navList__item} href="">
-              Собери свою тарелку
+              Книга
+            </a>
+          </div>
+          <div className={s.footer__navList__two}>
+            <a className={s.footer__navList__item} href="">
+              Статьи
             </a>
             {isAuthorize ? (
               <>
@@ -48,59 +52,48 @@ export const Footer = () => {
               </a>
             )}
           </div>
-        </div>
-        <div className={s.footer__socialAndAppAndQrWrapper}>
-          <div className={s.footer__socialAndAppBlock}>
-            <div className={s.footer__socialBlock}>
-              <div className={s.footer__socialTitle}>Мы в сетях</div>
-              <div className={s.footer__socialIcons}>
-                <a
-                  href="https://www.instagram.com/zozhnik_ru?igsh=MWRoeXFhaDl0eGFlNA=="
-                  target="_blank"
-                >
-                  <img src={Instagram} alt="иконка Instagram" />
-                </a>
+          <div className={s.footer__navList__three}>
+            <span className={s.footer__navList__item} href="">
+              Связаться с нами :
+            </span>
+            <a className={s.footer__navList__item} href="">
+              +7 999 999 99 99
+            </a>
+            <a className={s.footer__navList__item} href="">
+              zozhnik@gmail.com
+            </a>
+          </div>
+          <div className={s.footer__navList__four}>
+            <div className={s.footer__socialTitle}>Мы в сетях</div>
+            <div className={s.footer__socialIcons}>
+              <a
+                href="https://www.instagram.com/zozhnik_ru?igsh=MWRoeXFhaDl0eGFlNA=="
+                target="_blank"
+              >
+                <img src={Instagram} alt="иконка Instagram" />
+              </a>
 
-                <a href="https://www.youtube.com/@zozhnik_ru" target="_blank">
-                  <img src={YouTube} alt="иконка Youtube" />
-                </a>
+              <a href="https://www.youtube.com/@zozhnik_ru" target="_blank">
+                <img src={YouTube} alt="иконка Youtube" />
+              </a>
 
-                <a href="https://t.me/zozhnik" target="_blank">
-                  <img src={Telegram} alt="иконка Telegram" />
-                </a>
-              </div>
-            </div>
-
-            <div className={s.footer__appBlock}>
-              <div className={s.footer__appTitle}>Мы в сетях</div>
-              <div className={s.footer__appIcons}>
-                <a
-                  className={s.downloadOption}
-                  href="https://apps.apple.com/ru/developer/apple/id284417353?mt=12"
-                  target="_blank"
-                >
-                  <img src={AppStore} alt="иконка App Store" />
-                </a>
-
-                <a href="https://play.google.com" target="_blank">
-                  <img src={GooglePlay} alt="иконка Google Play" />
-                </a>
-              </div>
+              <a href="https://t.me/zozhnik" target="_blank">
+                <img src={Telegram} alt="иконка Telegram" />
+              </a>
             </div>
           </div>
-
-          <div className={s.footer__QR}>
-            <img src={QR} alt="qr" />
+          <div className={s.footer__navList__five}>
+            <span className={s.footer__navList__item}>Скачай с помощью</span>
+            <img className={s.footer__qrImg} src={QR} alt="qr" />
           </div>
         </div>
-      </div>
-
-      <div className={s.footer__rightsText}>
-        Осуществляя вход на этот Сайт/в мобильное приложение ЗОЖНИК, вы
-        подтверждаете, что ознакомлены с Пользовательским
-        соглашением и Положением по обработке и защите персональных данных. С
-        общими правилами участия в акциях и порядке получения подарков Вы
-        можете ознакомиться здесь
+        <div className={s.footer__rightsText}>
+          Осуществляя вход на этот Сайт/в мобильное приложение ЗОЖНИК, вы
+          подтверждаете, что ознакомлены с Пользовательским
+          соглашением и Положением по обработке и защите персональных данных. С
+          общими правилами участия в акциях и порядке получения подарков Вы
+          можете ознакомиться здесь
+        </div>
       </div>
     </div>
   );

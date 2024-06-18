@@ -1,10 +1,10 @@
 .container {
     display: flex;
-	 position: relative;
     margin: 0 auto;
     width: 100%;
     padding-top: 8vw;
-	 height: 55vw;
+	 height: 60vw;
+	 margin-bottom: 130px;
 }
 
 .choosebest {
@@ -16,12 +16,12 @@
 		
   &__Text {
     padding: 10% 0;
+	 width: 25vw;
     display: flex;
     flex-direction: column;
     color: var(--text-color);
     &Titles {
       @include fontTitle2();
-      text-transform: uppercase;
       &Pink {
 			color: var(--peach);
       }
@@ -34,12 +34,14 @@
 }
   
   &__Img {
-	width: 90vw;
+	width: 55vw;
+	overflow: hidden;
+	position: relative;
 	&Img {
 		position: absolute;
-		top: 0;
-		left: 5vw;
-		width: 90vw;
+		top: -11vw;
+		left: -60vw;
+		width: 120vw;
 		z-index: -1;
 	}
   }

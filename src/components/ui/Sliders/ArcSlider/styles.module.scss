@@ -2,15 +2,18 @@
 	width: 100%;
 	display: flex;
 	flex-wrap: nowrap;
+	margin-bottom: 220px;
+	margin-top: 160px;
 }
 		
 		.arc {
 			&__wrapper {
 			  position: relative;
 			  width: 100%;
-			  height: auto;
+			  height: 40vw;
 			  margin: 0 auto;
-			  overflow: hidden;
+			  margin-bottom: 220px;
+			 
 			}
 		 
 			&__block {
@@ -24,15 +27,15 @@
 		 }
 		 
 		 .item {
-			width: 14vw;
-			height: 14vw;
+			width: 17vw;
+			height: 17vw;
 			border-radius: 100%;
 			position: relative;
 			cursor: pointer;
 			z-index: 1;
 		 
 			&Img {
-			 width: 15vw;
+			 width: 18vw;
 			  transition: transform 0.3s;
 			  z-index: 100;
 			}
@@ -42,15 +45,14 @@
 		 
 			  
 			  Img {
-				transform: scale(2.7) translateX(-25%);
+				transform: scale(2.9) translateX(-25%);
 				 opacity: 1;
 			  }
 			}
 		 }
 		 
 		 .svg {
-			width: 65vw;
-			height: 57vw;
+			width: 75vw;
 			z-index: -5;
 			position: absolute;
 			border-radius: 50%;
@@ -61,7 +63,7 @@
 
 		.st0 {
 			stroke: var(--text-color);
-			stroke-width: 1;
+			stroke-width: 0.3;
 			stroke-dasharray: 5, 5;
 		}
 
@@ -69,14 +71,14 @@
 
 
 			&__infoBlock {
-				width: 64vw;
+				width: 57vw;
 				margin-top: 8vw;
-				margin-right: 6vw;
+
 
 
 				&__title {
 					@include fontTitle2();
-					margin-bottom: 6vw;
+					margin-bottom: 80px;
 
 					&__pink {
 						color: var(--peach);
@@ -85,19 +87,20 @@
 
 				&__dishName {
 					@include fontSubTitle3();
-					width: 20vw;
-					margin-bottom: 2vw;
+					width: 27vw;
+					margin-bottom: 24px;
 				}
 
 				&__description {
 					@include fontMainText1();
-					margin-bottom: 3vw;
+					margin-bottom: 24px;
+					width: 33vw;
 				}
 
 				&__nutritionalValues {
 					display: flex;
 					flex-wrap: nowrap;
-					margin-bottom: 5vw;
+					margin-bottom: 75px;
 
 
 					&__weight {
