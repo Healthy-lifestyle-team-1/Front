@@ -9,7 +9,7 @@ import { Button } from '../ui/Button';
 import BgImg2 from '../../assets/images/PlateMethod/перец-и-петрушка.png';
 import BgImg7 from '../../assets/images/PlateMethod/перец.png';
 import Ellipse from '../../assets/images/элипс-метод-тарелки-страница.png'
-
+import DottedLineDark from '../../assets/images/dotted-line-plate-method-dark.png';
 
 import s from './styles.module.scss';
 import cn from 'classnames';
@@ -77,7 +77,7 @@ export const PlateMethodBookPage = () => {
           </div>
           <img
             className={s.plateMethod__methodBlock__autorsDottedLineImg}
-            src={DottedLine}
+				src={theme === 'dark' ? DottedLineDark : DottedLine}
             alt=""
           />
           <div className={s.plateMethod__methodBlock__autorTwo}>
