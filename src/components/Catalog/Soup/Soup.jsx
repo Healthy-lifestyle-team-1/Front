@@ -8,6 +8,7 @@ export const Soup = ({ filteredTags, category }) => {
   const [plates, setPlates] = useState([]);
   const [tags, setTags] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const fetchPlates = async () => {
@@ -93,12 +94,14 @@ export const Soup = ({ filteredTags, category }) => {
     )
     .filter(plate => (category ? plate.categories.includes(category) : true));
 
+  const displayedPlates = showAll ? filteredPlates : filteredPlates.slice(0, 4);
+
   return (
     <div className={s.container}>
       <p className={s.soup__title}>Супы</p>
       {filteredPlates.length > 0 ? (
         <div className={s.soup__items}>
-          {filteredPlates.map((item, index) => (
+          {displayedPlates.map((item, index) => (
             <CardCatalog
               key={index}
               {...item}
@@ -112,9 +115,11 @@ export const Soup = ({ filteredTags, category }) => {
       ) : (
         <p className={s.noResults}>Ничего не найдено</p>
       )}
-      <a className={s.soup__link} href="/">
-        смотреть все →
-      </a>
+      {filteredPlates.length > 4 && (
+        <button onClick={() => setShowAll(!showAll)} className={s.soup__link}>
+          {showAll ? 'скрыть' : 'смотреть все →'}
+        </button>
+      )}
     </div>
   );
 };

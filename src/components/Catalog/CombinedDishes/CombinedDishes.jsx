@@ -8,6 +8,7 @@ export const CombinedDishes = ({ filteredTags, category }) => {
   const [plates, setPlates] = useState([]);
   const [tags, setTags] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const fetchPlates = async () => {
@@ -93,12 +94,14 @@ export const CombinedDishes = ({ filteredTags, category }) => {
     )
     .filter(plate => (category ? plate.categories.includes(category) : true));
 
+  const displayedPlates = showAll ? filteredPlates : filteredPlates.slice(0, 4);
+
   return (
     <div className={s.container}>
       <p className={s.combineddishes__title}>Готовые тарелки</p>
       {filteredPlates.length > 0 ? (
         <div className={s.combineddishes__items}>
-          {filteredPlates.map((item, index) => (
+          {displayedPlates.map((item, index) => (
             <div key={index} className={s.card}>
               <CardCatalog
                 {...item}
@@ -113,9 +116,14 @@ export const CombinedDishes = ({ filteredTags, category }) => {
       ) : (
         <p className={s.noResults}>Ничего не найдено</p>
       )}
-      <a className={s.combineddishes__link} href="/">
-        смотреть все →
-      </a>
+      {filteredPlates.length > 4 && (
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className={s.combineddishes__link}
+        >
+          {showAll ? 'скрыть' : 'смотреть все →'}
+        </button>
+      )}
     </div>
   );
 };

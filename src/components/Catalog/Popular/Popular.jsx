@@ -8,6 +8,7 @@ export const Popular = ({ filteredTags, category }) => {
   const [plates, setPlates] = useState([]);
   const [tags, setTags] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const fetchPlates = async () => {
@@ -93,12 +94,14 @@ export const Popular = ({ filteredTags, category }) => {
     )
     .filter(plate => (category ? plate.categories.includes(category) : true));
 
+  const displayedPlates = showAll ? filteredPlates : filteredPlates.slice(0, 4);
+
   return (
     <div className={s.container}>
       <p className={s.popular__title}>Популярное</p>
       {filteredPlates.length > 0 ? (
         <div className={s.popular__items}>
-          {filteredPlates.map((item, index) => (
+          {displayedPlates.map((item, index) => (
             <div key={index} className={s.card}>
               <CardCatalog
                 {...item}
@@ -113,9 +116,14 @@ export const Popular = ({ filteredTags, category }) => {
       ) : (
         <p className={s.noResults}>Ничего не найдено</p>
       )}
-      <a className={s.popular__link} href="/">
-        смотреть все →
-      </a>
+      {filteredPlates.length > 4 && (
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className={s.popular__link}
+        >
+          {showAll ? 'скрыть' : 'смотреть все →'}
+        </button>
+      )}
     </div>
   );
 };

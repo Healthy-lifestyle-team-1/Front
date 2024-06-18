@@ -1,8 +1,8 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    max-width: 1216px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1216px;
 }
 
 .sidedish {
@@ -12,13 +12,17 @@
     text-transform: uppercase;
   }
   &__items {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: repeat(2, auto);
-      gap: 50px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 50px 30px;
   }
   &__link {
     @include fontMainText2();
     align-self: flex-end;
+    background-color: transparent;
+    border: none;
+    padding-top: 32px;
+    color: var(--text-color);
   }
 }
