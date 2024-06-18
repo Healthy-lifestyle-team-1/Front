@@ -16,22 +16,28 @@ export const Footer = () => {
   return (
     <div className={s.footer__container}>
       <div className={s.footer__wrapper}>
-        <div className={s.footer__navBlock}>
           <div className={s.footer__logo}>
             <Logo />
           </div>
-          <div className={s.footer__navList}>
+			 <div className={s.footer__navBlock}>
+			 <div className={s.footer__navList__one}>
             <a className={s.footer__navList__item} href="">
-              О нас
+              Главная
             </a>
             <a className={s.footer__navList__item} href="">
-              Книга
+              Конструктор
             </a>
             <a className={s.footer__navList__item} href="">
               Каталог
             </a>
             <a className={s.footer__navList__item} href="">
-              Собери свою тарелку
+              Книга
+            </a>
+				
+				</div>
+				<div className={s.footer__navList__two}>
+				<a className={s.footer__navList__item} href="">
+              Статьи
             </a>
             {isAuthorize ? (
               <>
@@ -47,11 +53,22 @@ export const Footer = () => {
                 Войти
               </a>
             )}
-          </div>
-        </div>
-        <div className={s.footer__socialAndAppAndQrWrapper}>
-          <div className={s.footer__socialAndAppBlock}>
-            <div className={s.footer__socialBlock}>
+				</div>
+				<div className={s.footer__navList__three}>
+				<a className={s.footer__navList__item} href="">
+              Связаться с нами
+            </a>
+				<a className={s.footer__navList__item} href="">
+				+7 999 999 99 99
+            </a>
+				<a className={s.footer__navList__item} href="">
+				zozhnik@gmail.com
+            </a>
+					 </div>
+
+         
+
+            <div className={s.footer__navList__four}>
               <div className={s.footer__socialTitle}>Мы в сетях</div>
               <div className={s.footer__socialIcons}>
                 <a
@@ -71,29 +88,14 @@ export const Footer = () => {
               </div>
             </div>
 
-            <div className={s.footer__appBlock}>
-              <div className={s.footer__appTitle}>Мы в сетях</div>
-              <div className={s.footer__appIcons}>
-                <a
-                  className={s.downloadOption}
-                  href="https://apps.apple.com/ru/developer/apple/id284417353?mt=12"
-                  target="_blank"
-                >
-                  <img src={AppStore} alt="иконка App Store" />
-                </a>
+          
 
-                <a href="https://play.google.com" target="_blank">
-                  <img src={GooglePlay} alt="иконка Google Play" />
-                </a>
-              </div>
-            </div>
+          <div className={s.footer__navList__five}>
+				<span>Скачай с помощью</span>
+            <img className={s.footer__qrImg} src={QR} alt="qr" />
           </div>
-
-          <div className={s.footer__QR}>
-            <img src={QR} alt="qr" />
-          </div>
-        </div>
-      </div>
+			 </div>
+			 
 
       <div className={s.footer__rightsText}>
         Осуществляя вход на этот Сайт/в мобильное приложение ЗОЖНИК, вы
@@ -102,6 +104,7 @@ export const Footer = () => {
         общими правилами участия в акциях и порядке получения подарков Вы
         можете ознакомиться здесь
       </div>
-    </div>
+		</div>
+	 </div>
   );
 };

@@ -35,8 +35,8 @@ export const HomePage = () => {
       <PlateConstructor />
       <PlateMethod />
       {/* <OnBoarding /> */}
-      <DailyRation />
       <ArcSlider />
+		<DailyRation />
       <Advertisement />
       <Footer />
     </div>

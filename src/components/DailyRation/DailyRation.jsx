@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import s from './styles.module.scss';
-import PlateOne from '../../assets/images/томлёная-говядина.png';
-import PlateTwo from '../../assets/images/борщ.png';
-import PlateThree from '../../assets/images/курица-с-рисом.png';
+import PlateOne from '../../assets/images/говядинка.png';
+import PlateTwo from '../../assets/images/гаспачо.png';
+import PlateThree from '../../assets/images/лосось.png';
 import BestChoice from '../../assets/images/лучший.выбор.png';
 
 import { Button } from '../ui/Button';
@@ -16,10 +16,14 @@ export const DailyRation = () => {
         <div className={s.dailyRation__dishesInfo__title}>
           ПОДБОРКА РАЦИОНА <span className={s.dailyRation__dishesInfo__title__pink}>НА ДЕНЬ</span>
         </div>
-        <div className={s.dailyRation__dishesInfo__text}>Томленая говядина в томатном соусе</div>
-        <div className={s.dailyRation__dishesInfo__text}>Куриная грудка с яйцами, рисом</div>
-        <div className={s.dailyRation__dishesInfo__text}>Постный борщ</div>
-        <Button
+		  <div className={s.dailyRation__dishesInfo__textBlock}>
+        <div className={s.dailyRation__dishesInfo__text}>Семга с картофелем и салатом </div>
+        <div className={s.dailyRation__dishesInfo__text}>Гуляш из говядины с
+		  свежим салатом</div>
+        <div className={s.dailyRation__dishesInfo__text}>Томатный гаспачо </div>
+        </div>
+		  <Button
+
           title={buttonText}
           onClick={() => console.log('Button clicked')}
           colorScheme={1}
