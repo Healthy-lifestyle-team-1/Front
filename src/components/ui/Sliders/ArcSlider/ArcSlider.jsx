@@ -15,6 +15,16 @@ import plateSix from '../../../../assets/images/plates/Plate6.png';
 import plateSeven from '../../../../assets/images/plates/plate7.png';
 import plateEight from '../../../../assets/images/plates/plate8.png';
 
+import glutenFreeDark from '../../../../assets/images/icons/light/глютен.svg';
+import vegDark from '../../../../assets/images/icons/light/вег.svg';
+import beefDark from '../../../../assets/images/icons/light/говядина.svg';
+import nutsDark from '../../../../assets/images/icons/light/орехи.svg';
+
+import glutenFree from '../../../../assets/images/icons/dark/глютен.svg';
+import veg from '../../../../assets/images/icons/dark/вег.svg';
+import beef from '../../../../assets/images/icons/dark/говядина.svg';
+import nuts from '../../../../assets/images/icons/dark/орехи.svg';
+
 gsap.registerPlugin(MotionPathPlugin);
 
 const plates = [
@@ -26,6 +36,10 @@ const plates = [
     calories: '410 ккал',
     img: plateOne,
     price: '1900 ₽',
+    labels: [
+      { light: vegDark, dark: veg },
+      { light: nutsDark, dark: nuts }
+    ]
   },
   {
     title:
@@ -36,6 +50,10 @@ const plates = [
     calories: '575 ккал',
     img: plateTwo,
     price: '1340 ₽',
+    labels: [
+      { light: nutsDark, dark: nuts },
+      { light: glutenFreeDark, dark: glutenFree }
+    ]
   },
   {
     title: 'Морской коктейль с пастой, винегретом и огурцами',
@@ -45,6 +63,10 @@ const plates = [
     calories: '525 ккал',
     img: plateThree,
     price: '1750 ₽',
+    labels: [
+      { light: nutsDark, dark: nuts },
+      { light: beefDark, dark: beef }
+    ]
   },
   {
     title: 'Свиная шея с отварным картофелем и капустным салатом',
@@ -54,6 +76,10 @@ const plates = [
     calories: '490 ккал',
     img: plateFour,
     price: '1800 ₽',
+    labels: [
+      { light: glutenFreeDark, dark: glutenFree },
+      { light: beefDark, dark: beef }
+    ]
   },
   {
     title: 'Фарш из телятины с пастой и овощным салатом',
@@ -63,6 +89,10 @@ const plates = [
     calories: '690 ккал',
     img: plateFive,
     price: '1400 ₽',
+    labels: [
+      { light: nutsDark, dark: nuts },
+      { light: glutenFreeDark, dark: glutenFree }
+    ]
   },
   {
     title:
@@ -73,6 +103,10 @@ const plates = [
     calories: '360 ккал',
     img: plateSix,
     price: '1300 ₽',
+    labels: [
+      { light: beefDark, dark: beef },
+      { light: glutenFreeDark, dark: glutenFree }
+    ]
   },
   {
     title: 'Копченый палтус с кускусом, свеклой, помидорами и шпинатом',
@@ -82,6 +116,10 @@ const plates = [
     calories: '675 ккал',
     img: plateSeven,
     price: '1990 ₽',
+    labels: [
+      { light: nutsDark, dark: nuts },
+      { light: glutenFreeDark, dark: glutenFree }
+    ]
   },
   {
     title: 'Индейка с картофелем и салатом из свежей капусты и сочной груши',
@@ -91,6 +129,10 @@ const plates = [
     calories: '575 ккал',
     img: plateEight,
     price: '1340 ₽',
+    labels: [
+      { light: beefDark, dark: beef },
+      { light: glutenFreeDark, dark: glutenFree }
+    ]
   },
 ];
 
@@ -257,18 +299,21 @@ export const ArcSlider = () => {
               cy="200"
               r="139"
               fill="none"
-              stroke="red"
-              strokeWidth="1"
-              strokeDasharray="5,5"
             />
           </svg>
         </div>
       </div>
       <div className={s.arcSlider__infoBlock}>
+        
         <div className={s.arcSlider__infoBlock__title}>
           Сбалансированные{' '}
           <span className={s.arcSlider__infoBlock__title__pink}>готовые</span>{' '}
           блюда
+        </div>
+		  <div className={s.arcSlider__infoBlock__labels}>
+          {plates[activeIndex].labels.map((label, index) => (
+            <img key={index} src={theme === 'dark' ? label.dark : label.light} alt="label icon" />
+          ))}
         </div>
         <div className={s.arcSlider__infoBlock__dishName}>
           {plates[activeIndex].title}
@@ -290,6 +335,11 @@ export const ArcSlider = () => {
           colorScheme={1}
           size={1}
         />
+        <div className={s.arcSlider__infoBlock__showAll}>
+          <button className={s.arcSlider__infoBlock__showAllBtn}>
+            смотреть все →
+          </button>
+        </div>
       </div>
     </div>
   );
