@@ -132,6 +132,14 @@
 	@include fontMainText1;
 	text-transform: uppercase;
  }
+ &.size__12 {
+	width: 300px;
+	height: 60px;
+	padding: 15px 34px;
+	border-radius: 30px;
+	@include fontMainText1;
+	text-transform: uppercase;
+ }
 
   &.backgroundColor__1 {
     background-color: $mainGreenapple;

@@ -188,7 +188,7 @@ const UserPage = ({ onClose }) => {
             title="Выйти"
             onClick={handleLogout}
             colorScheme={1}
-            size={1}
+            size={12}
           />
         </div>
       </div>

@@ -140,7 +140,7 @@ const CartPage = ({ onClose }) => {
         </div>
         <div className={s.cart__comments}>
           <textarea placeholder="Комментарий" className={s.cart__comment} />
-          <Button title={'Оформить'} colorScheme={1} size={1} />
+          <Button title={'Оформить'} colorScheme={1} size={12} />
         </div>
       </div>
     </div>

@@ -56,7 +56,7 @@ export const PlateMethodBookPage = () => {
             title="Купить книгу"
             onClick={() => console.log('Button clicked')}
             colorScheme={1}
-            size={1}
+            size={12}
           />
         </div>
       </div>

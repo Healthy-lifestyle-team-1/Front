@@ -99,7 +99,7 @@ export const BookSection = () => {
             title="Открыть доступ"
             onClick={() => console.log('Button clicked')}
             colorScheme={1}
-            size={1}
+            size={12}
           />
         </div>
       </div>
