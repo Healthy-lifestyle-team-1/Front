@@ -47,8 +47,12 @@ export const PlateConstructor = ({
     setIsPlateCombined(false);
   };
 
+  const [buttonText, setButtonText] = useState('1300')/*(plates[0].price)*/;
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div className={s.plateConstructor}>
+		<div className={s.plateConstructor__title}>собери <span className={s.plateConstructor__title__pink}>идеальную </span>тарелку</div>
       <div className={s.plateConstructor__tagBtns}>
         {tags.map((tag, index) => (
           <Button
@@ -110,17 +114,24 @@ export const PlateConstructor = ({
         />
       </div>
       <div className={s.plateConstructor__btn}>
-        <Button
+		<Button
           colorScheme={1}
-          title={'Собрать'}
+          title={buttonText}
+          size={11}
           onClick={handleCombinePlate}
-          size={1}
+          onMouseEnter={() => {
+            setButtonText('Собрать');
+            setIsHovered(true);
+          }}
+          onMouseLeave={() => {
+            setButtonText('1300'/*plates[0].price*/); 
+            setIsHovered(false);
+          }}
         />
       </div>
       {isPlateCombined && (
         <div className={s.plateConstructor__btn_back} onClick={handleBackClick}>
-          <img className={s.back__img} src={back} alt={'в конструктор'} />
-          <div className={s.plateConstructor__btn_text}>в конструктор</div>
+          <div className={s.plateConstructor__btn_text}>← в конструктор</div>
         </div>
       )}
     </div>
