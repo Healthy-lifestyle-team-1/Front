@@ -70,7 +70,7 @@ export const BookSection = () => {
         <div className={s.bookSection__about__text}>
           {activeArticle.content}
           <div className={s.bookSection__about__next}>
-            <a href="#" onClick={() => setActiveArticle(nextArticle)}>
+            <a  className={s.bookSection__about__nextLink} href="#" onClick={() => setActiveArticle(nextArticle)}>
               {nextArticle.title} 
             </a>
 				<img className={s.bookSection__about__arrow} src={arrow} alt="" />
@@ -99,7 +99,7 @@ export const BookSection = () => {
             title="Открыть доступ"
             onClick={() => console.log('Button clicked')}
             colorScheme={1}
-            size={1}
+            size={12}
           />
         </div>
       </div>
