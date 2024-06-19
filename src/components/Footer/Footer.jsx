@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import s from './styles.module.scss';
 import LogoLight from '../../assets/images/logo-light.png';
@@ -8,59 +9,119 @@ import Instagram from '../../assets/images/icons/instagram.svg';
 import YouTube from '../../assets/images/icons/youtube.svg';
 import Telegram from '../../assets/images/icons/telegram.svg';
 import QR from '../../assets/images/qr.png';
+import UserPage from '../modalWindows/UserPage/UserPage';
+import CartPage from '../modalWindows/CartPage';
+import { Authorization } from '../Auth/Authorization';
+import { Registration } from '../Auth/Registration';
 
 export const Footer = () => {
   const isAuthorize = useSelector(state => state.auth.isAuthorize);
   const theme = useSelector(state => state.theme);
 
+  const [isUserModalOpen, setIsUserModalOpen] = useState(false);
+  const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+
+  const handleOpenModal = (setModalOpen) => {
+    document.body.classList.add('modal-open');
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = (setModalOpen) => {
+    document.body.classList.remove('modal-open');
+    setModalOpen(false);
+  };
+
+  const handleOpenUserModal = () => {
+    handleOpenModal(setIsUserModalOpen);
+    setIsCartModalOpen(false);
+    setIsAuthModalOpen(false);
+  };
+
+  const handleCloseUserModal = () => {
+    handleCloseModal(setIsUserModalOpen);
+  };
+
+  const handleOpenCartModal = () => {
+    handleOpenModal(setIsCartModalOpen);
+    setIsUserModalOpen(false);
+    setIsAuthModalOpen(false);
+  };
+
+  const handleCloseCartModal = () => {
+    handleCloseModal(setIsCartModalOpen);
+  };
+
+  const handleOpenAuthModal = () => {
+    handleOpenModal(setIsAuthModalOpen);
+    setIsUserModalOpen(false);
+    setIsCartModalOpen(false);
+  };
+
+  const handleCloseAuthModal = () => {
+    handleCloseModal(setIsAuthModalOpen);
+  };
+
+  const handleOpenRegistration = () => {
+    setIsRegistrationOpen(true);
+    setIsAuthModalOpen(false);
+  };
+
+  const handleCloseRegistration = () => {
+    setIsRegistrationOpen(false);
+  };
+
   return (
     <div className={cn(s.footer__container, { [s.dark]: theme === 'dark', [s.light]: theme !== 'dark' })}>
       <div className={s.footer__wrapper}>
         <div className={s.footer__logo}>
-          <img src={theme === 'dark' ? LogoDark : LogoLight} alt="ЗОЖНИК" />
+          <NavLink to="/">
+            <img src={theme === 'dark' ? LogoDark : LogoLight} alt="ЗОЖНИК" />
+          </NavLink>
         </div>
         <div className={s.footer__navBlock}>
           <div className={s.footer__navList__one}>
-            <a className={s.footer__navList__item} href="">
+            <NavLink to="/" className={s.footer__navList__item}>
               Главная
-            </a>
-            <a className={s.footer__navList__item} href="">
+            </NavLink>
+            <NavLink to="/constructor" className={s.footer__navList__item}>
               Конструктор
-            </a>
-            <a className={s.footer__navList__item} href="">
+            </NavLink>
+            <NavLink to="/catalog" className={s.footer__navList__item}>
               Каталог
-            </a>
-            <a className={s.footer__navList__item} href="">
+            </NavLink>
+            <NavLink to="/book" className={s.footer__navList__item}>
               Книга
-            </a>
+            </NavLink>
           </div>
           <div className={s.footer__navList__two}>
-            <a className={s.footer__navList__item} href="">
+            <NavLink to="/news" className={s.footer__navList__item}>
               Статьи
-            </a>
+            </NavLink>
             {isAuthorize ? (
               <>
-                <a className={s.footer__navList__item} href="">
+                <a onClick={handleOpenUserModal} className={s.footer__navList__item} href="#">
                   Профиль
                 </a>
-                <a className={s.footer__navList__item} href="">
+                <a onClick={handleOpenCartModal} className={s.footer__navList__item} href="#">
                   Корзина
                 </a>
               </>
             ) : (
-              <a className={s.footer__navList__item} href="">
+              <a onClick={handleOpenAuthModal} className={s.footer__navList__item} href="#">
                 Войти
               </a>
             )}
           </div>
           <div className={s.footer__navList__three}>
-            <span className={s.footer__navList__item} href="">
+            <span className={s.footer__navList__item}>
               Связаться с нами :
             </span>
-            <a className={s.footer__navList__item} href="">
+            <a className={s.footer__navList__item} href="tel:+79999999999">
               +7 999 999 99 99
             </a>
-            <a className={s.footer__navList__item} href="">
+            <a className={s.footer__navList__item} href="mailto:zozhnik@gmail.com">
               zozhnik@gmail.com
             </a>
           </div>
@@ -70,15 +131,16 @@ export const Footer = () => {
               <a
                 href="https://www.instagram.com/zozhnik_ru?igsh=MWRoeXFhaDl0eGFlNA=="
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <img src={Instagram} alt="иконка Instagram" />
               </a>
 
-              <a href="https://www.youtube.com/@zozhnik_ru" target="_blank">
+              <a href="https://www.youtube.com/@zozhnik_ru" target="_blank" rel="noopener noreferrer">
                 <img src={YouTube} alt="иконка Youtube" />
               </a>
 
-              <a href="https://t.me/zozhnik" target="_blank">
+              <a href="https://t.me/zozhnik" target="_blank" rel="noopener noreferrer">
                 <img src={Telegram} alt="иконка Telegram" />
               </a>
             </div>
@@ -96,6 +158,10 @@ export const Footer = () => {
           можете ознакомиться здесь
         </div>
       </div>
+      {isUserModalOpen && <UserPage onClose={handleCloseUserModal} />}
+      {isCartModalOpen && <CartPage onClose={handleCloseCartModal} />}
+      {isAuthModalOpen && <Authorization onClose={handleCloseAuthModal} />}
+      {isRegistrationOpen && <Registration onClose={handleCloseRegistration} />}
     </div>
   );
 };

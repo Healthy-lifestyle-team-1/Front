@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import ForkAndKnife from '../../assets/images/plate-with-fork-and-knife.png';
 import MaksimKImg from '../../assets/images/MaksimKuderov.png';
 import LidaLImg from '../../assets/images/LidaLanskaya.png';
@@ -17,15 +18,21 @@ import s from './styles.module.scss';
 import cn from 'classnames';
 
 export const PlateMethod = () => {
-	const isAuthorize = useSelector(state => state.auth.isAuthorize);
-	const theme = useSelector(state => state.theme);
+  const isAuthorize = useSelector(state => state.auth.isAuthorize);
+  const theme = useSelector(state => state.theme);
+  const navigate = useNavigate();
+
+  const handleNavigateToBook = () => {
+    navigate('/book');
+  };
+
   return (
     <div className={s.plateMethod__container}>
-		<img className={s.plateMethod__container__bgImg2} src={BgImg2} alt="" />
-		<img className={s.plateMethod__container__bgImg3} src={BgImg3} alt="" />
-		<img className={s.plateMethod__container__bgImg4} src={BgImg4} alt="" />
-		<img className={s.plateMethod__container__bgImg5} src={BgImg5} alt="" />
-		<img className={s.plateMethod__container__bgImg7} src={BgImg7} alt="" />
+      <img className={s.plateMethod__container__bgImg2} src={BgImg2} alt="" />
+      <img className={s.plateMethod__container__bgImg3} src={BgImg3} alt="" />
+      <img className={s.plateMethod__container__bgImg4} src={BgImg4} alt="" />
+      <img className={s.plateMethod__container__bgImg5} src={BgImg5} alt="" />
+      <img className={s.plateMethod__container__bgImg7} src={BgImg7} alt="" />
       <div className={s.plateMethod__methodBlock}>
         <div className={s.plateMethod__methodBlock__title}>
           мет
@@ -78,7 +85,7 @@ export const PlateMethod = () => {
         <div className={s.plateMethod__methodBlock__btn}>
           <Button
             title="Перейти"
-            onClick={() => console.log('Button clicked')}
+            onClick={handleNavigateToBook}
             colorScheme={1}
             size={12}
           />
@@ -97,3 +104,4 @@ export const PlateMethod = () => {
     </div>
   );
 };
+

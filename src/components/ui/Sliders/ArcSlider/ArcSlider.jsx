@@ -5,16 +5,7 @@ import s from './styles.module.scss';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import { Button } from '../../Button';
-/*
-import plateOne from '../../../../assets/images/plates/plate1.png';
-import plateTwo from '../../../../assets/images/plates/plate2.png';
-import plateThree from '../../../../assets/images/plates/plate3.png';
-import plateFour from '../../../../assets/images/plates/plate4.png';
-import plateFive from '../../../../assets/images/plates/plate5.png';
-import plateSix from '../../../../assets/images/plates/plate6.png';
-import plateSeven from '../../../../assets/images/plates/plate7.png';
-import plateEight from '../../../../assets/images/plates/plate8.png';
-*/
+import { useNavigate } from 'react-router-dom';
 import plateOne from '../../../../assets/images/plates/plate-one.png';
 import plateTwo from '../../../../assets/images/plates/plate-two.png';
 import plateThree from '../../../../assets/images/plates/plate-three.png';
@@ -150,6 +141,11 @@ export const ArcSlider = () => {
   const theme = useSelector(state => state.theme);
   let tl = gsap.timeline({ paused: true, reversed: true });
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNavigateToConstructor = () => {
+    navigate('/constructor');
+  };
 
   const [buttonText, setButtonText] = useState(plates[0].price);
 
@@ -360,7 +356,7 @@ export const ArcSlider = () => {
           }}
         />
         <div className={s.arcSlider__infoBlock__showAll}>
-          <button className={s.arcSlider__infoBlock__showAllBtn}>
+          <button onClick={handleNavigateToConstructor} className={s.arcSlider__infoBlock__showAllBtn}>
             смотреть все →
           </button>
         </div>
