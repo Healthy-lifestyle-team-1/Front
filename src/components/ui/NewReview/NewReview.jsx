@@ -7,6 +7,7 @@ import { Button } from '../Button';
 
 import plateImg from '../../../assets/images/plates/plate-quarter.png';
 import x from '../../../assets/images/icons/x.svg';
+import xDark from '../../../assets/images/icons/xDark.svg';
 
 import vegan from '../../../assets/images/icons/light/вег.svg';
 import veganDark from '../../../assets/images/icons/dark/вег.svg';
@@ -20,12 +21,16 @@ import lactoseFreeDark from '../../../assets/images/icons/dark/лактозаX.s
 export const NewReview = ({ image, title, description, weight, calories }) => {
   const theme = useSelector(state => state.theme);
   const [photos, setPhotos] = useState([null, null]);
+  const [photoUrls, setPhotoUrls] = useState([null, null]);
   const [isOpen, setIsOpen] = useState(true);
 
   const handleFileChange = (e, index) => {
     const files = [...photos];
+    const urls = [...photoUrls];
     files[index] = e.target.files[0];
+    urls[index] = URL.createObjectURL(e.target.files[0]);
     setPhotos(files);
+    setPhotoUrls(urls);
   };
 
   const handleClose = () => {
@@ -71,7 +76,7 @@ export const NewReview = ({ image, title, description, weight, calories }) => {
         </div>
         <div className={s.nreview__rating}>
           <button className={s.nreview__ratingX} onClick={handleClose}>
-            <img src={x} alt="закрыть" />
+            <img src={theme === 'dark' ? xDark : x} alt="закрыть" />
           </button>
           <div className={s.nreview__ratingTitle}>Общая оценка</div>
           <div className={s.nreview__ratingStars}>
@@ -85,7 +90,7 @@ export const NewReview = ({ image, title, description, weight, calories }) => {
           ></input>
           <div className={s.nreview__ratingTitle}>Добавьте фото</div>
           <div className={s.nreview__ratingPhoto}>
-            {photos.map((photo, index) => (
+            {photoUrls.map((photoUrl, index) => (
               <div key={index} className={s.nreview__ratingPhotoUpload}>
                 <input
                   type="file"
@@ -93,12 +98,24 @@ export const NewReview = ({ image, title, description, weight, calories }) => {
                   onChange={e => handleFileChange(e, index)}
                   className={s.nreview__fileInput}
                 />
+                {photoUrl && (
+                  <img
+                    src={photoUrl}
+                    alt={`Uploaded ${index}`}
+                    className={s.nreview__uploadedImg}
+                  />
+                )}
               </div>
             ))}
             <span className={s.nreview__ratingPhotoMore}>Еще</span>
           </div>
           <div className={s.nreview__ratingButton}>
-            <Button title={'Отправить'} colorScheme={1} size={2} disabled={true}/>
+            <Button
+              title={'Отправить'}
+              colorScheme={1}
+              size={2}
+              disabled={true}
+            />
           </div>
         </div>
       </div>
