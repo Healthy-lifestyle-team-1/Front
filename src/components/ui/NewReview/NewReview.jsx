@@ -125,7 +125,7 @@ export const NewReview = ({ image, title, description, weight, calories }) => {
               title={'Отправить'}
               colorScheme={1}
               size={2}
-              disabled={!comment || !photoUrls.some(url => url !== null)}
+              disabled={!comment}
             />
           </div>
         </div>
