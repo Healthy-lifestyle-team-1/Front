@@ -16,8 +16,7 @@ import back from '../../assets/images/icons/Back.svg';
 export const PlateConstructor = ({
   title = 'Название блюда',
   price = 'Цена',
-  info_title = 'Описание',
-  info_text = 'Салат из свежих овощей, с добавлением микро - зеленим, приправлен ореховым соусом отличный гарнир на ужин',
+  subtitle = 'Салат из свежих овощей, с добавлением микро - зеленим, приправлен ореховым соусом отличный гарнир на ужин',
 }) => {
   const tags = ['Глютен', 'Сахар', 'Мучное', 'Лук', 'Морковь', 'Ещё'];
   const descriptions = ['кБЖУ', 'Состав', 'Описание'];
@@ -47,12 +46,16 @@ export const PlateConstructor = ({
     setIsPlateCombined(false);
   };
 
-  const [buttonText, setButtonText] = useState('1300')/*(plates[0].price)*/;
+  const [buttonText, setButtonText] = useState('1300'); /*(plates[0].price)*/
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className={s.plateConstructor}>
-		<div className={s.plateConstructor__title}>собери <span className={s.plateConstructor__title__pink}>идеальную </span>тарелку</div>
+      <div className={s.plateConstructor__title}>
+        собери{' '}
+        <span className={s.plateConstructor__title__pink}>идеальную </span>
+        тарелку
+      </div>
       <div className={s.plateConstructor__tagBtns}>
         {tags.map((tag, index) => (
           <Button
@@ -69,8 +72,7 @@ export const PlateConstructor = ({
         <Description
           title={title}
           price={price}
-          info_title={info_title}
-          info_text={info_text}
+          subtitle={subtitle}
           descriptions={descriptions}
           activeTags={activeTags}
         />
@@ -107,14 +109,13 @@ export const PlateConstructor = ({
         <Description
           title={title}
           price={price}
-          info_title={info_title}
-          info_text={info_text}
+          subtitle={subtitle}
           descriptions={descriptions}
           activeTags={activeTags}
         />
       </div>
       <div className={s.plateConstructor__btn}>
-		<Button
+        <Button
           colorScheme={1}
           title={buttonText}
           size={11}
@@ -124,7 +125,7 @@ export const PlateConstructor = ({
             setIsHovered(true);
           }}
           onMouseLeave={() => {
-            setButtonText('1300'/*plates[0].price*/); 
+            setButtonText('1300' /*plates[0].price*/);
             setIsHovered(false);
           }}
         />
