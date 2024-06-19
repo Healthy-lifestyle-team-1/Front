@@ -140,6 +140,7 @@ export const ArcSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const theme = useSelector(state => state.theme);
   let tl = gsap.timeline({ paused: true, reversed: true });
+  const [isHovered, setIsHovered] = useState(false);
 
   const [buttonText, setButtonText] = useState(plates[0].price);
 
@@ -332,13 +333,19 @@ export const ArcSlider = () => {
             {plates[activeIndex].calories}
           </div>
         </div>
-         <Button
+		  <Button
           title={buttonText}
           onClick={() => console.log('Button clicked')}
           colorScheme={1}
-          size={1}
-          onMouseEnter={() => setButtonText('в корзину')}
-          onMouseLeave={() => setButtonText(plates[activeIndex].price)}
+          size={isHovered ? 11 : 10}
+          onMouseEnter={() => {
+            setButtonText('в корзину');
+            setIsHovered(true);
+          }}
+          onMouseLeave={() => {
+            setButtonText(plates[activeIndex].price);
+            setIsHovered(false);
+          }}
         />
         <div className={s.arcSlider__infoBlock__showAll}>
           <button className={s.arcSlider__infoBlock__showAllBtn}>

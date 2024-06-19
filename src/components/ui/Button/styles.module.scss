@@ -108,6 +108,30 @@
     @include fontMainText1;
     text-transform: none;
   }
+  &.size__9 {
+	width: 300px;
+	height: 48px;
+	padding: 10px 20px;
+	border-radius: 30px;
+	@include fontMainText1;
+	text-transform: none;
+ }
+ &.size__10 {
+	width: 200px;
+	height: 60px;
+	padding: 12px 58px;
+	border-radius: 30px;
+	@include fontMainText1;
+	text-transform: none;
+ }
+ &.size__11 {
+	width: 270px;
+	height: 60px;
+	padding: 12px 58px;
+	border-radius: 30px;
+	@include fontMainText1;
+	text-transform: uppercase;
+ }
 
   &.backgroundColor__1 {
     background-color: $mainGreenapple;

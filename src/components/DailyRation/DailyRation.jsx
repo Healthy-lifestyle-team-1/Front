@@ -5,10 +5,12 @@ import PlateTwo from '../../assets/images/гаспачо.png';
 import PlateThree from '../../assets/images/лосось.png';
 import BestChoice from '../../assets/images/лучший.выбор.png';
 
+
 import { Button } from '../ui/Button';
 
 export const DailyRation = () => {
   const [buttonText, setButtonText] = useState('1300 ₽');
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className={s.dailyRation__container}>
@@ -23,13 +25,18 @@ export const DailyRation = () => {
         <div className={s.dailyRation__dishesInfo__text}>Томатный гаспачо </div>
         </div>
 		  <Button
-
           title={buttonText}
           onClick={() => console.log('Button clicked')}
           colorScheme={1}
-          size={1}
-          onMouseEnter={() => setButtonText('в корзину')}
-          onMouseLeave={() => setButtonText('1300 ₽')}
+          size={isHovered ? 11 : 10}
+          onMouseEnter={() => {
+            setButtonText('в корзину');
+            setIsHovered(true);
+          }}
+          onMouseLeave={() => {
+            setButtonText('1300 ₽');
+            setIsHovered(false);
+          }}
         />
       </div>
       <div className={s.dailyRation__dishesImgs}>
