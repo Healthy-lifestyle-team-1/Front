@@ -22,7 +22,6 @@ const Theme = ({ className }) => {
   return (
     <div className={cn(className, s.root, theme === 'dark' ? s.dark : s.light)}>
       <ThemeSwitcher
-        width="50px"
         onChange={handleChange}
         checked={theme === 'dark' ? true : false}
       />

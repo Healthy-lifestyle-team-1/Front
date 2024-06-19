@@ -20,9 +20,10 @@
     width: 500px;
     height: auto;
     position: absolute;
-    top: 5vw;
-    right: 2vw;
+    top: 110px;
+    right: 4vw;
     z-index: 100001;
+	 padding-bottom: 40px;
     &_cat {
       width: 396px;
       height: 620px;
@@ -90,6 +91,7 @@
     text-align: left;
     &__title {
       padding-left: 32px;
+		
       @include fontTitle2;
       color: $mainDark;
     }
@@ -99,7 +101,7 @@
       justify-content: space-between;
       color: $mainLight;
       @include font-face-rubik(32px, 500, 120%);
-      padding: 0 32px 0 32px;
+      padding: 10px 32px 12px 32px;
       &__total {
       }
       &__totalAmount {
@@ -108,7 +110,7 @@
   }
 
   &__items {
-    margin-bottom: 20px;
+    margin: 20px 0px;
     padding: 0 25px;
   }
   &__item {
@@ -174,10 +176,10 @@
     align-items: center;
   }
   &__comment {
-    width: 550px;
+    width: 420px;
     height: 60px;
     padding: 10px 10px 10px 46px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     border: 1px solid #ccc;
     border-radius: 50px;
     @include fontMainText1;
@@ -200,57 +202,3 @@
   color: white;
 }
 
-.profile {
-  &__info {
-    background-color: var(--color-blue);
-    padding: 62px 0px 0px 32px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    border-radius: 20px;
-    color: var(--text-color);
-  }
-  &__name {
-    @include font-face-rubik(36px, 500, 120%);
-    margin-bottom: 5px;
-    color: var(--text-color);
-  }
-  &__phone {
-    padding: 20px 0px;
-    @include font-face-rubik(32px, 400, 120%);
-  }
-  &__theme {
-    margin-right: 70px;
-    padding-top: 50px;
-  }
-  &__menu {
-    text-align: left;
-    margin-bottom: 15px;
-    padding: 0 32px;
-    &__item {
-      color: var(--text-color);
-      display: flex;
-      align-items: center;
-      padding: 20px 0px 0px 0px;
-      @include font-face-rubik(28px, 400, 120%);
-      gap: 20px;
-      cursor: pointer;
-    }
-    &__icon {
-      font-size: 20px;
-      margin-right: 20px;
-    }
-  }
-}
-
-.logoutButton {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 68px;
-  margin-top: 50px;
-}
-
-.item__img {
-  width: 100px;
-  height: 100px;
-}
