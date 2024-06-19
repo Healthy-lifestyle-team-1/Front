@@ -20,7 +20,6 @@ import lactoseFree from '../../../assets/images/icons/light/лактозаX.svg'
 import lactoseFreeDark from '../../../assets/images/icons/dark/лактозаX.svg';
 
 export const NewReview = ({ image, title, description, weight, calories }) => {
-
   const theme = useSelector(state => state.theme);
 
   const [photos, setPhotos] = useState([null, null]);
@@ -42,7 +41,7 @@ export const NewReview = ({ image, title, description, weight, calories }) => {
   const handleCommentChange = e => {
     setComment(e.target.value);
   };
-  
+
   const handleClose = () => {
     setIsOpen(false);
     onClose();
