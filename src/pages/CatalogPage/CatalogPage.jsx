@@ -16,8 +16,6 @@ import { Advertisement } from '../../components/Advertisement';
 import { Footer } from '../../components/Footer';
 import s from './styles.module.scss';
 
-// import {NewReview} from '../../components/ui/NewReview'
-
 export const CatalogPage = () => {
   const [filteredTags, setFilteredTags] = useState([]);
   const [category, setCategory] = useState(null);
@@ -55,7 +53,6 @@ export const CatalogPage = () => {
     <div className={s.catalogpage__container}>
       <div className={s.catalogpage__main}>
         <Heading />
-        {/* <NewReview /> */}
         <div className={s.catalogpage__nav}>
           <Input
             hasButton={true}

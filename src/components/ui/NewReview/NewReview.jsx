@@ -6,6 +6,7 @@ import { StarRating } from '../StarRating';
 import { Button } from '../Button';
 
 import plateImg from '../../../assets/images/plates/plate-quarter.png';
+
 import x from '../../../assets/images/icons/x.svg';
 import xDark from '../../../assets/images/icons/xDark.svg';
 
@@ -19,10 +20,15 @@ import lactoseFree from '../../../assets/images/icons/light/лактозаX.svg'
 import lactoseFreeDark from '../../../assets/images/icons/dark/лактозаX.svg';
 
 export const NewReview = ({ image, title, description, weight, calories }) => {
+
   const theme = useSelector(state => state.theme);
+
   const [photos, setPhotos] = useState([null, null]);
   const [photoUrls, setPhotoUrls] = useState([null, null]);
+
   const [isOpen, setIsOpen] = useState(true);
+
+  const [comment, setComment] = useState('');
 
   const handleFileChange = (e, index) => {
     const files = [...photos];
@@ -33,6 +39,10 @@ export const NewReview = ({ image, title, description, weight, calories }) => {
     setPhotoUrls(urls);
   };
 
+  const handleCommentChange = e => {
+    setComment(e.target.value);
+  };
+  
   const handleClose = () => {
     setIsOpen(false);
     onClose();
@@ -86,6 +96,8 @@ export const NewReview = ({ image, title, description, weight, calories }) => {
           <input
             type="text"
             placeholder="Комментарий"
+            value={comment}
+            onChange={handleCommentChange}
             className={s.nreview__ratingComment}
           ></input>
           <div className={s.nreview__ratingTitle}>Добавьте фото</div>
@@ -114,7 +126,7 @@ export const NewReview = ({ image, title, description, weight, calories }) => {
               title={'Отправить'}
               colorScheme={1}
               size={2}
-              disabled={true}
+              disabled={!comment || !photoUrls.some(url => url !== null)}
             />
           </div>
         </div>
