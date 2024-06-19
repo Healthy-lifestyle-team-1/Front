@@ -13,35 +13,79 @@
 
 .modal {
   &__content {
-    background: var(--background-color);
-    border-radius: 20px;
-    width: 600px;
-    height: 600px;
-    position: relative;
-    z-index: 100001;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+    &1 {
+      background: url('../../../assets/images/OnBoarding/waves/frame1.svg') no-repeat;
+      background-color: var(--background-color);
+      border-radius: 20px;
+      width: 600px;
+      height: 600px;
+      position: relative;
+      z-index: 100001;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+    &2 {
+      background: url('../../../assets/images/OnBoarding/waves/frame2.svg') no-repeat;
+      background-position: bottom;
+      background-color: var(--background-color);
+      border-radius: 20px;
+      width: 600px;
+      height: 600px;
+      position: relative;
+      z-index: 100001;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+    &3 {
+      background: url('../../../assets/images/OnBoarding/waves/frame3.svg') no-repeat;
+      background-color: var(--background-color);
+      border-radius: 20px;
+      width: 600px;
+      height: 600px;
+      position: relative;
+      z-index: 100001;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+    &4 {
+      background: url('../../../assets/images/OnBoarding/waves/frame4.svg') no-repeat;
+      background-position: bottom;
+      background-color: var(--background-color);
+      border-radius: 20px;
+      width: 600px;
+      height: 600px;
+      position: relative;
+      z-index: 100001;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
   }
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 20px;
-
-  h2 {
-    font-size: 24px;
-    font-weight: bold;
+.onBoarding {
+  &__content {
   }
-
-  p {
-    font-size: 16px;
-    line-height: 1.5;
+  &__title {
+    @include fontTitle2;
+    &White {
+      color: $mainLight;
+    }
+  }
+  &__img {
+  }
+  &__text {
   }
 }
 
@@ -57,9 +101,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #828282;
+  padding-right: 25px;
 }
-
-// img {
-//   width: 100%;
-//   height: 100%;
-// }
