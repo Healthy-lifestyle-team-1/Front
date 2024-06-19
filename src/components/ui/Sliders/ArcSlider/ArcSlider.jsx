@@ -5,10 +5,19 @@ import s from './styles.module.scss';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import { Button } from '../../Button';
-
+/*
 import plateOne from '../../../../assets/images/plates/plate1.png';
 import plateTwo from '../../../../assets/images/plates/plate2.png';
 import plateThree from '../../../../assets/images/plates/plate3.png';
+import plateFour from '../../../../assets/images/plates/plate4.png';
+import plateFive from '../../../../assets/images/plates/plate5.png';
+import plateSix from '../../../../assets/images/plates/plate6.png';
+import plateSeven from '../../../../assets/images/plates/plate7.png';
+import plateEight from '../../../../assets/images/plates/plate8.png';
+*/
+import plateOne from '../../../../assets/images/plates/plate-one.png';
+import plateTwo from '../../../../assets/images/plates/plate-two.png';
+import plateThree from '../../../../assets/images/plates/plate-three.png';
 import plateFour from '../../../../assets/images/plates/plate4.png';
 import plateFive from '../../../../assets/images/plates/plate5.png';
 import plateSix from '../../../../assets/images/plates/plate6.png';
