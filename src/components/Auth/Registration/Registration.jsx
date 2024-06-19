@@ -114,7 +114,7 @@ export const Registration = ({
               />
               <div className={s.login__checkbox}>
                 <Checkbox
-                  checkTitle={'Принимаю соглашение об использовании Зожник'}
+                  checkTitle={'Принимаю соглашение об использовании Зожник'}
                   checked={isTermsAccepted}
                   onChange={handleTermsChange}
                   link="https://taplink.cc/zozhnik_ru/p/dee108/"

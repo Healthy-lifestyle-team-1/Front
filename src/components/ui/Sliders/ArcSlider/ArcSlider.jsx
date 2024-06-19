@@ -7,11 +7,11 @@ import cn from 'classnames';
 import { Button } from '../../Button';
 
 import plateOne from '../../../../assets/images/plates/plate1.png';
-import plateTwo from '../../../../assets/images/plates/Plate2.png';
-import plateThree from '../../../../assets/images/plates/Plate3.png';
-import plateFour from '../../../../assets/images/plates/Plate4.png';
-import plateFive from '../../../../assets/images/plates/Plate5.png';
-import plateSix from '../../../../assets/images/plates/Plate6.png';
+import plateTwo from '../../../../assets/images/plates/plate2.png';
+import plateThree from '../../../../assets/images/plates/plate3.png';
+import plateFour from '../../../../assets/images/plates/plate4.png';
+import plateFive from '../../../../assets/images/plates/plate5.png';
+import plateSix from '../../../../assets/images/plates/plate6.png';
 import plateSeven from '../../../../assets/images/plates/plate7.png';
 import plateEight from '../../../../assets/images/plates/plate8.png';
 
@@ -141,6 +141,8 @@ export const ArcSlider = () => {
   const theme = useSelector(state => state.theme);
   let tl = gsap.timeline({ paused: true, reversed: true });
 
+  const [buttonText, setButtonText] = useState(plates[0].price);
+
   const updatePathAndItems = () => {
     const circlePath = MotionPathPlugin.convertToPath('#holder', false)[0];
     circlePath.id = 'circlePath';
@@ -227,6 +229,7 @@ export const ArcSlider = () => {
       });
 
       setActiveIndex(next);
+		setButtonText(plates[next].price);
     };
 
     items.forEach((el, i) => {
@@ -271,7 +274,7 @@ export const ArcSlider = () => {
 
     const intervalId = setInterval(() => {
       moveWheel(-1 / plates.length);
-    }, 12000);
+    }, 11000);
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -329,11 +332,13 @@ export const ArcSlider = () => {
             {plates[activeIndex].calories}
           </div>
         </div>
-        <Button
-          title={plates[activeIndex].price}
+         <Button
+          title={buttonText}
           onClick={() => console.log('Button clicked')}
           colorScheme={1}
           size={1}
+          onMouseEnter={() => setButtonText('в корзину')}
+          onMouseLeave={() => setButtonText(plates[activeIndex].price)}
         />
         <div className={s.arcSlider__infoBlock__showAll}>
           <button className={s.arcSlider__infoBlock__showAllBtn}>
