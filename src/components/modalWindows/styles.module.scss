@@ -177,12 +177,14 @@
     align-items: center;
   }
   &__comment {
-    width: 420px;
+    width: 436px;
     height: 60px;
     padding: 10px 10px 10px 46px;
     margin-bottom: 40px;
     border: 1px solid #ccc;
     border-radius: 50px;
+    resize: none; // Отключает ресайзинг
+    overflow: hidden; // Скрывает скролл
     @include fontMainText1;
     color: $mainDark;
     &::placeholder {

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '../ui/Button/Button';
 import { SliderPlates } from '../ui/Sliders/SliderPlates';
-import { toggleTag } from '../../core/store/tagsSlice';
 import Description from '../ui/DescriptionInConstructor/Description';
 import { BASE_URL } from '../../core/url';
 import cn from 'classnames';
@@ -15,7 +14,6 @@ import leftPlate from '../../assets/images/halfofplates/left/left.png';
 export const PlateConstructor = () => {
   const tags = ['Глютен', 'Сахар', 'Мучное', 'Лук', 'Морковь', 'Ещё'];
   const activeTags = useSelector(state => state.tags);
-  const token = useSelector(state => state.auth.token); // Получение токена из состояния Redux
   const dispatch = useDispatch();
   const [isPlateCombined, setIsPlateCombined] = useState(false);
   const [leftDescription, setLeftDescription] = useState({});
@@ -30,20 +28,13 @@ export const PlateConstructor = () => {
   };
 
   const handleSelectImage = async (side, product) => {
-    if (!token) {
-      console.error('Токен отсутствует');
-      return;
-    }
-
     try {
-      console.log(`Используемый токен: ${token}`);
-      console.log(`Запрос к URL: ${BASE_URL}/product/${product.id}`);
+      console.log(`Запрос к URL: ${BASE_URL}/product/?id=${product.id}`);
 
-      const response = await fetch(`${BASE_URL}/product/${product.id}`, {
+      const response = await fetch(`${BASE_URL}/product/?id=${product.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`, // Добавляем токен авторизации
         },
       });
 
@@ -57,16 +48,22 @@ export const PlateConstructor = () => {
 
       const productData = await response.json();
 
-      const description = {
-        title: productData.title,
-        price: productData.price,
-        subtitle: productData.subtitle,
-      };
+      if (Array.isArray(productData) && productData.length > 0) {
+        const productInfo = productData[0]; // Получаем первый элемент массива
+        const description = {
+          title: productInfo.title,
+          price: productInfo.price,
+          subtitle: productInfo.subtitle,
+        };
+        console.log(description);
 
-      if (side === 'left') {
-        setLeftDescription(description);
-      } else if (side === 'right') {
-        setRightDescription(description);
+        if (side === 'left') {
+          setLeftDescription(description);
+        } else if (side === 'right') {
+          setRightDescription(description);
+        }
+      } else {
+        console.error('Неверный формат данных:', productData);
       }
     } catch (error) {
       console.error('Ошибка при получении данных:', error);

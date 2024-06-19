@@ -43,8 +43,6 @@ export const SliderPlates = ({ onSelect }) => {
   const [leftImages, setLeftImages] = useState([]);
   const [rightImages, setRightImages] = useState([]);
 
-  const token = useSelector(state => state.auth.token);
-
   useEffect(() => {
     const fetchLeftImages = async () => {
       try {
@@ -52,7 +50,6 @@ export const SliderPlates = ({ onSelect }) => {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`, // Добавляем токен авторизации
           },
         });
 
@@ -75,7 +72,6 @@ export const SliderPlates = ({ onSelect }) => {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`, // Добавляем токен авторизации
           },
         });
 
@@ -94,7 +90,7 @@ export const SliderPlates = ({ onSelect }) => {
 
     fetchLeftImages();
     fetchRightImages();
-  }, [token]);
+  }, []);
 
   const leftSettings = {
     infinite: true,
