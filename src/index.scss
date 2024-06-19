@@ -50,3 +50,8 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+body.modal-open {
+  overflow: hidden;
+  height: 900px;
+}

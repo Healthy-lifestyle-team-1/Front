@@ -27,32 +27,38 @@ export const NavBar = () => {
   }, [dispatch]);
 
   const handleOpenUserModal = () => {
+    document.body.classList.add('modal-open');
     setIsUserModalOpen(true);
     setIsCartModalOpen(false);
   };
 
   const handleCloseUserModal = () => {
+    document.body.classList.remove('modal-open');
     setIsUserModalOpen(false);
     setIsCartModalOpen(false);
   };
 
   const handleOpenCartModal = () => {
+    document.body.classList.add('modal-open');
     setIsUserModalOpen(false);
     setIsCartModalOpen(true);
   };
 
   const handleCloseCartModal = () => {
+    document.body.classList.remove('modal-open');
     setIsUserModalOpen(false);
     setIsCartModalOpen(false);
   };
 
   const handleOpenAuthModal = () => {
+    document.body.classList.add('modal-open');
     setIsAuthModalOpen(true);
     setIsUserModalOpen(false);
     setIsCartModalOpen(false);
   };
 
   const handleCloseAuthModal = () => {
+    document.body.classList.remove('modal-open');
     setIsAuthModalOpen(false);
     setIsUserModalOpen(false);
     setIsCartModalOpen(false);

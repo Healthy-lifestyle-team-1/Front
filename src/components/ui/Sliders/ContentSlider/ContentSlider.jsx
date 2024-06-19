@@ -41,6 +41,7 @@ const slides = [
 ];
 
 export const ContentSlider = () => {
+  git;
   const [activeIndex, setActiveIndex] = useState(0);
   const theme = useSelector(state => state.theme);
 
