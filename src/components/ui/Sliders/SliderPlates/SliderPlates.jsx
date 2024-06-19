@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
@@ -46,7 +45,8 @@ export const SliderPlates = ({ onSelect }) => {
   useEffect(() => {
     const fetchLeftImages = async () => {
       try {
-        const response = await fetch(`${BASE_URL}/product/?is_prepared=H1`, {
+        const response = await fetch(`${BASE_URL}/product/?is_prepared=H2`, {
+          // Изменено на H2 для левой стороны
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -60,7 +60,9 @@ export const SliderPlates = ({ onSelect }) => {
         }
 
         const data = await response.json();
-        setLeftImages(data.map(item => ({ id: item.id, src: item.image })));
+        setLeftImages(
+          data.map(item => ({ id: item.id, src: item.image_extra })),
+        ); // Используем image_extra
       } catch (error) {
         console.error('Ошибка при получении данных:', error);
       }
@@ -68,7 +70,8 @@ export const SliderPlates = ({ onSelect }) => {
 
     const fetchRightImages = async () => {
       try {
-        const response = await fetch(`${BASE_URL}/product/?is_prepared=H2`, {
+        const response = await fetch(`${BASE_URL}/product/?is_prepared=H1`, {
+          // Изменено на H1 для правой стороны
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -82,7 +85,9 @@ export const SliderPlates = ({ onSelect }) => {
         }
 
         const data = await response.json();
-        setRightImages(data.map(item => ({ id: item.id, src: item.image })));
+        setRightImages(
+          data.map(item => ({ id: item.id, src: item.image_extra })),
+        ); // Используем image_extra
       } catch (error) {
         console.error('Ошибка при получении данных:', error);
       }
@@ -102,7 +107,7 @@ export const SliderPlates = ({ onSelect }) => {
     prevArrow: <PrevArrow side="left" />,
     afterChange: current => {
       setLeftCurrentSlide(current);
-      onSelect('left', leftImages[current]);
+      onSelect('right', leftImages[current]); // Изменено на 'right' для левой стороны
     },
   };
 
@@ -116,7 +121,7 @@ export const SliderPlates = ({ onSelect }) => {
     prevArrow: <PrevArrow side="right" />,
     afterChange: current => {
       setRightCurrentSlide(current);
-      onSelect('right', rightImages[current]);
+      onSelect('left', rightImages[current]); // Изменено на 'left' для правой стороны
     },
   };
 
@@ -134,6 +139,7 @@ export const SliderPlates = ({ onSelect }) => {
                 className={s.carousel__slider__image}
                 src={img.src}
                 alt={`left ${idx}`}
+                style={{ transform: 'rotate(180deg)' }} // Поворот на 180 градусов
               />
             </div>
           ))}
@@ -156,7 +162,6 @@ export const SliderPlates = ({ onSelect }) => {
                 className={s.carousel__slider__image}
                 src={img.src}
                 alt={`right ${idx}`}
-                style={{ transform: 'rotate(180deg)' }} // Поворот на 180 градусов
               />
             </div>
           ))}
