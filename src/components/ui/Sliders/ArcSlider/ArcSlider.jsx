@@ -18,9 +18,9 @@ import plateEight from '../../../../assets/images/plates/plate8.png';
 import plateOne from '../../../../assets/images/plates/plate-one.png';
 import plateTwo from '../../../../assets/images/plates/plate-two.png';
 import plateThree from '../../../../assets/images/plates/plate-three.png';
-import plateFour from '../../../../assets/images/plates/plate4.png';
-import plateFive from '../../../../assets/images/plates/plate5.png';
-import plateSix from '../../../../assets/images/plates/plate6.png';
+import plateFour from '../../../../assets/images/plates/Plate4.png';
+import plateFive from '../../../../assets/images/plates/Plate5.png';
+import plateSix from '../../../../assets/images/plates/Plate6.png';
 import plateSeven from '../../../../assets/images/plates/plate7.png';
 import plateEight from '../../../../assets/images/plates/plate8.png';
 
@@ -47,8 +47,8 @@ const plates = [
     price: '1900 ₽',
     labels: [
       { light: vegDark, dark: veg },
-      { light: nutsDark, dark: nuts }
-    ]
+      { light: nutsDark, dark: nuts },
+    ],
   },
   {
     title:
@@ -61,8 +61,8 @@ const plates = [
     price: '1340 ₽',
     labels: [
       { light: nutsDark, dark: nuts },
-      { light: glutenFreeDark, dark: glutenFree }
-    ]
+      { light: glutenFreeDark, dark: glutenFree },
+    ],
   },
   {
     title: 'Морской коктейль с пастой, винегретом и огурцами',
@@ -74,8 +74,8 @@ const plates = [
     price: '1750 ₽',
     labels: [
       { light: nutsDark, dark: nuts },
-      { light: beefDark, dark: beef }
-    ]
+      { light: beefDark, dark: beef },
+    ],
   },
   {
     title: 'Свиная шея с отварным картофелем и капустным салатом',
@@ -87,8 +87,8 @@ const plates = [
     price: '1800 ₽',
     labels: [
       { light: glutenFreeDark, dark: glutenFree },
-      { light: beefDark, dark: beef }
-    ]
+      { light: beefDark, dark: beef },
+    ],
   },
   {
     title: 'Фарш из телятины с пастой и овощным салатом',
@@ -100,8 +100,8 @@ const plates = [
     price: '1400 ₽',
     labels: [
       { light: nutsDark, dark: nuts },
-      { light: glutenFreeDark, dark: glutenFree }
-    ]
+      { light: glutenFreeDark, dark: glutenFree },
+    ],
   },
   {
     title:
@@ -114,8 +114,8 @@ const plates = [
     price: '1300 ₽',
     labels: [
       { light: beefDark, dark: beef },
-      { light: glutenFreeDark, dark: glutenFree }
-    ]
+      { light: glutenFreeDark, dark: glutenFree },
+    ],
   },
   {
     title: 'Копченый палтус с кускусом, свеклой, помидорами и шпинатом',
@@ -127,8 +127,8 @@ const plates = [
     price: '1990 ₽',
     labels: [
       { light: nutsDark, dark: nuts },
-      { light: glutenFreeDark, dark: glutenFree }
-    ]
+      { light: glutenFreeDark, dark: glutenFree },
+    ],
   },
   {
     title: 'Индейка с картофелем и салатом из свежей капусты и сочной груши',
@@ -140,8 +140,8 @@ const plates = [
     price: '1340 ₽',
     labels: [
       { light: beefDark, dark: beef },
-      { light: glutenFreeDark, dark: glutenFree }
-    ]
+      { light: glutenFreeDark, dark: glutenFree },
+    ],
   },
 ];
 
@@ -239,7 +239,7 @@ export const ArcSlider = () => {
       });
 
       setActiveIndex(next);
-		setButtonText(plates[next].price);
+      setButtonText(plates[next].price);
     };
 
     items.forEach((el, i) => {
@@ -317,15 +317,18 @@ export const ArcSlider = () => {
         </div>
       </div>
       <div className={s.arcSlider__infoBlock}>
-        
         <div className={s.arcSlider__infoBlock__title}>
           Сбалансированные{' '}
           <span className={s.arcSlider__infoBlock__title__pink}>готовые</span>{' '}
           блюда
         </div>
-		  <div className={s.arcSlider__infoBlock__labels}>
+        <div className={s.arcSlider__infoBlock__labels}>
           {plates[activeIndex].labels.map((label, index) => (
-            <img key={index} src={theme === 'dark' ? label.dark : label.light} alt="label icon" />
+            <img
+              key={index}
+              src={theme === 'dark' ? label.dark : label.light}
+              alt="label icon"
+            />
           ))}
         </div>
         <div className={s.arcSlider__infoBlock__dishName}>
@@ -342,7 +345,7 @@ export const ArcSlider = () => {
             {plates[activeIndex].calories}
           </div>
         </div>
-		  <Button
+        <Button
           title={buttonText}
           onClick={() => console.log('Button clicked')}
           colorScheme={1}

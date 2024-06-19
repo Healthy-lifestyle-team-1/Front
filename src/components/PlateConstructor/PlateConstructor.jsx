@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '../ui/Button/Button';
 import { SliderPlates } from '../ui/Sliders/SliderPlates';
 import { toggleTag } from '../../core/store/tagsSlice';
 import Description from '../ui/DescriptionInConstructor/Description';
+import { BASE_URL } from '../../core/url';
 
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -13,18 +14,49 @@ import rightPlate from '../../assets/images/halfofplates/right/right.png';
 import leftPlate from '../../assets/images/halfofplates/left/left.png';
 import back from '../../assets/images/icons/Back.svg';
 
-export const PlateConstructor = ({
-  title = 'Название блюда',
-  price = 'Цена',
-  subtitle = 'Салат из свежих овощей, с добавлением микро - зеленим, приправлен ореховым соусом отличный гарнир на ужин',
-}) => {
+export const PlateConstructor = () => {
   const tags = ['Глютен', 'Сахар', 'Мучное', 'Лук', 'Морковь', 'Ещё'];
-  const descriptions = ['кБЖУ', 'Состав', 'Описание'];
   const activeTags = useSelector(state => state.tags);
   const dispatch = useDispatch();
   const [isPlateCombined, setIsPlateCombined] = useState(false);
   const [leftImage, setLeftImage] = useState(null);
   const [rightImage, setRightImage] = useState(null);
+
+  const [title, setTitle] = useState('');
+  const [price, setPrice] = useState('');
+  const [subtitle, setSubtitle] = useState('');
+  const [descriptions, setDescriptions] = useState([]);
+  const [allTags, setAllTags] = useState([]);
+
+  useEffect(() => {
+    const fetchProductData = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/products/1`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error('Ошибка при получении данных:', errorData);
+          throw new Error('Ошибка при получении данных');
+        }
+
+        const productData = await response.json();
+        setTitle(productData.title);
+        setPrice(productData.price);
+        setSubtitle(productData.subtitle);
+        setDescriptions(productData.descriptions);
+        setAllTags(productData.allTags);
+      } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+      }
+    };
+
+    fetchProductData();
+  }, []);
 
   const handleTagClick = index => {
     dispatch(toggleTag(index));

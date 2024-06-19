@@ -1,25 +1,36 @@
-import React, { useState } from 'react';
-import { Button } from '../Button';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 import s from './styles.module.scss';
 
 const Description = ({
-  title = '',
-  price = '',
-  subtitle = '',
-  descriptions = [],
-  activeTags = [],
+  title,
+  price,
+  subtitle,
+  // descriptions = [],
+  // activeTags = [],
 }) => {
-  const [visibleDescriptions, setVisibleDescriptions] = useState([0, 1]);
+  const theme = useSelector(state => state.theme);
+  const token = useSelector(state => state.auth.token);
 
-  const handleDescriptionClick = index => {
-    const newVisibleDescriptions = [...visibleDescriptions];
-    const clickedIndex = newVisibleDescriptions.indexOf(index);
-    const remainingDescription = descriptions.findIndex(
-      (desc, i) => !newVisibleDescriptions.includes(i),
-    );
-    newVisibleDescriptions[clickedIndex] = remainingDescription;
-    setVisibleDescriptions(newVisibleDescriptions);
-  };
+  // useEffect(() => {
+  //   console.log('tags:', tags);
+  //   console.log('categories:', categories);
+  //   console.log('allTags:', allTags);
+  //   console.log('allCategories:', allCategories);
+  // }, [tags, categories, allTags, allCategories]);
+
+  // const [visibleDescriptions, setVisibleDescriptions] = useState([0, 1]);
+
+  // const handleDescriptionClick = index => {
+  //   const newVisibleDescriptions = [...visibleDescriptions];
+  //   const clickedIndex = newVisibleDescriptions.indexOf(index);
+  //   const remainingDescription = descriptions.findIndex(
+  //     (desc, i) => !newVisibleDescriptions.includes(i),
+  //   );
+  //   newVisibleDescriptions[clickedIndex] = remainingDescription;
+  //   setVisibleDescriptions(newVisibleDescriptions);
+  // };
 
   return (
     <div className={s.main__description}>
