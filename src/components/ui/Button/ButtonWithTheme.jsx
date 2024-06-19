@@ -1,5 +1,4 @@
-// src/components/ui/ButtonWithTheme/index.js
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import s from './styles.module.scss';
 
@@ -11,13 +10,10 @@ export function ButtonWithTheme({
   size,
   withCounter,
   showRubleSign,
+  onIncrement,
+  onDecrement,
   ...props
 }) {
-  const [counterValue, setCounterValue] = useState(1); // Начальное значение установлено в 1
-
-  const increment = () => setCounterValue(counterValue + 1);
-  const decrement = () =>
-    setCounterValue(counterValue > 1 ? counterValue - 1 : 1);
 
   return (
     <div
@@ -33,19 +29,19 @@ export function ButtonWithTheme({
         <div className={s.counter}>
           <button
             className={s.counter__btn}
-            onClick={e => {
+            onClick={(e) => {
               e.stopPropagation();
-              decrement();
+              onDecrement();
             }}
           >
             -
           </button>
-          <span className={s.counter__value}>{counterValue}</span>
+          <span className={s.counter__value}>{title}</span>
           <button
             className={s.counter__btn}
-            onClick={e => {
+            onClick={(e) => {
               e.stopPropagation();
-              increment();
+              onIncrement();
             }}
           >
             +

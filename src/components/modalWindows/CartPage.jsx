@@ -97,8 +97,60 @@ const CartPage = ({ onClose }) => {
     fetchCart();
   }, []);
 
-  const removeRow = id => {
-    setCartItems(cartItems.filter(item => item.id !== id));
+  const removeRow = async (id) => {
+    const token = localStorage.getItem('access');
+    try {
+      await axios.delete(`https://grikoandrey.pythonanywhere.com/cart_item/${id}/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      
+      // Удаляем элемент из состояния cartItems
+      setCartItems(prevCartItems => prevCartItems.filter(item => item.id !== id));
+
+      // Пересчитываем totalPrice на основе нового списка cartItems
+      const updatedTotalPrice = cartItems.reduce((total, item) => total + item.total_price, 0);
+      setTotalPrice(updatedTotalPrice);
+      
+    } catch (error) {
+      console.error('Error removing item from cart:', error);
+    }
+  };
+
+  const updateQuantity = async (id, newQuantity) => {
+    const token = localStorage.getItem('access');
+    try {
+      const response = await axios.patch(
+        `https://grikoandrey.pythonanywhere.com/cart_item/${id}/`,
+        { quantity: newQuantity },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+  
+      const updatedItem = response.data;
+  
+      // Обновляем состояние cartItems
+      setCartItems(prevCartItems => {
+        // Создаем новый массив с обновленным элементом
+        const updatedCartItems = prevCartItems.map(item =>
+          item.id === id ? { ...item, quantity: updatedItem.quantity, total_price: updatedItem.total_price } : item
+        );
+  
+        // Вычисляем общую стоимость корзины
+        const updatedTotalPrice = updatedCartItems.reduce((total, item) => total + item.total_price, 0);
+  
+        // Обновляем состояния одновременно
+        setTotalPrice(updatedTotalPrice);
+        return updatedCartItems;
+      });
+  
+    } catch (error) {
+      console.error('Error updating quantity:', error);
+    }
   };
 
   return (
@@ -118,20 +170,22 @@ const CartPage = ({ onClose }) => {
         </div>
         <div className={s.cart__items}>
           {cartItems.length > 0 ? (
-            cartItems.map(item => (
+            cartItems.map((item) => (
               <RowInCart
                 key={item.id}
                 id={item.id}
                 dishImg={
                   <img
                     className={s.item__img}
-                    src={`https://grikoandrey.pythonanywhere.com${item.product.image}`}
-                    alt={item.product.title}
+                    src={item.product.image}
+                    alt={item.product.image}
                   />
                 }
                 dishName={item.product.title}
                 price={`${item.total_price} P`}
+                quantity={item.quantity} // Передача количества в компонент RowInCart
                 onRemove={removeRow}
+                onUpdateQuantity={updateQuantity} // Передача метода обновления количества
               />
             ))
           ) : (

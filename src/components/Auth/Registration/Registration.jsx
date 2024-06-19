@@ -35,9 +35,13 @@ export const Registration = ({
       setError('');
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        setError('Такой пользователь уже существует. Пожалуйста, залогиньтесь.');
+        setError(
+          'Такой пользователь уже существует. Пожалуйста, залогиньтесь.'
+        );
       } else {
-        setError('Ошибка при авторизации. Проверьте данные и попробуйте снова.');
+        setError(
+          'Ошибка при авторизации. Проверьте данные и попробуйте снова.'
+        );
       }
       console.error('Error during login:', error);
     }
