@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ButtonWithTheme } from '../../Button/ButtonWithTheme';
-import cn from 'classnames';
-import s from './styles.module.scss';
+
 import { icons } from '../../../../assets/images/icons/icons';
 import { BASE_URL } from '../../../../core/url';
+
+import cn from 'classnames';
+import s from './styles.module.scss';
 
 export const CardCatalog = ({
   title,

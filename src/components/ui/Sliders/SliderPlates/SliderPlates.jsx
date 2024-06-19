@@ -1,13 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import s from './styles.module.scss';
-import rightImage from '../../../../assets/images/halfofplates/right/right.png';
-import leftImage from '../../../../assets/images/halfofplates/left/left.png';
 
 import arrowUp from '../../../../assets/images/icons/arrowUp.svg';
 import arrowDown from '../../../../assets/images/icons/arrowDown.svg';
+import { BASE_URL } from '../../../../core/url';
 
 const NextArrow = ({ onClick, side }) => (
   <div className={`${s.arrow} ${s[`${side}NextArrow`]}`} onClick={onClick}>
@@ -40,6 +40,61 @@ export const SliderPlates = ({ onSelect }) => {
 
   const [leftCurrentSlide, setLeftCurrentSlide] = useState(0);
   const [rightCurrentSlide, setRightCurrentSlide] = useState(0);
+  const [leftImages, setLeftImages] = useState([]);
+  const [rightImages, setRightImages] = useState([]);
+
+  const token = useSelector(state => state.auth.token);
+
+  useEffect(() => {
+    const fetchLeftImages = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/product/?is_prepared=H1`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`, // Добавляем токен авторизации
+          },
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error('Ошибка при получении данных:', errorData);
+          throw new Error('Ошибка при получении данных');
+        }
+
+        const data = await response.json();
+        setLeftImages(data.map(item => ({ id: item.id, src: item.image })));
+      } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+      }
+    };
+
+    const fetchRightImages = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/product/?is_prepared=H2`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`, // Добавляем токен авторизации
+          },
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error('Ошибка при получении данных:', errorData);
+          throw new Error('Ошибка при получении данных');
+        }
+
+        const data = await response.json();
+        setRightImages(data.map(item => ({ id: item.id, src: item.image })));
+      } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+      }
+    };
+
+    fetchLeftImages();
+    fetchRightImages();
+  }, [token]);
 
   const leftSettings = {
     infinite: true,
@@ -69,9 +124,6 @@ export const SliderPlates = ({ onSelect }) => {
     },
   };
 
-  const leftImages = [leftImage, leftImage, leftImage, leftImage];
-  const rightImages = [rightImage, rightImage, rightImage, rightImage];
-
   return (
     <div className={s.carousel__container}>
       <div className={s.sliderWrapper}>
@@ -84,7 +136,7 @@ export const SliderPlates = ({ onSelect }) => {
             <div key={idx} className={s.carousel__imageContainer}>
               <img
                 className={s.carousel__slider__image}
-                src={img}
+                src={img.src}
                 alt={`left ${idx}`}
               />
             </div>
@@ -106,8 +158,9 @@ export const SliderPlates = ({ onSelect }) => {
             <div key={idx} className={s.carousel__imageContainer}>
               <img
                 className={s.carousel__slider__image}
-                src={img}
+                src={img.src}
                 alt={`right ${idx}`}
+                style={{ transform: 'rotate(180deg)' }} // Поворот на 180 градусов
               />
             </div>
           ))}

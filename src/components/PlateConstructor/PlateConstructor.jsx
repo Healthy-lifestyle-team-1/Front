@@ -5,58 +5,21 @@ import { SliderPlates } from '../ui/Sliders/SliderPlates';
 import { toggleTag } from '../../core/store/tagsSlice';
 import Description from '../ui/DescriptionInConstructor/Description';
 import { BASE_URL } from '../../core/url';
-
 import cn from 'classnames';
 import s from './styles.module.scss';
 
 // Импортируем изображения
 import rightPlate from '../../assets/images/halfofplates/right/right.png';
 import leftPlate from '../../assets/images/halfofplates/left/left.png';
-import back from '../../assets/images/icons/Back.svg';
 
 export const PlateConstructor = () => {
   const tags = ['Глютен', 'Сахар', 'Мучное', 'Лук', 'Морковь', 'Ещё'];
   const activeTags = useSelector(state => state.tags);
+  const token = useSelector(state => state.auth.token); // Получение токена из состояния Redux
   const dispatch = useDispatch();
   const [isPlateCombined, setIsPlateCombined] = useState(false);
-  const [leftImage, setLeftImage] = useState(null);
-  const [rightImage, setRightImage] = useState(null);
-
-  const [title, setTitle] = useState('');
-  const [price, setPrice] = useState('');
-  const [subtitle, setSubtitle] = useState('');
-  const [descriptions, setDescriptions] = useState([]);
-  const [allTags, setAllTags] = useState([]);
-
-  useEffect(() => {
-    const fetchProductData = async () => {
-      try {
-        const response = await fetch(`${BASE_URL}/products/1`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          console.error('Ошибка при получении данных:', errorData);
-          throw new Error('Ошибка при получении данных');
-        }
-
-        const productData = await response.json();
-        setTitle(productData.title);
-        setPrice(productData.price);
-        setSubtitle(productData.subtitle);
-        setDescriptions(productData.descriptions);
-        setAllTags(productData.allTags);
-      } catch (error) {
-        console.error('Ошибка при получении данных:', error);
-      }
-    };
-
-    fetchProductData();
-  }, []);
+  const [leftDescription, setLeftDescription] = useState({});
+  const [rightDescription, setRightDescription] = useState({});
 
   const handleTagClick = index => {
     dispatch(toggleTag(index));
@@ -66,11 +29,47 @@ export const PlateConstructor = () => {
     setIsPlateCombined(true);
   };
 
-  const handleSelectImage = (side, image) => {
-    if (side === 'left') {
-      setLeftImage(image);
-    } else if (side === 'right') {
-      setRightImage(image);
+  const handleSelectImage = async (side, product) => {
+    if (!token) {
+      console.error('Токен отсутствует');
+      return;
+    }
+
+    try {
+      console.log(`Используемый токен: ${token}`);
+      console.log(`Запрос к URL: ${BASE_URL}/product/${product.id}`);
+
+      const response = await fetch(`${BASE_URL}/product/${product.id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`, // Добавляем токен авторизации
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Ошибка при получении данных:', errorData);
+        throw new Error(
+          `Ошибка при получении данных: ${errorData.detail || response.statusText}`,
+        );
+      }
+
+      const productData = await response.json();
+
+      const description = {
+        title: productData.title,
+        price: productData.price,
+        subtitle: productData.subtitle,
+      };
+
+      if (side === 'left') {
+        setLeftDescription(description);
+      } else if (side === 'right') {
+        setRightDescription(description);
+      }
+    } catch (error) {
+      console.error('Ошибка при получении данных:', error);
     }
   };
 
@@ -78,7 +77,7 @@ export const PlateConstructor = () => {
     setIsPlateCombined(false);
   };
 
-  const [buttonText, setButtonText] = useState('1300'); /*(plates[0].price)*/
+  const [buttonText, setButtonText] = useState('1300');
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -102,11 +101,9 @@ export const PlateConstructor = () => {
       </div>
       <div className={s.plateConstructor__slider}>
         <Description
-          title={title}
-          price={price}
-          subtitle={subtitle}
-          descriptions={descriptions}
-          activeTags={activeTags}
+          title={leftDescription.title}
+          price={leftDescription.price}
+          subtitle={`Описание Лево: ${leftDescription.subtitle}`}
         />
         <div className={s.plateConstructor__dish}>
           {!isPlateCombined && (
@@ -139,11 +136,9 @@ export const PlateConstructor = () => {
           )}
         </div>
         <Description
-          title={title}
-          price={price}
-          subtitle={subtitle}
-          descriptions={descriptions}
-          activeTags={activeTags}
+          title={rightDescription.title}
+          price={rightDescription.price}
+          subtitle={`Описание Право: ${rightDescription.subtitle}`}
         />
       </div>
       <div className={s.plateConstructor__btn}>
@@ -157,7 +152,7 @@ export const PlateConstructor = () => {
             setIsHovered(true);
           }}
           onMouseLeave={() => {
-            setButtonText('1300' /*plates[0].price*/);
+            setButtonText('1300');
             setIsHovered(false);
           }}
         />
