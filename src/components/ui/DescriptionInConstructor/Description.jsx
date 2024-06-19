@@ -5,8 +5,7 @@ import s from './styles.module.scss';
 const Description = ({
   title = '',
   price = '',
-  info_title = '',
-  info_text = '',
+  subtitle = '',
   descriptions = [],
   activeTags = [],
 }) => {
@@ -27,21 +26,8 @@ const Description = ({
       <div className={s.main__tags}></div>
       <div className={s.main__title}>{title}</div>
       <div className={s.main__price}>{price}</div>
-      <div className={s.main__info_title}>{info_title}</div>
-      <div className={s.main__info_text}>{info_text}</div>
-
-      <div className={s.plateConstructor__tagBtns}>
-        {visibleDescriptions.map(descIndex => (
-          <Button
-            colorScheme={5}
-            size={7}
-            key={descIndex}
-            title={descriptions[descIndex]}
-            isActive={activeTags.includes(descIndex)}
-            onClick={() => handleDescriptionClick(descIndex)}
-          />
-        ))}
-      </div>
+      <div className={s.main__info_title}>Описание</div>
+      <div className={s.main__subtitle}>{subtitle}</div>
     </div>
   );
 };
