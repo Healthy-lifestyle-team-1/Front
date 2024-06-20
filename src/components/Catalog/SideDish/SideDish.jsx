@@ -24,6 +24,7 @@ export const SideDish = ({ filteredTags, category }) => {
 
         if (Array.isArray(data)) {
           const formattedData = data.map(item => ({
+            id: item.id,
             title: item.title,
             extra: item.subtitle,
             weight: `${item.weight} г`,

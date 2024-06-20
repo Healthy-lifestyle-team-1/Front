@@ -5,6 +5,7 @@ import s from './styles.module.scss';
 import Theme from '../../../assets/styles/themes/index';
 import { Button } from '../../ui/Button';
 import axios from 'axios';
+import { BASE_URL } from '../../../core/url';
 
 import x from '../../../assets/images/icons/light/X.svg';
 import blueCart from '../../../assets/images/icons/light/blue-cart.svg';
@@ -30,7 +31,7 @@ const UserPage = ({ onClose }) => {
       if (token) {
         try {
           const response = await axios.get(
-            'https://grikoandrey.pythonanywhere.com/user/',
+            `${BASE_URL}/user/`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -56,7 +57,7 @@ const UserPage = ({ onClose }) => {
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        'https://grikoandrey.pythonanywhere.com/logout/',
+        `${BASE_URL}/logout/`,
       );
       if (response.status === 200) {
         localStorage.removeItem('access'); // Удаляем токен из локального хранилища
@@ -72,7 +73,7 @@ const UserPage = ({ onClose }) => {
     try {
       const token = localStorage.getItem('access');
       const response = await axios.put(
-        'https://grikoandrey.pythonanywhere.com/user/',
+        `${BASE_URL}/user/`,
         {
           username,
           email,

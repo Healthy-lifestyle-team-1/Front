@@ -1,4 +1,3 @@
-// src/components/NavCatalog/index.js
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleTag } from '../../core/store/tagsSlice';
@@ -39,9 +38,11 @@ export const NavCatalog = ({ setFilteredTags, setCategory }) => {
   };
 
   useEffect(() => {
-    const activeFilterParams = activeTags
-      .filter(tagIndex => tagIndex in tagToFilterParam)
-      .map(tagIndex => parseInt(tagToFilterParam[tagIndex]));
+    const activeFilterParams = Array.isArray(activeTags)
+      ? activeTags
+          .filter(tagIndex => tagIndex in tagToFilterParam)
+          .map(tagIndex => parseInt(tagToFilterParam[tagIndex]))
+      : [];
 
     setFilteredTags(activeFilterParams);
   }, [activeTags, setFilteredTags]);
@@ -53,7 +54,8 @@ export const NavCatalog = ({ setFilteredTags, setCategory }) => {
           <LinkButton
             key={index}
             className={cn(s.catalog__navigationItem, {
-              [s.active]: activeTags.includes(index),
+              [s.active]:
+                Array.isArray(activeTags) && activeTags.includes(index),
             })}
             onClick={() => handleTagClick(index)}
           >

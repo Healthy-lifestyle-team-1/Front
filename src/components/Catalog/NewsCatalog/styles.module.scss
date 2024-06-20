@@ -3,7 +3,8 @@
   flex-direction: column;
   margin: 0 auto;
   max-width: 1216px;
-  margin-top: 40px;
+  margin-top: 60px;
+  margin-bottom: 40px;
 }
 
 .cardNews {
@@ -24,7 +25,7 @@
       color: var(--text-color);
       border: 6px solid var(--peach);
       &.recommendations img {
-        height: 70%;
+        height: 80%;
       }
     }
     &.sport {

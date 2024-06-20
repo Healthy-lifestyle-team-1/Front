@@ -5,15 +5,15 @@
   justify-content: space-between;
   align-items: center;
   gap: 50px;
-  
-  &__title {
-	@include fontTitle2();
-	margin: 40px 0px;
 
-	&__pink {
-		color: var(--peach);
-	}
-}
+  &__title {
+    @include fontTitle2();
+    margin: 40px 0px;
+
+    &__pink {
+      color: var(--peach);
+    }
+  }
 
   &__slider {
     display: flex;
@@ -63,6 +63,7 @@
     height: auto;
     display: block;
   }
+
   &__btn_back {
     display: flex;
     flex-direction: row;
@@ -71,7 +72,16 @@
     top: -80px;
     left: -500px;
     align-items: center;
+    opacity: 0; /* скрываем кнопку по умолчанию */
+    pointer-events: none; /* предотвращаем клики по кнопке */
+    transition: opacity 0.3s ease;
   }
+
+  &__btn_back_visible {
+    opacity: 1; /* показываем кнопку, когда нужно */
+    pointer-events: auto; /* разрешаем клики по кнопке */
+  }
+
   &__dish {
     width: 500px;
     height: 549px;
