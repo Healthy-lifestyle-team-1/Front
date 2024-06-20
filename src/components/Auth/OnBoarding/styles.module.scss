@@ -14,21 +14,23 @@
 .modal {
   &__content {
     &1 {
-      background: url('../../../assets/images/OnBoarding/waves/frame1.svg') no-repeat;
+      background: url('../../../assets/images/OnBoarding/waves/frame1.svg')
+        no-repeat;
       background-color: var(--background-color);
       border-radius: 20px;
       width: 600px;
       height: 600px;
       position: relative;
       z-index: 100001;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+      // justify-content: center;
       padding: 25px;
     }
     &2 {
-      background: url('../../../assets/images/OnBoarding/waves/frame2.svg') no-repeat;
+      background: url('../../../assets/images/OnBoarding/waves/frame2.svg')
+        no-repeat;
       background-position: bottom;
       background-color: var(--background-color);
       border-radius: 20px;
@@ -43,7 +45,8 @@
       padding: 25px;
     }
     &3 {
-      background: url('../../../assets/images/OnBoarding/waves/frame3.svg') no-repeat;
+      background: url('../../../assets/images/OnBoarding/waves/frame3.svg')
+        no-repeat;
       background-color: var(--background-color);
       border-radius: 20px;
       width: 600px;
@@ -57,7 +60,8 @@
       padding: 25px;
     }
     &4 {
-      background: url('../../../assets/images/OnBoarding/waves/frame4.svg') no-repeat;
+      background: url('../../../assets/images/OnBoarding/waves/frame4.svg')
+        no-repeat;
       background-position: bottom;
       background-color: var(--background-color);
       border-radius: 20px;
@@ -76,16 +80,28 @@
 
 .onBoarding {
   &__content {
+    display: flex;
+    flex-direction: column;
   }
   &__title {
     @include fontTitle2;
     &White {
       color: $mainLight;
     }
+    &Pink{
+      color: $mainPeach;
+    }
   }
   &__img {
+    align-self: center;
   }
   &__text {
+    @include fontText;
+    align-self: center;
+    text-align: center;
+  }
+  &__button {
+    align-self: center;
   }
 }
 
@@ -98,9 +114,29 @@
   background-color: transparent;
   width: 24px;
   height: 24px;
+  color: #828282;
+  padding-right: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #828282;
-  padding-right: 25px;
+}
+ // слайдер
+
+ .dotsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  border-radius: 50%;
+  border: 1px solid #828282;
+  display: inline-block;
+}
+
+.activeDot {
+  background-color: $blueDark;
 }
