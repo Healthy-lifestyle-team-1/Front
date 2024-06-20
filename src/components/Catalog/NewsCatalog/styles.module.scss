@@ -18,22 +18,22 @@
     overflow: hidden;
     &.harvard {
       color: $mainDark;
-      background-color: $mainPeach;
+      background-color: var(--peach);
     }
     &.recommendations {
       color: var(--text-color);
-      border: 6px solid $mainPeach;
+      border: 6px solid var(--peach);
       &.recommendations img {
         height: 70%;
       }
     }
     &.sport {
       color: $mainDark;
-      background-color: $blueLight;
+      background-color: var(--blue);
     }
     &.new {
       color: var(--text-color);
-      border: 6px solid $blueLight;
+      border: 6px solid var(--blue);
     }
   }
   &__itemTitle {

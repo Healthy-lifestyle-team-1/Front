@@ -3,13 +3,21 @@
     margin-top: 92px;
   }
   &__container {
-    background-image: url('../../assets/images/top-catalog.svg');
+ 
     width: 100%;
     // height: auto;
     background-size: contain;
     background-position: 0 15px;
     background-repeat: no-repeat;
     margin: 0 auto;
+
+	 &.light {
+		background-image: url('../../assets/images/top-catalog.png');
+	 }
+
+	 &.dark {
+		background-image: url('../../assets/images/top-catalog-dark.png');
+	 }
   }
   &__nav {
     max-width: 1216px;

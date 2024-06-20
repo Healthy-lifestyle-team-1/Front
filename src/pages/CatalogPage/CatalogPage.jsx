@@ -1,4 +1,4 @@
-// src/pages/CatalogPage/index.js
+import { useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import { Header } from '../../components/Header';
 import { Heading } from '../../components/Catalog/Heading/Heading';
@@ -19,6 +19,7 @@ import s from './styles.module.scss';
 export const CatalogPage = () => {
   const [filteredTags, setFilteredTags] = useState([]);
   const [category, setCategory] = useState(null);
+  const theme = useSelector(state => state.theme);
 
   const onSearch = () => {
     console.log('Searching');
@@ -31,10 +32,8 @@ export const CatalogPage = () => {
     const currentScrollTop = window.scrollY;
 
     if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
-      // Скроллим вниз
       setIsScrollingUp(false);
     } else if (currentScrollTop < lastScrollTop) {
-      // Скроллим вверх
       setIsScrollingUp(true);
     }
 
@@ -50,7 +49,7 @@ export const CatalogPage = () => {
   }, [lastScrollTop]);
 
   return (
-    <div className={s.catalogpage__container}>
+    <div className={`${s.catalogpage__container} ${theme === 'dark' ? s.dark : s.light}`}>
       <div className={s.catalogpage__main}>
         <Heading />
         <div className={s.catalogpage__nav}>
