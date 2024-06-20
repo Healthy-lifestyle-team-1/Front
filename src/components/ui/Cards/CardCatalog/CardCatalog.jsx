@@ -9,6 +9,7 @@ import cn from 'classnames';
 import s from './styles.module.scss';
 
 export const CardCatalog = ({
+  id,
   title,
   extra,
   weight,
@@ -43,17 +44,8 @@ export const CardCatalog = ({
 
     // Предполагаем, что сервер ожидает массив идентификаторов категорий и тегов, а не объекты
     const cartItem = {
-      product: {
-        // Обертывание данных в ключ product
-        title,
-        extra,
-        weight,
-        calories,
-        img,
-        price,
-        tags: tags.map(tag => tag.id), // предполагаем, что tags содержит объекты с id
-        categories: categories.map(category => category.id), // предполагаем, что categories содержит объекты с id
-      },
+      product: id,
+      quantity: 1,
     };
 
     console.log('Отправка данных в корзину:', cartItem); // Логирование данных перед отправкой
