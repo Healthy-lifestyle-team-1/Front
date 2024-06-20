@@ -9,12 +9,14 @@ import { ArcSlider } from '../../components/ui/Sliders/ArcSlider';
 import { Footer } from '../../components/Footer/Footer';
 import { SliderNews } from '../../components/ui/Sliders/SliderNews';
 import { DailyRation } from '../../components/DailyRation';
+import { HeroSection } from '../../components/HeroSection';
 
 import s from './styles.module.scss';
 
 export const HomePage = () => {
   return (
     <div className={s.container}>
+		<HeroSection />
       <ContentSlider />
       <SliderNews />
       <PlateConstructor />
