@@ -7,6 +7,9 @@ import { Footer } from '../../components/Footer/Footer';
 import { Advertisement } from '../../components/Advertisement';
 import { CardNewsMain } from '../../components/ui/Cards/CardNewsMain';
 
+
+import {OnBoarding} from '../../components/Auth/OnBoarding'
+
 export const NewsPage = () => {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
@@ -36,6 +39,7 @@ export const NewsPage = () => {
   return (
     <div className={s.container}>
       <CardNewsMain className={s.block} />
+      <OnBoarding/>
       <Advertisement />
       <Footer />
     </div>
