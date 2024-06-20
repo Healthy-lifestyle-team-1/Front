@@ -16,7 +16,7 @@ import s from './styles.module.scss';
 export const HomePage = () => {
   return (
     <div className={s.container}>
-		<HeroSection />
+      <HeroSection />
       <ContentSlider />
       <SliderNews />
       <PlateConstructor />

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import s from './styles.module.scss';
 import compositionOne from '../../../../assets/images/composition1.png';
 import compositionTwo from '../../../../assets/images/composition2.png';
@@ -42,10 +43,35 @@ const slides = [
 
 export const ContentSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [buttonColor, setButtonColor] = useState('var(--yellow)'); // Начальный цвет кнопки
+  const navigate = useNavigate();
   const theme = useSelector(state => state.theme);
 
   const handleButtonClick = index => {
     setActiveIndex(index);
+  };
+
+  const handleColorChange = color => {
+    setButtonColor(color);
+  };
+
+  const handleNavigate = () => {
+    let path = '';
+    switch (buttonColor) {
+      case 'var(--yellow)':
+        path = '/constructor';
+        break;
+      case 'var(--blue)':
+        path = '/catalog';
+        break;
+      case 'var(--peach)':
+        path = '/book';
+        break;
+      default:
+        path = '/';
+        break;
+    }
+    navigate(path);
   };
 
   const { imgSrc, imgSrcDark, title1, title2, title3, text, btnTitle } =
@@ -63,7 +89,11 @@ export const ContentSlider = () => {
           />
         </div>
         <div className={s.contentSlider__blockBtns}>
-          <Test onButtonClick={handleButtonClick} activeIndex={activeIndex} />
+          <Test
+            onButtonClick={handleButtonClick}
+            activeIndex={activeIndex}
+            onColorChange={handleColorChange}
+          />
         </div>
       </div>
       <div className={s.contentSlider__blockDescription}>
@@ -78,9 +108,10 @@ export const ContentSlider = () => {
         <div className={s.contentSlider__blockDescription__btn}>
           <Button
             title={btnTitle}
-            onClick={() => console.log('Button clicked')}
+            onClick={handleNavigate}
             colorScheme={1}
             size={12}
+            style={{ backgroundColor: buttonColor }}
           />
         </div>
       </div>

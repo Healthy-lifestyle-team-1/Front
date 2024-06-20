@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import s from './styles.module.scss';
 import { ButtonStone } from '../Button';
@@ -19,13 +19,13 @@ import stone32Dark from '../../../assets/images/stones/stone32-dark.png';
 import stone13Dark from '../../../assets/images/stones/stone13-dark.png';
 import stone33Dark from '../../../assets/images/stones/stone23-dark.png';
 
-const Test = ({ onButtonClick, activeIndex }) => {
-  const theme = useSelector(state => state.theme); 
+const Test = ({ onButtonClick, activeIndex, onColorChange }) => {
+  const theme = useSelector(state => state.theme);
 
   const buttons = [
-    { title: 'Тарелка', index: 0 },
-    { title: 'Книга', index: 1 },
-    { title: 'Каталог', index: 2 },
+    { title: 'Тарелка', index: 0, color: 'var(--yellow)' }, // Желтый
+    { title: 'Книга', index: 1, color: 'var(--peach)' }, // Розовый
+    { title: 'Каталог', index: 2, color: 'var(--blue)' }, // Голубой
   ];
 
   const backgroundImages = {
@@ -41,14 +41,14 @@ const Test = ({ onButtonClick, activeIndex }) => {
     ],
   };
 
-  const buttonColors = [
-    'backgroundColor__1',
-    'backgroundColor__2',
-    'backgroundColor__3',
-  ];
+  useEffect(() => {
+    // Передаем цвет второй кнопки (second) при каждом изменении activeIndex
+    onColorChange(buttons[activeIndex].color);
+  }, [activeIndex, onColorChange]);
 
   const handleClick = index => {
     onButtonClick(index);
+    onColorChange(buttons[index].color);
   };
 
   const getBackgroundImage = (position, activeIndex) => {
@@ -75,7 +75,7 @@ const Test = ({ onButtonClick, activeIndex }) => {
         <ButtonStone
           title={button.title}
           onClick={() => handleClick(button.index)}
-          className={`${s.button} ${s[buttonColors[button.index]]}`}
+          className={`${s.button} ${s[`backgroundColor__${button.index + 1}`]}`}
         />
       </div>
     ));
