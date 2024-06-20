@@ -3,6 +3,7 @@ import { Button } from '../ui/Button';
 import { RowInCart } from '../ui/RowInCart/RowInCart';
 import axios from 'axios';
 import x from '../../assets/images/icons/light/X.svg';
+import { BASE_URL } from '../../core/url';
 
 import s from './styles.module.scss';
 
@@ -14,7 +15,7 @@ const CartPage = ({ onClose }) => {
     const token = localStorage.getItem('access');
     try {
       const response = await axios.get(
-        'https://grikoandrey.pythonanywhere.com/cart/',
+        `${BASE_URL}/cart/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -37,7 +38,7 @@ const CartPage = ({ onClose }) => {
     const token = localStorage.getItem('access');
     try {
       await axios.delete(
-        `https://grikoandrey.pythonanywhere.com/cart_item/${id}/`,
+        `${BASE_URL}/cart_item/${id}/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -65,7 +66,7 @@ const CartPage = ({ onClose }) => {
     const token = localStorage.getItem('access');
     try {
       const response = await axios.patch(
-        `https://grikoandrey.pythonanywhere.com/cart_item/${id}/`,
+        `${BASE_URL}/cart_item/${id}/`,
         { quantity: newQuantity },
         {
           headers: {
@@ -128,11 +129,11 @@ const CartPage = ({ onClose }) => {
                 dishImg={
                   <img
                     className={s.item__img}
-                    src={item.product.image}
-                    alt={item.product.image}
+                    src={`${BASE_URL}${item.product_image}`}
+                    alt={item.product_title}
                   />
                 }
-                dishName={item.product.title}
+                dishName={item.product_title}
                 price={`${item.total_price} P`}
                 quantity={item.quantity} // Передача количества в компонент RowInCart
                 onRemove={removeRow}

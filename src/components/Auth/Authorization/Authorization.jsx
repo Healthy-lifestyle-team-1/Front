@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Button } from '../../ui/Button';
+import { BASE_URL } from '../../../core/url';
 
 import x from '../../../assets/images/icons/light/X.svg';
 import s from './styles.module.scss';
@@ -18,7 +19,7 @@ export const Authorization = ({
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        'https://grikoandrey.pythonanywhere.com/login/',
+        `${BASE_URL}/login/`,
         {
           login,
         },
@@ -43,7 +44,7 @@ export const Authorization = ({
   const handleVerify = async () => {
     try {
       const response = await axios.post(
-        'https://grikoandrey.pythonanywhere.com/verify/',
+        `${BASE_URL}/verify/`,
         { code },
       );
       if (response.status === 200) {
