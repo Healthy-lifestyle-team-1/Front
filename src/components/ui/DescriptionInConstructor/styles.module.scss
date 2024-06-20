@@ -9,6 +9,11 @@
     width: 82px;
     height: 32px;
     margin-bottom: 24px;
+    .invisibleBlock {
+      width: 34px;
+      height: 34px;
+      visibility: hidden;
+    }
   }
   &__title {
     @include fontTitle2;

@@ -1,0 +1,12 @@
+// src/components/NavConstructor/styles.module.scss
+.container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tagBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

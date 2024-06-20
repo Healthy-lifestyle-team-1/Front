@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '../ui/Button/Button';
 import { SliderPlates } from '../ui/Sliders/SliderPlates';
 import Description from '../ui/DescriptionInConstructor/Description';
+import { NavConstructor } from '../PlateConstructor/NavConstructor';
 import { BASE_URL } from '../../core/url';
 import cn from 'classnames';
 import s from './styles.module.scss';
@@ -11,16 +12,13 @@ import s from './styles.module.scss';
 import rightPlate from '../../assets/images/halfofplates/right/right.png';
 import leftPlate from '../../assets/images/halfofplates/left/left.png';
 
+import { toggleTag, setTags } from '../../core/store/tagsSlice';
+
 export const PlateConstructor = () => {
-  const tags = [
-    'Без глютена',
-    'Без сахара',
-    'Вегетарианское',
-    'Без лактозы',
-    'ещё',
-  ];
-  const activeTags = useSelector(state => state.tags);
+  const [tags, setTags] = useState([]);
+  const activeTags = useSelector(state => state.tags); // Получаем активные теги из состояния Redux
   const dispatch = useDispatch();
+
   const [isPlateCombined, setIsPlateCombined] = useState(false);
   const [leftDescription, setLeftDescription] = useState({});
   const [rightDescription, setRightDescription] = useState({});
@@ -63,7 +61,7 @@ export const PlateConstructor = () => {
           price: productInfo.price,
           subtitle: productInfo.subtitle,
           image: productInfo.image_extra, // Используем image_extra
-          tags: productInfo.tags ? productInfo.tags.map(tag => tag.name) : [], // Добавляем теги
+          tags: productInfo.tag ? productInfo.tag.map(tag => tag) : [], // Используем id тега
         };
       } else {
         console.error('Неверный формат данных:', productData);
@@ -105,6 +103,26 @@ export const PlateConstructor = () => {
       }
     };
 
+    const fetchTags = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/tag/`);
+        const data = await response.json();
+        console.log('Fetched tags data:', data);
+        if (Array.isArray(data)) {
+          const formattedTags = data.map(tag => ({
+            id: tag.id,
+            ...tag,
+          }));
+          setTags(formattedTags);
+        } else {
+          console.error('Tags data is not an array:', data);
+        }
+      } catch (error) {
+        console.error('Error fetching tags:', error);
+      }
+    };
+
+    fetchTags();
     fetchInitialData();
   }, []);
 
@@ -161,20 +179,10 @@ export const PlateConstructor = () => {
         <span className={s.plateConstructor__title__pink}>идеальную </span>
         тарелку
       </div>
-      <div className={s.plateConstructor__tagBtns}>
-        {tags.map((tag, index) => (
-          <Button
-            colorScheme={3}
-            size={6}
-            key={index}
-            title={tag}
-            isActive={activeTags.includes(index)}
-            onClick={() => handleTagClick(index)}
-          />
-        ))}
-      </div>
+      <NavConstructor />
       <div className={s.plateConstructor__slider}>
         <Description
+          allTags={tags}
           title={leftDescription.title}
           price={leftDescription.price}
           subtitle={leftDescription.subtitle}
@@ -216,6 +224,7 @@ export const PlateConstructor = () => {
           )}
         </div>
         <Description
+          allTags={tags}
           title={rightDescription.title}
           price={rightDescription.price}
           subtitle={rightDescription.subtitle}

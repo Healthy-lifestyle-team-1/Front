@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const getActiveTags = () => {
   const savedTags = window.localStorage.getItem('activeTags');
-  return savedTags ? JSON.parse(savedTags) : [];
+  return Array.isArray(savedTags) ? JSON.parse(savedTags) : [];
 };
 
 const initialState = getActiveTags();
