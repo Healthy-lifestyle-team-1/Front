@@ -1,47 +1,55 @@
 .heroSection {
-	&__container {
-	  width: 100%;
-	  display: flex;
-	  flex-wrap: nowrap;
-	  justify-content: center;
-	  color: var(--text-color);
-	  margin-top: 110px;
-	  @include fontMainText2();
-	  background-repeat: no-repeat;
-	  background-size: contain;
-	  margin-bottom: 170px;
-	
- 
-	  &.light {
-		 background-image: url('../../assets/images/greeting-wave.png');
-	  }
- 
-	  &.dark {
-		 background-image: url('../../assets/images/greeting-wave-dark.png');
-	  }
-	}
-	&__infoBlock {
-display: flex;
-flex-direction: column;
-width: 50%;
-	}
-	&__title {
-		margin-top: 68px;
-		@include fontTitle2();
-		margin-bottom: 48px;
-		width: 60%;
-		&__pink {
-			color: var(--peach);
-		}
-	}
-	&__text {
-margin-bottom: 120px;
-width: 80%;
-	}
-	&__btn {
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 736px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    color: var(--text-color);
+    margin-top: 110px;
+    @include fontMainText2();
+    margin-bottom: 170px;
+  }
 
-	}
-	&__animationBlock {
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; // Ensure it covers the full height
+    background-size: cover; // Ensure it covers the full area
+    background-repeat: no-repeat;
+    z-index: -1; // Place it behind other elements
+  }
 
-	}
+  &__infoBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative; // Ensure it's above the background
+    z-index: 1;
+  }
+
+  &__title {
+    margin-top: 68px;
+    @include fontTitle2();
+    margin-bottom: 48px;
+    width: 60%;
+
+    &__pink {
+      color: var(--peach);
+    }
+  }
+
+  &__text {
+    margin-bottom: 120px;
+    width: 80%;
+  }
+
+  &__btn {
+  }
+
+  &__animationBlock {
+  }
 }

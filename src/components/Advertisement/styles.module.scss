@@ -29,6 +29,8 @@
   }
   &__phoneImg {
     margin-top: auto;
+    display: flex;
+    justify-content: center;
     img {
       height: 525px;
     }

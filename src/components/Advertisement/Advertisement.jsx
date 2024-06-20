@@ -6,6 +6,7 @@ import phone from '../../assets/images/Advertisement/phone.svg';
 import pepper from '../../assets/images/Advertisement/pepper.png';
 import AppStore from '../../assets/images/icons/app-store.svg';
 import GooglePlay from '../../assets/images/icons/google-play.svg';
+import video from '../../assets/images/Advertisement/mobile.gif';
 
 export const Advertisement = () => {
   return (
@@ -23,7 +24,22 @@ export const Advertisement = () => {
         />
       </div>
       <div className={s.ad__phoneImg}>
-        <img src={phone} alt="изображение телефона" />
+        <img
+          src={phone}
+          alt="изображение телефона"
+          style={{
+            position: 'absolute',
+            zIndex: 10,
+          }}
+        />
+        <img
+          src={video}
+          alt="мобильное приложение"
+          style={{
+            zIndex: -1,
+            transform: 'scale(93%)',
+          }}
+        />
       </div>
       <div className={s.ad__info}>
         <img className={s.ad__infoImg} src={pepper} alt="изображение перца" />
