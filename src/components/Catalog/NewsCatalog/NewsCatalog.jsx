@@ -3,7 +3,7 @@ import s from './styles.module.scss';
 
 // импорты изображений
 import harvardPlate from '../../../assets/images/NewsCatalog/harvard-plate.png';
-import fork from '../../../assets/images/NewsCatalog/fork.png';
+import fork from '../../../assets/images/NewsCatalog/book.png';
 import sports from '../../../assets/images/NewsCatalog/sports.png';
 import watermelon from '../../../assets/images/NewsCatalog/watermelon.png';
 
@@ -13,7 +13,7 @@ export const CardNewsList = () => {
       <div className={s.cardNews}>
         <a href="/" className={`${s.cardNews__item} ${s.harvard}`}>
           <div className={s.cardNews__itemTitle}>
-            Попробуй гарварскую тарелку
+            Попробуй гарвардскую тарелку
           </div>
           <img
             className={s.cardNews__itemImage}
@@ -22,11 +22,11 @@ export const CardNewsList = () => {
           />
         </a>
         <a href="/" className={`${s.cardNews__item} ${s.recommendations}`}>
-          <div className={s.cardNews__itemTitle}>Рекомендации недели</div>
+          <div className={s.cardNews__itemTitle}>Наши<br />рецепты</div>
           <img className={s.cardNews__itemImage} src={fork} alt={'вилка'} />
         </a>
         <a href="/" className={`${s.cardNews__item} ${s.sport}`}>
-          <div className={s.cardNews__itemTitle}>Здоровый образ жизни</div>
+          <div className={s.cardNews__itemTitle}>Здоровый<br />образ жизни</div>
           <img className={s.cardNews__itemImage} src={sports} alt={'спорт'} />
         </a>
         <a href="/" className={`${s.cardNews__item} ${s.new}`}>
