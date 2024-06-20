@@ -17,10 +17,6 @@ export const PlateConstructor = () => {
     'Без сахара',
     'Вегетарианское',
     'Без лактозы',
-    'На завтрак',
-    'На обед',
-    'На ужин',
-    'Без орехов',
     'ещё',
   ];
   const activeTags = useSelector(state => state.tags);
@@ -31,6 +27,10 @@ export const PlateConstructor = () => {
   const [selectedLeftImage, setSelectedLeftImage] = useState(leftPlate);
   const [selectedRightImage, setSelectedRightImage] = useState(rightPlate);
   const [totalPrice, setTotalPrice] = useState(0);
+
+  // New states for default data
+  const [defaultLeftDescription, setDefaultLeftDescription] = useState({});
+  const [defaultRightDescription, setDefaultRightDescription] = useState({});
 
   const fetchProductData = async id => {
     try {
@@ -85,11 +85,13 @@ export const PlateConstructor = () => {
 
       if (leftProductData) {
         setLeftDescription(leftProductData);
+        setDefaultLeftDescription(leftProductData); // Set default left description
         setSelectedLeftImage(leftProductData.image);
       }
 
       if (rightProductData) {
         setRightDescription(rightProductData);
+        setDefaultRightDescription(rightProductData); // Set default right description
         setSelectedRightImage(rightProductData.image);
       }
 
@@ -132,6 +134,8 @@ export const PlateConstructor = () => {
   };
 
   const handleBackClick = () => {
+    setLeftDescription(defaultLeftDescription); // Reset to default left description
+    setRightDescription(defaultRightDescription); // Reset to default right description
     setIsPlateCombined(false);
   };
 
@@ -178,7 +182,7 @@ export const PlateConstructor = () => {
                 <div className={s.plateConstructor__plateHalf}>
                   <img
                     src={selectedLeftImage}
-                    alt="right plate"
+                    alt="left plate"
                     className={s.plateImage}
                     style={{ transform: 'rotate(180deg)' }}
                   />
@@ -186,7 +190,7 @@ export const PlateConstructor = () => {
                 <div className={s.plateConstructor__plateHalf}>
                   <img
                     src={selectedRightImage}
-                    alt="left plate"
+                    alt="right plate"
                     className={s.plateImage}
                     style={{ transform: 'rotate(180deg)' }}
                   />
