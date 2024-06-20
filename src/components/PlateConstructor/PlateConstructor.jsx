@@ -15,8 +15,6 @@ import { toggleTag, setTags } from '../../core/store/tagsSlice';
 
 export const PlateConstructor = () => {
   const [tags, setTags] = useState([]);
-  const activeTags = useSelector(state => state.tags);
-  const dispatch = useDispatch();
 
   const [isPlateCombined, setIsPlateCombined] = useState(false);
   const [leftDescription, setLeftDescription] = useState({});
@@ -163,6 +161,11 @@ export const PlateConstructor = () => {
     return filteredTags.some(tag => descriptionTags.includes(tag));
   };
 
+  const handleOrderClick = () => {
+    // Действия при нажатии на "Заказать"
+    console.log('Заказ оформлен');
+  };
+
   return (
     <div className={s.plateConstructor}>
       <div className={s.plateConstructor__title}>
@@ -229,9 +232,15 @@ export const PlateConstructor = () => {
       <div className={s.plateConstructor__btn}>
         <Button
           colorScheme={1}
-          title={isHovered ? 'Собрать' : `${totalPrice}`}
+          title={
+            isPlateCombined
+              ? 'Заказать'
+              : isHovered
+                ? 'Собрать'
+                : `${totalPrice}`
+          }
           size={11}
-          onClick={handleCombinePlate}
+          onClick={isPlateCombined ? handleOrderClick : handleCombinePlate}
           onMouseEnter={() => {
             setIsHovered(true);
           }}
