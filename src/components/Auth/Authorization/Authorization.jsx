@@ -34,7 +34,7 @@ export const Authorization = ({
         );
       } else {
         setError(
-          'Ошибка при авторизации. Проверьте данные и попробуйте снова.',
+          'Ошибка при вводе данных. Проверьте и повторите попытку.',
         );
       }
       console.error('Error during login:', error);
@@ -94,7 +94,7 @@ export const Authorization = ({
               <input
                 type="text"
                 className={s.login__input}
-                placeholder="Телефон или почта"
+                placeholder="Почта или телефон"
                 value={login}
                 onChange={e => setLogin(e.target.value)}
               />
@@ -104,8 +104,8 @@ export const Authorization = ({
             <div className={s.login__infoBlock}>
               <div className={s.login__infoBlock__text}>
                 {isPhoneNumber(login)
-                  ? 'Введите код из смс, мы отправили его на указанный номер.'
-                  : 'Введите код из письма, мы отправили его на указанный email. Если код не пришел, проверьте папку Спам.'}
+                  ? 'Введите код из смс. Mы отправили его на указанный номер.'
+                  : 'Введите код из письма. Mы отправили его на указанный email. Если код не пришел, проверьте папку Спам.'}
               </div>
               <input
                 type="text"
@@ -119,8 +119,7 @@ export const Authorization = ({
           {step === 3 && (
             <div className={s.login__infoBlock}>
               <div className={s.login__name}>
-                Вы успешно вошли в аккаунт! Бла-бла-бла что-то рекламное про
-                онбординг.
+                Вы успешно вошли в аккаунт!
               </div>
             </div>
           )}

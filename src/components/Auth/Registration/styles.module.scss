@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 1000px;
+  height: 100vh;
   background-color: rgba($mainDark, 0.7);
   display: flex;
   justify-content: center;
@@ -14,6 +14,7 @@
   &__content {
     background: var(--background-color);
     border-radius: 20px;
+    top: 50px;
     width: 600px;
     height: 600px;
     position: relative;
@@ -71,6 +72,7 @@
       width: 400px;
       height: 48px;
 		margin-bottom: 84px;
+    @include fontMainText2;
     }
   }
   &__input {
@@ -81,7 +83,11 @@
     padding-left: 20px;
     @include fontMainText1;
     color: $mainDark;
-    &::placeholder {
+    border: solid 1px #828282;
+    // &::placeholder {
+    // }
+    &:focus {
+      outline: #828282;
     }
   }
 }
@@ -94,7 +100,7 @@
 .error {
   width: 450px;
   @include fontArticle;
-  color: red;
+  color: $peachDark;
   margin-top: -40px;
   min-height: 18px;
   visibility: hidden;
