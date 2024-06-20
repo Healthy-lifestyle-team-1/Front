@@ -7,13 +7,10 @@ import { Advertisement } from '../../components/Advertisement';
 import { PlateMethodBookPage } from '../../components/PlateMethodBookPage';
 import { BookSection } from '../../components/BookSection';
 
-import {OnBoarding} from '../../components/Auth/OnBoarding'
-
 export const BookPage = () => {
   return (
     <div className={s.container}>
       <PlateMethodBookPage />
-      <OnBoarding/>
       <BookSection />
       <Advertisement />
       <Footer />
