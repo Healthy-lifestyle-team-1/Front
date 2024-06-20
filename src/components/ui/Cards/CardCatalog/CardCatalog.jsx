@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ButtonWithTheme } from '../../Button/ButtonWithTheme';
+import { CardFood } from '../CardFood/CardFood'; // Импортируем компонент CardFood
 
 import { icons } from '../../../../assets/images/icons/icons';
 import { BASE_URL } from '../../../../core/url';
@@ -22,7 +23,8 @@ export const CardCatalog = ({
   allCategories = [],
 }) => {
   const theme = useSelector(state => state.theme);
-  const token = useSelector(state => state.auth.token); // Получение токена из Redux
+  const token = useSelector(state => state.auth.token); // Получение токена
+  const [showCardFood, setShowCardFood] = useState(false);
 
   useEffect(() => {
     console.log('tags:', tags);
@@ -73,8 +75,30 @@ export const CardCatalog = ({
     }
   };
 
+  const handleImageClick = () => {
+    setShowCardFood(true);
+  };
+
+  const handleCloseCardFood = () => {
+    setShowCardFood(false);
+  };
+
   return (
     <div className={s.container}>
+      {showCardFood && (
+        <div className={s.overlay} onClick={handleCloseCardFood}>
+          <div className={s.cardFoodWrapper}>
+            <CardFood
+              title={title}
+              extra={extra}
+              weight={weight}
+              calories={calories}
+              description="Описание вашего блюда"
+              img={img}
+            />
+          </div>
+        </div>
+      )}
       <div className={s.cardfood__info}>
         <div className={s.cardfood__labels}>
           {tags.length > 0 ? (
@@ -115,7 +139,8 @@ export const CardCatalog = ({
           className={s.cardfood__plateImg}
           src={img}
           alt="фото тарелки"
-        ></img>
+          onClick={handleImageClick} // Добавление обработчика клика
+        />
       </div>
     </div>
   );

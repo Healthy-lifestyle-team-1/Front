@@ -8,7 +8,6 @@ import { BASE_URL } from '../../core/url';
 import cn from 'classnames';
 import s from './styles.module.scss';
 
-// Импортируем изображения
 import rightPlate from '../../assets/images/halfofplates/right/right.png';
 import leftPlate from '../../assets/images/halfofplates/left/left.png';
 
@@ -16,7 +15,7 @@ import { toggleTag, setTags } from '../../core/store/tagsSlice';
 
 export const PlateConstructor = () => {
   const [tags, setTags] = useState([]);
-  const activeTags = useSelector(state => state.tags); // Получаем активные теги из состояния Redux
+  const activeTags = useSelector(state => state.tags);
   const dispatch = useDispatch();
 
   const [isPlateCombined, setIsPlateCombined] = useState(false);
@@ -26,17 +25,14 @@ export const PlateConstructor = () => {
   const [selectedRightImage, setSelectedRightImage] = useState(rightPlate);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // New states for default data
   const [defaultLeftDescription, setDefaultLeftDescription] = useState({});
   const [defaultRightDescription, setDefaultRightDescription] = useState({});
 
-  // State to control the visibility of the slide indicators
   const [showSlideIndicators, setShowSlideIndicators] = useState(true);
+  const [filteredTags, setFilteredTags] = useState([]);
 
   const fetchProductData = async id => {
     try {
-      console.log(`Запрос к URL: ${BASE_URL}/product/?id=${id}`);
-
       const response = await fetch(`${BASE_URL}/product/?id=${id}`, {
         method: 'GET',
         headers: {
@@ -46,7 +42,6 @@ export const PlateConstructor = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error('Ошибка при получении данных:', errorData);
         throw new Error(
           `Ошибка при получении данных: ${errorData.detail || response.statusText}`,
         );
@@ -55,16 +50,15 @@ export const PlateConstructor = () => {
       const productData = await response.json();
 
       if (Array.isArray(productData) && productData.length > 0) {
-        const productInfo = productData[0]; // Получаем первый элемент массива
+        const productInfo = productData[0];
         return {
           title: productInfo.title,
           price: productInfo.price,
           subtitle: productInfo.subtitle,
-          image: productInfo.image_extra, // Используем image_extra
-          tags: productInfo.tag ? productInfo.tag.map(tag => tag) : [], // Используем id тега
+          image: productInfo.image_extra,
+          tags: productInfo.tag ? productInfo.tag.map(tag => tag) : [],
         };
       } else {
-        console.error('Неверный формат данных:', productData);
         return null;
       }
     } catch (error) {
@@ -81,18 +75,18 @@ export const PlateConstructor = () => {
 
   useEffect(() => {
     const fetchInitialData = async () => {
-      const leftProductData = await fetchProductData(11); // Изменено на 11 для левой стороны
-      const rightProductData = await fetchProductData(10); // Изменено на 10 для правой стороны
+      const leftProductData = await fetchProductData(11);
+      const rightProductData = await fetchProductData(10);
 
       if (leftProductData) {
         setLeftDescription(leftProductData);
-        setDefaultLeftDescription(leftProductData); // Set default left description
+        setDefaultLeftDescription(leftProductData);
         setSelectedLeftImage(leftProductData.image);
       }
 
       if (rightProductData) {
         setRightDescription(rightProductData);
-        setDefaultRightDescription(rightProductData); // Set default right description
+        setDefaultRightDescription(rightProductData);
         setSelectedRightImage(rightProductData.image);
       }
 
@@ -107,15 +101,12 @@ export const PlateConstructor = () => {
       try {
         const response = await fetch(`${BASE_URL}/tag/`);
         const data = await response.json();
-        console.log('Fetched tags data:', data);
         if (Array.isArray(data)) {
           const formattedTags = data.map(tag => ({
             id: tag.id,
             ...tag,
           }));
           setTags(formattedTags);
-        } else {
-          console.error('Tags data is not an array:', data);
         }
       } catch (error) {
         console.error('Error fetching tags:', error);
@@ -125,10 +116,6 @@ export const PlateConstructor = () => {
     fetchTags();
     fetchInitialData();
   }, []);
-
-  const handleTagClick = index => {
-    dispatch(toggleTag(index));
-  };
 
   const handleCombinePlate = () => {
     setIsPlateCombined(true);
@@ -155,22 +142,26 @@ export const PlateConstructor = () => {
   };
 
   const handleBackClick = () => {
-    setLeftDescription(defaultLeftDescription); // Reset to default left description
-    setRightDescription(defaultRightDescription); // Reset to default right description
+    setLeftDescription(defaultLeftDescription);
+    setRightDescription(defaultRightDescription);
     setTotalPrice(
       calculateTotalPrice(
         defaultLeftDescription.price,
         defaultRightDescription.price,
       ),
     );
-    setShowSlideIndicators(false); // Hide the indicators initially
+    setShowSlideIndicators(false);
     setIsPlateCombined(false);
     setTimeout(() => {
-      setShowSlideIndicators(true); // Show the indicators after 1 second
+      setShowSlideIndicators(true);
     }, 1000);
   };
 
   const [isHovered, setIsHovered] = useState(false);
+
+  const shouldHideDescription = descriptionTags => {
+    return filteredTags.some(tag => descriptionTags.includes(tag));
+  };
 
   return (
     <div className={s.plateConstructor}>
@@ -179,15 +170,17 @@ export const PlateConstructor = () => {
         <span className={s.plateConstructor__title__pink}>идеальную </span>
         тарелку
       </div>
-      <NavConstructor />
+      <NavConstructor setFilteredTags={setFilteredTags} />
       <div className={s.plateConstructor__slider}>
-        <Description
-          allTags={tags}
-          title={leftDescription.title}
-          price={leftDescription.price}
-          subtitle={leftDescription.subtitle}
-          tags={leftDescription.tags || []}
-        />
+        {!shouldHideDescription(leftDescription.tags || []) && (
+          <Description
+            allTags={tags}
+            title={leftDescription.title}
+            price={leftDescription.price}
+            subtitle={leftDescription.subtitle}
+            tags={leftDescription.tags || []}
+          />
+        )}
         <div className={s.plateConstructor__dish}>
           {!isPlateCombined && (
             <div className={s.plateConstructor__constructorBlock}>
@@ -223,13 +216,15 @@ export const PlateConstructor = () => {
             </div>
           )}
         </div>
-        <Description
-          allTags={tags}
-          title={rightDescription.title}
-          price={rightDescription.price}
-          subtitle={rightDescription.subtitle}
-          tags={rightDescription.tags || []}
-        />
+        {!shouldHideDescription(rightDescription.tags || []) && (
+          <Description
+            allTags={tags}
+            title={rightDescription.title}
+            price={rightDescription.price}
+            subtitle={rightDescription.subtitle}
+            tags={rightDescription.tags || []}
+          />
+        )}
       </div>
       <div className={s.plateConstructor__btn}>
         <Button

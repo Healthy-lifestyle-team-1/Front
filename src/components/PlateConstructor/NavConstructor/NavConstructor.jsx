@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleTag } from '../../../core/store/tagsSlice';
 import { Button } from '../../ui/Button';
-import cn from 'classnames';
 import s from './styles.module.scss';
 
 const tagNames = [
@@ -20,7 +19,7 @@ const tagToFilterParam = {
   3: '3', // Без лактозы
 };
 
-export const NavConstructor = () => {
+export const NavConstructor = ({ setFilteredTags }) => {
   const activeTags = useSelector(state => state.tags);
   const dispatch = useDispatch();
 
@@ -29,8 +28,14 @@ export const NavConstructor = () => {
   };
 
   useEffect(() => {
-    // Логика для фильтрации по тегам
-  }, [activeTags]);
+    const activeFilterParams = Array.isArray(activeTags)
+      ? activeTags
+          .filter(tagIndex => tagIndex in tagToFilterParam)
+          .map(tagIndex => parseInt(tagToFilterParam[tagIndex]))
+      : [];
+
+    setFilteredTags(activeFilterParams);
+  }, [activeTags, setFilteredTags]);
 
   return (
     <div className={s.container}>
