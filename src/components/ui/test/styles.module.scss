@@ -1,7 +1,7 @@
 .buttonsContainer {
-	display: flex;
-	flex-direction: column;
-	gap: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .position {
@@ -49,14 +49,19 @@
   font-size: 24px;
   text-transform: uppercase;
   cursor: pointer;
+  transition: font-size 0.3s ease;
+
+  &:hover {
+    font-size: 32px; // Увеличение шрифта при наведении
+  }
 
   &.backgroundColor__1 {
-    background-color: $mainGreenapple;
+    background-color: var(--yellow);
   }
- &.backgroundColor__2 {
-  background-color: var( --peach);
- }
- &.backgroundColor__3 {
-  background-color: var( --blue);
- }
+  &.backgroundColor__2 {
+    background-color: var(--peach);
+  }
+  &.backgroundColor__3 {
+    background-color: var(--blue);
+  }
 }
