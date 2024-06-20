@@ -4,8 +4,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import s from './styles.module.scss';
 
-import arrowUp from '../../../../assets/images/icons/arrowUp.svg';
-import arrowDown from '../../../../assets/images/icons/arrowDown.svg';
+import arrowUp from '../../../../assets/images/icons/arrowUpNew.svg';
+import arrowDown from '../../../../assets/images/icons/arrowDownNew.svg';
 import { BASE_URL } from '../../../../core/url';
 
 const NextArrow = ({ onClick, side }) => (
@@ -33,7 +33,7 @@ const SlideIndicator = ({ currentSlide, totalSlides, side }) => {
   );
 };
 
-export const SliderPlates = ({ onSelect }) => {
+export const SliderPlates = ({ onSelect, showIndicators }) => {
   const leftSliderRef = useRef(null);
   const rightSliderRef = useRef(null);
 
@@ -144,11 +144,13 @@ export const SliderPlates = ({ onSelect }) => {
             </div>
           ))}
         </Slider>
-        <SlideIndicator
-          currentSlide={leftCurrentSlide}
-          totalSlides={leftImages.length}
-          side="left"
-        />
+        {showIndicators && (
+          <SlideIndicator
+            currentSlide={leftCurrentSlide}
+            totalSlides={leftImages.length}
+            side="left"
+          />
+        )}
       </div>
       <div className={s.sliderWrapper}>
         <Slider
@@ -166,11 +168,13 @@ export const SliderPlates = ({ onSelect }) => {
             </div>
           ))}
         </Slider>
-        <SlideIndicator
-          currentSlide={rightCurrentSlide}
-          totalSlides={rightImages.length}
-          side="right"
-        />
+        {showIndicators && (
+          <SlideIndicator
+            currentSlide={rightCurrentSlide}
+            totalSlides={rightImages.length}
+            side="right"
+          />
+        )}
       </div>
     </div>
   );

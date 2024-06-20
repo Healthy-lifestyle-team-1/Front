@@ -32,6 +32,9 @@ export const PlateConstructor = () => {
   const [defaultLeftDescription, setDefaultLeftDescription] = useState({});
   const [defaultRightDescription, setDefaultRightDescription] = useState({});
 
+  // State to control the visibility of the slide indicators
+  const [showSlideIndicators, setShowSlideIndicators] = useState(true);
+
   const fetchProductData = async id => {
     try {
       console.log(`Запрос к URL: ${BASE_URL}/product/?id=${id}`);
@@ -136,7 +139,17 @@ export const PlateConstructor = () => {
   const handleBackClick = () => {
     setLeftDescription(defaultLeftDescription); // Reset to default left description
     setRightDescription(defaultRightDescription); // Reset to default right description
+    setTotalPrice(
+      calculateTotalPrice(
+        defaultLeftDescription.price,
+        defaultRightDescription.price,
+      ),
+    );
+    setShowSlideIndicators(false); // Hide the indicators initially
     setIsPlateCombined(false);
+    setTimeout(() => {
+      setShowSlideIndicators(true); // Show the indicators after 1 second
+    }, 1000);
   };
 
   const [isHovered, setIsHovered] = useState(false);
@@ -170,7 +183,10 @@ export const PlateConstructor = () => {
         <div className={s.plateConstructor__dish}>
           {!isPlateCombined && (
             <div className={s.plateConstructor__constructorBlock}>
-              <SliderPlates onSelect={handleSelectImage} />
+              <SliderPlates
+                onSelect={handleSelectImage}
+                showIndicators={showSlideIndicators}
+              />
             </div>
           )}
 
@@ -220,11 +236,14 @@ export const PlateConstructor = () => {
           }}
         />
       </div>
-      {isPlateCombined && (
-        <div className={s.plateConstructor__btn_back} onClick={handleBackClick}>
-          <div className={s.plateConstructor__btn_text}>← в конструктор</div>
-        </div>
-      )}
+      <div
+        className={cn(s.plateConstructor__btn_back, {
+          [s.plateConstructor__btn_back_visible]: isPlateCombined,
+        })}
+        onClick={handleBackClick}
+      >
+        <div className={s.plateConstructor__btn_text}>← в конструктор</div>
+      </div>
     </div>
   );
 };
