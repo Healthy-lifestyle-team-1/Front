@@ -41,7 +41,7 @@ export const Registration = ({
         );
       } else {
         setError(
-          'Ошибка при авторизации. Проверьте данные и попробуйте снова.'
+          'Ошибка при вводе данных. Проверьте и повторите попытку.'
         );
       }
       console.error('Error during login:', error);
@@ -113,7 +113,7 @@ export const Registration = ({
               <input
                 type="text"
                 className={s.login__input}
-                placeholder="Телефон или почта"
+                placeholder="Почта или телефон"
                 value={login}
                 onChange={e => setLogin(e.target.value)}
               />
@@ -136,8 +136,8 @@ export const Registration = ({
             <div className={s.login__infoBlock}>
               <div className={s.login__infoBlock__text}>
                 {isPhoneNumber(login)
-                  ? 'Введите код из смс, мы отправили его на указанный номер.'
-                  : 'Введите код из письма, мы отправили его на указанный email. Если код не пришел, проверьте папку Спам.'}
+                  ? 'Введите код из смс. Мы отправили его на указанный номер.'
+                  : 'На вашу почту отправлен код подтверждения. Если  письмо не пришло, проверьте папку “Спам”, если ошиблись - измените почту.'}
               </div>
               <input
                 type="text"

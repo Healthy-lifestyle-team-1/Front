@@ -26,7 +26,7 @@ export const RowInCart = ({ id, dishImg, dishName, price, quantity, onRemove, on
           <ButtonWithTheme
             colorScheme={3}
             withCounter={true}
-            size={3}
+            size={13}
             showRubleSign={true}
             title={quantity.toString()} // Передача текущего значения количества в кнопку
             onIncrement={() => handleQuantityChange(quantity + 1)} // Увеличение количества
