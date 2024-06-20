@@ -24,10 +24,12 @@ export const NavConstructor = ({ setFilteredTags }) => {
   const dispatch = useDispatch();
 
   const handleTagClick = tagIndex => {
-    dispatch(toggleTag(tagIndex));
+    console.log('кнопка нажата');
+    // dispatch(toggleTag(tagIndex));
   };
 
   useEffect(() => {
+    /*
     const activeFilterParams = Array.isArray(activeTags)
       ? activeTags
           .filter(tagIndex => tagIndex in tagToFilterParam)
@@ -35,6 +37,7 @@ export const NavConstructor = ({ setFilteredTags }) => {
       : [];
 
     setFilteredTags(activeFilterParams);
+    */
   }, [activeTags, setFilteredTags]);
 
   return (
