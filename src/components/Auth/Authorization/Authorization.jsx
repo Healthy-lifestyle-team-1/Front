@@ -28,7 +28,7 @@ export const Authorization = ({
       setStep(2);
       setError('');
     } catch (error) {
-      if (error.response && error.response.status === 404) {
+      if (error.response && error.response.data.detail === 'User not found, please register') {
         setError(
           'Такой пользователь не найден. Пожалуйста, зарегистрируйтесь.',
         );
