@@ -7,28 +7,47 @@ import s from './styles.module.scss';
 
 import arrowUp from '../../../../assets/images/icons/arrowUpNew.svg';
 import arrowDown from '../../../../assets/images/icons/arrowDownNew.svg';
+import arrowUpDark from '../../../../assets/images/icons/arrowUpDark.svg';
+import arrowDownDark from '../../../../assets/images/icons/arrowDownDark.svg';
 import { BASE_URL } from '../../../../core/url';
 
-const NextArrow = ({ onClick, side }) => (
+const NextArrow = ({ onClick, side, theme }) => (
   <div className={`${s.arrow} ${s[`${side}NextArrow`]}`} onClick={onClick}>
-    <img className={s.arrow__img} src={arrowDown} alt="Next" />
+    <img
+      className={s.arrow__img}
+      src={theme === 'dark' ? arrowDownDark : arrowDown}
+      alt="Next"
+    />
   </div>
 );
 
-const PrevArrow = ({ onClick, side }) => (
+const PrevArrow = ({ onClick, side, theme }) => (
   <div className={`${s.arrow} ${s[`${side}PrevArrow`]}`} onClick={onClick}>
-    <img className={s.arrow__img} src={arrowUp} alt="Prev" />
+    <img
+      className={s.arrow__img}
+      src={theme === 'dark' ? arrowUpDark : arrowUp}
+      alt="Prev"
+    />
   </div>
 );
 
-const SlideIndicator = ({ currentSlide, totalSlides, side }) => {
+const SlideIndicator = ({ currentSlide, totalSlides, side, theme }) => {
   const indicatorHeight = 100 / totalSlides;
   const indicatorTop = indicatorHeight * currentSlide;
   return (
-    <div className={`${s.slideIndicator} ${s[`${side}SlideIndicator`]}`}>
+    <div
+      className={`${s.slideIndicator} ${s[`${side}SlideIndicator`]}`}
+      style={{
+        background: theme === 'dark' ? '#B3B3B3' : 'rgba(0, 0, 0, 0.1)',
+      }}
+    >
       <div
         className={s.slideIndicatorActive}
-        style={{ height: `${indicatorHeight}%`, top: `${indicatorTop}%` }}
+        style={{
+          height: `${indicatorHeight}%`,
+          top: `${indicatorTop}%`,
+          background: theme === 'dark' ? '#fffcf2' : 'rgba(0, 0, 0, 0.5)',
+        }}
       />
     </div>
   );
@@ -37,6 +56,7 @@ const SlideIndicator = ({ currentSlide, totalSlides, side }) => {
 export const SliderPlates = ({ onSelect, showIndicators }) => {
   const leftSliderRef = useRef(null);
   const rightSliderRef = useRef(null);
+  const theme = useSelector(state => state.theme);
 
   const [leftCurrentSlide, setLeftCurrentSlide] = useState(0);
   const [rightCurrentSlide, setRightCurrentSlide] = useState(0);
@@ -122,8 +142,8 @@ export const SliderPlates = ({ onSelect, showIndicators }) => {
     verticalSwiping: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <NextArrow side="left" />,
-    prevArrow: <PrevArrow side="left" />,
+    nextArrow: <NextArrow side="left" theme={theme} />,
+    prevArrow: <PrevArrow side="left" theme={theme} />,
     afterChange: current => {
       setLeftCurrentSlide(current);
       if (filteredLeftImages.length > 0) {
@@ -138,8 +158,8 @@ export const SliderPlates = ({ onSelect, showIndicators }) => {
     verticalSwiping: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <NextArrow side="right" />,
-    prevArrow: <PrevArrow side="right" />,
+    nextArrow: <NextArrow side="right" theme={theme} />,
+    prevArrow: <PrevArrow side="right" theme={theme} />,
     afterChange: current => {
       setRightCurrentSlide(current);
       if (filteredRightImages.length > 0) {
@@ -179,6 +199,7 @@ export const SliderPlates = ({ onSelect, showIndicators }) => {
             currentSlide={leftCurrentSlide}
             totalSlides={filteredLeftImages.length}
             side="left"
+            theme={theme}
           />
         )}
       </div>
@@ -203,6 +224,7 @@ export const SliderPlates = ({ onSelect, showIndicators }) => {
             currentSlide={rightCurrentSlide}
             totalSlides={filteredRightImages.length}
             side="right"
+            theme={theme}
           />
         )}
       </div>

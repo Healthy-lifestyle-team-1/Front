@@ -9,6 +9,9 @@
     width: 82px;
     height: 32px;
     margin-bottom: 24px;
+	display: flex;
+	gap: 10px;
+	 
     .invisibleBlock {
       width: 34px;
       height: 34px;
@@ -16,7 +19,7 @@
     }
   }
   &__title {
-    @include fontTitle2;
+    @include fontTitle3;
     width: 210px;
     height: 160px;
     margin-bottom: 16px;

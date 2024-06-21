@@ -143,8 +143,8 @@ export const ArcSlider = () => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
-  const handleNavigateToConstructor = () => {
-    navigate('/constructor');
+  const handleNavigateToCatalog = () => {
+    navigate('/catalog');
   };
 
   const [buttonText, setButtonText] = useState(plates[0].price);
@@ -356,7 +356,7 @@ export const ArcSlider = () => {
           }}
         />
         <div className={s.arcSlider__infoBlock__showAll}>
-          <button onClick={handleNavigateToConstructor} className={s.arcSlider__infoBlock__showAllBtn}>
+          <button onClick={handleNavigateToCatalog} className={s.arcSlider__infoBlock__showAllBtn}>
             смотреть все →
           </button>
         </div>
