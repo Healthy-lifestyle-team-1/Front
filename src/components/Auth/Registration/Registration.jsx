@@ -35,7 +35,7 @@ export const Registration = ({
       setStep(2);
       setError('');
     } catch (error) {
-      if (error.response && error.response.status === 400) {
+      if (error.response && error.response.data.detail === 'User already exists, please login') {
         setError(
           'Такой пользователь уже существует. Пожалуйста, залогиньтесь.'
         );
