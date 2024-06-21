@@ -43,7 +43,7 @@ export const HeroSection = () => {
         </div>
       </div>
       <div className={s.heroSection__animationBlock}>
-        <img src={Animation} alt="Иллюстрация" />
+        <img className={s.heroSection__animationImg} src={Animation} alt="Иллюстрация" />
       </div>
     </div>
   );
