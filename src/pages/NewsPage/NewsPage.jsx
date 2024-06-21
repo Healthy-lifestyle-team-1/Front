@@ -37,8 +37,9 @@ export const NewsPage = () => {
 
   return (
     <div className={s.container}>
-      <CardNewsMain className={s.block} />
+      {/* <CardNewsMain className={s.block} /> */}
       {/* <OnBoarding/> */}
+      <div className={s.news__video}></div>
       <Advertisement />
       <Footer />
     </div>

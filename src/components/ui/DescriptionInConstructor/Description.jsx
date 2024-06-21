@@ -4,7 +4,15 @@ import { icons } from '../../../assets/images/icons/icons';
 
 import s from './styles.module.scss';
 
-const Description = ({ title, price, subtitle, tags = [], allTags = [] }) => {
+const Description = ({
+  title,
+  price,
+  subtitle,
+  weight,
+  calories,
+  tags = [],
+  allTags = [],
+}) => {
   const theme = useSelector(state => state.theme);
 
   useEffect(() => {
@@ -43,6 +51,10 @@ const Description = ({ title, price, subtitle, tags = [], allTags = [] }) => {
       <div className={s.main__price}>{price} ₽</div>
       <div className={s.main__info_title}>Описание</div>
       <div className={s.main__subtitle}>{subtitle}</div>
+      <div className={s.main__info}>
+        <div className={s.main__info_title}>{weight} г</div>
+        <div className={s.main__info_title}>{calories} ккал</div>
+      </div>
     </div>
   );
 };

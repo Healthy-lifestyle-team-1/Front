@@ -54,6 +54,8 @@ export const PlateConstructor = () => {
           price: productInfo.price,
           subtitle: productInfo.subtitle,
           image: productInfo.image_extra,
+          weight: productInfo.weight,
+          calories: productInfo.calories,
           tags: productInfo.tag ? productInfo.tag.map(tag => tag) : [],
         };
       } else {
@@ -181,6 +183,8 @@ export const PlateConstructor = () => {
             title={leftDescription.title}
             price={leftDescription.price}
             subtitle={leftDescription.subtitle}
+            weight={leftDescription.weight}
+            calories={leftDescription.calories}
             tags={leftDescription.tags || []}
           />
         )}
@@ -225,6 +229,8 @@ export const PlateConstructor = () => {
             title={rightDescription.title}
             price={rightDescription.price}
             subtitle={rightDescription.subtitle}
+            weight={rightDescription.weight}
+            calories={rightDescription.calories}
             tags={rightDescription.tags || []}
           />
         )}
