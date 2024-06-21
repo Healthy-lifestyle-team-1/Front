@@ -1,142 +1,129 @@
 .arcSlider__container {
-	width: 100%;
-	display: flex;
-	flex-wrap: nowrap;
-	margin-bottom: 220px;
-	margin-top: 160px;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 220px;
+  margin-top: 160px;
 }
-		
-		.arc {
-			&__wrapper {
-			  position: relative;
-			  width: 100%;
-			  height: 40vw;
-			  margin: 0 auto;
-			  margin-bottom: 220px;
-			 
-			}
-		 
-			&__block {
-			  margin: 0 auto;
-			  width: 100%;
-			  height: 57vw;
-			  position: relative;
-			  top: 0px;
-			  left: -39%;
-			}
-		 }
-		 
-		 .item {
-			width: 17vw;
-			height: 17vw;
-			border-radius: 100%;
-			position: relative;
-			cursor: pointer;
-			z-index: 1;
-		 
-			&Img {
-			 width: 18vw;
-			  transition: transform 0.3s;
-			  z-index: 100;
-			}
-		 
-			&.active {
-			  z-index: 100;
-		 
-			  
-			  Img {
-				transform: scale(2.9) translateX(-25%);
-				 opacity: 1;
-			  }
-			}
-		 }
-		 
-		 .svg {
-			width: 75vw;
-			z-index: -5;
-			position: absolute;
-			border-radius: 50%;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
 
-		.st0 {
-			stroke: var(--text-color);
-			stroke-width: 0.3;
-			stroke-dasharray: 5, 5;
-		}
+.arc {
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: 40vw;
+    margin: 0 auto;
+    margin-bottom: 220px;
+  }
 
-		 .arcSlider {
+  &__block {
+    margin: 0 auto;
+    width: 100%;
+    height: 57vw;
+    position: relative;
+    top: 0px;
+    left: -39%;
+  }
+}
 
+.item {
+  width: 17vw;
+  height: 17vw;
+  border-radius: 100%;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
 
-			&__infoBlock {
-				width: 57vw;
-				margin-top: 8vw;
+  &Img {
+    width: 18vw;
+    transition: transform 0.3s;
+    z-index: 100;
+  }
 
-				&__title {
-					@include fontTitle2();
-					margin-bottom: 80px;
+  &.active {
+    z-index: 100;
 
-					&__pink {
-						color: var(--peach);
-					}
-				}
+    Img {
+      transform: scale(2.9) translateX(-25%);
+      opacity: 1;
+    }
+  }
+}
 
-				&__labels {
-					display: flex;
-					flex-wrap: nowrap;
-					gap: 18px;
-					margin-bottom: 20px
-				}
+.svg {
+  width: 75vw;
+  z-index: -5;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-				&__dishName {
-					@include fontSubTitle3();
-					width: 27vw;
-					margin-bottom: 24px;
-				}
+.st0 {
+  stroke: var(--text-color);
+  stroke-width: 0.3;
+  stroke-dasharray: 5, 5;
+}
 
-				&__description {
-					@include fontMainText1();
-					margin-bottom: 24px;
-					width: 33vw;
-				}
+.arcSlider {
+  &__infoBlock {
+    width: 57vw;
 
-				&__nutritionalValues {
-					display: flex;
-					flex-wrap: nowrap;
-					margin-bottom: 75px;
+    &__title {
+      @include fontTitle2();
+      margin-bottom: 80px;
 
+      &__pink {
+        color: var(--peach);
+      }
+    }
 
-					&__weight {
-						@include fontMainText1();
-						margin-right: 3vw
-					}
+    &__labels {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
 
-					&__calories {
-						@include fontMainText1();
-					}
-					
-				}
-				&__showAll {
-					width: 100%;
-					display: flex;
-					justify-content: end;
-				}
+    &__dishName {
+      @include fontSubTitle3();
+      width: 27vw;
+      margin-bottom: 24px;
+    }
 
-				&__showAllBtn {
-					margin-top: 80px;
-					padding-right: 32px;
-					background-color: transparent;
-					border: none;
-					color: var(--text-color);
-					cursor: pointer;
-				}
-			}
-		 }
-		 
-		
-		 
-		 
+    &__description {
+      @include fontMainText1();
+      margin-bottom: 24px;
+      width: 33vw;
+    }
 
+    &__nutritionalValues {
+      display: flex;
+      flex-wrap: nowrap;
+      margin-bottom: 75px;
 
+      &__weight {
+        @include fontMainText1();
+        margin-right: 3vw;
+      }
+
+      &__calories {
+        @include fontMainText1();
+      }
+    }
+    &__showAll {
+      width: 100%;
+      display: flex;
+      justify-content: end;
+    }
+
+    &__showAllBtn {
+      margin-top: 80px;
+      padding-right: 32px;
+      background-color: transparent;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
+    }
+  }
+}

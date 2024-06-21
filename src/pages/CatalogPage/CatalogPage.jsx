@@ -49,7 +49,9 @@ export const CatalogPage = () => {
   }, [lastScrollTop]);
 
   return (
-    <div className={`${s.catalogpage__container} ${theme === 'dark' ? s.dark : s.light}`}>
+    <div
+      className={`${s.catalogpage__container} ${theme === 'dark' ? s.dark : s.light}`}
+    >
       <div className={s.catalogpage__main}>
         <Heading />
         <div className={s.catalogpage__nav}>
@@ -79,7 +81,7 @@ export const CatalogPage = () => {
             <div id="MainDish">
               <MainDish filteredTags={filteredTags} category={category} />
             </div>
-            
+
             <div id="SideDish">
               <SideDish filteredTags={filteredTags} category={category} />
             </div>
@@ -94,7 +96,7 @@ export const CatalogPage = () => {
             </div>
           </>
         )}
-        <div id="Advertisement">
+        <div id="Advertisement" style={{ paddingTop: '32px' }}>
           <Advertisement />
         </div>
         <div id="Footer">
