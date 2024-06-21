@@ -4,7 +4,7 @@ import s from './styles.module.scss';
 import cn from 'classnames';
 import { Button } from '../ui/Button';
 import { useNavigate } from 'react-router-dom';
-import Animation from '../../assets/images/animationMain.gif';
+import Animation from '../../assets/images/animationMain12801.gif';
 
 export const HeroSection = () => {
   const isAuthorize = useSelector(state => state.auth.isAuthorize);
