@@ -6,6 +6,7 @@ import { Header } from '../../components/Header';
 import { PlateConstructor } from '../../components/PlateConstructor';
 import { Footer } from '../../components/Footer';
 import { Advertisement } from '../../components/Advertisement';
+import { Popular } from '../../components/Catalog/Popular';
 
 export const ConstructorPage = () => {
   const onSearch = () => {
@@ -41,6 +42,7 @@ export const ConstructorPage = () => {
     <div className={s.container}>
       <div className={s.constructor__inner}>
         <PlateConstructor />
+        <Popular filteredTags={[]} category={1} />
         <Advertisement />
       </div>
       <Footer />

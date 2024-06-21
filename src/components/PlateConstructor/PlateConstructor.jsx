@@ -237,7 +237,7 @@ export const PlateConstructor = () => {
               ? 'Заказать'
               : isHovered
                 ? 'Собрать'
-                : `${totalPrice}`
+                : `${totalPrice} ₽`
           }
           size={11}
           onClick={isPlateCombined ? handleOrderClick : handleCombinePlate}

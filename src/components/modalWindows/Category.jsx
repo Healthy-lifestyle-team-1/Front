@@ -1,9 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import x from '../../assets/images/icons/light/X.svg';
+import xDark from '../../assets/images/icons/dark/X.svg';
 import cn from 'classnames';
 import s from './styles.module.scss';
 
 const Category = ({ onClose }) => {
+  const theme = useSelector(state => state.theme);
+
   const categories = [
     { name: 'Популярное', path: 'Popular' },
     { name: 'Тарелки', path: 'CombinedDishes' },
@@ -29,7 +33,11 @@ const Category = ({ onClose }) => {
     <div className={`${s.modalOverlay} ${s.categoryModalOverlay}`}>
       <div className={cn(s.modal__content, s.modal__content_cat)}>
         <button className={s.closeButton} onClick={() => onClose && onClose()}>
-          <img src={x} alt={'Закрыть'} />
+          <img
+            src={theme === 'dark' ? xDark : x}
+            alt={'Закрыть'}
+            style={{ width: '50px' }}
+          />
         </button>
         <div className={s.category__info}>
           <div className={s.modal__name__cat}>Категории</div>

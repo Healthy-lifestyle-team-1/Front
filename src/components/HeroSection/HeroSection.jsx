@@ -16,13 +16,22 @@ export const HeroSection = () => {
   };
 
   return (
-    <div className={cn(s.heroSection__container, { [s.dark]: theme === 'dark', [s.light]: theme !== 'dark' })}>
+    <div
+      className={cn(s.heroSection__container, {
+        [s.dark]: theme === 'dark',
+        [s.light]: theme !== 'dark',
+      })}
+    >
       <div className={s.heroSection__infoBlock}>
         <div className={s.heroSection__title}>
-          Твоя жизнь, твоя <span className={s.heroSection__title__pink}>тарелка!</span>
+          Твоя жизнь, <br /> твоя{' '}
+          <span className={s.heroSection__title__pink}>тарелка!</span>
         </div>
         <div className={s.heroSection__text}>
-          Современные рекомендации <br /> по правильному, сбалансированному <br /> питанию на научной основе,<br /> по принципу Гарвардской тарелки
+          Современные рекомендации <br /> по правильному, сбалансированному{' '}
+          <br />
+          питанию на научной основе,
+          <br /> по принципу Гарвардской тарелки
         </div>
         <div className={s.heroSection__btn}>
           <Button

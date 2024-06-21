@@ -40,7 +40,7 @@ const Description = ({ title, price, subtitle, tags = [], allTags = [] }) => {
         )}
       </div>
       <div className={s.main__title}>{title}</div>
-      <div className={s.main__price}>{price}</div>
+      <div className={s.main__price}>{price} ₽</div>
       <div className={s.main__info_title}>Описание</div>
       <div className={s.main__subtitle}>{subtitle}</div>
     </div>
