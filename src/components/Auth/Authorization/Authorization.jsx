@@ -61,7 +61,7 @@ export const Authorization = ({
   };
 
   const handleReload = () => {
-    window.location.reload();
+    window.location.href = '/';
   };
 
   const handleShowRegistration = () => {
