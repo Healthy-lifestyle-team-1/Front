@@ -5,6 +5,8 @@ import cn from 'classnames';
 import { Button } from '../ui/Button';
 import { useNavigate } from 'react-router-dom';
 import Animation from '../../assets/images/animationMain12801.gif';
+import greeting_wave from '../../assets/images/greeting-wave.png';
+import greeting_wave_dark from '../../assets/images/greeting-wave-dark.png';
 
 export const HeroSection = () => {
   const isAuthorize = useSelector(state => state.auth.isAuthorize);
@@ -22,28 +24,41 @@ export const HeroSection = () => {
         [s.light]: theme !== 'dark',
       })}
     >
-      <div className={s.heroSection__infoBlock}>
-        <div className={s.heroSection__title}>
-          Твоя жизнь, <br /> твоя{' '}
-          <span className={s.heroSection__title__pink}>тарелка!</span>
+      <div className={s.heroSection__back}>
+        <img
+          src={theme === 'dark' ? greeting_wave_dark : greeting_wave}
+          alt={''}
+          style={{ width: '100vw' }}
+        />
+      </div>
+      <div className={s.heroSection__block}>
+        <div className={s.heroSection__infoBlock}>
+          <div className={s.heroSection__title}>
+            Твоя жизнь, <br /> твоя{' '}
+            <span className={s.heroSection__title__pink}>тарелка!</span>
+          </div>
+          <div className={s.heroSection__text}>
+            Современные рекомендации <br /> по правильному, сбалансированному{' '}
+            <br />
+            питанию на научной основе,
+            <br /> по принципу Гарвардской тарелки
+          </div>
+          <div className={s.heroSection__btn}>
+            <Button
+              title="Перейти"
+              onClick={handleNavigateToCatalog}
+              colorScheme={1}
+              size={12}
+            />
+          </div>
         </div>
-        <div className={s.heroSection__text}>
-          Современные рекомендации <br /> по правильному, сбалансированному{' '}
-          <br />
-          питанию на научной основе,
-          <br /> по принципу Гарвардской тарелки
-        </div>
-        <div className={s.heroSection__btn}>
-          <Button
-            title="Перейти"
-            onClick={handleNavigateToCatalog}
-            colorScheme={1}
-            size={12}
+        <div className={s.heroSection__animationBlock}>
+          <img
+            className={s.heroSection__animationImg}
+            src={Animation}
+            alt="Иллюстрация"
           />
         </div>
-      </div>
-      <div className={s.heroSection__animationBlock}>
-        <img className={s.heroSection__animationImg} src={Animation} alt="Иллюстрация" />
       </div>
     </div>
   );

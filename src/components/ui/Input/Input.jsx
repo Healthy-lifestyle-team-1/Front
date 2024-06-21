@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import Category from '../../modalWindows/Category';
+import Category from '../../modalWindows/Category/Category';
 import PropTypes from 'prop-types';
 import s from './styles.module.scss';
 import searchIcon from '../../../assets/images/icons/search.svg';

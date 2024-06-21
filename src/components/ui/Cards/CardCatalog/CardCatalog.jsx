@@ -85,7 +85,7 @@ export const CardCatalog = ({
 
   return (
     <div className={s.container}>
-      {showCardFood && (
+      {/* {showCardFood && (
         <div className={s.overlay} onClick={handleCloseCardFood}>
           <div className={s.cardFoodWrapper}>
             <CardFood
@@ -98,7 +98,7 @@ export const CardCatalog = ({
             />
           </div>
         </div>
-      )}
+      )} */}
       <div className={s.cardfood__info}>
         <div className={s.cardfood__labels}>
           {tags.length > 0 ? (

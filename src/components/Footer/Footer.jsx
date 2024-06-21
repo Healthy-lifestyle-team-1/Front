@@ -23,12 +23,12 @@ export const Footer = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
 
-  const handleOpenModal = (setModalOpen) => {
+  const handleOpenModal = setModalOpen => {
     document.body.classList.add('modal-open');
     setModalOpen(true);
   };
 
-  const handleCloseModal = (setModalOpen) => {
+  const handleCloseModal = setModalOpen => {
     document.body.classList.remove('modal-open');
     setModalOpen(false);
   };
@@ -73,7 +73,12 @@ export const Footer = () => {
   };
 
   return (
-    <div className={cn(s.footer__container, { [s.dark]: theme === 'dark', [s.light]: theme !== 'dark' })}>
+    <div
+      className={cn(s.footer__container, {
+        [s.dark]: theme === 'dark',
+        [s.light]: theme !== 'dark',
+      })}
+    >
       <div className={s.footer__wrapper}>
         <div className={s.footer__logo}>
           <NavLink to="/">
@@ -85,14 +90,14 @@ export const Footer = () => {
             <NavLink to="/" className={s.footer__navList__item}>
               Главная
             </NavLink>
+            <NavLink to="/book" className={s.footer__navList__item}>
+              Книга
+            </NavLink>
             <NavLink to="/constructor" className={s.footer__navList__item}>
               Конструктор
             </NavLink>
             <NavLink to="/catalog" className={s.footer__navList__item}>
               Каталог
-            </NavLink>
-            <NavLink to="/book" className={s.footer__navList__item}>
-              Книга
             </NavLink>
           </div>
           <div className={s.footer__navList__two}>
@@ -101,27 +106,40 @@ export const Footer = () => {
             </NavLink>
             {isAuthorize ? (
               <>
-                <a onClick={handleOpenUserModal} className={s.footer__navList__item} href="#">
+                <a
+                  onClick={handleOpenUserModal}
+                  className={s.footer__navList__item}
+                  href="#"
+                >
                   Профиль
                 </a>
-                <a onClick={handleOpenCartModal} className={s.footer__navList__item} href="#">
+                <a
+                  onClick={handleOpenCartModal}
+                  className={s.footer__navList__item}
+                  href="#"
+                >
                   Корзина
                 </a>
               </>
             ) : (
-              <a onClick={handleOpenAuthModal} className={s.footer__navList__item} href="#">
+              <a
+                onClick={handleOpenAuthModal}
+                className={s.footer__navList__item}
+                href="#"
+              >
                 Войти
               </a>
             )}
           </div>
           <div className={s.footer__navList__three}>
-            <span className={s.footer__navList__item}>
-              Связаться с нами :
-            </span>
+            <span className={s.footer__navList__item}>Связаться с нами :</span>
             <a className={s.footer__navList__item} href="tel:+79999999999">
               +7 999 999 99 99
             </a>
-            <a className={s.footer__navList__item} href="mailto:zozhnik@gmail.com">
+            <a
+              className={s.footer__navList__item}
+              href="mailto:zozhnik@gmail.com"
+            >
               zozhnik@gmail.com
             </a>
           </div>
@@ -136,11 +154,19 @@ export const Footer = () => {
                 <img src={Instagram} alt="иконка Instagram" />
               </a>
 
-              <a href="https://www.youtube.com/@zozhnik_ru" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.youtube.com/@zozhnik_ru"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={YouTube} alt="иконка Youtube" />
               </a>
 
-              <a href="https://t.me/zozhnik" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://t.me/zozhnik"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={Telegram} alt="иконка Telegram" />
               </a>
             </div>
@@ -152,10 +178,10 @@ export const Footer = () => {
         </div>
         <div className={s.footer__rightsText}>
           Осуществляя вход на этот Сайт/в мобильное приложение ЗОЖНИК, вы
-          подтверждаете, что ознакомлены с Пользовательским
-          соглашением и Положением по обработке и защите персональных данных. С
-          общими правилами участия в акциях и порядке получения подарков Вы
-          можете ознакомиться здесь
+          подтверждаете, что ознакомлены с Пользовательским соглашением и
+          Положением по обработке и защите персональных данных. С общими
+          правилами участия в акциях и порядке получения подарков Вы можете
+          ознакомиться здесь
         </div>
       </div>
       {isUserModalOpen && <UserPage onClose={handleCloseUserModal} />}

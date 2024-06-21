@@ -115,20 +115,7 @@ export const CardFood = ({
   return (
     <div className={s.container}>
       <div className={s.cardfood__info}>
-        <div className={s.cardfood__labels}>
-          <img
-            src={theme === 'dark' ? veganDark : vegan}
-            alt="Растительные продукты"
-          ></img>
-          <img
-            src={theme === 'dark' ? glutenFreeDark : glutenFree}
-            alt="Без глютена"
-          ></img>
-          <img
-            src={theme === 'dark' ? lactoseFreeDark : lactoseFree}
-            alt="Без глютена"
-          ></img>
-        </div>
+        <div className={s.cardfood__labels}></div>
         <div className={s.cardfood__title}>{title}</div>
         <div className={s.cardfood__extra}>{extra}</div>
         <div className={s.cardfood__weightCalories}>
