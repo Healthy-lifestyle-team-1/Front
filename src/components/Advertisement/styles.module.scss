@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  gap: 31px;
+  gap: 75px;
   margin: 0 auto;
   max-width: 1216px;
 }
@@ -48,7 +48,7 @@
       display: flex;
       flex-direction: column;
       margin-top: auto;
-      padding-left: 70px;
+      padding-left: 30px;
       &Description {
         @include fontSubTitle1();
         color: var(--text-color);
