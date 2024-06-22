@@ -47,16 +47,18 @@ const CartPage = ({ onClose }) => {
       );
 
       // Удаляем элемент из состояния cartItems
-      setCartItems(prevCartItems =>
-        prevCartItems.filter(item => item.id !== id),
-      );
+      setCartItems(prevCartItems => {
+        const updatedCartItems = prevCartItems.filter(item => item.id !== id);
 
-      // Пересчитываем totalPrice на основе нового списка cartItems
-      const updatedTotalPrice = cartItems.reduce(
-        (total, item) => total + item.total_price,
-        0,
-      );
-      setTotalPrice(updatedTotalPrice);
+        // Пересчитываем totalPrice на основе нового списка cartItems
+        const updatedTotalPrice = updatedCartItems.reduce(
+          (total, item) => total + item.total_price,
+          0,
+        );
+        setTotalPrice(updatedTotalPrice);
+
+        return updatedCartItems;
+      });
     } catch (error) {
       console.error('Error removing item from cart:', error);
     }
