@@ -87,14 +87,14 @@
 
     &__dishName {
       @include fontSubTitle3();
-      width: 27vw;
-      margin-bottom: 24px;
+      width: 29vw;
+		height: 12vw;
     }
 
     &__description {
       @include fontMainText1();
-      margin-bottom: 24px;
       width: 33vw;
+		height: 15vw;
     }
 
     &__nutritionalValues {
