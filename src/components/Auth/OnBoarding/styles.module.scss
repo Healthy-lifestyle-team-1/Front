@@ -22,10 +22,6 @@
       height: 600px;
       position: relative;
       z-index: 100001;
-      // display: flex;
-      // flex-direction: column;
-      // align-items: center;
-      // justify-content: center;
       padding: 25px;
     }
     &2 {
@@ -38,10 +34,6 @@
       height: 600px;
       position: relative;
       z-index: 100001;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       padding: 25px;
     }
     &3 {
@@ -53,10 +45,6 @@
       height: 600px;
       position: relative;
       z-index: 100001;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       padding: 25px;
     }
     &4 {
@@ -69,10 +57,6 @@
       height: 600px;
       position: relative;
       z-index: 100001;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       padding: 25px;
     }
   }
@@ -82,26 +66,40 @@
   &__content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
   &__title {
     @include fontTitle2;
     &White {
       color: $mainLight;
     }
-    &Pink{
+    &Pink {
       color: $mainPeach;
     }
   }
   &__img {
     align-self: center;
+    &Table {
+      align-self: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      &Item {
+        cursor: pointer;
+      }
+    }
   }
   &__text {
     @include fontText;
     align-self: center;
     text-align: center;
   }
-  &__button {
-    align-self: center;
+  &__clickable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
   }
 }
 
@@ -120,11 +118,11 @@
   align-items: center;
   justify-content: center;
 }
- // слайдер
+// слайдер
 
- .dotsContainer {
-  display: flex;
-  justify-content: center;
+.dotsContainer {
+  // display: flex;
+  // justify-content: center;
 }
 
 .dot {
