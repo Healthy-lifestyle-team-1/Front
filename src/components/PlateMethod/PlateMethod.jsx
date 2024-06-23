@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import ForkAndKnife from '../../assets/images/plate-with-fork-and-knife.png';
@@ -10,7 +10,7 @@ import BgImg2 from '../../assets/images/PlateMethod/перец-и-петрушк
 import BgImg3 from '../../assets/images/PlateMethod/чили.png';
 import BgImg4 from '../../assets/images/PlateMethod/базилик.png';
 import BgImg5 from '../../assets/images/PlateMethod/салатный-лист.png';
-import BgImg7 from '../../assets/images/PlateMethod/перец.png'; 
+import BgImg7 from '../../assets/images/PlateMethod/перец.png';
 import BookImg from '../../assets/images/PlateMethod/composition-plate-method.png';
 import BookImgDark from '../../assets/images/PlateMethod/composition-plate-method-dark.png';
 
@@ -21,6 +21,7 @@ export const PlateMethod = () => {
   const isAuthorize = useSelector(state => state.auth.isAuthorize);
   const theme = useSelector(state => state.theme);
   const navigate = useNavigate();
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleNavigateToBook = () => {
     navigate('/book');
@@ -84,10 +85,16 @@ export const PlateMethod = () => {
         </div>
         <div className={s.plateMethod__methodBlock__btn}>
           <Button
-            title="Перейти"
+            title={isHovered ? 'В книгу' : 'Перейти'}
             onClick={handleNavigateToBook}
             colorScheme={1}
             size={12}
+            onMouseEnter={() => {
+              setIsHovered(true);
+            }}
+            onMouseLeave={() => {
+              setIsHovered(false);
+            }}
           />
         </div>
       </div>
@@ -104,4 +111,3 @@ export const PlateMethod = () => {
     </div>
   );
 };
-

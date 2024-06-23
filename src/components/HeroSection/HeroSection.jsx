@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import s from './styles.module.scss';
 import cn from 'classnames';
@@ -12,6 +12,7 @@ export const HeroSection = () => {
   const isAuthorize = useSelector(state => state.auth.isAuthorize);
   const theme = useSelector(state => state.theme);
   const navigate = useNavigate();
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleNavigateToCatalog = () => {
     navigate('/catalog');
@@ -45,10 +46,16 @@ export const HeroSection = () => {
           </div>
           <div className={s.heroSection__btn}>
             <Button
-              title="Перейти"
+              title={isHovered ? 'В каталог' : 'Перейти'}
               onClick={handleNavigateToCatalog}
               colorScheme={1}
               size={12}
+              onMouseEnter={() => {
+                setIsHovered(true);
+              }}
+              onMouseLeave={() => {
+                setIsHovered(false);
+              }}
             />
           </div>
         </div>

@@ -7,11 +7,12 @@ import { Footer } from '../../components/Footer/Footer';
 import { Advertisement } from '../../components/Advertisement';
 import { CardNewsMain } from '../../components/ui/Cards/CardNewsMain';
 
-import { OnBoarding } from '../../components/Auth/OnBoarding';
+// import loadingImage from '../../assets/images/LoadingVideo.png';
 
 export const NewsPage = () => {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
+  // const [showVideo, setShowVideo] = useState(false);
 
   const handleScroll = () => {
     const currentScrollTop = window.scrollY;
@@ -35,11 +36,23 @@ export const NewsPage = () => {
     };
   }, [lastScrollTop]);
 
+  // const handlePlayVideo = () => {
+  //   setShowVideo(true);
+  // };
+
   return (
     <div className={s.container}>
       {/* <CardNewsMain className={s.block} /> */}
-      {/* <OnBoarding/> */}
-      <div className={s.news__video}></div>
+      <div className={s.news__video}>
+        <iframe
+          src="https://rutube.ru/video/embed/2d4d7c007d744752f52018b56f78f826/?p=3kBFy2-Cj6p5SGpRKGYz2A"
+          style={{ border: 0 }}
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+          title="News Video"
+          className={s.news__videoFrame}
+        ></iframe>
+      </div>
       <Advertisement />
       <Footer />
     </div>
