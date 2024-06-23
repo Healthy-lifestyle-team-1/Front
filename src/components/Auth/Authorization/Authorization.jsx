@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button } from '../../ui/Button';
 import { BASE_URL } from '../../../core/url';
@@ -18,24 +18,22 @@ export const Authorization = ({
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(
-        `${BASE_URL}/login/`,
-        {
-          login,
-        },
-      );
+      const response = await axios.post(`${BASE_URL}/login/`, {
+        login,
+      });
       console.log(response.data);
       setStep(2);
       setError('');
     } catch (error) {
-      if (error.response && error.response.data.detail === 'User not found, please register') {
+      if (
+        error.response &&
+        error.response.data.detail === 'User not found, please register'
+      ) {
         setError(
           'Такой пользователь не найден. Пожалуйста, зарегистрируйтесь.',
         );
       } else {
-        setError(
-          'Ошибка при вводе данных. Проверьте и повторите попытку.',
-        );
+        setError('Ошибка при вводе данных. Проверьте и повторите попытку.');
       }
       console.error('Error during login:', error);
     }
@@ -43,10 +41,7 @@ export const Authorization = ({
 
   const handleVerify = async () => {
     try {
-      const response = await axios.post(
-        `${BASE_URL}/verify/`,
-        { code },
-      );
+      const response = await axios.post(`${BASE_URL}/verify/`, { code });
       if (response.status === 200) {
         localStorage.setItem('access', response.data.tokens.access);
         localStorage.setItem('refresh', response.data.tokens.refresh);
@@ -79,6 +74,16 @@ export const Authorization = ({
     const phoneRegex = /^[+]*[0-9]{1,4}[0-9]*$/;
     return phoneRegex.test(login);
   };
+
+  useEffect(() => {
+    // Добавляем класс, который блокирует прокрутку
+    document.body.classList.add('no-scroll');
+
+    // Удаляем класс при размонтировании компонента
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, []);
 
   return (
     <div className={s.modalOverlay} onClick={handleOverlayClick}>
@@ -118,9 +123,7 @@ export const Authorization = ({
           )}
           {step === 3 && (
             <div className={s.login__infoBlock}>
-              <div className={s.login__name}>
-                Вы успешно вошли в аккаунт!
-              </div>
+              <div className={s.login__name}>Вы успешно вошли в аккаунт!</div>
             </div>
           )}
         </div>

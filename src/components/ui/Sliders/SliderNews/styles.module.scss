@@ -1,20 +1,19 @@
 * {
-	box-sizing: border-box;
- }
- 
- html,
- body {
-	padding: 0;
-	margin: 0;
-	width: 100%;
-	overflow-x: hidden;
- }
- 
- 
- a {
-	list-style: none;
-	text-decoration: none;
- }
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  // overflow-x: hidden;
+}
+
+a {
+  list-style: none;
+  text-decoration: none;
+}
 
 .sliderNews {
   &__container {
@@ -22,14 +21,14 @@
     padding-top: 2vw;
     padding-bottom: 2vw;
     width: 100%;
-	 overflow: hidden !important;
-	 margin: 0 auto;
-	 position: relative;
+    overflow: hidden !important;
+    margin: 0 auto;
+    position: relative;
   }
 
   &__slide {
     width: 83% !important;
-	 height: 23vw;
+    height: 23vw;
     padding: 0.8vw;
     background-color: var(--background-color);
     border-radius: 30px;
@@ -38,17 +37,17 @@
     align-items: center;
     position: relative;
     cursor: pointer;
-	 overflow: hidden;
-	 border: none;
-	 color: var(--text-color);
+    overflow: hidden;
+    border: none;
+    color: var(--text-color);
 
-	 box-sizing: border-box;
+    box-sizing: border-box;
 
     &.lowered {
       margin-top: 100px !important;
     }
 
-	 &:hover .sliderNews__btn {
+    &:hover .sliderNews__btn {
       background-color: $mainGreenapple;
     }
   }
@@ -67,15 +66,13 @@
   }
 
   &__btnWrapper {
-	width: fit-content;
-	position: absolute;
-	bottom: 0.2vw;
-	right: 1vw;
-	
+    width: fit-content;
+    position: absolute;
+    bottom: 0.2vw;
+    right: 1vw;
   }
 
   &__btn {
-	
     @include fontText();
     text-transform: uppercase;
     width: fit-content;
@@ -83,12 +80,7 @@
     border-radius: 5px;
     background-color: transparent;
     transition:
-    color 0.3s ease,
-    background-color 0.3s ease;
+      color 0.3s ease,
+      background-color 0.3s ease;
   }
 }
-
-
-
-
-
