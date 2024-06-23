@@ -25,6 +25,7 @@ export const CardCatalog = ({
   const theme = useSelector(state => state.theme);
   const token = useSelector(state => state.auth.token); // Получение токена
   const [showCardFood, setShowCardFood] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     console.log('tags:', tags);
@@ -128,10 +129,16 @@ export const CardCatalog = ({
         </div>
         <ButtonWithTheme
           colorScheme={1}
-          title={price}
+          title={isHovered ? 'Заказать' : price}
           size={3}
-          showRubleSign={true}
+          showRubleSign={isHovered ? false : true}
           onClick={handleAddToCart} // Добавление обработчика клика
+          onMouseEnter={() => {
+            setIsHovered(true);
+          }}
+          onMouseLeave={() => {
+            setIsHovered(false);
+          }}
         />
       </div>
       <div className={s.cardfood__Img} style={{ display: 'flex' }}>
