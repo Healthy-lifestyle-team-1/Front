@@ -51,7 +51,7 @@ export const CardCatalog = ({
       quantity: 1,
     };
 
-    console.log('Отправка данных в корзину:', cartItem); // Логирование данных перед отправкой
+    alert('Добавлено в корзину!', cartItem); // Логирование данных перед отправкой
 
     try {
       const response = await fetch(`${BASE_URL}/cart_item/`, {
