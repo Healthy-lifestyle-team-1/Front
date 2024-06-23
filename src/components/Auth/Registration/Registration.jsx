@@ -48,7 +48,7 @@ export const Registration = ({
 
   const handleVerify = async () => {
     try {
-      const response = await axios.post(`${BASE_URL}verify/`, { code });
+      const response = await axios.post(`${BASE_URL}/verify/`, { code });
       if (response.status === 200) {
         localStorage.setItem('access', response.data.tokens.access);
         localStorage.setItem('refresh', response.data.tokens.refresh);
