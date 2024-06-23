@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../../ui/Button';
 import x from '../../../assets/images/icons/light/X.svg';
 import s from './styles.module.scss';
@@ -33,9 +34,15 @@ const Dots = ({ activeStep, onDotClick }) => {
 
 export const OnBoarding = ({ onClose }) => {
   const [step, setStep] = useState(1); // 1 - balanced method, 2 - build your plate, 3 - nutrition ideology, 4 - exclude from plates
+  const navigate = useNavigate(); // Используем useNavigate
 
   const handleNext = () => {
-    setStep(prevStep => Math.min(prevStep + 1, 4)); // Ensure the step does not go beyond 4
+    if (step < 4) {
+      setStep(prevStep => Math.min(prevStep + 1, 4));
+    } else {
+      onClose();
+      navigate('/catalog'); // Переходим на /catalog, если шаг 4
+    }
   };
 
   const handleDotClick = step => {
