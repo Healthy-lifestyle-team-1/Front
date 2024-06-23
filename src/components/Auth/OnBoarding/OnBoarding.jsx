@@ -44,8 +44,14 @@ export const OnBoarding = ({ onClose }) => {
 
   const handleOverlayClick = event => {
     if (event.target === event.currentTarget) {
+      console.log('Overlay clicked');
       onClose();
     }
+  };
+
+  const handleCloseClick = () => {
+    console.log('Close button clicked');
+    onClose();
   };
 
   const getContent = () => {
@@ -241,7 +247,7 @@ export const OnBoarding = ({ onClose }) => {
   return (
     <div className={s.modalOverlay} onClick={handleOverlayClick}>
       <div className={`${s.modal__content} ${s[`modal__content${step}`]}`}>
-        <button className={s.closeButton} onClick={onClose}>
+        <button className={s.closeButton} onClick={handleCloseClick}>
           закрыть
         </button>
         {getContent()}

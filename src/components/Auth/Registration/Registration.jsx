@@ -24,25 +24,23 @@ export const Registration = ({
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(
-        `${BASE_URL}/login/`,
-        {
-          username,
-          login,
-        },
-      );
+      const response = await axios.post(`${BASE_URL}/login/`, {
+        username,
+        login,
+      });
       console.log(response.data);
       setStep(2);
       setError('');
     } catch (error) {
-      if (error.response && error.response.data.detail === 'User already exists, please login') {
+      if (
+        error.response &&
+        error.response.data.detail === 'User already exists, please login'
+      ) {
         setError(
-          'Такой пользователь уже существует. Пожалуйста, залогиньтесь.'
+          'Такой пользователь уже существует. Пожалуйста, залогиньтесь.',
         );
       } else {
-        setError(
-          'Ошибка при вводе данных. Проверьте и повторите попытку.'
-        );
+        setError('Ошибка при вводе данных. Проверьте и повторите попытку.');
       }
       console.error('Error during login:', error);
     }
@@ -50,10 +48,7 @@ export const Registration = ({
 
   const handleVerify = async () => {
     try {
-      const response = await axios.post(
-        `${BASE_URL}verify/`,
-        { code },
-      );
+      const response = await axios.post(`${BASE_URL}verify/`, { code });
       if (response.status === 200) {
         localStorage.setItem('access', response.data.tokens.access);
         localStorage.setItem('refresh', response.data.tokens.refresh);

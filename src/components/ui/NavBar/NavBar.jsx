@@ -5,6 +5,7 @@ import UserPage from '../../modalWindows/UserPage/UserPage';
 import CartPage from '../../modalWindows/CartPage';
 import { Authorization } from '../../Auth/Authorization';
 import { Registration } from '../../Auth/Registration';
+import { OnBoarding } from '../../Auth/OnBoarding/OnBoarding';
 import s from './styles.module.scss';
 import { loginSuccess, logoutSuccess } from '../../../core/store/authSlice';
 
@@ -15,6 +16,7 @@ export const NavBar = () => {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+  const [showOnBoarding, setShowOnBoarding] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
@@ -71,6 +73,15 @@ export const NavBar = () => {
 
   const handleCloseRegistration = () => {
     setIsRegistrationOpen(false);
+  };
+
+  const handleShowOnBoarding = () => {
+    setShowOnBoarding(true);
+    handleCloseRegistration();
+  };
+
+  const handleCloseOnBoarding = () => {
+    setShowOnBoarding(false);
   };
 
   return (
@@ -154,6 +165,7 @@ export const NavBar = () => {
           setShowOnBoarding={() => {}}
         />
       )}
+      {showOnBoarding && <OnBoarding onClose={handleCloseOnBoarding} />}
     </div>
   );
 };
