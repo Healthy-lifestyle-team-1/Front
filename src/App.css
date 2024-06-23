@@ -25,3 +25,7 @@
   transform: translateY(-100%);
   z-index: 1000;
 }
+
+.no-scroll {
+  overflow: hidden;
+}

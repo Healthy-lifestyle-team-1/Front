@@ -14,14 +14,11 @@ const CartPage = ({ onClose }) => {
   const fetchCart = async () => {
     const token = localStorage.getItem('access');
     try {
-      const response = await axios.get(
-        `${BASE_URL}/cart/`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await axios.get(`${BASE_URL}/cart/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
       const { items, total_price } = response.data[0]; // Предполагая, что ответ массива
       setCartItems(items);
       setTotalPrice(total_price);
@@ -31,20 +28,27 @@ const CartPage = ({ onClose }) => {
   };
 
   useEffect(() => {
+    // Добавляем класс, который блокирует прокрутку
+    document.body.classList.add('no-scroll');
+
+    // Удаляем класс при размонтировании компонента
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, []);
+
+  useEffect(() => {
     fetchCart();
   }, []);
 
   const removeRow = async id => {
     const token = localStorage.getItem('access');
     try {
-      await axios.delete(
-        `${BASE_URL}/cart_item/${id}/`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      await axios.delete(`${BASE_URL}/cart_item/${id}/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       // Удаляем элемент из состояния cartItems
       setCartItems(prevCartItems => {

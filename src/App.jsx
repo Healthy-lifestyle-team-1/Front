@@ -8,17 +8,20 @@ import { NewsPage } from './pages/NewsPage';
 import { ConstructorPage } from './pages/ConstructorPage/ConstructorPage';
 import { InProgress } from './components/ui/InProgress/InProgress';
 import { Header } from './components/Header/Header';
+import UserPage from './components/modalWindows/UserPage/UserPage';
 import Theme from './assets/styles/themes/index';
 
 import './App.css';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isUserPageOpen }) => {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollTop = window.pageYOffset;
+      if (isUserPageOpen) return;
+
+      const currentScrollTop = window.scrollY;
 
       if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
         setIsScrollingUp(false);
@@ -34,7 +37,7 @@ const Layout = ({ children }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollTop]);
+  }, [lastScrollTop, isUserPageOpen]);
 
   return (
     <>
@@ -48,15 +51,19 @@ const Layout = ({ children }) => {
 
 function App() {
   const location = useLocation();
+  const [isUserPageOpen, setIsUserPageOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
 
+  const openUserPage = () => setIsUserPageOpen(true);
+  const closeUserPage = () => setIsUserPageOpen(false);
+
   return (
     <>
       <Theme className="hidden" />
-      <Layout>
+      <Layout isUserPageOpen={isUserPageOpen}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
@@ -67,6 +74,7 @@ function App() {
           {/* <Route path="/userpage" element={<UserPage />} /> */}
         </Routes>
       </Layout>
+      {isUserPageOpen && <UserPage onClose={closeUserPage} />}
     </>
   );
 }

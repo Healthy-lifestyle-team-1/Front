@@ -81,6 +81,8 @@
   &__items {
     margin: 20px 0px;
     padding: 0 25px;
+    max-height: 274px;
+    overflow-y: auto;
   }
   &__item {
     margin: 10px 0;
@@ -177,4 +179,8 @@
   width: 100px;
   height: 100px;
   margin-right: -22px;
+}
+
+.no-scroll {
+  overflow-x: hidden;
 }

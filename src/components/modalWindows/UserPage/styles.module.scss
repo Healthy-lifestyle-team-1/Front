@@ -3,10 +3,10 @@
   top: 0;
   right: 0;
   width: 100vw;
-  height: 100vh; // Измените на 100vh, чтобы покрыть всю высоту видимой области
+  height: 100vh;
   background-color: rgba($mainDark, 0.7);
   z-index: 100000;
-  overflow-y: auto; // Добавьте это, если содержимое модального окна может переполняться
+  // overflow-y: auto;
 }
 
 // убираем задний фон у категории
@@ -101,4 +101,8 @@
 .item__img {
   width: 100px;
   height: 100px;
+}
+
+.no-scroll {
+  overflow-x: hidden;
 }
