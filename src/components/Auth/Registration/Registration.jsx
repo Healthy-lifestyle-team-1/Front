@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Checkbox } from '../../ui/Checkbox/Checkbox';
 import { Button } from '../../ui/Button';
@@ -85,6 +85,16 @@ export const Registration = ({
     const phoneRegex = /^[+]*[0-9]{1,4}[0-9]*$/;
     return phoneRegex.test(login);
   };
+
+  useEffect(() => {
+    // Добавляем класс, который блокирует прокрутку
+    document.body.classList.add('no-scroll');
+
+    // Удаляем класс при размонтировании компонента
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, []);
 
   return (
     <div className={s.modalOverlay} onClick={handleOverlayClick}>

@@ -162,7 +162,7 @@ export const NavBar = () => {
           setIsAuthenticated={value =>
             dispatch(value ? loginSuccess() : logoutSuccess())
           }
-          setShowOnBoarding={() => {}}
+          setShowOnBoarding={handleShowOnBoarding}
         />
       )}
       {showOnBoarding && <OnBoarding onClose={handleCloseOnBoarding} />}

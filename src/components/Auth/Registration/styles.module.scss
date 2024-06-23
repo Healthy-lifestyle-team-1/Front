@@ -7,7 +7,6 @@
   background-color: rgba($mainDark, 0.7);
   display: flex;
   justify-content: center;
-
   z-index: 100000;
 }
 .modal {
@@ -24,8 +23,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 66px 100px;
-	 box-shadow: 0px 6px 20px -9px var(--text-color);
-
+    box-shadow: 0px 6px 20px -9px var(--text-color);
   }
   &__name {
     @include fontTitle2;
@@ -43,7 +41,6 @@
       color: $blueDark;
     }
     &__text {
-	
     }
   }
 }
@@ -71,8 +68,8 @@
       text-align: center;
       width: 400px;
       height: 48px;
-		margin-bottom: 84px;
-    @include fontMainText2;
+      margin-bottom: 84px;
+      @include fontMainText2;
     }
   }
   &__input {
