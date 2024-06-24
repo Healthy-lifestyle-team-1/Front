@@ -89,10 +89,12 @@ export const Registration = ({
   useEffect(() => {
     // Добавляем класс, который блокирует прокрутку
     document.body.classList.add('no-scroll');
+    document.documentElement.style.overflow = 'hidden';
 
     // Удаляем класс при размонтировании компонента
     return () => {
       document.body.classList.remove('no-scroll');
+      document.documentElement.style.overflow = '';
     };
   }, []);
 

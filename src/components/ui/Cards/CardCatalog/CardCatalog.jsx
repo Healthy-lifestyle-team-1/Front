@@ -27,12 +27,12 @@ export const CardCatalog = ({
   const [showCardFood, setShowCardFood] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  useEffect(() => {
-    console.log('tags:', tags);
-    console.log('categories:', categories);
-    console.log('allTags:', allTags);
-    console.log('allCategories:', allCategories);
-  }, [tags, categories, allTags, allCategories]);
+  // useEffect(() => {
+  //   console.log('tags:', tags);
+  //   console.log('categories:', categories);
+  //   console.log('allTags:', allTags);
+  //   console.log('allCategories:', allCategories);
+  // }, [tags, categories, allTags, allCategories]);
 
   const getTagNameById = id => {
     const tag = allTags.find(tag => tag.id === id);
