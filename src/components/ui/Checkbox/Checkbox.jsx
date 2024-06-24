@@ -40,7 +40,13 @@ export const Checkbox = ({
         )}
       </span>
       <label className={s.checkbox__label}>
-        {link ? <a href={link}>{checkTitle}</a> : checkTitle}
+        {link ? (
+          <a className={s.checkbox__label_a} href={link}>
+            {checkTitle}
+          </a>
+        ) : (
+          checkTitle
+        )}
       </label>
     </div>
   );

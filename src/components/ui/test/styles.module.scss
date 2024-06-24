@@ -52,11 +52,11 @@
   transition: font-size 0.3s ease;
 
   &:hover {
-    font-size: 32px; // Увеличение шрифта при наведении
+    font-size: 32px;
   }
 
   &.backgroundColor__1 {
-    background-color: $mainGreenapple;
+    background-color: var(--yellow);
   }
   &.backgroundColor__2 {
     background-color: var(--peach);

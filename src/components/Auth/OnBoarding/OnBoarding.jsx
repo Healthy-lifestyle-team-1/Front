@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../ui/Button';
 import x from '../../../assets/images/icons/light/X.svg';
@@ -41,7 +41,7 @@ export const OnBoarding = ({ onClose }) => {
       setStep(prevStep => Math.min(prevStep + 1, 4));
     } else {
       onClose();
-      navigate('/catalog'); // Переходим на /catalog, если шаг 4
+      navigate('/'); // Переходим на /catalog, если шаг 4
     }
   };
 
@@ -60,6 +60,18 @@ export const OnBoarding = ({ onClose }) => {
     console.log('Close button clicked');
     onClose();
   };
+
+  useEffect(() => {
+    // Добавляем класс, который блокирует прокрутку
+    document.body.classList.add('no-scroll');
+    document.documentElement.style.overflow = 'hidden';
+
+    // Удаляем класс при размонтировании компонента
+    return () => {
+      document.body.classList.remove('no-scroll');
+      document.documentElement.style.overflow = '';
+    };
+  }, []);
 
   const getContent = () => {
     switch (step) {
@@ -237,7 +249,7 @@ export const OnBoarding = ({ onClose }) => {
               />
               <div className={s.onBoarding__cickableButton}>
                 <Button
-                  title="В КАТАЛОГ"
+                  title="НА ГЛАВНУЮ"
                   onClick={handleNext}
                   colorScheme={1}
                   size={11}
