@@ -45,9 +45,13 @@ export const NewsPage = () => {
       {/* <CardNewsMain className={s.block} /> */}
       <div className={s.news__video}>
         <iframe
-          src="https://rutube.ru/video/embed/2d4d7c007d744752f52018b56f78f826/?p=3kBFy2-Cj6p5SGpRKGYz2A"
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/6d7f50f8df7848cd773ca897d347f720"
           style={{ border: 0 }}
-          allow="autoplay; encrypted-media"
+          allow="clipboard-write; autoplay"
+          webkitAllowFullScreen
+          mozallowfullscreen
           allowFullScreen
           title="News Video"
           className={s.news__videoFrame}
