@@ -59,7 +59,7 @@ export const Advertisement = () => {
             </a>
             <a
               className={s.ad__infoDownloadOption}
-              href="https://play.google.com"
+              href="https://appetize.io/app/uz6xpxfzuqk25lfb3n2i2nss7y"
               target="_blank"
             >
               <img src={GooglePlay} alt="иконка Google Play" />
