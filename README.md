@@ -14,7 +14,7 @@ FoodFusion is a web-based food customization and ordering service developed as p
 - Food combination constructor
 - Order cart with item management
 - Smooth, animated user interface
-- Responsive design for mobile and desktop
+- Responsive design for desktop
 - MVP-ready functionality
 
 ## ✅ Technologies Used
